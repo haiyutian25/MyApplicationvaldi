@@ -34,6 +34,7 @@ import com.example.myapplication.ui.platform.components.immersiveTopBarContentPa
 fun HomeScreen(
     onNavigateBack: () -> Unit,
     onNavigateToSettingsScreen: () -> Unit,
+    onNavigateToValdiScreen: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val state by viewModel.stateFlow.collectAsStateWithLifecycle()
@@ -59,6 +60,12 @@ fun HomeScreen(
                 onClick = { viewModel.trySendAction(HomeAction.IncrementClick) },
             ) {
                 Text(text = stringResource(id = R.string.home_increment))
+            }
+            Button(
+                onClick = onNavigateToValdiScreen,
+                modifier = Modifier.padding(top = 12.dp),
+            ) {
+                Text(text = "打开 Valdi 渲染")
             }
         }
 

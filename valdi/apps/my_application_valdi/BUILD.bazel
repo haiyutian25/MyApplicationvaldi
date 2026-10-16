@@ -1,0 +1,24 @@
+load("//bzl/valdi:valdi_application.bzl", "valdi_application")
+load("//bzl/valdi:valdi_exported_library.bzl", "valdi_exported_library")
+
+# Standalone Valdi app target: lets you run `valdi install android` on this app alone
+# while developing the DIL renderer. The Gradle-friendly artifact is the
+# `my_application_valdi_export` target at the bottom of this file.
+valdi_application(
+    name = "my_application_valdi",
+    root_component_path = "App@myapp_dil/src/App",
+    title = "MyApplication Valdi DIL",
+    version = "1.0.0",
+    deps = ["//apps/my_application_valdi/src/valdi/myapp_dil"],
+)
+
+# Self-contained Android AAR for the Gradle app in D:\valdi\MyApplication:
+# contains the Valdi runtime, the compiled `myapp_dil` module and the generated
+# Java/Kotlin classes. Build with:
+#   valdi export android --output_path my_application_valdi_export.aar
+valdi_exported_library(
+    name = "my_application_valdi_export",
+    ios_bundle_id = "com.example.myapplication.valdi.lib",
+    ios_bundle_name = "MyApplicationValdi",
+    deps = ["//apps/my_application_valdi/src/valdi/myapp_dil"],
+)

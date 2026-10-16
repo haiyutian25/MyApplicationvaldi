@@ -1,0 +1,17 @@
+load("//bzl/valdi:valdi_android_library.bzl", "valdi_android_library")
+
+# Android implementation of the `myapp_dil` native module (the gzip inflater).
+# `myapp_dil_api_kt` is generated from the @ExportModule declaration in
+# ../valdi/myapp_dil/src/DILInflater.d.ts and provides the DILInflaterModule /
+# DILInflaterModuleFactory base types implemented below.
+valdi_android_library(
+    name = "dil_inflater_android",
+    srcs = glob([
+        "**/*.kt",
+    ]),
+    visibility = ["//visibility:public"],
+    deps = [
+        "//apps/my_application_valdi/src/valdi/myapp_dil:myapp_dil_api_kt",
+        "//valdi:valdi_android_support",
+    ],
+)

@@ -25,3 +25,6 @@ local.properties
 *.jks
 *.keystore
 keystore.properties
+
+# Valdi 导出产物（由 valdi export android 生成，体积大，不入库）
+/core/valdi/libs/*.aar

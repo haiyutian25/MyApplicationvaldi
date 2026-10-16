@@ -134,16 +134,26 @@ kotlin {
 }
 
 dependencies {
+    // The Valdi exported AAR (runtime + compiled `myapp_dil` module + generated classes).
+    // Built with `valdi export android`, see core/valdi/libs/README.md. It has to be an
+    // app-level dependency: library modules cannot package local .aar files.
+    implementation(
+        files(project(":core:valdi").projectDir.resolve("libs/my_application_valdi_export.aar")),
+    )
+
     implementation(project(":core:annotation"))
     implementation(project(":core:common"))
     implementation(project(":core:data"))
     implementation(project(":core:navigation"))
     implementation(project(":core:network"))
     implementation(project(":core:ui"))
+    implementation(project(":core:valdi"))
     implementation(project(":feature:main:api"))
     implementation(project(":feature:main:impl"))
     implementation(project(":feature:settings:api"))
     implementation(project(":feature:settings:impl"))
+    implementation(project(":feature:valdi:api"))
+    implementation(project(":feature:valdi:impl"))
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)

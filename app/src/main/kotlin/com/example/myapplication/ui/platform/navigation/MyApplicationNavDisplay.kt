@@ -15,6 +15,8 @@ import com.example.myapplication.feature.settings.api.MascotsRoute
 import com.example.myapplication.feature.settings.api.SettingsRoute
 import com.example.myapplication.feature.settings.impl.MascotsScreen
 import com.example.myapplication.feature.settings.impl.SettingsScreen
+import com.example.myapplication.feature.valdi.api.ValdiNavKey
+import com.example.myapplication.feature.valdi.impl.ValdiScreen
 
 /**
  * The top-level navigation for the application, built on Navigation 3.
@@ -65,6 +67,7 @@ fun MyApplicationNavDisplay(
                         }
                     },
                     onNavigateToSettingsScreen = { backStack.add(SettingsRoute) },
+                    onNavigateToValdiScreen = { backStack.add(ValdiNavKey.Valdi) },
                 )
             }
             entry<SettingsRoute> {
@@ -75,6 +78,11 @@ fun MyApplicationNavDisplay(
             }
             entry<MascotsRoute> {
                 MascotsScreen(
+                    onNavigateBack = { backStack.removeLastOrNull() },
+                )
+            }
+            entry<ValdiNavKey.Valdi> {
+                ValdiScreen(
                     onNavigateBack = { backStack.removeLastOrNull() },
                 )
             }
