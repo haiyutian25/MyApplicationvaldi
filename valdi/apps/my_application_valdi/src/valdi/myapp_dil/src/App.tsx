@@ -1,4 +1,4 @@
-import { Component } from 'valdi_core/src/Component';
+import { StatefulComponent } from 'valdi_core/src/Component';
 import { systemFont } from 'valdi_core/src/SystemFont';
 
 import {
@@ -46,7 +46,7 @@ interface AppState {
  * @Component
  * @ExportModel
  */
-export class App extends Component<AppViewModel, AppContext> {
+export class App extends StatefulComponent<AppViewModel, AppState, AppContext> {
   state: AppState = {
     document: MODEL_DIL_V2_DOCUMENT,
     status: '已加载示例 model_dil_v2 文档。点下面的按钮切换数据来源。',

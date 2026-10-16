@@ -85,18 +85,19 @@ export function parseWidgetInitialStateValue(value: unknown): unknown {
   if (!isCompressedWidgetState(value)) {
     return value;
   }
-  let decoded: unknown;
+  let decodedText: string | undefined;
   try {
     const bytes = base64UrlToBytes(value.__compressed);
     if (bytes.length > MAX_UNCOMPRESSED_BYTES) {
       throw new Error('payload exceeds the compressed-state limit');
     }
-    decoded = gunzipUtf8(bytes);
-    return JSON.parse(decoded);
+    // gunzipUtf8 returns the inflated UTF-8 text (native module, 16 MiB default limit).
+    decodedText = gunzipUtf8(bytes);
+    return JSON.parse(decodedText);
   } catch (error) {
     throw new DILDiagnosticError(
       'DIL JSON parse',
-      'Failed to decode compressed widget state: ' + String(decoded ?? error),
+      'Failed to decode compressed widget state: ' + String(decodedText ?? error),
     );
   }
 }
