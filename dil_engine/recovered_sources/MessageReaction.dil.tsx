@@ -1,5 +1,0 @@
-
-	function MessageReaction() {
-		return null;
-	}
-
