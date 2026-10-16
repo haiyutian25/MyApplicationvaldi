@@ -21,6 +21,10 @@ on:
         description: 'Release tag (for example v0.0.1-beta.5); left empty it is read from the version catalog'
         required: false
         default: ''
+      aar_url:
+        description: 'Reuse a published AAR instead of exporting one: "published" = the current version tag asset, or a full URL. Empty = export from source (~1.5 h).'
+        required: false
+        default: ''
       draft:
         description: 'Create the release as a draft'
         type: boolean
@@ -81,6 +85,25 @@ jobs:
             echo "PRERELEASE=false" >> "$GITHUB_ENV"
           fi
           echo "Using version tag: $TAG"
+
+      # The AAR export takes ~1.5 h, so it can be skipped by reusing the AAR published by a
+      # previous run (release asset). The APK build itself only needs the AAR, not the framework.
+      - name: Decide AAR source
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${{ github.event.inputs.aar_url }}" ]; then
+            URL="${{ github.event.inputs.aar_url }}"
+            if [ "$URL" = "published" ]; then
+              URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/${TARGET_TAG}/my_application_valdi_export.aar"
+            fi
+            echo "SKIP_EXPORT=true" >> "$GITHUB_ENV"
+            echo "AAR_DOWNLOAD_URL=$URL" >> "$GITHUB_ENV"
+            echo "Reusing published AAR: $URL"
+          else
+            echo "SKIP_EXPORT=false" >> "$GITHUB_ENV"
+            echo "Exporting the AAR from source (about 1.5 hours)"
+          fi
 
       - name: Checkout Valdi framework
         uses: actions/checkout@v4
@@ -164,6 +187,7 @@ jobs:
           tail -n 5 "$MODULE_FILE"
 
       - name: Export Valdi Android AAR
+        if: env.SKIP_EXPORT != 'true'
         working-directory: .valdi-framework
         shell: bash
         run: |
@@ -173,6 +197,16 @@ jobs:
             --library=//apps/my_application_valdi:my_application_valdi_export_android \
             --output_path="$GITHUB_WORKSPACE/$AAR_PATH"
           test -s "$GITHUB_WORKSPACE/$AAR_PATH"
+
+      - name: Download prebuilt AAR
+        if: env.SKIP_EXPORT == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$AAR_PATH")"
+          curl -fL --retry 3 -o "$AAR_PATH" "$AAR_DOWNLOAD_URL"
+          test -s "$AAR_PATH"
+          ls -lh "$AAR_PATH"
 
       # Fail here instead of on a device: the APK cannot load the library if it references
       # libc symbols that only exist on newer Android versions.
@@ -300,6 +334,7 @@ jobs:
           files: |
             ${{ env.APK_FILE }}
             ${{ env.SHA_FILE }}
+            ${{ env.AAR_PATH }}
           draft: ${{ github.event.inputs.draft == 'true' }}
           prerelease: ${{ env.PRERELEASE == 'true' || github.event.inputs.prerelease == 'true' }}
           # Only a non pre-release build may take over the "latest" marker.
