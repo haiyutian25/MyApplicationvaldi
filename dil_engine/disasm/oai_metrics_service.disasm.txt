@@ -1,0 +1,437 @@
+# oai_metrics_service — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/OAIMetricsService.js  (212 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]oai_metrics_service/src/OAIMetricsService | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=oai_metrics_service/src/OAIMetricsService
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=oai_metrics_service/src/OAIMetricsService
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/ValdiMetricsReporting.js  (2976 B)
+# 原子基准=215 原子表 40 条
+-- 原子表 --
+   [0]oai_metrics_service/src/ValdiMetricsReporting | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]i | [7]ValdiMetricsReporter | [8]r | [9]s | [10]n | [11]o | [12]c | [13]__esModule | [14]installValdiMetricsService | [15]countMetric | [16]recordHistogram | [17]valdi_core/src/ValdiRuntimeProvider | [18]getValdiRuntime | [19]./NativeValdiMetrics | [20]install | [21]count | [22]histogram | [23]enqueueOrEmit | [24]emit | [25]pendingMetrics | [26]didWarnAboutOverflow | [27]didWarnAboutExporterFailure | [28]metricsService | [29]kind | [30]tagsJson | [31]metric | [32]push | [33]isLoggingEnabled | [34]console | [35]warn | [36]Valdi metrics startup queue is full; dropping samples after 256 entries. | [37]Valdi metrics exporter rejected a sample. | [38]keys | [39]stringify
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=53B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  array_from #args=0
+    19  put_field pendingMetrics
+    28  get_loc0 0: this
+    29  push_1 1
+    30  lnot
+    31  put_field didWarnAboutOverflow
+    40  get_loc0 0: this
+    41  push_1 1
+    42  lnot
+    43  put_field didWarnAboutExporterFailure
+    52  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=187B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: e, t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  get_loc1 1: this
+     3  get_field metricsService  ;+28B
+    36  if_false8 -> 0029
+    38  push_1 1
+    39  lnot
+    40  return
+L   41  get_loc1 1: this
+    42  get_arg0 0: e
+    43  put_field metricsService
+    52  set_loc_uninitialized 0: t
+    55  get_loc1 1: this
+    56  get_field pendingMetrics
+    89  for_of_start
+    90  goto8 -> 0086
+L   92  put_loc0 0: t
+    93  get_loc1 1: this
+    94  get_field2 emit
+   127  get_loc_check 0: t
+   130  call_method #args=1
+   133  drop
+L  134  for_of_next 0
+   136  if_false8 -> 005c
+   138  drop
+   139  iterator_close
+   140  get_loc1 1: this
+   141  get_field pendingMetrics
+   174  push_0 0
+   175  put_field length
+   184  push_0 0
+   185  lnot
+   186  return
+
+-- fn name=<atom:0> args=3 vars=1 closure=1 cpool=0 bc=73B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: e, t, i, this
+   closure: c
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 enqueueOrEmit  ;+28B
+    36  object
+    37  push_0 0
+    38  define_field kind
+    43  object
+    44  get_arg0 0: e
+    45  define_field name
+    50  get_arg1 1: t
+    51  define_field value
+    56  get_var_ref0 0: c
+    57  get_arg2 2: i
+    58  call1 #args=1
+    59  define_field tagsJson
+    64  define_field metric
+    69  call_method #args=1
+    72  return_undef
+
+-- fn name=<atom:0> args=3 vars=1 closure=1 cpool=0 bc=73B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: e, t, i, this
+   closure: c
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 enqueueOrEmit  ;+28B
+    36  object
+    37  push_1 1
+    38  define_field kind
+    43  object
+    44  get_arg0 0: e
+    45  define_field name
+    50  get_arg1 1: t
+    51  define_field value
+    56  get_var_ref0 0: c
+    57  get_arg2 2: i
+    58  call1 #args=1
+    59  define_field tagsJson
+    64  define_field metric
+    69  call_method #args=1
+    72  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=2 cpool=0 bc=331B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: t, this
+   closure: i, e
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field metricsService  ;+28B
+    36  if_false8 -> 004f
+    38  get_loc0 0: this
+    39  get_field2 emit
+    72  get_arg0 0: t
+    73  call_method #args=1
+    76  goto16 -> 014a
+L   79  get_loc0 0: this
+    80  get_field pendingMetrics
+   113  get_length
+   114  get_var_ref_check 0: i
+   117  lt
+   118  if_false8 -> 00c2
+   120  get_loc0 0: this
+   121  get_field pendingMetrics
+   154  get_field2 push
+   187  get_arg0 0: t
+   188  call_method #args=1
+   191  goto16 -> 014a
+L  194  get_loc0 0: this
+   195  get_field didWarnAboutOverflow
+   228  dup
+   229  if_true8 -> 014a
+   231  drop
+   232  get_loc0 0: this
+   233  push_0 0
+   234  lnot
+   235  put_field didWarnAboutOverflow
+   244  get_var_ref_check 1: e
+   247  get_field isLoggingEnabled
+   280  dup
+   281  if_false8 -> 014a
+   283  drop
+   284  get_var console
+   289  get_field2 warn
+   322  push_atom_value Valdi metrics startup queue is full; dropping samples after 256 entries.
+   327  call_method #args=1
+L  330  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=421B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: t, this
+   closure: e
+     0  push_this
+     1  put_loc0 0: this
+     2  catch -> 0113
+     7  push_0 0
+     8  get_arg0 0: t
+     9  get_field kind  ;+28B
+    42  strict_eq
+    43  if_false8 -> 00a0
+    45  get_loc0 0: this
+    46  get_field metricsService
+    79  dup
+    80  is_undefined_or_null
+    81  if_false8 -> 0058
+    83  drop
+    84  undefined
+    85  goto16 -> 0110
+L   88  get_field2 count
+   121  get_arg0 0: t
+   122  get_field metric
+   155  call_method #args=1
+   158  goto8 -> 0110
+L  160  get_loc0 0: this
+   161  get_field metricsService
+   194  dup
+   195  is_undefined_or_null
+   196  if_false8 -> 00ca
+   198  drop
+   199  undefined
+   200  goto8 -> 0110
+L  202  get_field2 histogram
+   235  get_arg0 0: t
+   236  get_field metric
+   269  call_method #args=1
+L  272  drop
+   273  drop
+   274  return_undef
+L  275  drop
+   276  catch -> 01a4
+   281  get_loc0 0: this
+   282  get_field didWarnAboutExporterFailure
+   315  dup
+   316  if_true8 -> 01a1
+   318  drop
+   319  get_loc0 0: this
+   320  push_0 0
+   321  lnot
+   322  put_field didWarnAboutExporterFailure
+   331  get_var_ref_check 0: e
+   334  get_field isLoggingEnabled
+   367  dup
+   368  if_false8 -> 01a1
+   370  drop
+   371  get_var console
+   376  get_field2 warn
+   409  push_atom_value Valdi metrics exporter rejected a sample.
+   414  call_method #args=1
+L  417  drop
+   418  drop
+   419  return_undef
+L  420  throw
+
+-- fn name=s args=1 vars=0 closure=2 cpool=0 bc=83B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: e
+   closure: r, t
+     0  get_var_ref_check 0: r
+     3  get_field2 install  ;+28B
+    36  get_arg0 0: e
+    37  call_method #args=1
+    40  dup
+    41  if_false8 -> 0052
+    43  drop
+    44  get_var_ref_check 1: t
+    47  get_field installValdiMetricsService
+    80  get_arg0 0: e
+    81  call1 #args=1
+L   82  return_undef
+
+-- fn name=n args=3 vars=0 closure=1 cpool=0 bc=43B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: e, t, i
+   closure: r
+     0  get_var_ref_check 0: r
+     3  get_field2 count  ;+28B
+    36  get_arg0 0: e
+    37  get_arg1 1: t
+    38  get_arg2 2: i
+    39  call_method #args=3
+    42  return_undef
+
+-- fn name=o args=3 vars=0 closure=1 cpool=0 bc=43B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: e, t, i
+   closure: r
+     0  get_var_ref_check 0: r
+     3  get_field2 histogram  ;+28B
+    36  get_arg0 0: e
+    37  get_arg1 1: t
+    38  get_arg2 2: i
+    39  call_method #args=3
+    42  return_undef
+
+-- fn name=c args=1 vars=3 closure=0 cpool=0 bc=192B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: e, t, i, r
+     0  set_loc_uninitialized 0: t
+     3  get_arg0 0: e
+     4  lnot
+     5  if_false8 -> 0008
+     7  return_undef
+L    8  object
+     9  put_loc0 0: t
+    10  set_loc_uninitialized 1: i
+    13  get_var Object
+    18  get_field2 keys  ;+28B
+    51  get_arg0 0: e
+    52  call_method #args=1
+    55  for_of_start
+    56  goto8 -> 005a
+L   58  put_loc1 1: i
+    59  set_loc_uninitialized 2: r
+    62  get_arg0 0: e
+    63  get_loc_check 1: i
+    66  get_array_el
+    67  put_loc2 2: r
+    68  undefined
+    69  get_loc_check 2: r
+    72  strict_neq
+    73  dup
+    74  if_false8 -> 0059
+    76  drop
+    77  get_loc_check 0: t
+    80  get_loc_check 1: i
+    83  to_propkey2
+    84  get_loc_check 2: r
+    87  insert3
+    88  put_array_el
+L   89  drop
+L   90  for_of_next 0
+    92  if_false8 -> 003a
+    94  drop
+    95  iterator_close
+    96  push_0 0
+    97  get_var Object
+   102  get_field2 keys
+   135  get_loc_check 0: t
+   138  call_method #args=1
+   141  get_length
+   142  strict_eq
+   143  if_false8 -> 0093
+   145  undefined
+   146  return
+L  147  get_var JSON
+   152  get_field2 stringify
+   185  get_loc_check 0: t
+   188  call_method #args=1
+   191  return
+
+-- fn name=<atom:0> args=3 vars=11 closure=0 cpool=10 bc=311B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: require, module, exports, e, t, i, ValdiMetricsReporter, <class_fields_init>, ValdiMetricsReporter, r, s, n, o, c
+     0  fclosure8 6: <function s>
+     2  put_loc8 7: s
+     4  fclosure8 7: <function n>
+     6  put_loc8 8: n
+     8  fclosure8 8: <function o>
+    10  put_loc8 9: o
+    12  fclosure8 9: <function c>
+    14  put_loc8 10: c
+    16  set_loc_uninitialized 6: r
+    19  set_loc_uninitialized 5: ValdiMetricsReporter
+    22  set_loc_uninitialized 2: i
+    25  set_loc_uninitialized 1: t
+    28  set_loc_uninitialized 0: e
+    31  get_var Object
+    36  get_field2 defineProperty
+    69  get_arg2 2: exports
+    70  push_atom_value __esModule
+    75  object
+    76  push_0 0
+    77  lnot
+    78  define_field value
+    83  call_method #args=3
+    86  drop
+    87  get_arg2 2: exports
+    88  get_arg2 2: exports
+    89  get_arg2 2: exports
+    90  get_arg2 2: exports
+    91  undefined
+    92  insert2
+    93  put_field ValdiMetricsReporter
+   102  insert2
+   103  put_field installValdiMetricsService
+   112  insert2
+   113  put_field countMetric
+   122  put_field recordHistogram
+   131  get_arg0 0: require
+   132  push_atom_value valdi_core/src/ValdiRuntimeProvider
+   137  call1 #args=1
+   138  get_field2 getValdiRuntime
+   171  call_method #args=0
+   174  put_loc0 0: e
+   175  get_arg0 0: require
+   176  push_atom_value ./NativeValdiMetrics
+   181  call1 #args=1
+   182  put_loc1 1: t
+   183  push_i16 256
+   186  put_loc2 2: i
+   187  set_loc_uninitialized 3: ValdiMetricsReporter
+   190  undefined
+   191  set_loc_uninitialized 4: <class_fields_init>
+   194  push_const8 0: <function <atom:0>>
+   196  define_class ValdiMetricsReporter,0
+   202  fclosure8 1: <function <atom:0>>
+   204  define_method install,0
+   210  fclosure8 2: <function <atom:0>>
+   212  define_method count,0
+   218  fclosure8 3: <function <atom:0>>
+   220  define_method histogram,0
+   226  fclosure8 4: <function <atom:0>>
+   228  define_method enqueueOrEmit,0
+   234  fclosure8 5: <function <atom:0>>
+   236  define_method emit,0
+   242  undefined
+   243  put_loc8 4: <class_fields_init>
+   245  drop
+   246  set_loc3 3: ValdiMetricsReporter
+   247  close_loc 4: <class_fields_init>
+   250  put_loc8 5: ValdiMetricsReporter
+   252  get_arg2 2: exports
+   253  get_loc_check 5: ValdiMetricsReporter
+   256  put_field ValdiMetricsReporter
+   265  get_loc_check 5: ValdiMetricsReporter
+   268  dup
+   269  call_constructor #args=0
+   272  put_loc8 6: r
+   274  get_arg2 2: exports
+   275  get_loc8 7: s
+   277  put_field installValdiMetricsService
+   286  get_arg2 2: exports
+   287  get_loc8 8: n
+   289  put_field countMetric
+   298  get_arg2 2: exports
+   299  get_loc8 9: o
+   301  put_field recordHistogram
+   310  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=oai_metrics_service/src/ValdiMetricsReporting
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

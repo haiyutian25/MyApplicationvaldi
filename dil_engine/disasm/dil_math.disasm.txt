@@ -1,0 +1,622 @@
+# dil_math — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/renderMathSvg.js  (4393 B)
+# 原子基准=215 原子表 63 条
+-- 原子表 --
+   [0]dil_math/src/renderMathSvg | [1]require | [2]module | [3]exports | [4]t | [5]e | [6]r | [7]n | [8]o | [9]i | [10]h | [11]s | [12]MathSvgRenderError | [13]a | [14]u | [15]g | [16]v | [17]d | [18]c | [19]w | [20]S | [21]x | [22]m | [23]f | [24]__esModule | [25]renderMathSvg | [26]math_jax/src/MathJax | [27]math_jax/src/MathJaxSvg | [28]http://www.w3.org/2000/svg | [29]#000000 | [30]trim | [31]Cannot render an empty math expression. | [32]texToSvgOutput | [33]block | [34]hasSvg | [35]MathJax did not produce an SVG element. | [36]color | [37]serializeSvg | [38]MathJax could not serialize the SVG element. | [39]height | [40]svg | [41]viewBox | [42]width | [43]MathJaxRenderError | [44]phase | [45]removeSvgAttributeRecursively | [46]style | [47]removeZeroWidthCurrentColorStroke | [48]setSvgAttribute | [49]xmlns | [50]px | [51]getSvgAttribute | [52]0 0 24 18 | [53]map | [54]some | [55]isNaN | [56]match | [57]isFinite | [58]toLowerCase | [59]ex | [60]em | [61]max | [62]round
+
+-- fn name=<atom:0> args=2 vars=3 closure=2 cpool=0 bc=164B file=dil_math/src/renderMathSvg
+   locals: t, e, this.active_func, new.target, this
+   closure: <class_fields_init>, MathSvgRenderError
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 2: this
+     9  check_ctor
+    10  get_loc0 0: this.active_func
+    11  get_super
+    12  get_loc1 1: new.target
+    13  get_arg1 1: e
+    14  call_constructor #args=1
+    17  dup
+    18  put_loc_check_init 2: this
+    21  get_var_ref_check 0: <class_fields_init>
+    24  dup
+    25  if_false8 -> 0022
+    27  get_loc_check 2: this
+    30  swap
+    31  call_method #args=0
+L   34  drop
+    35  drop
+    36  get_loc_check 2: this
+    39  get_arg0 0: t
+    40  put_field reason
+    49  get_var Object
+    54  get_field2 setPrototypeOf
+    87  get_loc_check 2: this
+    90  get_var_ref_check 1: MathSvgRenderError
+    93  get_field prototype
+   126  call_method #args=2
+   129  drop
+   130  get_loc_check 2: this
+   133  push_atom_value MathSvgRenderError
+   138  put_field name
+   147  get_loc_check 2: this
+   150  get_arg1 1: e
+   151  put_field message
+   160  get_loc_check 2: this
+   163  return
+
+-- fn name=a args=2 vars=4 closure=6 cpool=0 bc=475B file=dil_math/src/renderMathSvg
+   locals: t, r, o, s, i, h
+   closure: MathSvgRenderError, e, u, d, v, n
+     0  set_loc_uninitialized 3: h
+     3  set_loc_uninitialized 2: i
+     6  set_loc_uninitialized 0: o
+     9  push_0 0
+    10  get_arg0 0: t
+    11  get_field2 trim  ;+28B
+    44  call_method #args=0
+    47  get_length
+    48  strict_eq
+    49  if_false8 -> 0041
+    51  get_var_ref_check 0: MathSvgRenderError
+    54  dup
+    55  push_1 1
+    56  push_atom_value Cannot render an empty math expression.
+    61  call_constructor #args=2
+    64  throw
+L   65  undefined
+    66  put_loc0 0: o
+    67  catch -> 009b
+    72  get_var_ref_check 1: e
+    75  get_field texToSvgOutput
+   108  get_arg0 0: t
+   109  push_0 0
+   110  lnot
+   111  get_arg1 1: r
+   112  get_field block
+   145  strict_eq
+   146  call2 #args=2
+   147  dup
+   148  put_loc_check 0: o
+   151  drop
+   152  drop
+   153  goto8 -> 00a6
+L  155  put_loc1 1: s
+   156  catch -> 00a5
+   161  get_var_ref2 2: u
+   162  get_loc1 1: s
+   163  call1 #args=1
+   164  throw
+L  165  throw
+L  166  get_loc_check 0: o
+   169  get_field2 hasSvg
+   202  call_method #args=0
+   205  lnot
+   206  if_false8 -> 00de
+   208  get_var_ref_check 0: MathSvgRenderError
+   211  dup
+   212  push_3 3
+   213  push_atom_value MathJax did not produce an SVG element.
+   218  call_constructor #args=2
+   221  throw
+L  222  get_var_ref3 3: d
+   223  get_loc_check 0: o
+   226  call1 #args=1
+   227  put_loc2 2: i
+   228  get_var_ref 4: v
+   231  get_loc_check 0: o
+   234  get_loc_check 2: i
+   237  get_arg1 1: r
+   238  get_field color
+   271  dup
+   272  is_undefined_or_null
+   273  if_false8 -> 0117
+   275  drop
+   276  get_var_ref_check 5: n
+L  279  call3 #args=3
+   280  drop
+   281  get_loc_check 0: o
+   284  get_field2 serializeSvg
+   317  call_method #args=0
+   320  put_loc3 3: h
+   321  undefined
+   322  get_loc_check 3: h
+   325  strict_eq
+   326  if_false8 -> 0156
+   328  get_var_ref_check 0: MathSvgRenderError
+   331  dup
+   332  push_3 3
+   333  push_atom_value MathJax could not serialize the SVG element.
+   338  call_constructor #args=2
+   341  throw
+L  342  object
+   343  get_loc_check 2: i
+   346  get_field height
+   379  define_field height
+   384  get_loc_check 3: h
+   387  define_field svg
+   392  get_loc_check 2: i
+   395  get_field viewBox
+   428  define_field viewBox
+   433  get_loc_check 2: i
+   436  get_field width
+   469  define_field width
+   474  return
+
+-- fn name=u args=1 vars=1 closure=3 cpool=0 bc=143B file=dil_math/src/renderMathSvg
+   locals: e, t
+   closure: t, MathSvgRenderError, g
+     0  get_arg0 0: e
+     1  get_var_ref_check 0: t
+     4  get_field MathJaxRenderError  ;+28B
+    37  instanceof
+    38  if_false8 -> 0083
+    40  set_loc_uninitialized 0: t
+    43  push_0 0
+    44  get_arg0 0: e
+    45  get_field phase
+    78  strict_eq
+    79  if_false8 -> 0054
+    81  push_2 2
+    82  goto8 -> 0055
+L   84  push_3 3
+L   85  put_loc0 0: t
+    86  get_var_ref_check 1: MathSvgRenderError
+    89  dup
+    90  get_loc_check 0: t
+    93  get_arg0 0: e
+    94  get_field message
+   127  call_constructor #args=2
+   130  return
+L  131  get_var_ref_check 1: MathSvgRenderError
+   134  dup
+   135  push_0 0
+   136  get_var_ref2 2: g
+   137  get_arg0 0: e
+   138  call1 #args=1
+   139  call_constructor #args=2
+   142  return
+
+-- fn name=g args=1 vars=0 closure=0 cpool=0 bc=52B file=dil_math/src/renderMathSvg
+   locals: t
+     0  get_arg0 0: t
+     1  get_var Error
+     6  instanceof
+     7  if_false8 -> 002c
+     9  get_arg0 0: t
+    10  get_field message  ;+28B
+    43  return
+L   44  get_var String
+    49  get_arg0 0: t
+    50  call1 #args=1
+    51  return
+
+-- fn name=v args=3 vars=0 closure=1 cpool=0 bc=486B file=dil_math/src/renderMathSvg
+   locals: t, e, n
+   closure: r
+     0  get_arg0 0: t
+     1  get_field2 removeSvgAttributeRecursively  ;+28B
+    34  push_atom_value style
+    39  call_method #args=1
+    42  drop
+    43  get_arg0 0: t
+    44  get_field2 removeZeroWidthCurrentColorStroke
+    77  call_method #args=0
+    80  drop
+    81  get_arg0 0: t
+    82  get_field2 setSvgAttribute
+   115  push_atom_value xmlns
+   120  get_var_ref_check 0: r
+   123  call_method #args=2
+   126  drop
+   127  get_arg0 0: t
+   128  get_field2 setSvgAttribute
+   161  push_atom_value viewBox
+   166  get_arg1 1: e
+   167  get_field viewBox
+   200  call_method #args=2
+   203  drop
+   204  get_arg0 0: t
+   205  get_field2 setSvgAttribute
+   238  push_atom_value width
+   243  push_empty_string
+   244  get_field2 concat
+   277  get_arg1 1: e
+   278  get_field width
+   311  push_atom_value px
+   316  call_method #args=2
+   319  call_method #args=2
+   322  drop
+   323  get_arg0 0: t
+   324  get_field2 setSvgAttribute
+   357  push_atom_value height
+   362  push_empty_string
+   363  get_field2 concat
+   396  get_arg1 1: e
+   397  get_field height
+   430  push_atom_value px
+   435  call_method #args=2
+   438  call_method #args=2
+   441  drop
+   442  get_arg0 0: t
+   443  get_field2 setSvgAttribute
+   476  push_atom_value color
+   481  get_arg2 2: n
+   482  call_method #args=2
+   485  return_undef
+
+-- fn name=d args=1 vars=4 closure=5 cpool=0 bc=146B file=dil_math/src/renderMathSvg
+   locals: t, e, r, n, o
+   closure: S, x, c, w, f
+     0  set_loc_uninitialized 3: o
+     3  set_loc_uninitialized 2: n
+     6  set_loc_uninitialized 1: r
+     9  set_loc_uninitialized 0: e
+    12  get_arg0 0: t
+    13  get_field2 getSvgAttribute  ;+28B
+    46  push_atom_value viewBox
+    51  call_method #args=1
+    54  dup
+    55  is_undefined_or_null
+    56  if_false8 -> 0040
+    58  drop
+    59  push_atom_value 0 0 24 18
+L   64  put_loc0 0: e
+    65  get_var_ref0 0: S
+    66  get_loc_check 0: e
+    69  call1 #args=1
+    70  put_loc1 1: r
+    71  get_var_ref1 1: x
+    72  get_arg0 0: t
+    73  push_atom_value height
+    78  call2 #args=2
+    79  dup
+    80  is_undefined_or_null
+    81  if_false8 -> 0059
+    83  drop
+    84  get_var_ref2 2: c
+    85  get_loc_check 1: r
+    88  call1 #args=1
+L   89  put_loc2 2: n
+    90  get_var_ref1 1: x
+    91  get_arg0 0: t
+    92  push_atom_value width
+    97  call2 #args=2
+    98  dup
+    99  is_undefined_or_null
+   100  if_false8 -> 006f
+   102  drop
+   103  get_var_ref3 3: w
+   104  get_loc_check 1: r
+   107  get_loc_check 2: n
+   110  call2 #args=2
+L  111  put_loc3 3: o
+   112  object
+   113  get_var_ref 4: f
+   116  get_loc_check 2: n
+   119  call1 #args=1
+   120  define_field height
+   125  get_loc_check 0: e
+   128  define_field viewBox
+   133  get_var_ref 4: f
+   136  get_loc_check 3: o
+   139  call1 #args=1
+   140  define_field width
+   145  return
+
+-- fn name=c args=1 vars=0 closure=2 cpool=0 bc=92B file=dil_math/src/renderMathSvg
+   locals: t
+   closure: h, i
+     0  undefined
+     1  get_arg0 0: t
+     2  strict_eq
+     3  dup
+     4  if_true8 -> 002b
+     6  drop
+     7  get_arg0 0: t
+     8  get_field height  ;+28B
+    41  push_0 0
+    42  lte
+L   43  if_false8 -> 0031
+    45  get_var_ref_check 0: h
+    48  return
+L   49  get_arg0 0: t
+    50  get_field height
+    83  push_i16 1000
+    86  div
+    87  get_var_ref_check 1: i
+    90  mul
+    91  return
+
+-- fn name=w args=2 vars=0 closure=1 cpool=0 bc=161B file=dil_math/src/renderMathSvg
+   locals: t, e
+   closure: s
+     0  undefined
+     1  get_arg0 0: t
+     2  strict_eq
+     3  dup
+     4  if_true8 -> 0053
+     6  drop
+     7  get_arg0 0: t
+     8  get_field height  ;+28B
+    41  push_0 0
+    42  lte
+    43  dup
+    44  if_true8 -> 0053
+    46  drop
+    47  get_arg0 0: t
+    48  get_field width
+    81  push_0 0
+    82  lte
+L   83  if_false8 -> 0059
+    85  get_var_ref_check 0: s
+    88  return
+L   89  get_arg1 1: e
+    90  get_arg0 0: t
+    91  get_field width
+   124  mul
+   125  get_arg0 0: t
+   126  get_field height
+   159  div
+   160  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=9B file=dil_math/src/renderMathSvg
+   locals: t
+     0  get_var Number
+     5  get_arg0 0: t
+     6  tail_call #args=1
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=42B file=dil_math/src/renderMathSvg
+   locals: t
+     0  get_var Number
+     5  get_field2 isNaN  ;+28B
+    38  get_arg0 0: t
+    39  tail_call_method #args=1
+
+-- fn name=S args=1 vars=1 closure=0 cpool=4 bc=195B file=dil_math/src/renderMathSvg
+   locals: t, e
+     0  set_loc_uninitialized 0: e
+     3  get_arg0 0: t
+     4  get_field2 trim  ;+28B
+    37  call_method #args=0
+    40  get_field2 split
+    73  push_const8 0: <string None>
+    75  push_const8 1: <string None>
+    77  regexp
+    78  call_method #args=1
+    81  get_field2 map
+   114  fclosure8 2: <function <atom:0>>
+   116  call_method #args=1
+   119  put_loc0 0: e
+   120  push_4 4
+   121  get_loc_check 0: e
+   124  get_length
+   125  strict_eq
+   126  if_false8 -> 00c2
+   128  get_loc_check 0: e
+   131  get_field2 some
+   164  fclosure8 3: <function <atom:0>>
+   166  call_method #args=1
+   169  lnot
+   170  if_false8 -> 00c2
+   172  object
+   173  get_loc_check 0: e
+   176  push_3 3
+   177  get_array_el
+   178  define_field height
+   183  get_loc_check 0: e
+   186  push_2 2
+   187  get_array_el
+   188  define_field width
+   193  return
+L  194  return_undef
+
+-- fn name=x args=2 vars=1 closure=1 cpool=0 bc=57B file=dil_math/src/renderMathSvg
+   locals: t, e, r
+   closure: m
+     0  set_loc_uninitialized 0: r
+     3  get_arg0 0: t
+     4  get_field2 getSvgAttribute  ;+28B
+    37  get_arg1 1: e
+    38  call_method #args=1
+    41  put_loc0 0: r
+    42  undefined
+    43  get_loc_check 0: r
+    46  strict_neq
+    47  if_false8 -> 0038
+    49  get_var_ref0 0: m
+    50  get_loc_check 0: r
+    53  tail_call #args=1
+L   56  return_undef
+
+-- fn name=m args=1 vars=3 closure=1 cpool=2 bc=270B file=dil_math/src/renderMathSvg
+   locals: t, e, r, n
+   closure: i
+     0  set_loc_uninitialized 2: n
+     3  set_loc_uninitialized 1: r
+     6  set_loc_uninitialized 0: e
+     9  get_arg0 0: t
+    10  get_field2 trim  ;+28B
+    43  call_method #args=0
+    46  get_field2 match
+    79  push_const8 0: <string None>
+    81  push_const8 1: <string None>
+    83  regexp
+    84  call_method #args=1
+    87  put_loc0 0: e
+    88  null
+    89  get_loc_check 0: e
+    92  strict_eq
+    93  if_false8 -> 0060
+    95  return_undef
+L   96  get_var Number
+   101  get_loc_check 0: e
+   104  push_1 1
+   105  get_array_el
+   106  call1 #args=1
+   107  put_loc1 1: r
+   108  get_var Number
+   113  get_field2 isFinite
+   146  get_loc_check 1: r
+   149  call_method #args=1
+   152  lnot
+   153  dup
+   154  if_true8 -> 00a2
+   156  drop
+   157  get_loc_check 1: r
+   160  push_0 0
+   161  lte
+L  162  if_false8 -> 00a5
+   164  return_undef
+L  165  get_loc_check 0: e
+   168  push_2 2
+   169  get_array_el
+   170  get_field2 toLowerCase
+   203  call_method #args=0
+   206  put_loc2 2: n
+   207  push_atom_value ex
+   212  get_loc_check 2: n
+   215  strict_eq
+   216  if_false8 -> 00e1
+   218  push_i8 8
+   220  get_loc_check 1: r
+   223  mul
+   224  return
+L  225  push_atom_value em
+   230  get_loc_check 2: n
+   233  strict_eq
+   234  if_false8 -> 00f4
+   236  get_loc_check 1: r
+   239  get_var_ref_check 0: i
+   242  mul
+   243  return
+L  244  push_empty_string
+   245  get_loc_check 2: n
+   248  strict_eq
+   249  dup
+   250  if_true8 -> 0106
+   252  drop
+   253  push_atom_value px
+   258  get_loc_check 2: n
+   261  strict_eq
+L  262  if_false8 -> 010c
+   264  get_loc_check 1: r
+   267  return
+L  268  undefined
+   269  return
+
+-- fn name=f args=1 vars=0 closure=0 cpool=0 bc=90B file=dil_math/src/renderMathSvg
+   locals: t
+     0  get_var Math
+     5  get_field2 max  ;+28B
+    38  push_1 1
+    39  get_var Math
+    44  get_field2 round
+    77  push_i8 100
+    79  get_arg0 0: t
+    80  mul
+    81  call_method #args=1
+    84  push_i8 100
+    86  div
+    87  tail_call_method #args=2
+
+-- fn name=<atom:0> args=3 vars=22 closure=0 cpool=12 bc=252B file=dil_math/src/renderMathSvg
+   locals: require, module, exports, t, e, r, n, o, i, h, s, MathSvgRenderError, <class_fields_init>, MathSvgRenderError, a, u, g, v, d, c, w, S, x, m, f
+     0  fclosure8 1: <function a>
+     2  put_loc8 11: a
+     4  fclosure8 2: <function u>
+     6  put_loc8 12: u
+     8  fclosure8 3: <function g>
+    10  put_loc8 13: g
+    12  fclosure8 4: <function v>
+    14  put_loc8 14: v
+    16  fclosure8 5: <function d>
+    18  put_loc8 15: d
+    20  fclosure8 6: <function c>
+    22  put_loc8 16: c
+    24  fclosure8 7: <function w>
+    26  put_loc8 17: w
+    28  fclosure8 8: <function S>
+    30  put_loc8 18: S
+    32  fclosure8 9: <function x>
+    34  put_loc8 19: x
+    36  fclosure8 10: <function m>
+    38  put_loc8 20: m
+    40  fclosure8 11: <function f>
+    42  put_loc8 21: f
+    44  set_loc_uninitialized 10: MathSvgRenderError
+    47  set_loc_uninitialized 7: s
+    50  set_loc_uninitialized 6: h
+    53  set_loc_uninitialized 5: i
+    56  set_loc_uninitialized 4: o
+    59  set_loc_uninitialized 3: n
+    62  set_loc_uninitialized 2: r
+    65  set_loc_uninitialized 1: e
+    68  set_loc_uninitialized 0: t
+    71  get_var Object
+    76  get_field2 defineProperty
+   109  get_arg2 2: exports
+   110  push_atom_value __esModule
+   115  object
+   116  push_0 0
+   117  lnot
+   118  define_field value
+   123  call_method #args=3
+   126  drop
+   127  get_arg2 2: exports
+   128  get_arg2 2: exports
+   129  undefined
+   130  insert2
+   131  put_field MathSvgRenderError
+   140  put_field renderMathSvg
+   149  get_arg0 0: require
+   150  push_atom_value math_jax/src/MathJax
+   155  call1 #args=1
+   156  put_loc0 0: t
+   157  get_arg0 0: require
+   158  push_atom_value math_jax/src/MathJaxSvg
+   163  call1 #args=1
+   164  put_loc1 1: e
+   165  push_atom_value http://www.w3.org/2000/svg
+   170  put_loc2 2: r
+   171  push_atom_value #000000
+   176  put_loc3 3: n
+   177  push_i8 8
+   179  put_loc8 4: o
+   181  push_i8 16
+   183  put_loc8 5: i
+   185  push_i8 18
+   187  put_loc8 6: h
+   189  push_i8 24
+   191  put_loc8 7: s
+   193  set_loc_uninitialized 8: MathSvgRenderError
+   196  get_var Error
+   201  set_loc_uninitialized 9: <class_fields_init>
+   204  push_const8 0: <function <atom:0>>
+   206  define_class MathSvgRenderError,1
+   212  undefined
+   213  put_loc8 9: <class_fields_init>
+   215  drop
+   216  set_loc8 8: MathSvgRenderError
+   218  close_loc 9: <class_fields_init>
+   221  close_loc 8: MathSvgRenderError
+   224  put_loc8 10: MathSvgRenderError
+   226  get_arg2 2: exports
+   227  get_loc_check 10: MathSvgRenderError
+   230  put_field MathSvgRenderError
+   239  get_arg2 2: exports
+   240  get_loc8 11: a
+   242  put_field renderMathSvg
+   251  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=dil_math/src/renderMathSvg
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

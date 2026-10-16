@@ -1,0 +1,178 @@
+# valdi_ui_theme — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/ValdiUITheme.js  (1787 B)
+# 原子基准=215 原子表 62 条
+-- 原子表 --
+   [0]valdi_ui_theme/src/ValdiUITheme | [1]require | [2]module | [3]exports | [4]e | [5]r | [6]o | [7]t | [8]__esModule | [9]DEFAULT_VALDI_UI_THEME | [10]ValdiUIThemeProvider | [11]resolveValdiUITheme | [12]valdi_core/src/SystemFont | [13]valdi_core/src/provider/createProvider | [14]valdi_core/src/provider/resolveProviderSource | [15]#111111 | [16]accent | [17]#333333 | [18]accentPressed | [19]#DDDDDD | [20]border | [21]#FFFFFF | [22]canvas | [23]#E8E8E8 | [24]disabled | [25]#F3F3F3 | [26]groupedSurface | [27]mutedSurface | [28]#666666 | [29]mutedText | [30]onAccent | [31]#888888 | [32]onDisabled | [33]surface | [34]text | [35]colors | [36]badgeSize | [37]compactControlHeight | [38]controlHeight | [39]navigationItemHeight | [40]metrics | [41]controlRadius | [42]pillRadius | [43]surfaceRadius | [44]shape | [45]large | [46]medium | [47]small | [48]spacing | [49]systemFont | [50]body | [51]caption | [52]systemSemiboldFont | [53]heading | [54]label | [55]typography | [56]createProviderComponentWithKeyName | [57]ValdiUITheme | [58]resolveProviderSource | [59]getProviderKey | [60]hasValue | [61]getValue
+
+-- fn name=t args=0 vars=2 closure=2 cpool=0 bc=248B file=valdi_ui_theme/src/ValdiUITheme
+   locals: e, r
+   closure: o, exports
+     0  set_loc_uninitialized 1: r
+     3  set_loc_uninitialized 0: e
+     6  get_var_ref_check 0: o
+     9  get_field resolveProviderSource  ;+28B
+    42  call0 #args=0
+    43  put_loc0 0: e
+    44  get_var_ref1 1: exports
+    45  get_field ValdiUIThemeProvider
+    78  get_field2 getProviderKey
+   111  call_method #args=0
+   114  put_loc1 1: r
+   115  push_0 0
+   116  lnot
+   117  get_loc_check 0: e
+   120  dup
+   121  is_undefined_or_null
+   122  if_false8 -> 0080
+   124  drop
+   125  undefined
+   126  goto8 -> 00a7
+L  128  get_field2 hasValue
+   161  get_loc_check 1: r
+   164  call_method #args=1
+L  167  strict_eq
+   168  if_false8 -> 00d5
+   170  get_loc_check 0: e
+   173  get_field2 getValue
+   206  get_loc_check 1: r
+   209  call_method #args=1
+   212  return
+L  213  get_var_ref1 1: exports
+   214  get_field DEFAULT_VALDI_UI_THEME
+   247  return
+
+-- fn name=<atom:0> args=3 vars=4 closure=0 cpool=1 bc=597B file=valdi_ui_theme/src/ValdiUITheme
+   locals: require, module, exports, e, r, o, t
+     0  fclosure8 0: <function t>
+     2  put_loc3 3: t
+     3  set_loc_uninitialized 2: o
+     6  set_loc_uninitialized 1: r
+     9  set_loc_uninitialized 0: e
+    12  get_var Object
+    17  get_field2 defineProperty  ;+28B
+    50  get_arg2 2: exports
+    51  push_atom_value __esModule
+    56  object
+    57  push_0 0
+    58  lnot
+    59  define_field value
+    64  call_method #args=3
+    67  drop
+    68  get_arg2 2: exports
+    69  get_arg2 2: exports
+    70  get_arg2 2: exports
+    71  undefined
+    72  insert2
+    73  put_field DEFAULT_VALDI_UI_THEME
+    82  insert2
+    83  put_field ValdiUIThemeProvider
+    92  put_field resolveValdiUITheme
+   101  get_arg0 0: require
+   102  push_atom_value valdi_core/src/SystemFont
+   107  call1 #args=1
+   108  put_loc0 0: e
+   109  get_arg0 0: require
+   110  push_atom_value valdi_core/src/provider/createProvider
+   115  call1 #args=1
+   116  put_loc1 1: r
+   117  get_arg0 0: require
+   118  push_atom_value valdi_core/src/provider/resolveProviderSource
+   123  call1 #args=1
+   124  put_loc2 2: o
+   125  get_arg2 2: exports
+   126  object
+   127  object
+   128  push_atom_value #111111
+   133  define_field accent
+   138  push_atom_value #333333
+   143  define_field accentPressed
+   148  push_atom_value #DDDDDD
+   153  define_field border
+   158  push_atom_value #FFFFFF
+   163  define_field canvas
+   168  push_atom_value #E8E8E8
+   173  define_field disabled
+   178  push_atom_value #F3F3F3
+   183  define_field groupedSurface
+   188  push_atom_value #F3F3F3
+   193  define_field mutedSurface
+   198  push_atom_value #666666
+   203  define_field mutedText
+   208  push_atom_value #FFFFFF
+   213  define_field onAccent
+   218  push_atom_value #888888
+   223  define_field onDisabled
+   228  push_atom_value #FFFFFF
+   233  define_field surface
+   238  push_atom_value #111111
+   243  define_field text
+   248  define_field colors
+   253  object
+   254  push_i8 18
+   256  define_field badgeSize
+   261  push_i8 36
+   263  define_field compactControlHeight
+   268  push_i8 44
+   270  define_field controlHeight
+   275  push_i8 52
+   277  define_field navigationItemHeight
+   282  define_field metrics
+   287  object
+   288  push_i8 12
+   290  define_field controlRadius
+   295  push_i16 999
+   298  define_field pillRadius
+   303  push_i8 16
+   305  define_field surfaceRadius
+   310  define_field shape
+   315  object
+   316  push_i8 24
+   318  define_field large
+   323  push_i8 16
+   325  define_field medium
+   330  push_i8 8
+   332  define_field small
+   337  define_field spacing
+   342  object
+   343  get_loc_check 0: e
+   346  get_field systemFont
+   379  push_i8 15
+   381  call1 #args=1
+   382  define_field body
+   387  get_loc_check 0: e
+   390  get_field systemFont
+   423  push_i8 12
+   425  call1 #args=1
+   426  define_field caption
+   431  get_loc_check 0: e
+   434  get_field systemSemiboldFont
+   467  push_i8 20
+   469  call1 #args=1
+   470  define_field heading
+   475  get_loc_check 0: e
+   478  get_field systemSemiboldFont
+   511  push_i8 15
+   513  call1 #args=1
+   514  define_field label
+   519  define_field typography
+   524  put_field DEFAULT_VALDI_UI_THEME
+   533  get_arg2 2: exports
+   534  get_loc_check 1: r
+   537  get_field createProviderComponentWithKeyName
+   570  push_atom_value ValdiUITheme
+   575  call1 #args=1
+   576  put_field ValdiUIThemeProvider
+   585  get_arg2 2: exports
+   586  get_loc3 3: t
+   587  put_field resolveValdiUITheme
+   596  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_ui_theme/src/ValdiUITheme
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

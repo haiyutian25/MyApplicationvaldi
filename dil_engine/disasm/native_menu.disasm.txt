@@ -1,0 +1,3461 @@
+# native_menu — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/AndroidNativeContextMenu.js  (3478 B)
+# 原子基准=215 原子表 55 条
+-- 原子表 --
+   [0]native_menu/src/AndroidNativeContextMenu | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]i | [7]o | [8]n | [9]s | [10]r | [11]AndroidNativeContextMenu | [12]__esModule | [13]supportsAndroidNativeContextMenu | [14]valdi_core/src/JSX | [15]jsx | [16]makeNodePrototype | [17]view | [18]yCb14yPFsxlPhX4j | [19]makeComponentPrototype | [20]WRHRxy0Q9aTZDaTe | [21]valdi_core/src/Component | [22]valdi_core/src/Device | [23]./AndroidNativeMenuAnchor | [24]StatefulComponent | [25]onViewModelUpdate | [26]onRender | [27]Device | [28]isAndroid | [29]isWeb | [30]open | [31]state | [32]openMenu | [33]isDestroyed | [34]viewModel | [35]enabled | [36]onLongPress | [37]setState | [38]generation | [39]beginRender | [40]setAttributes | [41]attributes | [42]setAttributeString | [43]accessibilityId | [44]setAttributeFunction | [45]renderUnnamedSlot | [46]endRender | [47]beginComponent | [48]AndroidNativeMenuAnchor | [49]setViewModelProperty | [50]viewFactory | [51]actions | [52]onSelect | [53]onDismiss | [54]endComponent
+
+-- fn name=r args=1 vars=0 closure=1 cpool=0 bc=157B file=native_menu/src/AndroidNativeContextMenu
+   locals: e
+   closure: n
+     0  get_var_ref_check 0: n
+     3  get_field Device  ;+28B
+    36  get_field2 isAndroid
+    69  call_method #args=0
+    72  dup
+    73  if_false8 -> 009c
+    75  drop
+    76  get_var_ref_check 0: n
+    79  get_field Device
+   112  get_field2 isWeb
+   145  call_method #args=0
+   148  lnot
+   149  dup
+   150  if_false8 -> 009c
+   152  drop
+   153  undefined
+   154  get_arg0 0: e
+   155  strict_neq
+L  156  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=372B file=native_menu/src/AndroidNativeContextMenu
+   locals: e
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field2 isDestroyed  ;+28B
+    36  call_method #args=0
+    39  dup
+    40  if_true -> 0173
+    45  drop
+    46  push_0 0
+    47  get_arg0 0: e
+    48  get_field state
+    81  strict_neq
+    82  dup
+    83  if_true -> 0173
+    88  drop
+    89  get_var_ref_check 0: this
+    92  get_field state
+   125  get_field open
+   158  dup
+   159  if_true -> 0173
+   164  drop
+   165  get_var_ref_check 0: this
+   168  get_field viewModel
+   201  get_field enabled
+   234  lnot
+   235  dup
+   236  if_true -> 0173
+   241  drop
+   242  get_var_ref_check 0: this
+   245  get_field viewModel
+   278  get_field2 onLongPress
+   311  dup
+   312  is_undefined_or_null
+   313  if_false8 -> 0140
+   315  drop
+   316  drop
+   317  undefined
+   318  goto8 -> 0143
+L  320  call_method #args=0
+L  323  drop
+   324  get_var_ref_check 0: this
+   327  get_field2 setState
+   360  object
+   361  push_0 0
+   362  lnot
+   363  define_field open
+   368  call_method #args=1
+L  371  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=1 bc=83B file=native_menu/src/AndroidNativeContextMenu
+   locals: this, this.active_func, new.target, arguments
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc1 1: this.active_func
+     3  special_object 3
+     5  put_loc2 2: new.target
+     6  set_loc_uninitialized 0: this
+     9  special_object 0
+    11  put_loc3 3: arguments
+    12  check_ctor
+    13  get_loc1 1: this.active_func
+    14  get_super
+    15  get_loc2 2: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc3 3: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 0: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 0: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 0: this
+    48  object
+    49  push_1 1
+    50  lnot
+    51  define_field open
+    56  put_field state
+    65  get_loc_check 0: this
+    68  fclosure8 0: <function <atom:0>>
+    70  put_field openMenu
+    79  get_loc_check 0: this
+    82  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=136B file=native_menu/src/AndroidNativeContextMenu
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_arg0 0: e
+     3  dup
+     4  is_undefined_or_null
+     5  if_false8 -> 000b
+     7  drop
+     8  undefined
+     9  goto8 -> 002c
+L   11  get_field generation  ;+28B
+L   44  get_loc0 0: this
+    45  get_field viewModel
+    78  get_field generation
+   111  strict_neq
+   112  dup
+   113  if_false8 -> 0087
+   115  drop
+   116  get_loc0 0: this
+   117  object
+   118  push_1 1
+   119  lnot
+   120  define_field open
+   125  insert2
+   126  put_field state
+L  135  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=4 cpool=0 bc=672B file=native_menu/src/AndroidNativeContextMenu
+   closure: e, s, i, this
+     0  get_var_ref_check 0: e
+     3  get_field2 beginComponent  ;+28B
+    36  get_var_ref_check 1: s
+    39  get_field AndroidNativeMenuAnchor
+    72  get_var_ref_check 2: i
+    75  push_empty_string
+    76  get_field2 concat
+   109  get_var_ref3 3: this
+   110  get_field viewModel
+   143  get_field generation
+   176  call_method #args=1
+   179  undefined
+   180  call_method #args=4
+   183  drop
+   184  get_var_ref_check 0: e
+   187  get_field2 setViewModelProperty
+   220  push_atom_value viewFactory
+   225  get_var_ref3 3: this
+   226  get_field viewModel
+   259  get_field viewFactory
+   292  call_method #args=2
+   295  drop
+   296  get_var_ref_check 0: e
+   299  get_field2 setViewModelProperty
+   332  push_atom_value actions
+   337  get_var_ref3 3: this
+   338  get_field viewModel
+   371  get_field actions
+   404  call_method #args=2
+   407  drop
+   408  get_var_ref_check 0: e
+   411  get_field2 setViewModelProperty
+   444  push_atom_value onSelect
+   449  get_var_ref3 3: this
+   450  get_field viewModel
+   483  get_field onSelect
+   516  call_method #args=2
+   519  drop
+   520  get_var_ref_check 0: e
+   523  get_field2 setViewModelProperty
+   556  push_atom_value onDismiss
+   561  get_var_ref3 3: this
+   562  get_field viewModel
+   595  get_field onDismiss
+   628  call_method #args=2
+   631  drop
+   632  get_var_ref_check 0: e
+   635  get_field2 endComponent
+   668  call_method #args=0
+   671  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=4 cpool=1 bc=572B file=native_menu/src/AndroidNativeContextMenu
+   locals: this
+   closure: e, s, i, t
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: e
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 3: t
+    41  undefined
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: e
+    49  get_field2 setAttributes
+    82  get_loc0 0: this
+    83  get_field viewModel
+   116  get_field attributes
+   149  call_method #args=1
+   152  drop
+   153  get_var_ref_check 0: e
+   156  get_field2 setAttributeString
+   189  push_atom_value accessibilityId
+   194  get_loc0 0: this
+   195  get_field viewModel
+   228  get_field accessibilityId
+   261  call_method #args=2
+   264  drop
+   265  get_var_ref_check 0: e
+   268  get_field2 setAttributeFunction
+   301  push_atom_value onLongPress
+   306  get_loc0 0: this
+   307  get_field viewModel
+   340  get_field enabled
+   373  if_false8 -> 019b
+   375  get_loc0 0: this
+   376  get_field openMenu
+   409  goto8 -> 019c
+L  411  undefined
+L  412  call_method #args=2
+   415  drop
+   416  get_var_ref_check 0: e
+   419  get_field2 renderUnnamedSlot
+   452  get_loc0 0: this
+   453  call_method #args=1
+   456  drop
+   457  get_loc0 0: this
+   458  get_field state
+   491  get_field open
+   524  dup
+   525  if_false8 -> 0213
+   527  drop
+   528  fclosure8 0: <function <atom:0>>
+   530  call0 #args=0
+L  531  drop
+   532  get_var_ref_check 0: e
+   535  get_field2 endRender
+   568  call_method #args=0
+   571  return_undef
+
+-- fn name=<atom:0> args=3 vars=10 closure=0 cpool=4 bc=370B file=native_menu/src/AndroidNativeContextMenu
+   locals: require, module, exports, e, t, i, o, n, s, r, AndroidNativeContextMenu, <class_fields_init>, AndroidNativeContextMenu
+     0  fclosure8 0: <function r>
+     2  put_loc8 6: r
+     4  set_loc_uninitialized 9: AndroidNativeContextMenu
+     7  set_loc_uninitialized 5: s
+    10  set_loc_uninitialized 4: n
+    13  set_loc_uninitialized 3: o
+    16  set_loc_uninitialized 2: i
+    19  set_loc_uninitialized 1: t
+    22  set_loc_uninitialized 0: e
+    25  get_var Object
+    30  get_field2 defineProperty
+    63  get_arg2 2: exports
+    64  push_atom_value __esModule
+    69  object
+    70  push_0 0
+    71  lnot
+    72  define_field value
+    77  call_method #args=3
+    80  drop
+    81  get_arg2 2: exports
+    82  get_arg2 2: exports
+    83  undefined
+    84  insert2
+    85  put_field supportsAndroidNativeContextMenu
+    94  put_field AndroidNativeContextMenu
+   103  get_arg0 0: require
+   104  push_atom_value valdi_core/src/JSX
+   109  call1 #args=1
+   110  get_field jsx
+   143  put_loc0 0: e
+   144  get_loc_check 0: e
+   147  get_field2 makeNodePrototype
+   180  push_atom_value view
+   185  undefined
+   186  push_atom_value yCb14yPFsxlPhX4j
+   191  call_method #args=3
+   194  put_loc1 1: t
+   195  get_loc_check 0: e
+   198  get_field2 makeComponentPrototype
+   231  undefined
+   232  push_atom_value WRHRxy0Q9aTZDaTe
+   237  call_method #args=2
+   240  put_loc2 2: i
+   241  get_arg0 0: require
+   242  push_atom_value valdi_core/src/Component
+   247  call1 #args=1
+   248  put_loc3 3: o
+   249  get_arg0 0: require
+   250  push_atom_value valdi_core/src/Device
+   255  call1 #args=1
+   256  put_loc8 4: n
+   258  get_arg0 0: require
+   259  push_atom_value ./AndroidNativeMenuAnchor
+   264  call1 #args=1
+   265  put_loc8 5: s
+   267  get_arg2 2: exports
+   268  get_loc8 6: r
+   270  put_field supportsAndroidNativeContextMenu
+   279  set_loc_uninitialized 7: AndroidNativeContextMenu
+   282  get_loc_check 3: o
+   285  get_field StatefulComponent
+   318  set_loc_uninitialized 8: <class_fields_init>
+   321  push_const8 1: <function <atom:0>>
+   323  define_class AndroidNativeContextMenu,1
+   329  fclosure8 2: <function <atom:0>>
+   331  define_method onViewModelUpdate,0
+   337  fclosure8 3: <function <atom:0>>
+   339  define_method onRender,0
+   345  undefined
+   346  put_loc8 8: <class_fields_init>
+   348  drop
+   349  set_loc8 7: AndroidNativeContextMenu
+   351  close_loc 8: <class_fields_init>
+   354  put_loc8 9: AndroidNativeContextMenu
+   356  get_arg2 2: exports
+   357  get_loc_check 9: AndroidNativeContextMenu
+   360  put_field AndroidNativeContextMenu
+   369  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=native_menu/src/AndroidNativeContextMenu
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/AndroidNativeMenuAnchor.js  (2382 B)
+# 原子基准=215 原子表 50 条
+-- 原子表 --
+   [0]native_menu/src/AndroidNativeMenuAnchor | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]i | [7]s | [8]AndroidNativeMenuAnchor | [9]o | [10]__esModule | [11]valdi_core/src/JSX | [12]jsx | [13]makeNodePrototype | [14]custom-view | [15]KwizsidDZLDl5Ifq | [16]valdi_core/src/Component | [17]valdi_core/src/Style | [18]Component | [19]onRender | [20]Style | [21]allowReuse | [22]absolute | [23]position | [24]left | [25]top | [26]100% | [27]width | [28]height | [29]touchEnabled | [30]ignored | [31]accessibilityNavigation | [32]settled | [33]select | [34]dismiss | [35]isDestroyed | [36]viewModel | [37]actions | [38]find | [39]disabled | [40]onSelect | [41]id | [42]onDismiss | [43]beginRenderWithViewFactory | [44]viewFactory | [45]setAttributeStyle | [46]style | [47]setAttribute | [48]setAttributeFunction | [49]endRender
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=37B file=native_menu/src/AndroidNativeMenuAnchor
+   locals: t
+   closure: e
+     0  get_arg0 0: t
+     1  get_field id  ;+28B
+    34  get_var_ref0 0: e
+    35  strict_eq
+    36  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=1 bc=333B file=native_menu/src/AndroidNativeMenuAnchor
+   locals: e, t
+   closure: this
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref_check 0: this
+     6  get_field settled  ;+28B
+    39  dup
+    40  if_true8 -> 0052
+    42  drop
+    43  get_var_ref_check 0: this
+    46  get_field2 isDestroyed
+    79  call_method #args=0
+L   82  if_false8 -> 0055
+    84  return_undef
+L   85  get_var_ref_check 0: this
+    88  get_field viewModel
+   121  get_field actions
+   154  get_field2 find
+   187  fclosure8 0: <function <atom:0>>
+   189  call_method #args=1
+   192  put_loc0 0: t
+   193  undefined
+   194  get_loc_check 0: t
+   197  strict_eq
+   198  dup
+   199  if_true -> 014c
+   204  drop
+   205  get_loc_check 0: t
+   208  get_field disabled
+   241  dup
+   242  if_true8 -> 014c
+   244  drop
+   245  get_var_ref_check 0: this
+   248  push_0 0
+   249  lnot
+   250  put_field settled
+   259  get_var_ref_check 0: this
+   262  get_field viewModel
+   295  get_field2 onSelect
+   328  get_arg0 0: e
+   329  call_method #args=1
+L  332  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=173B file=native_menu/src/AndroidNativeMenuAnchor
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field settled  ;+28B
+    36  dup
+    37  if_true -> 00ac
+    42  drop
+    43  get_var_ref_check 0: this
+    46  get_field2 isDestroyed
+    79  call_method #args=0
+    82  dup
+    83  if_true8 -> 00ac
+    85  drop
+    86  get_var_ref_check 0: this
+    89  push_0 0
+    90  lnot
+    91  put_field settled
+   100  get_var_ref_check 0: this
+   103  get_field viewModel
+   136  get_field2 onDismiss
+   169  call_method #args=0
+L  172  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=2 bc=91B file=native_menu/src/AndroidNativeMenuAnchor
+   locals: this, this.active_func, new.target, arguments
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc1 1: this.active_func
+     3  special_object 3
+     5  put_loc2 2: new.target
+     6  set_loc_uninitialized 0: this
+     9  special_object 0
+    11  put_loc3 3: arguments
+    12  check_ctor
+    13  get_loc1 1: this.active_func
+    14  get_super
+    15  get_loc2 2: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc3 3: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 0: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 0: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 0: this
+    48  push_1 1
+    49  lnot
+    50  put_field settled
+    59  get_loc_check 0: this
+    62  fclosure8 0: <function <atom:0>>
+    64  put_field select
+    73  get_loc_check 0: this
+    76  fclosure8 1: <function <atom:0>>
+    78  put_field dismiss
+    87  get_loc_check 0: this
+    90  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=3 cpool=0 bc=471B file=native_menu/src/AndroidNativeMenuAnchor
+   locals: this
+   closure: e, t, o
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: e
+     5  get_field2 beginRenderWithViewFactory  ;+28B
+    38  get_var_ref_check 1: t
+    41  get_loc0 0: this
+    42  get_field viewModel
+    75  get_field viewFactory
+   108  undefined
+   109  call_method #args=3
+   112  drop
+   113  get_var_ref_check 0: e
+   116  get_field2 setAttributeStyle
+   149  push_atom_value style
+   154  get_var_ref_check 2: o
+   157  call_method #args=2
+   160  drop
+   161  get_var_ref_check 0: e
+   164  get_field2 setAttribute
+   197  push_atom_value actions
+   202  get_loc0 0: this
+   203  get_field viewModel
+   236  get_field actions
+   269  call_method #args=2
+   272  drop
+   273  get_var_ref_check 0: e
+   276  get_field2 setAttributeFunction
+   309  push_atom_value onSelect
+   314  get_loc0 0: this
+   315  get_field select
+   348  call_method #args=2
+   351  drop
+   352  get_var_ref_check 0: e
+   355  get_field2 setAttributeFunction
+   388  push_atom_value onDismiss
+   393  get_loc0 0: this
+   394  get_field dismiss
+   427  call_method #args=2
+   430  drop
+   431  get_var_ref_check 0: e
+   434  get_field2 endRender
+   467  call_method #args=0
+   470  return_undef
+
+-- fn name=<atom:0> args=3 vars=8 closure=0 cpool=2 bc=385B file=native_menu/src/AndroidNativeMenuAnchor
+   locals: require, module, exports, e, t, i, s, AndroidNativeMenuAnchor, <class_fields_init>, AndroidNativeMenuAnchor, o
+     0  set_loc_uninitialized 7: o
+     3  set_loc_uninitialized 6: AndroidNativeMenuAnchor
+     6  set_loc_uninitialized 3: s
+     9  set_loc_uninitialized 2: i
+    12  set_loc_uninitialized 1: t
+    15  set_loc_uninitialized 0: e
+    18  get_var Object
+    23  get_field2 defineProperty  ;+28B
+    56  get_arg2 2: exports
+    57  push_atom_value __esModule
+    62  object
+    63  push_0 0
+    64  lnot
+    65  define_field value
+    70  call_method #args=3
+    73  drop
+    74  get_arg2 2: exports
+    75  undefined
+    76  put_field AndroidNativeMenuAnchor
+    85  get_arg0 0: require
+    86  push_atom_value valdi_core/src/JSX
+    91  call1 #args=1
+    92  get_field jsx
+   125  put_loc0 0: e
+   126  get_loc_check 0: e
+   129  get_field2 makeNodePrototype
+   162  push_atom_value custom-view
+   167  undefined
+   168  push_atom_value KwizsidDZLDl5Ifq
+   173  call_method #args=3
+   176  put_loc1 1: t
+   177  get_arg0 0: require
+   178  push_atom_value valdi_core/src/Component
+   183  call1 #args=1
+   184  put_loc2 2: i
+   185  get_arg0 0: require
+   186  push_atom_value valdi_core/src/Style
+   191  call1 #args=1
+   192  put_loc3 3: s
+   193  set_loc_uninitialized 4: AndroidNativeMenuAnchor
+   196  get_loc_check 2: i
+   199  get_field Component
+   232  set_loc_uninitialized 5: <class_fields_init>
+   235  push_const8 0: <function <atom:0>>
+   237  define_class AndroidNativeMenuAnchor,1
+   243  fclosure8 1: <function <atom:0>>
+   245  define_method onRender,0
+   251  undefined
+   252  put_loc8 5: <class_fields_init>
+   254  drop
+   255  set_loc8 4: AndroidNativeMenuAnchor
+   257  close_loc 5: <class_fields_init>
+   260  put_loc8 6: AndroidNativeMenuAnchor
+   262  get_arg2 2: exports
+   263  get_loc_check 6: AndroidNativeMenuAnchor
+   266  put_field AndroidNativeMenuAnchor
+   275  get_loc_check 3: s
+   278  get_field Style
+   311  dup
+   312  object
+   313  push_1 1
+   314  lnot
+   315  define_field allowReuse
+   320  push_atom_value absolute
+   325  define_field position
+   330  push_0 0
+   331  define_field left
+   336  push_0 0
+   337  define_field top
+   342  push_atom_value 100%
+   347  define_field width
+   352  push_atom_value 100%
+   357  define_field height
+   362  push_1 1
+   363  lnot
+   364  define_field touchEnabled
+   369  push_atom_value ignored
+   374  define_field accessibilityNavigation
+   379  call_constructor #args=1
+   382  put_loc8 7: o
+   384  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=native_menu/src/AndroidNativeMenuAnchor
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/IOSNativeContextMenu.js  (2332 B)
+# 原子基准=215 原子表 45 条
+-- 原子表 --
+   [0]native_menu/src/IOSNativeContextMenu | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]i | [7]s | [8]o | [9]r | [10]IOSNativeContextMenu | [11]__esModule | [12]supportsIOSNativeContextMenu | [13]valdi_core/src/JSX | [14]jsx | [15]makeNodePrototype | [16]custom-view | [17]WQv5WqxUNeNIHpZh | [18]valdi_core/src/Component | [19]valdi_core/src/CompilerIntrinsics | [20]valdi_core/src/Device | [21]Component | [22]onRender | [23]Device | [24]isIOS | [25]isWeb | [26]isVersionAtLeast | [27]beginRender | [28]setAttributes | [29]viewModel | [30]attributes | [31]setAttribute | [32]iosClass | [33]ValdiNativeContextMenuView | [34]setAttributeString | [35]accessibilityId | [36]contentId | [37]actions | [38]enabled | [39]setAttributeFunction | [40]onSelect | [41]setAttributeNumber | [42]previewCornerRadius | [43]renderUnnamedSlot | [44]endRender
+
+-- fn name=r args=0 vars=0 closure=2 cpool=0 bc=194B file=native_menu/src/IOSNativeContextMenu
+   closure: o, s
+     0  get_var_ref_check 0: o
+     3  get_field Device  ;+28B
+    36  get_field2 isIOS
+    69  call_method #args=0
+    72  dup
+    73  if_false8 -> 00c1
+    75  drop
+    76  get_var_ref_check 0: o
+    79  get_field Device
+   112  get_field2 isWeb
+   145  call_method #args=0
+   148  lnot
+   149  dup
+   150  if_false8 -> 00c1
+   152  drop
+   153  get_var_ref_check 1: s
+   156  get_field isVersionAtLeast
+   189  push_i16 194
+   192  call1 #args=1
+L  193  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=2 cpool=0 bc=918B file=native_menu/src/IOSNativeContextMenu
+   locals: this
+   closure: e, t
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: e
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: t
+    41  undefined
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: e
+    49  get_field2 setAttributes
+    82  get_loc0 0: this
+    83  get_field viewModel
+   116  get_field attributes
+   149  call_method #args=1
+   152  drop
+   153  get_var_ref_check 0: e
+   156  get_field2 setAttribute
+   189  push_atom_value iosClass
+   194  push_atom_value ValdiNativeContextMenuView
+   199  call_method #args=2
+   202  drop
+   203  get_var_ref_check 0: e
+   206  get_field2 setAttributeString
+   239  push_atom_value accessibilityId
+   244  get_loc0 0: this
+   245  get_field viewModel
+   278  get_field accessibilityId
+   311  call_method #args=2
+   314  drop
+   315  get_var_ref_check 0: e
+   318  get_field2 setAttributeString
+   351  push_atom_value contentId
+   356  get_loc0 0: this
+   357  get_field viewModel
+   390  get_field contentId
+   423  call_method #args=2
+   426  drop
+   427  get_var_ref_check 0: e
+   430  get_field2 setAttribute
+   463  push_atom_value actions
+   468  get_loc0 0: this
+   469  get_field viewModel
+   502  get_field enabled
+   535  if_false8 -> 025e
+   537  get_loc0 0: this
+   538  get_field viewModel
+   571  get_field actions
+   604  goto8 -> 0261
+L  606  array_from #args=0
+L  609  call_method #args=2
+   612  drop
+   613  get_var_ref_check 0: e
+   616  get_field2 setAttributeFunction
+   649  push_atom_value onSelect
+   654  get_loc0 0: this
+   655  get_field viewModel
+   688  get_field onSelect
+   721  call_method #args=2
+   724  drop
+   725  get_var_ref_check 0: e
+   728  get_field2 setAttributeNumber
+   761  push_atom_value previewCornerRadius
+   766  get_loc0 0: this
+   767  get_field viewModel
+   800  get_field previewCornerRadius
+   833  call_method #args=2
+   836  drop
+   837  get_var_ref_check 0: e
+   840  get_field2 renderUnnamedSlot
+   873  get_loc0 0: this
+   874  call_method #args=1
+   877  drop
+   878  get_var_ref_check 0: e
+   881  get_field2 endRender
+   914  call_method #args=0
+   917  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=0 bc=49B file=native_menu/src/IOSNativeContextMenu
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  return
+
+-- fn name=<atom:0> args=3 vars=9 closure=0 cpool=3 bc=312B file=native_menu/src/IOSNativeContextMenu
+   locals: require, module, exports, e, t, i, s, o, r, IOSNativeContextMenu, <class_fields_init>, IOSNativeContextMenu
+     0  fclosure8 0: <function r>
+     2  put_loc8 5: r
+     4  set_loc_uninitialized 8: IOSNativeContextMenu
+     7  set_loc_uninitialized 4: o
+    10  set_loc_uninitialized 3: s
+    13  set_loc_uninitialized 2: i
+    16  set_loc_uninitialized 1: t
+    19  set_loc_uninitialized 0: e
+    22  get_var Object
+    27  get_field2 defineProperty  ;+28B
+    60  get_arg2 2: exports
+    61  push_atom_value __esModule
+    66  object
+    67  push_0 0
+    68  lnot
+    69  define_field value
+    74  call_method #args=3
+    77  drop
+    78  get_arg2 2: exports
+    79  get_arg2 2: exports
+    80  undefined
+    81  insert2
+    82  put_field supportsIOSNativeContextMenu
+    91  put_field IOSNativeContextMenu
+   100  get_arg0 0: require
+   101  push_atom_value valdi_core/src/JSX
+   106  call1 #args=1
+   107  get_field jsx
+   140  put_loc0 0: e
+   141  get_loc_check 0: e
+   144  get_field2 makeNodePrototype
+   177  push_atom_value custom-view
+   182  undefined
+   183  push_atom_value WQv5WqxUNeNIHpZh
+   188  call_method #args=3
+   191  put_loc1 1: t
+   192  get_arg0 0: require
+   193  push_atom_value valdi_core/src/Component
+   198  call1 #args=1
+   199  put_loc2 2: i
+   200  get_arg0 0: require
+   201  push_atom_value valdi_core/src/CompilerIntrinsics
+   206  call1 #args=1
+   207  put_loc3 3: s
+   208  get_arg0 0: require
+   209  push_atom_value valdi_core/src/Device
+   214  call1 #args=1
+   215  put_loc8 4: o
+   217  get_arg2 2: exports
+   218  get_loc8 5: r
+   220  put_field supportsIOSNativeContextMenu
+   229  set_loc_uninitialized 6: IOSNativeContextMenu
+   232  get_loc_check 2: i
+   235  get_field Component
+   268  set_loc_uninitialized 7: <class_fields_init>
+   271  push_const8 2: <function <atom:0>>
+   273  define_class IOSNativeContextMenu,1
+   279  fclosure8 1: <function <atom:0>>
+   281  define_method onRender,0
+   287  undefined
+   288  put_loc8 7: <class_fields_init>
+   290  drop
+   291  set_loc8 6: IOSNativeContextMenu
+   293  close_loc 7: <class_fields_init>
+   296  put_loc8 8: IOSNativeContextMenu
+   298  get_arg2 2: exports
+   299  get_loc_check 8: IOSNativeContextMenu
+   302  put_field IOSNativeContextMenu
+   311  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=native_menu/src/IOSNativeContextMenu
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NativeContextMenu.js  (6526 B)
+# 原子基准=215 原子表 71 条
+-- 原子表 --
+   [0]native_menu/src/NativeContextMenu | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]i | [7]o | [8]s | [9]n | [10]r | [11]d | [12]a | [13]NativeContextMenu | [14]__esModule | [15]supportsNativeContextMenu | [16]valdi_core/src/JSX | [17]jsx | [18]makeComponentPrototype | [19]PChut9HFTY0kkSTu | [20]iUs0--6pbclDf7RK | [21]makeNodePrototype | [22]view | [23]BhIvi2XR0nVDS4Aj | [24]valdi_core/src/Component | [25]./NativeMenuIcons | [26]./AndroidNativeContextMenu | [27]./IOSNativeContextMenu | [28]StatefulComponent | [29]onViewModelUpdate | [30]onDestroy | [31]onRender | [32]bindSelection | [33]supportsIOSNativeContextMenu | [34]supportsAndroidNativeContextMenu | [35]nativeMenuViewFactory | [36]generation | [37]actions | [38]state | [39]NativeMenuIcons | [40]icons | [41]dismiss | [42]setState | [43]isDestroyed | [44]viewModel | [45]context | [46]update | [47]dispose | [48]contentId | [49]disabled | [50]onSelect | [51]accessibilityId | [52]attributes | [53]beginComponent | [54]IOSNativeContextMenu | [55]setViewModelProperties | [56]setViewModelProperty | [57]enabled | [58]handleSelection | [59]onDismiss | [60]setUnnamedSlot | [61]endComponent | [62]AndroidNativeContextMenu | [63]viewFactory | [64]beginRender | [65]setAttributes | [66]setAttributeString | [67]renderUnnamedSlot | [68]endRender | [69]find | [70]id
+
+-- fn name=a args=1 vars=0 closure=2 cpool=0 bc=121B file=native_menu/src/NativeContextMenu
+   locals: e
+   closure: d, r
+     0  get_var_ref_check 0: d
+     3  get_field supportsIOSNativeContextMenu  ;+28B
+    36  call0 #args=0
+    37  dup
+    38  if_true8 -> 0078
+    40  drop
+    41  get_var_ref_check 1: r
+    44  get_field supportsAndroidNativeContextMenu
+    77  get_arg0 0: e
+    78  dup
+    79  is_undefined_or_null
+    80  if_false8 -> 0056
+    82  drop
+    83  undefined
+    84  goto8 -> 0077
+L   86  get_field nativeMenuViewFactory
+L  119  call1 #args=1
+L  120  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=46B file=native_menu/src/NativeContextMenu
+   locals: e
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field2 setState  ;+28B
+    36  object
+    37  get_arg0 0: e
+    38  define_field actions
+    43  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=209B file=native_menu/src/NativeContextMenu
+   locals: e
+   closure: this
+     0  set_loc_uninitialized 0: e
+     3  get_var_ref_check 0: this
+     6  get_field2 isDestroyed  ;+28B
+    39  call_method #args=0
+    42  if_false8 -> 002d
+    44  return_undef
+L   45  get_var_ref_check 0: this
+    48  get_field state
+    81  get_field generation
+   114  push_1 1
+   115  add
+   116  put_loc0 0: e
+   117  get_var_ref_check 0: this
+   120  get_field2 bindSelection
+   153  get_loc_check 0: e
+   156  call_method #args=1
+   159  drop
+   160  get_var_ref_check 0: this
+   163  get_field2 setState
+   196  object
+   197  get_loc_check 0: e
+   200  define_field generation
+   205  call_method #args=1
+   208  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=2 cpool=2 bc=144B file=native_menu/src/NativeContextMenu
+   locals: this, this.active_func, new.target, arguments
+   closure: <class_fields_init>, n
+     0  special_object 2
+     2  put_loc1 1: this.active_func
+     3  special_object 3
+     5  put_loc2 2: new.target
+     6  set_loc_uninitialized 0: this
+     9  special_object 0
+    11  put_loc3 3: arguments
+    12  check_ctor
+    13  get_loc1 1: this.active_func
+    14  get_super
+    15  get_loc2 2: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc3 3: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 0: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 0: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 0: this
+    48  object
+    49  push_0 0
+    50  define_field generation
+    55  array_from #args=0
+    58  define_field actions
+    63  put_field state
+    72  get_loc_check 0: this
+    75  get_var_ref_check 1: n
+    78  get_field NativeMenuIcons
+   111  dup
+   112  fclosure8 0: <function <atom:0>>
+   114  call_constructor #args=1
+   117  put_field icons
+   126  get_loc_check 0: this
+   129  fclosure8 1: <function <atom:0>>
+   131  put_field dismiss
+   140  get_loc_check 0: this
+   143  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=0 bc=925B file=native_menu/src/NativeContextMenu
+   locals: e, t, this
+   closure: a
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field viewModel  ;+28B
+    39  put_loc0 0: t
+    40  get_var_ref0 0: a
+    41  get_loc1 1: this
+    42  get_field context
+    75  call1 #args=1
+    76  if_false8 -> 00ba
+    78  get_loc1 1: this
+    79  get_field icons
+   112  get_field2 update
+   145  get_loc_check 0: t
+   148  get_field actions
+   181  call_method #args=1
+   184  goto8 -> 0100
+L  186  get_loc1 1: this
+   187  get_field icons
+   220  get_field2 dispose
+   253  call_method #args=0
+L  256  drop
+   257  get_loc1 1: this
+   258  object
+   259  get_loc1 1: this
+   260  get_field state
+   293  null
+   294  copy_data_properties 6
+   296  drop
+   297  drop
+   298  get_loc1 1: this
+   299  get_field icons
+   332  get_field actions
+   365  define_field actions
+   370  put_field state
+   379  get_arg0 0: e
+   380  dup
+   381  is_undefined_or_null
+   382  if_false8 -> 0184
+   384  drop
+   385  undefined
+   386  goto8 -> 01a5
+L  388  get_field contentId
+L  421  get_loc_check 0: t
+   424  get_field contentId
+   457  strict_eq
+   458  dup
+   459  if_false -> 02b1
+   464  drop
+   465  get_arg0 0: e
+   466  get_field actions
+   499  get_loc_check 0: t
+   502  get_field actions
+   535  strict_eq
+   536  dup
+   537  if_false -> 02b1
+   542  drop
+   543  get_arg0 0: e
+   544  get_field disabled
+   577  get_loc_check 0: t
+   580  get_field disabled
+   613  strict_eq
+   614  dup
+   615  if_false8 -> 02b1
+   617  drop
+   618  get_arg0 0: e
+   619  get_field onSelect
+   652  get_loc_check 0: t
+   655  get_field onSelect
+   688  strict_eq
+L  689  dup
+   690  if_true -> 039c
+   695  drop
+   696  get_loc1 1: this
+   697  object
+   698  get_loc1 1: this
+   699  get_field state
+   732  null
+   733  copy_data_properties 6
+   735  drop
+   736  drop
+   737  get_loc1 1: this
+   738  get_field state
+   771  get_field generation
+   804  push_1 1
+   805  add
+   806  define_field generation
+   811  put_field state
+   820  get_loc1 1: this
+   821  get_field2 bindSelection
+   854  get_loc1 1: this
+   855  get_field state
+   888  get_field generation
+   921  call_method #args=1
+L  924  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=73B file=native_menu/src/NativeContextMenu
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field icons  ;+28B
+    36  get_field2 dispose
+    69  call_method #args=0
+    72  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=41B file=native_menu/src/NativeContextMenu
+   closure: e, this
+     0  get_var_ref_check 0: e
+     3  get_field2 renderUnnamedSlot  ;+28B
+    36  get_var_ref1 1: this
+    37  call_method #args=1
+    40  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=41B file=native_menu/src/NativeContextMenu
+   closure: e, this
+     0  get_var_ref_check 0: e
+     3  get_field2 renderUnnamedSlot  ;+28B
+    36  get_var_ref1 1: this
+    37  call_method #args=1
+    40  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=6 cpool=2 bc=2345B file=native_menu/src/NativeContextMenu
+   locals: s, n, a, this
+   closure: e, d, t, r, i, o
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 2: a
+     5  set_loc_uninitialized 1: n
+     8  set_loc_uninitialized 0: s
+    11  get_loc3 3: this
+    12  get_field viewModel  ;+28B
+    45  get_field accessibilityId
+    78  dup
+    79  is_undefined_or_null
+    80  if_false8 -> 00bf
+    82  drop
+    83  get_loc3 3: this
+    84  get_field viewModel
+   117  get_field attributes
+   150  dup
+   151  is_undefined_or_null
+   152  if_false8 -> 009e
+   154  drop
+   155  undefined
+   156  goto8 -> 00bf
+L  158  get_field accessibilityId
+L  191  put_loc0 0: s
+   192  get_loc3 3: this
+   193  get_field viewModel
+   226  get_field disabled
+   259  lnot
+   260  dup
+   261  if_false -> 019b
+   266  drop
+   267  get_loc3 3: this
+   268  get_field viewModel
+   301  get_field contentId
+   334  get_length
+   335  push_0 0
+   336  gt
+   337  dup
+   338  if_false8 -> 019b
+   340  drop
+   341  get_loc3 3: this
+   342  get_field state
+   375  get_field actions
+   408  get_length
+   409  push_0 0
+   410  gt
+L  411  put_loc1 1: n
+   412  get_var_ref_check 1: d
+   415  get_field supportsIOSNativeContextMenu
+   448  call0 #args=0
+   449  if_false -> 0492
+   454  get_var_ref_check 0: e
+   457  get_field2 beginComponent
+   490  get_var_ref_check 1: d
+   493  get_field IOSNativeContextMenu
+   526  get_var_ref_check 2: t
+   529  undefined
+   530  undefined
+   531  call_method #args=4
+   534  drop
+   535  get_var_ref_check 0: e
+   538  get_field2 setViewModelProperties
+   571  get_loc3 3: this
+   572  get_field viewModel
+   605  call_method #args=1
+   608  drop
+   609  get_var_ref_check 0: e
+   612  get_field2 setViewModelProperty
+   645  push_atom_value actions
+   650  get_loc3 3: this
+   651  get_field state
+   684  get_field actions
+   717  call_method #args=2
+   720  drop
+   721  get_var_ref_check 0: e
+   724  get_field2 setViewModelProperty
+   757  push_atom_value accessibilityId
+   762  get_loc_check 0: s
+   765  call_method #args=2
+   768  drop
+   769  get_var_ref_check 0: e
+   772  get_field2 setViewModelProperty
+   805  push_atom_value enabled
+   810  get_loc_check 1: n
+   813  call_method #args=2
+   816  drop
+   817  get_var_ref_check 0: e
+   820  get_field2 setViewModelProperty
+   853  push_atom_value generation
+   858  get_loc3 3: this
+   859  get_field state
+   892  get_field generation
+   925  call_method #args=2
+   928  drop
+   929  get_var_ref_check 0: e
+   932  get_field2 setViewModelProperty
+   965  push_atom_value onSelect
+   970  get_loc3 3: this
+   971  get_field handleSelection
+  1004  call_method #args=2
+  1007  drop
+  1008  get_var_ref_check 0: e
+  1011  get_field2 setViewModelProperty
+  1044  push_atom_value onDismiss
+  1049  get_loc3 3: this
+  1050  get_field dismiss
+  1083  call_method #args=2
+  1086  drop
+  1087  get_var_ref_check 0: e
+  1090  get_field2 setUnnamedSlot
+  1123  fclosure8 0: <function <atom:0>>
+  1125  call_method #args=1
+  1128  drop
+  1129  get_var_ref_check 0: e
+  1132  get_field2 endComponent
+  1165  call_method #args=0
+  1168  drop
+  1169  return_undef
+L 1170  get_loc3 3: this
+  1171  get_field context
+  1204  dup
+  1205  is_undefined_or_null
+  1206  if_false8 -> 04bc
+  1208  drop
+  1209  undefined
+  1210  goto8 -> 04dd
+L 1212  get_field nativeMenuViewFactory
+L 1245  put_loc2 2: a
+  1246  undefined
+  1247  get_loc_check 2: a
+  1250  strict_neq
+  1251  if_false -> 0811
+  1256  get_var_ref_check 3: r
+  1259  get_field supportsAndroidNativeContextMenu
+  1292  get_loc_check 2: a
+  1295  call1 #args=1
+  1296  if_false -> 0811
+  1301  get_var_ref_check 0: e
+  1304  get_field2 beginComponent
+  1337  get_var_ref_check 3: r
+  1340  get_field AndroidNativeContextMenu
+  1373  get_var_ref_check 4: i
+  1376  undefined
+  1377  undefined
+  1378  call_method #args=4
+  1381  drop
+  1382  get_var_ref_check 0: e
+  1385  get_field2 setViewModelProperties
+  1418  get_loc3 3: this
+  1419  get_field viewModel
+  1452  call_method #args=1
+  1455  drop
+  1456  get_var_ref_check 0: e
+  1459  get_field2 setViewModelProperty
+  1492  push_atom_value actions
+  1497  get_loc3 3: this
+  1498  get_field state
+  1531  get_field actions
+  1564  call_method #args=2
+  1567  drop
+  1568  get_var_ref_check 0: e
+  1571  get_field2 setViewModelProperty
+  1604  push_atom_value accessibilityId
+  1609  get_loc_check 0: s
+  1612  call_method #args=2
+  1615  drop
+  1616  get_var_ref_check 0: e
+  1619  get_field2 setViewModelProperty
+  1652  push_atom_value enabled
+  1657  get_loc_check 1: n
+  1660  call_method #args=2
+  1663  drop
+  1664  get_var_ref_check 0: e
+  1667  get_field2 setViewModelProperty
+  1700  push_atom_value generation
+  1705  get_loc3 3: this
+  1706  get_field state
+  1739  get_field generation
+  1772  call_method #args=2
+  1775  drop
+  1776  get_var_ref_check 0: e
+  1779  get_field2 setViewModelProperty
+  1812  push_atom_value onSelect
+  1817  get_loc3 3: this
+  1818  get_field handleSelection
+  1851  call_method #args=2
+  1854  drop
+  1855  get_var_ref_check 0: e
+  1858  get_field2 setViewModelProperty
+  1891  push_atom_value onDismiss
+  1896  get_loc3 3: this
+  1897  get_field dismiss
+  1930  call_method #args=2
+  1933  drop
+  1934  get_var_ref_check 0: e
+  1937  get_field2 setViewModelProperty
+  1970  push_atom_value viewFactory
+  1975  get_loc_check 2: a
+  1978  call_method #args=2
+  1981  drop
+  1982  get_var_ref_check 0: e
+  1985  get_field2 setUnnamedSlot
+  2018  fclosure8 1: <function <atom:0>>
+  2020  call_method #args=1
+  2023  drop
+  2024  get_var_ref_check 0: e
+  2027  get_field2 endComponent
+  2060  call_method #args=0
+  2063  drop
+  2064  return_undef
+L 2065  get_var_ref_check 0: e
+  2068  get_field2 beginRender
+  2101  get_var_ref_check 5: o
+  2104  undefined
+  2105  call_method #args=2
+  2108  drop
+  2109  get_var_ref_check 0: e
+  2112  get_field2 setAttributes
+  2145  get_loc3 3: this
+  2146  get_field viewModel
+  2179  get_field attributes
+  2212  call_method #args=1
+  2215  drop
+  2216  get_var_ref_check 0: e
+  2219  get_field2 setAttributeString
+  2252  push_atom_value accessibilityId
+  2257  get_loc_check 0: s
+  2260  call_method #args=2
+  2263  drop
+  2264  get_var_ref_check 0: e
+  2267  get_field2 renderUnnamedSlot
+  2300  get_loc3 3: this
+  2301  call_method #args=1
+  2304  drop
+  2305  get_var_ref_check 0: e
+  2308  get_field2 endRender
+  2341  call_method #args=0
+  2344  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=37B file=native_menu/src/NativeContextMenu
+   locals: e
+   closure: i
+     0  get_arg0 0: e
+     1  get_field id  ;+28B
+    34  get_var_ref0 0: i
+    35  strict_eq
+    36  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=3 cpool=1 bc=405B file=native_menu/src/NativeContextMenu
+   locals: i, o
+   closure: this, e, t
+     0  set_loc_uninitialized 0: o
+     3  get_var_ref0 0: this
+     4  get_field2 isDestroyed  ;+28B
+    37  call_method #args=0
+    40  dup
+    41  if_true -> 00c7
+    46  drop
+    47  get_var_ref1 1: e
+    48  get_var_ref0 0: this
+    49  get_field state
+    82  get_field generation
+   115  strict_neq
+   116  dup
+   117  if_true8 -> 00c7
+   119  drop
+   120  get_var_ref_check 2: t
+   123  get_field disabled
+   156  dup
+   157  if_true8 -> 00c7
+   159  drop
+   160  push_0 0
+   161  get_var_ref_check 2: t
+   164  get_field contentId
+   197  get_length
+   198  strict_eq
+L  199  if_false8 -> 00ca
+   201  return_undef
+L  202  get_var_ref_check 2: t
+   205  get_field actions
+   238  get_field2 find
+   271  fclosure8 0: <function <atom:0>>
+   273  call_method #args=1
+   276  put_loc0 0: o
+   277  undefined
+   278  get_loc_check 0: o
+   281  strict_eq
+   282  dup
+   283  if_true8 -> 0194
+   285  drop
+   286  get_loc_check 0: o
+   289  get_field disabled
+   322  dup
+   323  if_true8 -> 0194
+   325  drop
+   326  get_var_ref0 0: this
+   327  get_field2 dismiss
+   360  call_method #args=0
+   363  drop
+   364  get_var_ref_check 2: t
+   367  get_field2 onSelect
+   400  get_arg0 0: i
+   401  call_method #args=1
+L  404  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=1 bc=53B file=native_menu/src/NativeContextMenu
+   locals: e, t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field viewModel  ;+28B
+    39  put_loc0 0: t
+    40  get_loc1 1: this
+    41  fclosure8 0: <function <atom:0>>
+    43  put_field handleSelection
+    52  return_undef
+
+-- fn name=<atom:0> args=3 vars=12 closure=0 cpool=6 bc=448B file=native_menu/src/NativeContextMenu
+   locals: require, module, exports, e, t, i, o, s, n, r, d, a, NativeContextMenu, <class_fields_init>, NativeContextMenu
+     0  fclosure8 0: <function a>
+     2  put_loc8 8: a
+     4  set_loc_uninitialized 11: NativeContextMenu
+     7  set_loc_uninitialized 7: d
+    10  set_loc_uninitialized 6: r
+    13  set_loc_uninitialized 5: n
+    16  set_loc_uninitialized 4: s
+    19  set_loc_uninitialized 3: o
+    22  set_loc_uninitialized 2: i
+    25  set_loc_uninitialized 1: t
+    28  set_loc_uninitialized 0: e
+    31  get_var Object
+    36  get_field2 defineProperty
+    69  get_arg2 2: exports
+    70  push_atom_value __esModule
+    75  object
+    76  push_0 0
+    77  lnot
+    78  define_field value
+    83  call_method #args=3
+    86  drop
+    87  get_arg2 2: exports
+    88  get_arg2 2: exports
+    89  undefined
+    90  insert2
+    91  put_field supportsNativeContextMenu
+   100  put_field NativeContextMenu
+   109  get_arg0 0: require
+   110  push_atom_value valdi_core/src/JSX
+   115  call1 #args=1
+   116  get_field jsx
+   149  put_loc0 0: e
+   150  get_loc_check 0: e
+   153  get_field2 makeComponentPrototype
+   186  undefined
+   187  push_atom_value PChut9HFTY0kkSTu
+   192  call_method #args=2
+   195  put_loc1 1: t
+   196  get_loc_check 0: e
+   199  get_field2 makeComponentPrototype
+   232  undefined
+   233  push_atom_value iUs0--6pbclDf7RK
+   238  call_method #args=2
+   241  put_loc2 2: i
+   242  get_loc_check 0: e
+   245  get_field2 makeNodePrototype
+   278  push_atom_value view
+   283  undefined
+   284  push_atom_value BhIvi2XR0nVDS4Aj
+   289  call_method #args=3
+   292  put_loc3 3: o
+   293  get_arg0 0: require
+   294  push_atom_value valdi_core/src/Component
+   299  call1 #args=1
+   300  put_loc8 4: s
+   302  get_arg0 0: require
+   303  push_atom_value ./NativeMenuIcons
+   308  call1 #args=1
+   309  put_loc8 5: n
+   311  get_arg0 0: require
+   312  push_atom_value ./AndroidNativeContextMenu
+   317  call1 #args=1
+   318  put_loc8 6: r
+   320  get_arg0 0: require
+   321  push_atom_value ./IOSNativeContextMenu
+   326  call1 #args=1
+   327  put_loc8 7: d
+   329  get_arg2 2: exports
+   330  get_loc8 8: a
+   332  put_field supportsNativeContextMenu
+   341  set_loc_uninitialized 9: NativeContextMenu
+   344  get_loc_check 4: s
+   347  get_field StatefulComponent
+   380  set_loc_uninitialized 10: <class_fields_init>
+   383  push_const8 1: <function <atom:0>>
+   385  define_class NativeContextMenu,1
+   391  fclosure8 2: <function <atom:0>>
+   393  define_method onViewModelUpdate,0
+   399  fclosure8 3: <function <atom:0>>
+   401  define_method onDestroy,0
+   407  fclosure8 4: <function <atom:0>>
+   409  define_method onRender,0
+   415  fclosure8 5: <function <atom:0>>
+   417  define_method bindSelection,0
+   423  undefined
+   424  put_loc8 10: <class_fields_init>
+   426  drop
+   427  set_loc8 9: NativeContextMenu
+   429  close_loc 10: <class_fields_init>
+   432  put_loc8 11: NativeContextMenu
+   434  get_arg2 2: exports
+   435  get_loc_check 11: NativeContextMenu
+   438  put_field NativeContextMenu
+   447  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=native_menu/src/NativeContextMenu
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NativeContextMenuAdapter.js  (211 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]native_menu/src/NativeContextMenuAdapter | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=native_menu/src/NativeContextMenuAdapter
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=native_menu/src/NativeContextMenuAdapter
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NativeMenu.js  (11947 B)
+# 原子基准=215 原子表 113 条
+-- 原子表 --
+   [0]native_menu/src/NativeMenu | [1]require | [2]module | [3]exports | [4]t | [5]e | [6]i | [7]s | [8]o | [9]n | [10]a | [11]r | [12]d | [13]c | [14]l | [15]h | [16]u | [17]NativeMenu | [18]b | [19]__esModule | [20]supportsNativeMenu | [21]valdi_core/src/JSX | [22]jsx | [23]makeNodePrototype | [24]view | [25]l2rRHxPanhvTOjM7 | [26]ZLSSLcT3zmt-a1cw | [27]makeComponentPrototype | [28]jqADbm9f7GlSTDz_ | [29]custom-view | [30]aoloNY0UiNykAz2Y | [31]valdi_core/src/Component | [32]valdi_core/src/CompilerIntrinsics | [33]valdi_core/src/Device | [34]valdi_core/src/Style | [35]./NativeMenuIcons | [36]./AndroidNativeContextMenu | [37]./AndroidNativeMenuAnchor | [38]StatefulComponent | [39]onViewModelUpdate | [40]onDestroy | [41]bindActions | [42]onRender | [43]Style | [44]button | [45]accessibilityCategory | [46]leaf | [47]accessibilityNavigation | [48]minHeight | [49]100% | [50]width | [51]anchor | [52]accessibilityStateDisabled | [53]touchEnabled | [54]unavailable | [55]Device | [56]isIOS | [57]isWeb | [58]isVersionAtLeast | [59]supportsAndroidNativeContextMenu | [60]nativeMenuViewFactory | [61]open | [62]generation | [63]actions | [64]state | [65]NativeMenuIcons | [66]icons | [67]dismiss | [68]holdMenu | [69]openMenu | [70]handleSelection | [71]setState | [72]isDestroyed | [73]viewModel | [74]disabled | [75]find | [76]onPrimaryAction | [77]onSelect | [78]id | [79]context | [80]some | [81]update | [82]dispose | [83]map | [84]menuTitle | [85]iconAsset | [86]primaryAction | [87]selection | [88]beginRender | [89]setAttributeStyle | [90]style | [91]setAttributes | [92]attributes | [93]setAttributeString | [94]accessibilityId | [95]accessibilityLabel | [96]setAttribute | [97]setAttributeFunction | [98]onTap | [99]renderUnnamedSlot | [100]endRender | [101]accessibilityValue | [102]onLongPress | [103]allowReuse | [104]iosClass | [105]ValdiNativeMenuAnchorView | [106]previewsContent | [107]beginComponent | [108]AndroidNativeMenuAnchor | [109]setViewModelProperty | [110]viewFactory | [111]onDismiss | [112]endComponent
+
+-- fn name=u args=1 vars=0 closure=3 cpool=0 bc=277B file=native_menu/src/NativeMenu
+   locals: t
+   closure: r, a, l
+     0  get_var_ref_check 0: r
+     3  get_field Device  ;+28B
+    36  get_field2 isIOS
+    69  call_method #args=0
+    72  dup
+    73  if_false8 -> 00c1
+    75  drop
+    76  get_var_ref_check 0: r
+    79  get_field Device
+   112  get_field2 isWeb
+   145  call_method #args=0
+   148  lnot
+   149  dup
+   150  if_false8 -> 00c1
+   152  drop
+   153  get_var_ref_check 1: a
+   156  get_field isVersionAtLeast
+   189  push_i16 137
+   192  call1 #args=1
+L  193  dup
+   194  if_true8 -> 0114
+   196  drop
+   197  get_var_ref_check 2: l
+   200  get_field supportsAndroidNativeContextMenu
+   233  get_arg0 0: t
+   234  dup
+   235  is_undefined_or_null
+   236  if_false8 -> 00f2
+   238  drop
+   239  undefined
+   240  goto8 -> 0113
+L  242  get_field nativeMenuViewFactory
+L  275  call1 #args=1
+L  276  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=46B file=native_menu/src/NativeMenu
+   locals: t
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field2 setState  ;+28B
+    36  object
+    37  get_arg0 0: t
+    38  define_field actions
+    43  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=216B file=native_menu/src/NativeMenu
+   locals: t
+   closure: this
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref_check 0: this
+     6  get_field2 isDestroyed  ;+28B
+    39  call_method #args=0
+    42  if_false8 -> 002d
+    44  return_undef
+L   45  get_var_ref_check 0: this
+    48  get_field state
+    81  get_field generation
+   114  push_1 1
+   115  add
+   116  put_loc0 0: t
+   117  get_var_ref_check 0: this
+   120  get_field2 bindActions
+   153  get_loc_check 0: t
+   156  call_method #args=1
+   159  drop
+   160  get_var_ref_check 0: this
+   163  get_field2 setState
+   196  object
+   197  push_1 1
+   198  lnot
+   199  define_field open
+   204  get_loc_check 0: t
+   207  define_field generation
+   212  call_method #args=1
+   215  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=80B file=native_menu/src/NativeMenu
+   locals: t
+   closure: this
+     0  push_0 0
+     1  get_arg0 0: t
+     2  get_field state  ;+28B
+    35  strict_eq
+    36  dup
+    37  if_false8 -> 004f
+    39  drop
+    40  get_var_ref_check 0: this
+    43  get_field2 openMenu
+    76  call_method #args=0
+L   79  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=245B file=native_menu/src/NativeMenu
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field2 isDestroyed  ;+28B
+    36  call_method #args=0
+    39  lnot
+    40  dup
+    41  if_false -> 00f4
+    46  drop
+    47  get_var_ref_check 0: this
+    50  get_field viewModel
+    83  get_field disabled
+   116  lnot
+   117  dup
+   118  if_false8 -> 00f4
+   120  drop
+   121  get_var_ref_check 0: this
+   124  get_field state
+   157  get_field actions
+   190  get_length
+   191  push_0 0
+   192  gt
+   193  dup
+   194  if_false8 -> 00f4
+   196  drop
+   197  get_var_ref_check 0: this
+   200  get_field2 setState
+   233  object
+   234  push_0 0
+   235  lnot
+   236  define_field open
+   241  call_method #args=1
+L  244  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=37B file=native_menu/src/NativeMenu
+   locals: e
+   closure: t
+     0  get_arg0 0: e
+     1  get_field id  ;+28B
+    34  get_var_ref0 0: t
+    35  strict_eq
+    36  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=1 bc=498B file=native_menu/src/NativeMenu
+   locals: t, e, i
+   closure: this
+     0  set_loc_uninitialized 1: i
+     3  set_loc_uninitialized 0: e
+     6  get_var_ref_check 0: this
+     9  get_field viewModel  ;+28B
+    42  put_loc0 0: e
+    43  get_var_ref_check 0: this
+    46  get_field2 isDestroyed
+    79  call_method #args=0
+    82  dup
+    83  if_true8 -> 007a
+    85  drop
+    86  get_loc_check 0: e
+    89  get_field disabled
+L  122  if_false8 -> 007d
+   124  return_undef
+L  125  get_loc_check 0: e
+   128  get_field actions
+   161  get_field2 find
+   194  fclosure8 0: <function <atom:0>>
+   196  call_method #args=1
+   199  put_loc1 1: i
+   200  undefined
+   201  get_loc_check 1: i
+   204  strict_eq
+   205  dup
+   206  if_true -> 01f1
+   211  drop
+   212  get_loc_check 1: i
+   215  get_field disabled
+   248  dup
+   249  if_true -> 01f1
+   254  drop
+   255  undefined
+   256  get_loc_check 0: e
+   259  get_field onPrimaryAction
+   292  strict_neq
+   293  if_false8 -> 0150
+   295  get_var_ref_check 0: this
+   298  get_field2 dismiss
+   331  call_method #args=0
+   334  goto8 -> 01c8
+L  336  get_var_ref_check 0: this
+   339  get_field state
+   372  get_field open
+   405  dup
+   406  if_false8 -> 01c8
+   408  drop
+   409  get_var_ref_check 0: this
+   412  get_field2 setState
+   445  object
+   446  push_1 1
+   447  lnot
+   448  define_field open
+   453  call_method #args=1
+L  456  drop
+   457  get_loc_check 0: e
+   460  get_field2 onSelect
+   493  get_arg0 0: t
+   494  call_method #args=1
+L  497  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=2 cpool=5 bc=193B file=native_menu/src/NativeMenu
+   locals: this, this.active_func, new.target, arguments
+   closure: <class_fields_init>, c
+     0  special_object 2
+     2  put_loc1 1: this.active_func
+     3  special_object 3
+     5  put_loc2 2: new.target
+     6  set_loc_uninitialized 0: this
+     9  special_object 0
+    11  put_loc3 3: arguments
+    12  check_ctor
+    13  get_loc1 1: this.active_func
+    14  get_super
+    15  get_loc2 2: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc3 3: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 0: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 0: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 0: this
+    48  object
+    49  push_1 1
+    50  lnot
+    51  define_field open
+    56  push_0 0
+    57  define_field generation
+    62  array_from #args=0
+    65  define_field actions
+    70  put_field state
+    79  get_loc_check 0: this
+    82  get_var_ref_check 1: c
+    85  get_field NativeMenuIcons
+   118  dup
+   119  fclosure8 0: <function <atom:0>>
+   121  call_constructor #args=1
+   124  put_field icons
+   133  get_loc_check 0: this
+   136  fclosure8 1: <function <atom:0>>
+   138  put_field dismiss
+   147  get_loc_check 0: this
+   150  fclosure8 2: <function <atom:0>>
+   152  put_field holdMenu
+   161  get_loc_check 0: this
+   164  fclosure8 3: <function <atom:0>>
+   166  put_field openMenu
+   175  get_loc_check 0: this
+   178  fclosure8 4: <function <atom:0>>
+   180  put_field handleSelection
+   189  get_loc_check 0: this
+   192  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=37B file=native_menu/src/NativeMenu
+   locals: t
+     0  undefined
+     1  get_arg0 0: t
+     2  get_field iconAsset  ;+28B
+    35  strict_neq
+    36  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=55B file=native_menu/src/NativeMenu
+   locals: <atom:0>, t, e
+     0  get_arg0 0: <atom:0>
+     1  to_object
+     2  object
+     3  swap
+     4  swap
+     5  null
+     6  define_field iconAsset
+    11  swap
+    12  dup
+    13  get_field iconAsset  ;+28B
+    46  put_loc0 0: t
+    47  object
+    48  copy_data_properties 68
+    50  put_loc1 1: e
+    51  drop
+    52  drop
+    53  get_loc1 1: e
+    54  return
+
+-- fn name=<atom:0> args=1 vars=4 closure=3 cpool=2 bc=1852B file=native_menu/src/NativeMenu
+   locals: t, e, i, s, this
+   closure: u, r, a
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 2: s
+     5  set_loc_uninitialized 1: i
+     8  set_loc_uninitialized 0: e
+    11  get_loc3 3: this
+    12  get_field viewModel  ;+28B
+    45  put_loc0 0: e
+    46  get_var_ref0 0: u
+    47  get_loc3 3: this
+    48  get_field context
+    81  call1 #args=1
+    82  dup
+    83  if_false8 -> 00cb
+    85  drop
+    86  get_var_ref_check 1: r
+    89  get_field Device
+   122  get_field2 isIOS
+   155  call_method #args=0
+   158  lnot
+   159  dup
+   160  if_true8 -> 00cb
+   162  drop
+   163  get_var_ref_check 2: a
+   166  get_field isVersionAtLeast
+   199  push_i16 194
+   202  call1 #args=1
+L  203  put_loc1 1: i
+   204  get_loc_check 0: e
+   207  get_field actions
+   240  get_field2 some
+   273  fclosure8 0: <function <atom:0>>
+   275  call_method #args=1
+   278  put_loc2 2: s
+   279  get_loc_check 1: i
+   282  if_false -> 0210
+   287  get_loc_check 2: s
+   290  if_false -> 0210
+   295  get_loc3 3: this
+   296  get_field icons
+   329  get_field2 update
+   362  get_loc_check 0: e
+   365  get_field actions
+   398  call_method #args=1
+   401  drop
+   402  get_loc3 3: this
+   403  object
+   404  get_loc3 3: this
+   405  get_field state
+   438  null
+   439  copy_data_properties 6
+   441  drop
+   442  drop
+   443  get_loc3 3: this
+   444  get_field icons
+   477  get_field actions
+   510  define_field actions
+   515  insert2
+   516  put_field state
+   525  goto16 -> 0304
+L  528  get_loc3 3: this
+   529  get_field icons
+   562  get_field2 dispose
+   595  call_method #args=0
+   598  drop
+   599  get_loc3 3: this
+   600  object
+   601  get_loc3 3: this
+   602  get_field state
+   635  null
+   636  copy_data_properties 6
+   638  drop
+   639  drop
+   640  get_loc_check 2: s
+   643  if_false8 -> 02d1
+   645  get_loc_check 0: e
+   648  get_field actions
+   681  get_field2 map
+   714  fclosure8 1: <function <atom:0>>
+   716  call_method #args=1
+   719  goto8 -> 02f5
+L  721  get_loc_check 0: e
+   724  get_field actions
+L  757  define_field actions
+   762  insert2
+   763  put_field state
+L  772  drop
+   773  get_loc3 3: this
+   774  get_field state
+   807  get_field open
+   840  dup
+   841  if_false -> 03dc
+   846  drop
+   847  get_loc_check 0: e
+   850  get_field disabled
+   883  dup
+   884  if_true8 -> 039e
+   886  drop
+   887  push_0 0
+   888  get_loc_check 0: e
+   891  get_field actions
+   924  get_length
+   925  strict_eq
+L  926  dup
+   927  if_false8 -> 03dc
+   929  drop
+   930  get_loc3 3: this
+   931  object
+   932  get_loc3 3: this
+   933  get_field state
+   966  null
+   967  copy_data_properties 6
+   969  drop
+   970  drop
+   971  push_1 1
+   972  lnot
+   973  define_field open
+   978  insert2
+   979  put_field state
+L  988  drop
+   989  undefined
+   990  get_loc_check 0: e
+   993  get_field onPrimaryAction
+  1026  strict_eq
+  1027  dup
+  1028  if_false8 -> 0433
+  1030  drop
+  1031  undefined
+  1032  get_arg0 0: t
+  1033  dup
+  1034  is_undefined_or_null
+  1035  if_false8 -> 0411
+  1037  drop
+  1038  undefined
+  1039  goto8 -> 0432
+L 1041  get_field onPrimaryAction
+L 1074  strict_eq
+L 1075  dup
+  1076  if_true -> 05d9
+  1081  drop
+  1082  get_arg0 0: t
+  1083  dup
+  1084  is_undefined_or_null
+  1085  if_false8 -> 0443
+  1087  drop
+  1088  undefined
+  1089  goto8 -> 0464
+L 1091  get_field onPrimaryAction
+L 1124  get_loc_check 0: e
+  1127  get_field onPrimaryAction
+  1160  strict_eq
+  1161  if_false -> 0650
+  1166  get_arg0 0: t
+  1167  dup
+  1168  is_undefined_or_null
+  1169  if_false8 -> 0497
+  1171  drop
+  1172  undefined
+  1173  goto8 -> 04b8
+L 1175  get_field actions
+L 1208  get_loc_check 0: e
+  1211  get_field actions
+  1244  strict_eq
+  1245  if_false -> 0650
+  1250  get_arg0 0: t
+  1251  dup
+  1252  is_undefined_or_null
+  1253  if_false8 -> 04eb
+  1255  drop
+  1256  undefined
+  1257  goto8 -> 050c
+L 1259  get_field onSelect
+L 1292  get_loc_check 0: e
+  1295  get_field onSelect
+  1328  strict_eq
+  1329  if_false -> 0650
+  1334  get_arg0 0: t
+  1335  dup
+  1336  is_undefined_or_null
+  1337  if_false8 -> 053f
+  1339  drop
+  1340  undefined
+  1341  goto8 -> 0560
+L 1343  get_field disabled
+L 1376  get_loc_check 0: e
+  1379  get_field disabled
+  1412  strict_eq
+  1413  if_false -> 0650
+  1418  get_arg0 0: t
+  1419  dup
+  1420  is_undefined_or_null
+  1421  if_false8 -> 0593
+  1423  drop
+  1424  undefined
+  1425  goto8 -> 05b4
+L 1427  get_field menuTitle
+L 1460  get_loc_check 0: e
+  1463  get_field menuTitle
+  1496  strict_eq
+L 1497  if_false8 -> 0650
+  1499  undefined
+  1500  get_arg0 0: t
+  1501  strict_eq
+  1502  dup
+  1503  if_false -> 073b
+  1508  drop
+  1509  get_loc3 3: this
+  1510  get_field2 bindActions
+  1543  get_loc3 3: this
+  1544  get_field state
+  1577  get_field generation
+  1610  call_method #args=1
+  1613  goto16 -> 073b
+L 1616  get_loc3 3: this
+  1617  object
+  1618  get_loc3 3: this
+  1619  get_field state
+  1652  null
+  1653  copy_data_properties 6
+  1655  drop
+  1656  drop
+  1657  push_1 1
+  1658  lnot
+  1659  define_field open
+  1664  get_loc3 3: this
+  1665  get_field state
+  1698  get_field generation
+  1731  push_1 1
+  1732  add
+  1733  define_field generation
+  1738  put_field state
+  1747  get_loc3 3: this
+  1748  get_field2 bindActions
+  1781  get_loc3 3: this
+  1782  get_field state
+  1815  get_field generation
+  1848  call_method #args=1
+L 1851  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=73B file=native_menu/src/NativeMenu
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field icons  ;+28B
+    36  get_field2 dispose
+    69  call_method #args=0
+    72  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=3 cpool=0 bc=247B file=native_menu/src/NativeMenu
+   closure: this, t, e
+     0  get_var_ref0 0: this
+     1  get_field2 isDestroyed  ;+28B
+    34  call_method #args=0
+    37  dup
+    38  if_true -> 00f6
+    43  drop
+    44  get_var_ref1 1: t
+    45  get_var_ref0 0: this
+    46  get_field state
+    79  get_field generation
+   112  strict_neq
+   113  dup
+   114  if_true -> 00f6
+   119  drop
+   120  get_var_ref_check 2: e
+   123  get_field disabled
+   156  dup
+   157  if_true8 -> 00f6
+   159  drop
+   160  get_var_ref0 0: this
+   161  get_field2 dismiss
+   194  call_method #args=0
+   197  drop
+   198  get_var_ref_check 2: e
+   201  get_field2 onPrimaryAction
+   234  dup
+   235  is_undefined_or_null
+   236  if_false8 -> 00f3
+   238  drop
+   239  drop
+   240  undefined
+   241  goto8 -> 00f6
+L  243  call_method #args=0
+L  246  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=112B file=native_menu/src/NativeMenu
+   locals: e
+   closure: t, this
+     0  get_var_ref0 0: t
+     1  get_var_ref1 1: this
+     2  get_field state  ;+28B
+    35  get_field generation
+    68  strict_eq
+    69  dup
+    70  if_false8 -> 006f
+    72  drop
+    73  get_var_ref1 1: this
+    74  get_field2 handleSelection
+   107  get_arg0 0: e
+   108  call_method #args=1
+L  111  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=2 bc=161B file=native_menu/src/NativeMenu
+   locals: t, e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  get_loc1 1: this
+     6  get_field viewModel  ;+28B
+    39  put_loc0 0: e
+    40  undefined
+    41  get_loc_check 0: e
+    44  get_field onPrimaryAction
+    77  strict_eq
+    78  if_false8 -> 0088
+    80  get_loc1 1: this
+    81  undefined
+    82  put_field primaryAction
+    91  get_loc1 1: this
+    92  get_loc1 1: this
+    93  get_field handleSelection
+   126  put_field selection
+   135  return_undef
+L  136  get_loc1 1: this
+   137  fclosure8 0: <function <atom:0>>
+   139  put_field primaryAction
+   148  get_loc1 1: this
+   149  fclosure8 1: <function <atom:0>>
+   151  put_field selection
+   160  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=5 cpool=0 bc=445B file=native_menu/src/NativeMenu
+   closure: t, h, s, c, this
+     0  get_var_ref_check 0: t
+     3  get_field2 beginComponent  ;+28B
+    36  get_var_ref_check 1: h
+    39  get_field AndroidNativeMenuAnchor
+    72  get_var_ref_check 2: s
+    75  undefined
+    76  undefined
+    77  call_method #args=4
+    80  drop
+    81  get_var_ref_check 0: t
+    84  get_field2 setViewModelProperty
+   117  push_atom_value viewFactory
+   122  get_var_ref_check 3: c
+   125  call_method #args=2
+   128  drop
+   129  get_var_ref_check 0: t
+   132  get_field2 setViewModelProperty
+   165  push_atom_value actions
+   170  get_var_ref 4: this
+   173  get_field state
+   206  get_field actions
+   239  call_method #args=2
+   242  drop
+   243  get_var_ref_check 0: t
+   246  get_field2 setViewModelProperty
+   279  push_atom_value onSelect
+   284  get_var_ref 4: this
+   287  get_field selection
+   320  call_method #args=2
+   323  drop
+   324  get_var_ref_check 0: t
+   327  get_field2 setViewModelProperty
+   360  push_atom_value onDismiss
+   365  get_var_ref 4: this
+   368  get_field dismiss
+   401  call_method #args=2
+   404  drop
+   405  get_var_ref_check 0: t
+   408  get_field2 endComponent
+   441  call_method #args=0
+   444  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=11 cpool=1 bc=4246B file=native_menu/src/NativeMenu
+   locals: n, d, c, this
+   closure: t, h, s, r, a, u, e, b, l, i, o
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 2: c
+     5  set_loc_uninitialized 1: d
+     8  set_loc_uninitialized 0: n
+    11  undefined
+    12  get_loc3 3: this
+    13  get_field viewModel  ;+28B
+    46  get_field onPrimaryAction
+    79  strict_neq
+    80  put_loc0 0: n
+    81  get_var_ref_check 3: r
+    84  get_field Device
+   117  get_field2 isIOS
+   150  call_method #args=0
+   153  lnot
+   154  dup
+   155  if_true8 -> 00c6
+   157  drop
+   158  get_var_ref_check 4: a
+   161  get_field isVersionAtLeast
+   194  push_i16 261
+   197  call1 #args=1
+L  198  put_loc1 1: d
+   199  get_var_ref 5: u
+   202  get_loc3 3: this
+   203  get_field context
+   236  call1 #args=1
+   237  lnot
+   238  dup
+   239  if_true8 -> 00fe
+   241  drop
+   242  get_loc_check 0: n
+   245  if_false -> 0452
+   250  get_loc_check 1: d
+   253  lnot
+L  254  if_false -> 0452
+   259  get_var_ref_check 0: t
+   262  get_field2 beginRender
+   295  get_var_ref_check 6: e
+   298  undefined
+   299  call_method #args=2
+   302  drop
+   303  get_var_ref_check 0: t
+   306  get_field2 setAttributeStyle
+   339  push_atom_value style
+   344  get_loc_check 0: n
+   347  if_false8 -> 0183
+   349  get_var_ref_check 7: b
+   352  get_field anchor
+   385  goto8 -> 01a7
+L  387  get_var_ref_check 7: b
+   390  get_field unavailable
+L  423  call_method #args=2
+   426  drop
+   427  get_var_ref_check 0: t
+   430  get_field2 setAttributes
+   463  get_loc3 3: this
+   464  get_field viewModel
+   497  get_field attributes
+   530  call_method #args=1
+   533  drop
+   534  get_var_ref_check 0: t
+   537  get_field2 setAttributeString
+   570  push_atom_value accessibilityId
+   575  get_loc3 3: this
+   576  get_field viewModel
+   609  get_field accessibilityId
+   642  call_method #args=2
+   645  drop
+   646  get_var_ref_check 0: t
+   649  get_field2 setAttributeString
+   682  push_atom_value accessibilityLabel
+   687  get_loc3 3: this
+   688  get_field viewModel
+   721  get_field accessibilityLabel
+   754  call_method #args=2
+   757  drop
+   758  get_var_ref_check 0: t
+   761  get_field2 setAttribute
+   794  push_atom_value accessibilityStateDisabled
+   799  push_0 0
+   800  lnot
+   801  get_loc3 3: this
+   802  get_field viewModel
+   835  get_field disabled
+   868  strict_eq
+   869  call_method #args=2
+   872  drop
+   873  get_var_ref_check 0: t
+   876  get_field2 setAttributeFunction
+   909  push_atom_value onTap
+   914  get_loc3 3: this
+   915  get_field viewModel
+   948  get_field disabled
+   981  if_false8 -> 03da
+   983  undefined
+   984  goto8 -> 03fc
+L  986  get_loc3 3: this
+   987  get_field primaryAction
+L 1020  call_method #args=2
+  1023  drop
+  1024  get_var_ref_check 0: t
+  1027  get_field2 renderUnnamedSlot
+  1060  get_loc3 3: this
+  1061  call_method #args=1
+  1064  drop
+  1065  get_var_ref_check 0: t
+  1068  get_field2 endRender
+  1101  call_method #args=0
+  1104  drop
+  1105  return_undef
+L 1106  get_loc3 3: this
+  1107  get_field context
+  1140  dup
+  1141  is_undefined_or_null
+  1142  if_false8 -> 047c
+  1144  drop
+  1145  undefined
+  1146  goto8 -> 049d
+L 1148  get_field nativeMenuViewFactory
+L 1181  put_loc2 2: c
+  1182  get_var_ref_check 8: l
+  1185  get_field supportsAndroidNativeContextMenu
+  1218  get_loc_check 2: c
+  1221  call1 #args=1
+  1222  if_false -> 09c5
+  1227  undefined
+  1228  get_loc_check 2: c
+  1231  strict_neq
+  1232  if_false -> 09c5
+  1237  get_var_ref_check 0: t
+  1240  get_field2 beginRender
+  1273  get_var_ref_check 9: i
+  1276  undefined
+  1277  call_method #args=2
+  1280  drop
+  1281  get_var_ref_check 0: t
+  1284  get_field2 setAttributeStyle
+  1317  push_atom_value style
+  1322  get_var_ref_check 7: b
+  1325  get_field anchor
+  1358  call_method #args=2
+  1361  drop
+  1362  get_var_ref_check 0: t
+  1365  get_field2 setAttributes
+  1398  get_loc3 3: this
+  1399  get_field viewModel
+  1432  get_field attributes
+  1465  call_method #args=1
+  1468  drop
+  1469  get_var_ref_check 0: t
+  1472  get_field2 setAttributeString
+  1505  push_atom_value accessibilityId
+  1510  get_loc3 3: this
+  1511  get_field viewModel
+  1544  get_field accessibilityId
+  1577  call_method #args=2
+  1580  drop
+  1581  get_var_ref_check 0: t
+  1584  get_field2 setAttributeString
+  1617  push_atom_value accessibilityLabel
+  1622  get_loc3 3: this
+  1623  get_field viewModel
+  1656  get_field accessibilityLabel
+  1689  call_method #args=2
+  1692  drop
+  1693  get_var_ref_check 0: t
+  1696  get_field2 setAttributeString
+  1729  push_atom_value accessibilityValue
+  1734  get_loc3 3: this
+  1735  get_field viewModel
+  1768  get_field accessibilityValue
+  1801  call_method #args=2
+  1804  drop
+  1805  get_var_ref_check 0: t
+  1808  get_field2 setAttribute
+  1841  push_atom_value accessibilityStateDisabled
+  1846  push_0 0
+  1847  lnot
+  1848  get_loc3 3: this
+  1849  get_field viewModel
+  1882  get_field disabled
+  1915  strict_eq
+  1916  call_method #args=2
+  1919  drop
+  1920  get_var_ref_check 0: t
+  1923  get_field2 setAttributeFunction
+  1956  push_atom_value onTap
+  1961  get_loc3 3: this
+  1962  get_field viewModel
+  1995  get_field disabled
+  2028  if_false8 -> 07f1
+  2030  undefined
+  2031  goto8 -> 083c
+L 2033  get_loc_check 0: n
+  2036  if_false8 -> 081a
+  2038  get_loc3 3: this
+  2039  get_field primaryAction
+  2072  goto8 -> 083c
+L 2074  get_loc3 3: this
+  2075  get_field openMenu
+L 2108  call_method #args=2
+  2111  drop
+  2112  get_var_ref_check 0: t
+  2115  get_field2 setAttributeFunction
+  2148  push_atom_value onLongPress
+  2153  get_loc_check 0: n
+  2156  if_false -> 0923
+  2161  get_loc3 3: this
+  2162  get_field viewModel
+  2195  get_field disabled
+  2228  lnot
+  2229  if_false8 -> 0923
+  2231  get_loc3 3: this
+  2232  get_field state
+  2265  get_field actions
+  2298  get_length
+  2299  push_0 0
+  2300  gt
+  2301  if_false8 -> 0923
+  2303  get_loc3 3: this
+  2304  get_field holdMenu
+  2337  goto8 -> 0924
+L 2339  undefined
+L 2340  call_method #args=2
+  2343  drop
+  2344  get_var_ref_check 0: t
+  2347  get_field2 renderUnnamedSlot
+  2380  get_loc3 3: this
+  2381  call_method #args=1
+  2384  drop
+  2385  get_loc3 3: this
+  2386  get_field state
+  2419  get_field open
+  2452  dup
+  2453  if_false8 -> 099b
+  2455  drop
+  2456  fclosure8 0: <function <atom:0>>
+  2458  call0 #args=0
+L 2459  drop
+  2460  get_var_ref_check 0: t
+  2463  get_field2 endRender
+  2496  call_method #args=0
+  2499  drop
+  2500  return_undef
+L 2501  get_var_ref_check 0: t
+  2504  get_field2 beginRender
+  2537  get_var_ref_check 10: o
+  2540  get_var String
+  2545  get_loc3 3: this
+  2546  get_field state
+  2579  get_field generation
+  2612  call1 #args=1
+  2613  call_method #args=2
+  2616  drop
+  2617  get_var_ref_check 0: t
+  2620  get_field2 setAttributeStyle
+  2653  push_atom_value style
+  2658  get_var_ref_check 7: b
+  2661  get_field anchor
+  2694  call_method #args=2
+  2697  drop
+  2698  get_var_ref_check 0: t
+  2701  get_field2 setAttributes
+  2734  get_loc3 3: this
+  2735  get_field viewModel
+  2768  get_field attributes
+  2801  call_method #args=1
+  2804  drop
+  2805  get_var_ref_check 0: t
+  2808  get_field2 setAttribute
+  2841  push_atom_value allowReuse
+  2846  get_loc_check 0: n
+  2849  lnot
+  2850  dup
+  2851  if_false8 -> 0b92
+  2853  drop
+  2854  get_loc3 3: this
+  2855  get_field viewModel
+  2888  get_field attributes
+  2921  dup
+  2922  is_undefined_or_null
+  2923  if_false8 -> 0b71
+  2925  drop
+  2926  undefined
+  2927  goto8 -> 0b92
+L 2929  get_field allowReuse
+L 2962  call_method #args=2
+  2965  drop
+  2966  get_var_ref_check 0: t
+  2969  get_field2 setAttributeString
+  3002  push_atom_value accessibilityId
+  3007  get_loc3 3: this
+  3008  get_field viewModel
+  3041  get_field accessibilityId
+  3074  call_method #args=2
+  3077  drop
+  3078  get_var_ref_check 0: t
+  3081  get_field2 setAttributeString
+  3114  push_atom_value accessibilityLabel
+  3119  get_loc3 3: this
+  3120  get_field viewModel
+  3153  get_field accessibilityLabel
+  3186  call_method #args=2
+  3189  drop
+  3190  get_var_ref_check 0: t
+  3193  get_field2 setAttributeString
+  3226  push_atom_value accessibilityValue
+  3231  get_loc3 3: this
+  3232  get_field viewModel
+  3265  get_field accessibilityValue
+  3298  call_method #args=2
+  3301  drop
+  3302  get_var_ref_check 0: t
+  3305  get_field2 setAttribute
+  3338  push_atom_value accessibilityStateDisabled
+  3343  push_0 0
+  3344  lnot
+  3345  get_loc3 3: this
+  3346  get_field viewModel
+  3379  get_field disabled
+  3412  strict_eq
+  3413  call_method #args=2
+  3416  drop
+  3417  get_var_ref_check 0: t
+  3420  get_field2 setAttribute
+  3453  push_atom_value iosClass
+  3458  push_atom_value ValdiNativeMenuAnchorView
+  3463  call_method #args=2
+  3466  drop
+  3467  get_var_ref_check 0: t
+  3470  get_field2 setAttribute
+  3503  push_atom_value actions
+  3508  get_loc3 3: this
+  3509  get_field viewModel
+  3542  get_field disabled
+  3575  if_false8 -> 0dfe
+  3577  array_from #args=0
+  3580  goto8 -> 0e41
+L 3582  get_loc3 3: this
+  3583  get_field state
+  3616  get_field actions
+L 3649  call_method #args=2
+  3652  drop
+  3653  get_var_ref_check 0: t
+  3656  get_field2 setAttributeFunction
+  3689  push_atom_value onSelect
+  3694  get_loc3 3: this
+  3695  get_field selection
+  3728  call_method #args=2
+  3731  drop
+  3732  get_var_ref_check 0: t
+  3735  get_field2 setAttributes
+  3768  get_var_ref_check 4: a
+  3771  get_field isVersionAtLeast
+  3804  push_i16 261
+  3807  call1 #args=1
+  3808  if_false -> 0f9f
+  3813  object
+  3814  get_loc3 3: this
+  3815  get_field viewModel
+  3848  get_field disabled
+  3881  if_false8 -> 0f2e
+  3883  undefined
+  3884  goto8 -> 0f50
+L 3886  get_loc3 3: this
+  3887  get_field primaryAction
+L 3920  define_field onPrimaryAction
+  3925  get_loc3 3: this
+  3926  get_field viewModel
+  3959  get_field menuTitle
+  3992  define_field menuTitle
+  3997  goto8 -> 0fa0
+L 3999  object
+L 4000  call_method #args=1
+  4003  drop
+  4004  get_var_ref_check 0: t
+  4007  get_field2 setAttributes
+  4040  get_var_ref_check 4: a
+  4043  get_field isVersionAtLeast
+  4076  push_i16 289
+  4079  call1 #args=1
+  4080  if_false8 -> 1040
+  4082  object
+  4083  push_0 0
+  4084  lnot
+  4085  get_loc3 3: this
+  4086  get_field viewModel
+  4119  get_field previewsContent
+  4152  strict_eq
+  4153  define_field previewsContent
+  4158  goto8 -> 1041
+L 4160  object
+L 4161  call_method #args=1
+  4164  drop
+  4165  get_var_ref_check 0: t
+  4168  get_field2 renderUnnamedSlot
+  4201  get_loc3 3: this
+  4202  call_method #args=1
+  4205  drop
+  4206  get_var_ref_check 0: t
+  4209  get_field2 endRender
+  4242  call_method #args=0
+  4245  return_undef
+
+-- fn name=<atom:0> args=3 vars=17 closure=0 cpool=6 bc=703B file=native_menu/src/NativeMenu
+   locals: require, module, exports, t, e, i, s, o, n, a, r, d, c, l, h, u, NativeMenu, <class_fields_init>, NativeMenu, b
+     0  fclosure8 0: <function u>
+     2  put_loc8 12: u
+     4  set_loc_uninitialized 16: b
+     7  set_loc_uninitialized 15: NativeMenu
+    10  set_loc_uninitialized 11: h
+    13  set_loc_uninitialized 10: l
+    16  set_loc_uninitialized 9: c
+    19  set_loc_uninitialized 8: d
+    22  set_loc_uninitialized 7: r
+    25  set_loc_uninitialized 6: a
+    28  set_loc_uninitialized 5: n
+    31  set_loc_uninitialized 4: o
+    34  set_loc_uninitialized 3: s
+    37  set_loc_uninitialized 2: i
+    40  set_loc_uninitialized 1: e
+    43  set_loc_uninitialized 0: t
+    46  get_var Object
+    51  get_field2 defineProperty
+    84  get_arg2 2: exports
+    85  push_atom_value __esModule
+    90  object
+    91  push_0 0
+    92  lnot
+    93  define_field value
+    98  call_method #args=3
+   101  drop
+   102  get_arg2 2: exports
+   103  get_arg2 2: exports
+   104  undefined
+   105  insert2
+   106  put_field supportsNativeMenu
+   115  put_field NativeMenu
+   124  get_arg0 0: require
+   125  push_atom_value valdi_core/src/JSX
+   130  call1 #args=1
+   131  get_field jsx
+   164  put_loc0 0: t
+   165  get_loc_check 0: t
+   168  get_field2 makeNodePrototype
+   201  push_atom_value view
+   206  undefined
+   207  push_atom_value l2rRHxPanhvTOjM7
+   212  call_method #args=3
+   215  put_loc1 1: e
+   216  get_loc_check 0: t
+   219  get_field2 makeNodePrototype
+   252  push_atom_value view
+   257  undefined
+   258  push_atom_value ZLSSLcT3zmt-a1cw
+   263  call_method #args=3
+   266  put_loc2 2: i
+   267  get_loc_check 0: t
+   270  get_field2 makeComponentPrototype
+   303  undefined
+   304  push_atom_value jqADbm9f7GlSTDz_
+   309  call_method #args=2
+   312  put_loc3 3: s
+   313  get_loc_check 0: t
+   316  get_field2 makeNodePrototype
+   349  push_atom_value custom-view
+   354  undefined
+   355  push_atom_value aoloNY0UiNykAz2Y
+   360  call_method #args=3
+   363  put_loc8 4: o
+   365  get_arg0 0: require
+   366  push_atom_value valdi_core/src/Component
+   371  call1 #args=1
+   372  put_loc8 5: n
+   374  get_arg0 0: require
+   375  push_atom_value valdi_core/src/CompilerIntrinsics
+   380  call1 #args=1
+   381  put_loc8 6: a
+   383  get_arg0 0: require
+   384  push_atom_value valdi_core/src/Device
+   389  call1 #args=1
+   390  put_loc8 7: r
+   392  get_arg0 0: require
+   393  push_atom_value valdi_core/src/Style
+   398  call1 #args=1
+   399  put_loc8 8: d
+   401  get_arg0 0: require
+   402  push_atom_value ./NativeMenuIcons
+   407  call1 #args=1
+   408  put_loc8 9: c
+   410  get_arg0 0: require
+   411  push_atom_value ./AndroidNativeContextMenu
+   416  call1 #args=1
+   417  put_loc8 10: l
+   419  get_arg0 0: require
+   420  push_atom_value ./AndroidNativeMenuAnchor
+   425  call1 #args=1
+   426  put_loc8 11: h
+   428  get_arg2 2: exports
+   429  get_loc8 12: u
+   431  put_field supportsNativeMenu
+   440  set_loc_uninitialized 13: NativeMenu
+   443  get_loc_check 5: n
+   446  get_field StatefulComponent
+   479  set_loc_uninitialized 14: <class_fields_init>
+   482  push_const8 1: <function <atom:0>>
+   484  define_class NativeMenu,1
+   490  fclosure8 2: <function <atom:0>>
+   492  define_method onViewModelUpdate,0
+   498  fclosure8 3: <function <atom:0>>
+   500  define_method onDestroy,0
+   506  fclosure8 4: <function <atom:0>>
+   508  define_method bindActions,0
+   514  fclosure8 5: <function <atom:0>>
+   516  define_method onRender,0
+   522  undefined
+   523  put_loc8 14: <class_fields_init>
+   525  drop
+   526  set_loc8 13: NativeMenu
+   528  close_loc 14: <class_fields_init>
+   531  put_loc8 15: NativeMenu
+   533  get_arg2 2: exports
+   534  get_loc_check 15: NativeMenu
+   537  put_field NativeMenu
+   546  object
+   547  get_loc_check 8: d
+   550  get_field Style
+   583  dup
+   584  object
+   585  push_atom_value button
+   590  define_field accessibilityCategory
+   595  push_atom_value leaf
+   600  define_field accessibilityNavigation
+   605  push_i8 44
+   607  define_field minHeight
+   612  push_atom_value 100%
+   617  define_field width
+   622  call_constructor #args=1
+   625  define_field anchor
+   630  get_loc_check 8: d
+   633  get_field Style
+   666  dup
+   667  object
+   668  push_0 0
+   669  lnot
+   670  define_field accessibilityStateDisabled
+   675  push_1 1
+   676  lnot
+   677  define_field touchEnabled
+   682  push_atom_value 100%
+   687  define_field width
+   692  call_constructor #args=1
+   695  define_field unavailable
+   700  put_loc8 16: b
+   702  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=native_menu/src/NativeMenu
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NativeMenuButton.js  (4169 B)
+# 原子基准=215 原子表 72 条
+-- 原子表 --
+   [0]native_menu/src/NativeMenuButton | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]i | [7]s | [8]o | [9]r | [10]n | [11]l | [12]u | [13]NativeMenuButton | [14]c | [15]__esModule | [16]supportsNativeMenuButton | [17]valdi_core/src/JSX | [18]jsx | [19]makeNodePrototype | [20]custom-view | [21]accessibilityCategory | [22]button | [23]iosClass | [24]ValdiNativeMenuButton | [25]h2H4UjwJdnEZ7PpY | [26]view | [27]xl5mwptIV8DBzSbG | [28]label | [29]gZW5oS8IKCQ5dv27 | [30]valdi_core/src/Component | [31]valdi_core/src/Device | [32]valdi_core/src/Style | [33]valdi_ui_theme/src/ValdiUITheme | [34]Component | [35]onRender | [36]Style | [37]center | [38]alignItems | [39]justifyContent | [40]minHeight | [41]minWidth | [42]system-bold 18 | [43]font | [44]textAlign | [45]Device | [46]isIOS | [47]beginRender | [48]setAttributeStyle | [49]style | [50]setAttributeString | [51]accessibilityId | [52]viewModel | [53]accessibilityLabel | [54]accessibilityValue | [55]setAttribute | [56]actions | [57]foregroundColor | [58]iconName | [59]setAttributeFunction | [60]onSelect | [61]title | [62]endRender | [63]resolveValdiUITheme | [64]colors | [65]text | [66]onTap | [67]onFallbackTap | [68]color | [69]plus | [70]+ | [71]...
+
+-- fn name=u args=0 vars=0 closure=1 cpool=0 bc=72B file=native_menu/src/NativeMenuButton
+   closure: r
+     0  get_var_ref_check 0: r
+     3  get_field Device  ;+28B
+    36  get_field2 isIOS
+    69  tail_call_method #args=0
+
+-- fn name=<atom:0> args=0 vars=2 closure=7 cpool=0 bc=2280B file=native_menu/src/NativeMenuButton
+   locals: o, this
+   closure: u, e, t, c, l, i, s
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: o
+     5  get_var_ref0 0: u
+     6  call0 #args=0
+     7  if_false -> 0432
+    12  get_var_ref_check 1: e
+    15  get_field2 beginRender  ;+28B
+    48  get_var_ref_check 2: t
+    51  undefined
+    52  call_method #args=2
+    55  drop
+    56  get_var_ref_check 1: e
+    59  get_field2 setAttributeStyle
+    92  push_atom_value style
+    97  get_var_ref_check 3: c
+   100  get_field button
+   133  call_method #args=2
+   136  drop
+   137  get_var_ref_check 1: e
+   140  get_field2 setAttributeString
+   173  push_atom_value accessibilityId
+   178  get_loc1 1: this
+   179  get_field viewModel
+   212  get_field accessibilityId
+   245  call_method #args=2
+   248  drop
+   249  get_var_ref_check 1: e
+   252  get_field2 setAttributeString
+   285  push_atom_value accessibilityLabel
+   290  get_loc1 1: this
+   291  get_field viewModel
+   324  get_field accessibilityLabel
+   357  call_method #args=2
+   360  drop
+   361  get_var_ref_check 1: e
+   364  get_field2 setAttributeString
+   397  push_atom_value accessibilityValue
+   402  get_loc1 1: this
+   403  get_field viewModel
+   436  get_field accessibilityValue
+   469  call_method #args=2
+   472  drop
+   473  get_var_ref_check 1: e
+   476  get_field2 setAttribute
+   509  push_atom_value actions
+   514  get_loc1 1: this
+   515  get_field viewModel
+   548  get_field actions
+   581  call_method #args=2
+   584  drop
+   585  get_var_ref_check 1: e
+   588  get_field2 setAttributeString
+   621  push_atom_value foregroundColor
+   626  get_loc1 1: this
+   627  get_field viewModel
+   660  get_field foregroundColor
+   693  call_method #args=2
+   696  drop
+   697  get_var_ref_check 1: e
+   700  get_field2 setAttributeString
+   733  push_atom_value iconName
+   738  get_loc1 1: this
+   739  get_field viewModel
+   772  get_field iconName
+   805  call_method #args=2
+   808  drop
+   809  get_var_ref_check 1: e
+   812  get_field2 setAttributeFunction
+   845  push_atom_value onSelect
+   850  get_loc1 1: this
+   851  get_field viewModel
+   884  get_field onSelect
+   917  call_method #args=2
+   920  drop
+   921  get_var_ref_check 1: e
+   924  get_field2 setAttributeString
+   957  push_atom_value title
+   962  get_loc1 1: this
+   963  get_field viewModel
+   996  get_field title
+  1029  call_method #args=2
+  1032  drop
+  1033  get_var_ref_check 1: e
+  1036  get_field2 endRender
+  1069  call_method #args=0
+  1072  drop
+  1073  return_undef
+L 1074  get_loc1 1: this
+  1075  get_field viewModel
+  1108  get_field foregroundColor
+  1141  dup
+  1142  is_undefined_or_null
+  1143  if_false8 -> 04e1
+  1145  drop
+  1146  get_var_ref_check 4: l
+  1149  get_field resolveValdiUITheme
+  1182  call0 #args=0
+  1183  get_field colors
+  1216  get_field text
+L 1249  put_loc0 0: o
+  1250  get_var_ref_check 1: e
+  1253  get_field2 beginRender
+  1286  get_var_ref_check 5: i
+  1289  undefined
+  1290  call_method #args=2
+  1293  drop
+  1294  get_var_ref_check 1: e
+  1297  get_field2 setAttributeStyle
+  1330  push_atom_value style
+  1335  get_var_ref_check 3: c
+  1338  get_field button
+  1371  call_method #args=2
+  1374  drop
+  1375  get_var_ref_check 1: e
+  1378  get_field2 setAttributeString
+  1411  push_atom_value accessibilityId
+  1416  get_loc1 1: this
+  1417  get_field viewModel
+  1450  get_field accessibilityId
+  1483  call_method #args=2
+  1486  drop
+  1487  get_var_ref_check 1: e
+  1490  get_field2 setAttributeString
+  1523  push_atom_value accessibilityLabel
+  1528  get_loc1 1: this
+  1529  get_field viewModel
+  1562  get_field accessibilityLabel
+  1595  call_method #args=2
+  1598  drop
+  1599  get_var_ref_check 1: e
+  1602  get_field2 setAttributeString
+  1635  push_atom_value accessibilityValue
+  1640  get_loc1 1: this
+  1641  get_field viewModel
+  1674  get_field accessibilityValue
+  1707  call_method #args=2
+  1710  drop
+  1711  get_var_ref_check 1: e
+  1714  get_field2 setAttributeFunction
+  1747  push_atom_value onTap
+  1752  get_loc1 1: this
+  1753  get_field viewModel
+  1786  get_field onFallbackTap
+  1819  call_method #args=2
+  1822  drop
+  1823  get_var_ref_check 1: e
+  1826  get_field2 beginRender
+  1859  get_var_ref_check 6: s
+  1862  undefined
+  1863  call_method #args=2
+  1866  drop
+  1867  get_var_ref_check 1: e
+  1870  get_field2 setAttributeString
+  1903  push_atom_value color
+  1908  get_loc_check 0: o
+  1911  call_method #args=2
+  1914  drop
+  1915  get_var_ref_check 1: e
+  1918  get_field2 setAttributeStyle
+  1951  push_atom_value style
+  1956  get_var_ref_check 3: c
+  1959  get_field label
+  1992  call_method #args=2
+  1995  drop
+  1996  get_var_ref_check 1: e
+  1999  get_field2 setAttributeString
+  2032  push_atom_value value
+  2037  get_loc1 1: this
+  2038  get_field viewModel
+  2071  get_field title
+  2104  dup
+  2105  is_undefined_or_null
+  2106  if_false8 -> 0894
+  2108  drop
+  2109  push_atom_value plus
+  2114  get_loc1 1: this
+  2115  get_field viewModel
+  2148  get_field iconName
+  2181  strict_eq
+  2182  if_false8 -> 088f
+  2184  push_atom_value +
+  2189  goto8 -> 0894
+L 2191  push_atom_value ...
+L 2196  call_method #args=2
+  2199  drop
+  2200  get_var_ref_check 1: e
+  2203  get_field2 endRender
+  2236  call_method #args=0
+  2239  drop
+  2240  get_var_ref_check 1: e
+  2243  get_field2 endRender
+  2276  call_method #args=0
+  2279  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=0 bc=49B file=native_menu/src/NativeMenuButton
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  return
+
+-- fn name=<atom:0> args=3 vars=13 closure=0 cpool=3 bc=620B file=native_menu/src/NativeMenuButton
+   locals: require, module, exports, e, t, i, s, o, r, n, l, u, NativeMenuButton, <class_fields_init>, NativeMenuButton, c
+     0  fclosure8 0: <function u>
+     2  put_loc8 8: u
+     4  set_loc_uninitialized 12: c
+     7  set_loc_uninitialized 11: NativeMenuButton
+    10  set_loc_uninitialized 7: l
+    13  set_loc_uninitialized 6: n
+    16  set_loc_uninitialized 5: r
+    19  set_loc_uninitialized 4: o
+    22  set_loc_uninitialized 3: s
+    25  set_loc_uninitialized 2: i
+    28  set_loc_uninitialized 1: t
+    31  set_loc_uninitialized 0: e
+    34  get_var Object
+    39  get_field2 defineProperty
+    72  get_arg2 2: exports
+    73  push_atom_value __esModule
+    78  object
+    79  push_0 0
+    80  lnot
+    81  define_field value
+    86  call_method #args=3
+    89  drop
+    90  get_arg2 2: exports
+    91  get_arg2 2: exports
+    92  undefined
+    93  insert2
+    94  put_field supportsNativeMenuButton
+   103  put_field NativeMenuButton
+   112  get_arg0 0: require
+   113  push_atom_value valdi_core/src/JSX
+   118  call1 #args=1
+   119  get_field jsx
+   152  put_loc0 0: e
+   153  get_loc_check 0: e
+   156  get_field2 makeNodePrototype
+   189  push_atom_value custom-view
+   194  push_atom_value accessibilityCategory
+   199  push_atom_value button
+   204  push_atom_value iosClass
+   209  push_atom_value ValdiNativeMenuButton
+   214  array_from #args=4
+   217  push_atom_value h2H4UjwJdnEZ7PpY
+   222  call_method #args=3
+   225  put_loc1 1: t
+   226  get_loc_check 0: e
+   229  get_field2 makeNodePrototype
+   262  push_atom_value view
+   267  push_atom_value accessibilityCategory
+   272  push_atom_value button
+   277  array_from #args=2
+   280  push_atom_value xl5mwptIV8DBzSbG
+   285  call_method #args=3
+   288  put_loc2 2: i
+   289  get_loc_check 0: e
+   292  get_field2 makeNodePrototype
+   325  push_atom_value label
+   330  undefined
+   331  push_atom_value gZW5oS8IKCQ5dv27
+   336  call_method #args=3
+   339  put_loc3 3: s
+   340  get_arg0 0: require
+   341  push_atom_value valdi_core/src/Component
+   346  call1 #args=1
+   347  put_loc8 4: o
+   349  get_arg0 0: require
+   350  push_atom_value valdi_core/src/Device
+   355  call1 #args=1
+   356  put_loc8 5: r
+   358  get_arg0 0: require
+   359  push_atom_value valdi_core/src/Style
+   364  call1 #args=1
+   365  put_loc8 6: n
+   367  get_arg0 0: require
+   368  push_atom_value valdi_ui_theme/src/ValdiUITheme
+   373  call1 #args=1
+   374  put_loc8 7: l
+   376  get_arg2 2: exports
+   377  get_loc8 8: u
+   379  put_field supportsNativeMenuButton
+   388  set_loc_uninitialized 9: NativeMenuButton
+   391  get_loc_check 4: o
+   394  get_field Component
+   427  set_loc_uninitialized 10: <class_fields_init>
+   430  push_const8 2: <function <atom:0>>
+   432  define_class NativeMenuButton,1
+   438  fclosure8 1: <function <atom:0>>
+   440  define_method onRender,0
+   446  undefined
+   447  put_loc8 10: <class_fields_init>
+   449  drop
+   450  set_loc8 9: NativeMenuButton
+   452  close_loc 10: <class_fields_init>
+   455  put_loc8 11: NativeMenuButton
+   457  get_arg2 2: exports
+   458  get_loc_check 11: NativeMenuButton
+   461  put_field NativeMenuButton
+   470  object
+   471  get_loc_check 6: n
+   474  get_field Style
+   507  dup
+   508  object
+   509  push_atom_value center
+   514  define_field alignItems
+   519  push_atom_value center
+   524  define_field justifyContent
+   529  push_i8 44
+   531  define_field minHeight
+   536  push_i8 44
+   538  define_field minWidth
+   543  call_constructor #args=1
+   546  define_field button
+   551  get_loc_check 6: n
+   554  get_field Style
+   587  dup
+   588  object
+   589  push_atom_value system-bold 18
+   594  define_field font
+   599  push_atom_value center
+   604  define_field textAlign
+   609  call_constructor #args=1
+   612  define_field label
+   617  put_loc8 12: c
+   619  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=native_menu/src/NativeMenuButton
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NativeMenuIcons.js  (2612 B)
+# 原子基准=215 原子表 41 条
+-- 原子表 --
+   [0]native_menu/src/NativeMenuIcons | [1]require | [2]module | [3]exports | [4]s | [5]i | [6]e | [7]NativeMenuIcons | [8]__esModule | [9]valdi_core/src/ValdiRuntimeProvider | [10]getValdiRuntime | [11]valdi_core/src/Asset | [12]valdi_core/src/Device | [13]update | [14]dispose | [15]onChange | [16]actions | [17]generation | [18]subscriptions | [19]t | [20]o | [21]n | [22]c | [23]r | [24]a | [25]map | [26]flatMap | [27]size | [28]Device | [29]isIOS | [30]ceil | [31]getDisplayScale | [32]forEach | [33]iconAsset | [34]push | [35]addAssetLoadObserver | [36]isLoggingEnabled | [37]console | [38]warn | [39]Failed to load native menu icon:  | [40]unsubscribe
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=64B file=native_menu/src/NativeMenuIcons
+   locals: s, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: s
+    17  put_field onChange
+    26  get_loc0 0: this
+    27  array_from #args=0
+    30  put_field actions
+    39  get_loc0 0: this
+    40  push_0 0
+    41  put_field generation
+    50  get_loc0 0: this
+    51  array_from #args=0
+    54  put_field subscriptions
+    63  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=55B file=native_menu/src/NativeMenuIcons
+   locals: <atom:0>, s, i
+     0  get_arg0 0: <atom:0>
+     1  to_object
+     2  object
+     3  swap
+     4  swap
+     5  null
+     6  define_field iconAsset
+    11  swap
+    12  dup
+    13  get_field iconAsset  ;+28B
+    46  put_loc0 0: s
+    47  object
+    48  copy_data_properties 68
+    50  put_loc1 1: i
+    51  drop
+    52  drop
+    53  get_loc1 1: i
+    54  return
+
+-- fn name=<atom:0> args=2 vars=0 closure=0 cpool=0 bc=47B file=native_menu/src/NativeMenuIcons
+   locals: s, i
+     0  undefined
+     1  get_arg0 0: s
+     2  get_field iconAsset  ;+28B
+    35  strict_eq
+    36  if_false8 -> 002a
+    38  array_from #args=0
+    41  return
+L   42  get_arg1 1: i
+    43  array_from #args=1
+    46  return
+
+-- fn name=<atom:0> args=2 vars=0 closure=7 cpool=0 bc=375B file=native_menu/src/NativeMenuIcons
+   locals: i, r
+   closure: this, c, s, o, t, e, n
+     0  get_var_ref0 0: this
+     1  get_field generation  ;+28B
+    34  get_var_ref_check 1: c
+    37  strict_eq
+    38  dup
+    39  if_false -> 0176
+    44  drop
+    45  undefined
+    46  get_arg1 1: r
+    47  strict_neq
+    48  dup
+    49  if_false8 -> 00af
+    51  drop
+    52  get_var_ref_check 2: s
+    55  get_field isLoggingEnabled
+    88  dup
+    89  if_false8 -> 00af
+    91  drop
+    92  get_var console
+    97  get_field2 warn
+   130  push_atom_value Failed to load native menu icon: 
+   135  get_field2 concat
+   168  get_arg1 1: r
+   169  call_method #args=1
+   172  call_method #args=1
+L  175  drop
+   176  get_var_ref_check 3: o
+   179  get_var_ref 4: t
+   182  to_propkey2
+   183  object
+   184  get_var_ref 5: e
+   187  null
+   188  copy_data_properties 6
+   190  drop
+   191  drop
+   192  get_arg0 0: i
+   193  define_field iconAsset
+   198  put_array_el
+   199  get_var_ref_check 6: n
+   202  get_field2 delete
+   235  get_var_ref 4: t
+   238  call_method #args=1
+   241  drop
+   242  push_0 0
+   243  get_var_ref_check 6: n
+   246  get_field size
+   279  strict_eq
+   280  dup
+   281  if_false8 -> 0176
+   283  drop
+   284  get_var_ref0 0: this
+   285  array_from #args=0
+   288  push_0 0
+   289  get_var_ref_check 3: o
+   292  append
+   293  drop
+   294  put_field actions
+   303  get_var_ref0 0: this
+   304  get_field2 onChange
+   337  get_var_ref0 0: this
+   338  get_field actions
+   371  call_method #args=1
+L  374  return_undef
+
+-- fn name=<atom:0> args=2 vars=0 closure=8 cpool=1 bc=198B file=native_menu/src/NativeMenuIcons
+   locals: e, t
+   closure: this, c, s, o, n, i, r, a
+     0  undefined
+     1  get_arg0 0: e
+     2  get_field iconAsset  ;+28B
+    35  strict_neq
+    36  dup
+    37  if_false -> 00c5
+    42  drop
+    43  get_var_ref0 0: this
+    44  get_field subscriptions
+    77  get_field2 push
+   110  get_var_ref_check 5: i
+   113  get_field addAssetLoadObserver
+   146  get_arg0 0: e
+   147  get_field iconAsset
+   180  fclosure8 0: <function <atom:0>>
+   182  get_var_ref_check 6: r
+   185  get_var_ref_check 7: a
+   188  get_var_ref_check 7: a
+   191  call #args=5
+   194  call_method #args=1
+L  197  return_undef
+
+-- fn name=<atom:0> args=1 vars=6 closure=3 cpool=3 bc=540B file=native_menu/src/NativeMenuIcons
+   locals: t, o, n, c, r, a, this
+   closure: s, i, e
+     0  push_this
+     1  put_loc8 5: this
+     3  set_loc_uninitialized 4: a
+     6  set_loc_uninitialized 3: r
+     9  set_loc_uninitialized 2: c
+    12  set_loc_uninitialized 1: n
+    15  set_loc_uninitialized 0: o
+    18  get_arg0 0: t
+    19  get_loc8 5: this
+    21  get_field source  ;+28B
+    54  strict_eq
+    55  if_false8 -> 003a
+    57  return_undef
+L   58  get_loc8 5: this
+    60  get_field2 dispose
+    93  call_method #args=0
+    96  drop
+    97  get_loc8 5: this
+    99  get_arg0 0: t
+   100  put_field source
+   109  get_arg0 0: t
+   110  get_field2 map
+   143  fclosure8 0: <function <atom:0>>
+   145  call_method #args=1
+   148  put_loc0 0: o
+   149  get_loc8 5: this
+   151  get_loc_check 0: o
+   154  put_field actions
+   163  get_var Set
+   168  dup
+   169  get_arg0 0: t
+   170  get_field2 flatMap
+   203  fclosure8 1: <function <atom:0>>
+   205  call_method #args=1
+   208  call_constructor #args=1
+   211  put_loc1 1: n
+   212  push_0 0
+   213  get_loc_check 1: n
+   216  get_field size
+   249  strict_eq
+   250  if_false8 -> 00fd
+   252  return_undef
+L  253  get_loc8 5: this
+   255  array_from #args=0
+   258  put_field actions
+   267  get_loc8 5: this
+   269  get_field generation
+   302  put_loc2 2: c
+   303  get_var_ref_check 2: e
+   306  get_field Device
+   339  get_field2 isIOS
+   372  call_method #args=0
+   375  if_false8 -> 017c
+   377  push_1 1
+   378  goto8 -> 017d
+L  380  push_2 2
+L  381  put_loc3 3: r
+   382  get_var Math
+   387  get_field2 ceil
+   420  push_i8 24
+   422  get_var_ref_check 2: e
+   425  get_field Device
+   458  get_field2 getDisplayScale
+   491  call_method #args=0
+   494  mul
+   495  call_method #args=1
+   498  put_loc8 4: a
+   500  get_arg0 0: t
+   501  get_field2 forEach
+   534  fclosure8 2: <function <atom:0>>
+   536  call_method #args=1
+   539  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=37B file=native_menu/src/NativeMenuIcons
+   locals: s
+     0  get_arg0 0: s
+     1  get_field2 unsubscribe  ;+28B
+    34  tail_call_method #args=0
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=1 bc=163B file=native_menu/src/NativeMenuIcons
+   locals: s, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: s
+     5  get_loc1 1: this
+     6  get_field2 generation  ;+28B
+    39  inc
+    40  put_field generation
+    49  get_loc1 1: this
+    50  undefined
+    51  put_field source
+    60  get_loc1 1: this
+    61  array_from #args=0
+    64  put_field actions
+    73  get_loc1 1: this
+    74  get_field subscriptions
+   107  put_loc0 0: s
+   108  get_loc1 1: this
+   109  array_from #args=0
+   112  put_field subscriptions
+   121  get_loc_check 0: s
+   124  get_field2 forEach
+   157  fclosure8 0: <function <atom:0>>
+   159  call_method #args=1
+   162  return_undef
+
+-- fn name=<atom:0> args=3 vars=6 closure=0 cpool=3 bc=194B file=native_menu/src/NativeMenuIcons
+   locals: require, module, exports, s, i, e, NativeMenuIcons, <class_fields_init>, NativeMenuIcons
+     0  set_loc_uninitialized 5: NativeMenuIcons
+     3  set_loc_uninitialized 2: e
+     6  set_loc_uninitialized 1: i
+     9  set_loc_uninitialized 0: s
+    12  get_var Object
+    17  get_field2 defineProperty  ;+28B
+    50  get_arg2 2: exports
+    51  push_atom_value __esModule
+    56  object
+    57  push_0 0
+    58  lnot
+    59  define_field value
+    64  call_method #args=3
+    67  drop
+    68  get_arg2 2: exports
+    69  undefined
+    70  put_field NativeMenuIcons
+    79  get_arg0 0: require
+    80  push_atom_value valdi_core/src/ValdiRuntimeProvider
+    85  call1 #args=1
+    86  get_field2 getValdiRuntime
+   119  call_method #args=0
+   122  put_loc0 0: s
+   123  get_arg0 0: require
+   124  push_atom_value valdi_core/src/Asset
+   129  call1 #args=1
+   130  put_loc1 1: i
+   131  get_arg0 0: require
+   132  push_atom_value valdi_core/src/Device
+   137  call1 #args=1
+   138  put_loc2 2: e
+   139  set_loc_uninitialized 3: NativeMenuIcons
+   142  undefined
+   143  set_loc_uninitialized 4: <class_fields_init>
+   146  push_const8 0: <function <atom:0>>
+   148  define_class NativeMenuIcons,0
+   154  fclosure8 1: <function <atom:0>>
+   156  define_method update,0
+   162  fclosure8 2: <function <atom:0>>
+   164  define_method dispose,0
+   170  undefined
+   171  put_loc8 4: <class_fields_init>
+   173  drop
+   174  set_loc3 3: NativeMenuIcons
+   175  close_loc 4: <class_fields_init>
+   178  put_loc8 5: NativeMenuIcons
+   180  get_arg2 2: exports
+   181  get_loc_check 5: NativeMenuIcons
+   184  put_field NativeMenuIcons
+   193  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=native_menu/src/NativeMenuIcons
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

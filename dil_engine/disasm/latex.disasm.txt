@@ -1,0 +1,2945 @@
+# latex — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/DefaultLatexRenderer.js  (777 B)
+# 原子基准=215 原子表 20 条
+-- 原子表 --
+   [0]latex/src/DefaultLatexRenderer | [1]require | [2]module | [3]exports | [4]e | [5]r | [6]t | [7]i | [8]s | [9]__esModule | [10]getDefaultLatexRenderer | [11]valdi_core/src/CompilerIntrinsics | [12]valdi_core/src/Device | [13]latex/src/JavaScriptLatexRenderer | [14]latex/src/NativeLatexRenderer | [15]Device | [16]isWeb | [17]isVersionAtLeast | [18]JAVASCRIPT_LATEX_RENDERER | [19]NATIVE_LATEX_RENDERER
+
+-- fn name=s args=1 vars=0 closure=4 cpool=0 bc=197B file=latex/src/DefaultLatexRenderer
+   locals: s
+   closure: r, e, t, i
+     0  get_arg0 0: s
+     1  dup
+     2  if_true8 -> 0079
+     4  drop
+     5  get_var_ref_check 0: r
+     8  get_field Device  ;+28B
+    41  get_field2 isWeb
+    74  call_method #args=0
+    77  dup
+    78  if_true8 -> 0079
+    80  drop
+    81  get_var_ref_check 1: e
+    84  get_field isVersionAtLeast
+   117  push_i8 24
+   119  call1 #args=1
+   120  lnot
+L  121  if_false8 -> 00a0
+   123  get_var_ref_check 2: t
+   126  get_field JAVASCRIPT_LATEX_RENDERER
+   159  return
+L  160  get_var_ref_check 3: i
+   163  get_field NATIVE_LATEX_RENDERER
+   196  return
+
+-- fn name=<atom:0> args=3 vars=5 closure=0 cpool=1 bc=128B file=latex/src/DefaultLatexRenderer
+   locals: require, module, exports, e, r, t, i, s
+     0  fclosure8 0: <function s>
+     2  put_loc8 4: s
+     4  set_loc_uninitialized 3: i
+     7  set_loc_uninitialized 2: t
+    10  set_loc_uninitialized 1: r
+    13  set_loc_uninitialized 0: e
+    16  get_var Object
+    21  get_field2 defineProperty  ;+28B
+    54  get_arg2 2: exports
+    55  push_atom_value __esModule
+    60  object
+    61  push_0 0
+    62  lnot
+    63  define_field value
+    68  call_method #args=3
+    71  drop
+    72  get_arg2 2: exports
+    73  undefined
+    74  put_field getDefaultLatexRenderer
+    83  get_arg0 0: require
+    84  push_atom_value valdi_core/src/CompilerIntrinsics
+    89  call1 #args=1
+    90  put_loc0 0: e
+    91  get_arg0 0: require
+    92  push_atom_value valdi_core/src/Device
+    97  call1 #args=1
+    98  put_loc1 1: r
+    99  get_arg0 0: require
+   100  push_atom_value latex/src/JavaScriptLatexRenderer
+   105  call1 #args=1
+   106  put_loc2 2: t
+   107  get_arg0 0: require
+   108  push_atom_value latex/src/NativeLatexRenderer
+   113  call1 #args=1
+   114  put_loc3 3: i
+   115  get_arg2 2: exports
+   116  get_loc8 4: s
+   118  put_field getDefaultLatexRenderer
+   127  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/DefaultLatexRenderer
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/JavaScriptLatexRenderer.js  (1939 B)
+# 原子基准=215 原子表 34 条
+-- 原子表 --
+   [0]latex/src/JavaScriptLatexRenderer | [1]require | [2]module | [3]exports | [4]e | [5]r | [6]t | [7]s | [8]a | [9]n | [10]i | [11]__esModule | [12]JAVASCRIPT_LATEX_RENDERER | [13]dil_math/src/renderMathSvg | [14]latex/src/LatexRenderErrors | [15]valdi_core/src/CompilerIntrinsics | [16]renderMathSvg | [17]viewBox | [18]height | [19]baseline | [20]shapes | [21]svg | [22]width | [23]isVersionAtLeast | [24]trim | [25]map | [26]isFinite | [27]min | [28]max | [29]MathSvgRenderError | [30]createLatexRenderError | [31]readLatexRenderErrorMessage | [32]readLatexParseFailureReason | [33]readLatexLayoutFailureReason
+
+-- fn name=<atom:0> args=2 vars=2 closure=4 cpool=0 bc=315B file=latex/src/JavaScriptLatexRenderer
+   locals: r, s, t, i
+   closure: e, a, t, n
+     0  catch -> 0105
+     5  set_loc_uninitialized 0: t
+     8  get_var_ref_check 0: e
+    11  get_field renderMathSvg  ;+28B
+    44  get_arg0 0: r
+    45  get_arg1 1: s
+    46  call2 #args=2
+    47  put_loc0 0: t
+    48  object
+    49  get_var_ref1 1: a
+    50  get_loc_check 0: t
+    53  get_field viewBox
+    86  get_loc_check 0: t
+    89  get_field height
+   122  call2 #args=2
+   123  define_field baseline
+   128  get_loc_check 0: t
+   131  get_field height
+   164  define_field height
+   169  array_from #args=0
+   172  define_field shapes
+   177  get_loc_check 0: t
+   180  get_field svg
+   213  define_field svg
+   218  get_loc_check 0: t
+   221  get_field width
+   254  define_field width
+   259  nip_catch
+   260  return
+L  261  put_loc1 1: i
+   262  catch -> 013a
+   267  get_var_ref_check 2: t
+   270  get_field isVersionAtLeast
+   303  push_i8 10
+   305  call1 #args=1
+   306  if_false8 -> 0138
+   308  get_var_ref3 3: n
+   309  get_loc1 1: i
+   310  call1 #args=1
+   311  throw
+L  312  get_loc1 1: i
+   313  throw
+L  314  throw
+
+-- fn name=a args=2 vars=1 closure=0 cpool=2 bc=294B file=latex/src/JavaScriptLatexRenderer
+   locals: e, r, t
+     0  set_loc_uninitialized 0: t
+     3  get_arg0 0: e
+     4  get_field2 trim  ;+28B
+    37  call_method #args=0
+    40  get_field2 split
+    73  push_const8 0: <string None>
+    75  push_const8 1: <string None>
+    77  regexp
+    78  call_method #args=1
+    81  get_field2 map
+   114  get_var Number
+   119  call_method #args=1
+   122  put_loc0 0: t
+   123  push_4 4
+   124  get_loc_check 0: t
+   127  get_length
+   128  strict_neq
+   129  dup
+   130  if_true8 -> 00bf
+   132  drop
+   133  get_var Number
+   138  get_field2 isFinite
+   171  get_loc_check 0: t
+   174  push_1 1
+   175  get_array_el
+   176  call_method #args=1
+   179  lnot
+   180  dup
+   181  if_true8 -> 00bf
+   183  drop
+   184  get_loc_check 0: t
+   187  push_3 3
+   188  get_array_el
+   189  push_0 0
+   190  lte
+L  191  if_false8 -> 00c3
+   193  get_arg1 1: r
+   194  return
+L  195  get_var Math
+   200  get_field2 min
+   233  get_arg1 1: r
+   234  get_var Math
+   239  get_field2 max
+   272  push_0 0
+   273  get_loc_check 0: t
+   276  push_1 1
+   277  get_array_el
+   278  neg
+   279  get_arg1 1: r
+   280  mul
+   281  get_loc_check 0: t
+   284  push_3 3
+   285  get_array_el
+   286  div
+   287  call_method #args=2
+   290  call_method #args=2
+   293  return
+
+-- fn name=n args=1 vars=1 closure=3 cpool=0 bc=238B file=latex/src/JavaScriptLatexRenderer
+   locals: t, s
+   closure: e, r, i
+     0  set_loc_uninitialized 0: s
+     3  get_arg0 0: t
+     4  get_var_ref_check 0: e
+     7  get_field MathSvgRenderError  ;+28B
+    40  instanceof
+    41  lnot
+    42  if_false8 -> 007a
+    44  get_var_ref_check 1: r
+    47  get_field createLatexRenderError
+    80  push_0 0
+    81  get_var_ref_check 1: r
+    84  get_field readLatexRenderErrorMessage
+   117  get_arg0 0: t
+   118  call1 #args=1
+   119  tail_call #args=2
+L  122  get_arg0 0: t
+   123  get_field message
+   156  put_loc0 0: s
+   157  get_var_ref_check 1: r
+   160  get_field createLatexRenderError
+   193  get_var_ref2 2: i
+   194  get_arg0 0: t
+   195  get_field reason
+   228  get_loc_check 0: s
+   231  call2 #args=2
+   232  get_loc_check 0: s
+   235  tail_call #args=2
+
+-- fn name=i args=2 vars=0 closure=1 cpool=0 bc=105B file=latex/src/JavaScriptLatexRenderer
+   locals: e, t
+   closure: r
+     0  get_arg0 0: e
+     1  dup
+     2  push_1 1
+     3  strict_eq
+     4  if_false8 -> 0008
+     6  push_2 2
+     7  return
+L    8  dup
+     9  push_2 2
+    10  strict_eq
+    11  if_false8 -> 0035
+    13  get_var_ref_check 0: r
+    16  get_field readLatexParseFailureReason  ;+28B
+    49  get_arg1 1: t
+    50  tail_call #args=1
+L   53  dup
+    54  push_3 3
+    55  strict_eq
+    56  if_false8 -> 0061
+    58  get_var_ref_check 0: r
+    61  get_field readLatexLayoutFailureReason
+    94  tail_call #args=0
+L   97  dup
+    98  push_0 0
+    99  strict_eq
+   100  if_false8 -> 0068
+   102  push_0 0
+   103  return
+L  104  return_undef
+
+-- fn name=<atom:0> args=3 vars=7 closure=0 cpool=4 bc=137B file=latex/src/JavaScriptLatexRenderer
+   locals: require, module, exports, e, r, t, s, a, n, i
+     0  fclosure8 1: <function a>
+     2  put_loc8 4: a
+     4  fclosure8 2: <function n>
+     6  put_loc8 5: n
+     8  fclosure8 3: <function i>
+    10  put_loc8 6: i
+    12  set_loc_uninitialized 3: s
+    15  set_loc_uninitialized 2: t
+    18  set_loc_uninitialized 1: r
+    21  set_loc_uninitialized 0: e
+    24  get_var Object
+    29  get_field2 defineProperty
+    62  get_arg2 2: exports
+    63  push_atom_value __esModule
+    68  object
+    69  push_0 0
+    70  lnot
+    71  define_field value
+    76  call_method #args=3
+    79  drop
+    80  get_arg2 2: exports
+    81  undefined
+    82  put_field JAVASCRIPT_LATEX_RENDERER
+    91  get_arg0 0: require
+    92  push_atom_value dil_math/src/renderMathSvg
+    97  call1 #args=1
+    98  put_loc0 0: e
+    99  get_arg0 0: require
+   100  push_atom_value latex/src/LatexRenderErrors
+   105  call1 #args=1
+   106  put_loc1 1: r
+   107  get_arg0 0: require
+   108  push_atom_value valdi_core/src/CompilerIntrinsics
+   113  call1 #args=1
+   114  put_loc2 2: t
+   115  fclosure8 0: <function <atom:0>>
+   117  set_name s
+   122  put_loc3 3: s
+   123  get_arg2 2: exports
+   124  get_loc_check 3: s
+   127  put_field JAVASCRIPT_LATEX_RENDERER
+   136  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/JavaScriptLatexRenderer
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/LatexEntryPointComponent.js  (3064 B)
+# 原子基准=215 原子表 60 条
+-- 原子表 --
+   [0]latex/src/LatexEntryPointComponent | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]o | [7]r | [8]n | [9]i | [10]d | [11]l | [12]s | [13]LatexEntryPointComponent | [14]a | [15]__esModule | [16]valdi_core/src/JSX | [17]jsx | [18]makeNodePrototype | [19]view | [20]width | [21]100% | [22]gexB2zByTBOhqyus | [23]scroll | [24]q5wHtGffdLXnesGG | [25]layout | [26]F3hCn_pAxc7PKoqC | [27]makeComponentPrototype | [28]efyNYHw16bT_8RnK | [29]valdi_core/src/Component | [30]valdi_core/src/CompilerIntrinsics | [31]valdi_core/src/Style | [32]latex/src/LatexView | [33]Component | [34]onRender | [35]renderLatex | [36]Style | [37]horizontal | [38]showsHorizontalScrollIndicator | [39]blockScroll | [40]center | [41]alignItems | [42]flexGrow | [43]blockContent | [44]viewModel | [45]block | [46]beginRender | [47]setAttributeStyle | [48]style | [49]endRender | [50]isVersionAtLeast | [51]useNativeLatexRenderer | [52]beginComponent | [53]LatexView | [54]setViewModelProperty | [55]latex | [56]color | [57]onRenderFailure | [58]context | [59]endComponent
+
+-- fn name=<atom:0> args=0 vars=1 closure=5 cpool=0 bc=565B file=latex/src/LatexEntryPointComponent
+   locals: this
+   closure: e, t, o, a, r
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field viewModel  ;+28B
+    36  get_field block
+    69  if_false -> 020f
+    74  get_var_ref_check 0: e
+    77  get_field2 beginRender
+   110  get_var_ref_check 1: t
+   113  undefined
+   114  call_method #args=2
+   117  drop
+   118  get_var_ref_check 0: e
+   121  get_field2 beginRender
+   154  get_var_ref_check 2: o
+   157  undefined
+   158  call_method #args=2
+   161  drop
+   162  get_var_ref_check 0: e
+   165  get_field2 setAttributeStyle
+   198  push_atom_value style
+   203  get_var_ref_check 3: a
+   206  get_field blockScroll
+   239  call_method #args=2
+   242  drop
+   243  get_var_ref_check 0: e
+   246  get_field2 beginRender
+   279  get_var_ref_check 4: r
+   282  undefined
+   283  call_method #args=2
+   286  drop
+   287  get_var_ref_check 0: e
+   290  get_field2 setAttributeStyle
+   323  push_atom_value style
+   328  get_var_ref_check 3: a
+   331  get_field blockContent
+   364  call_method #args=2
+   367  drop
+   368  get_loc0 0: this
+   369  get_field2 renderLatex
+   402  call_method #args=0
+   405  drop
+   406  get_var_ref_check 0: e
+   409  get_field2 endRender
+   442  call_method #args=0
+   445  drop
+   446  get_var_ref_check 0: e
+   449  get_field2 endRender
+   482  call_method #args=0
+   485  drop
+   486  get_var_ref_check 0: e
+   489  get_field2 endRender
+   522  call_method #args=0
+   525  drop
+   526  return_undef
+L  527  get_loc0 0: this
+   528  get_field2 renderLatex
+   561  call_method #args=0
+   564  return_undef
+
+-- fn name=<atom:0> args=0 vars=2 closure=4 cpool=0 bc=791B file=latex/src/LatexEntryPointComponent
+   locals: t, this
+   closure: d, e, s, n
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  undefined
+     6  put_loc0 0: t
+     7  get_var_ref_check 0: d
+    10  get_field isVersionAtLeast  ;+28B
+    43  push_i8 24
+    45  call1 #args=1
+    46  dup
+    47  if_false8 -> 0079
+    49  drop
+    50  get_loc1 1: this
+    51  get_field viewModel
+    84  get_field useNativeLatexRenderer
+   117  dup
+   118  put_loc_check 0: t
+L  121  drop
+   122  get_var_ref_check 1: e
+   125  get_field2 beginComponent
+   158  get_var_ref_check 2: s
+   161  get_field LatexView
+   194  get_var_ref_check 3: n
+   197  undefined
+   198  undefined
+   199  call_method #args=4
+   202  drop
+   203  get_var_ref_check 1: e
+   206  get_field2 setViewModelProperty
+   239  push_atom_value latex
+   244  get_loc1 1: this
+   245  get_field viewModel
+   278  get_field latex
+   311  call_method #args=2
+   314  drop
+   315  get_var_ref_check 1: e
+   318  get_field2 setViewModelProperty
+   351  push_atom_value block
+   356  get_loc1 1: this
+   357  get_field viewModel
+   390  get_field block
+   423  call_method #args=2
+   426  drop
+   427  get_var_ref_check 1: e
+   430  get_field2 setViewModelProperty
+   463  push_atom_value color
+   468  get_loc1 1: this
+   469  get_field viewModel
+   502  get_field color
+   535  call_method #args=2
+   538  drop
+   539  get_var_ref_check 1: e
+   542  get_field2 setViewModelProperty
+   575  push_atom_value useNativeLatexRenderer
+   580  get_loc_check 0: t
+   583  call_method #args=2
+   586  drop
+   587  get_var_ref_check 1: e
+   590  get_field2 setViewModelProperty
+   623  push_atom_value onRenderFailure
+   628  get_var_ref_check 0: d
+   631  get_field isVersionAtLeast
+   664  push_i8 10
+   666  call1 #args=1
+   667  if_false8 -> 02ea
+   669  get_loc1 1: this
+   670  get_field context
+   703  dup
+   704  is_undefined_or_null
+   705  if_false8 -> 02c7
+   707  drop
+   708  undefined
+   709  goto8 -> 02eb
+L  711  get_field onRenderFailure
+   744  goto8 -> 02eb
+L  746  undefined
+L  747  call_method #args=2
+   750  drop
+   751  get_var_ref_check 1: e
+   754  get_field2 endComponent
+   787  call_method #args=0
+   790  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=0 bc=49B file=latex/src/LatexEntryPointComponent
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  return
+
+-- fn name=<atom:0> args=3 vars=13 closure=0 cpool=3 bc=615B file=latex/src/LatexEntryPointComponent
+   locals: require, module, exports, e, t, o, r, n, i, d, l, s, LatexEntryPointComponent, <class_fields_init>, LatexEntryPointComponent, a
+     0  set_loc_uninitialized 12: a
+     3  set_loc_uninitialized 11: LatexEntryPointComponent
+     6  set_loc_uninitialized 8: s
+     9  set_loc_uninitialized 7: l
+    12  set_loc_uninitialized 6: d
+    15  set_loc_uninitialized 5: i
+    18  set_loc_uninitialized 4: n
+    21  set_loc_uninitialized 3: r
+    24  set_loc_uninitialized 2: o
+    27  set_loc_uninitialized 1: t
+    30  set_loc_uninitialized 0: e
+    33  get_var Object
+    38  get_field2 defineProperty
+    71  get_arg2 2: exports
+    72  push_atom_value __esModule
+    77  object
+    78  push_0 0
+    79  lnot
+    80  define_field value
+    85  call_method #args=3
+    88  drop
+    89  get_arg2 2: exports
+    90  undefined
+    91  put_field LatexEntryPointComponent
+   100  get_arg0 0: require
+   101  push_atom_value valdi_core/src/JSX
+   106  call1 #args=1
+   107  get_field jsx
+   140  put_loc0 0: e
+   141  get_loc_check 0: e
+   144  get_field2 makeNodePrototype
+   177  push_atom_value view
+   182  push_atom_value width
+   187  push_atom_value 100%
+   192  array_from #args=2
+   195  push_atom_value gexB2zByTBOhqyus
+   200  call_method #args=3
+   203  put_loc1 1: t
+   204  get_loc_check 0: e
+   207  get_field2 makeNodePrototype
+   240  push_atom_value scroll
+   245  undefined
+   246  push_atom_value q5wHtGffdLXnesGG
+   251  call_method #args=3
+   254  put_loc2 2: o
+   255  get_loc_check 0: e
+   258  get_field2 makeNodePrototype
+   291  push_atom_value layout
+   296  undefined
+   297  push_atom_value F3hCn_pAxc7PKoqC
+   302  call_method #args=3
+   305  put_loc3 3: r
+   306  get_loc_check 0: e
+   309  get_field2 makeComponentPrototype
+   342  undefined
+   343  push_atom_value efyNYHw16bT_8RnK
+   348  call_method #args=2
+   351  put_loc8 4: n
+   353  get_arg0 0: require
+   354  push_atom_value valdi_core/src/Component
+   359  call1 #args=1
+   360  put_loc8 5: i
+   362  get_arg0 0: require
+   363  push_atom_value valdi_core/src/CompilerIntrinsics
+   368  call1 #args=1
+   369  put_loc8 6: d
+   371  get_arg0 0: require
+   372  push_atom_value valdi_core/src/Style
+   377  call1 #args=1
+   378  put_loc8 7: l
+   380  get_arg0 0: require
+   381  push_atom_value latex/src/LatexView
+   386  call1 #args=1
+   387  put_loc8 8: s
+   389  set_loc_uninitialized 9: LatexEntryPointComponent
+   392  get_loc_check 5: i
+   395  get_field Component
+   428  set_loc_uninitialized 10: <class_fields_init>
+   431  push_const8 2: <function <atom:0>>
+   433  define_class LatexEntryPointComponent,1
+   439  fclosure8 0: <function <atom:0>>
+   441  define_method onRender,0
+   447  fclosure8 1: <function <atom:0>>
+   449  define_method renderLatex,0
+   455  undefined
+   456  put_loc8 10: <class_fields_init>
+   458  drop
+   459  set_loc8 9: LatexEntryPointComponent
+   461  close_loc 10: <class_fields_init>
+   464  put_loc8 11: LatexEntryPointComponent
+   466  get_arg2 2: exports
+   467  get_loc_check 11: LatexEntryPointComponent
+   470  put_field LatexEntryPointComponent
+   479  object
+   480  get_loc_check 7: l
+   483  get_field Style
+   516  dup
+   517  object
+   518  push_0 0
+   519  lnot
+   520  define_field horizontal
+   525  push_1 1
+   526  lnot
+   527  define_field showsHorizontalScrollIndicator
+   532  push_atom_value 100%
+   537  define_field width
+   542  call_constructor #args=1
+   545  define_field blockScroll
+   550  get_loc_check 7: l
+   553  get_field Style
+   586  dup
+   587  object
+   588  push_atom_value center
+   593  define_field alignItems
+   598  push_1 1
+   599  define_field flexGrow
+   604  call_constructor #args=1
+   607  define_field blockContent
+   612  put_loc8 12: a
+   614  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/LatexEntryPointComponent
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/LatexRecoveryMetrics.js  (4659 B)
+# 原子基准=215 原子表 106 条
+-- 原子表 --
+   [0]latex/src/LatexRecoveryMetrics | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]a | [7]r | [8]n | [9]i | [10]s | [11]o | [12]l | [13]c | [14]__esModule | [15]LatexRecoveryOutcome | [16]reportLatexNativeRecovery | [17]oai_metrics_service/src/ValdiMetricsReporting | [18]valdi_core/src/CompilerIntrinsics | [19]./LatexRenderErrors | [20]áčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽàâãçêôõÀÂÃÇÊÔÕ̧̀́̂̃̈̊̌ | [21]normal | [22]bold | [23]italic | [24]bold-italic | [25]double-struck | [26]fraktur | [27]bold-fraktur | [28]sans-serif | [29]bold-sans-serif | [30]sans-serif-italic | [31]sans-serif-bold-italic | [32]monospace | [33]script | [34]bold-script | [35]-smallop | [36]-largeop | [37]-size3 | [38]-size4 | [39]-size5 | [40]-size6 | [41]-size7 | [42]-tex-mathit | [43]-tex-calligraphic | [44]-tex-bold-calligraphic | [45]-tex-oldstyle | [46]-tex-bold-oldstyle | [47]-tex-variant | [48]-lf-tp | [49]-rt-bt | [50]-ex-md | [51]-bbold | [52]-upsmall | [53]-uplarge | [54]first | [55]last | [56]basic_latin | [57]latin_1_supplement | [58]latin_extended_a | [59]latin_extended_b | [60]combining_diacritical_marks | [61]greek_and_coptic | [62]cyrillic | [63]hebrew | [64]arabic | [65]devanagari | [66]punctuation_and_symbols | [67]hiragana_and_katakana | [68]cjk_ideographs | [69]hangul_syllables | [70]mathematical_alphanumeric_symbols | [71]pictographs_and_symbols | [72]recovered | [73]Recovered | [74]failed | [75]Failed | [76]unavailable | [77]Unavailable | [78]countMetric | [79]latex.native.recovery | [80]native | [81]mathjax | [82]fallback | [83]outcome | [84]missing_glyph | [85]variant | [86]other | [87]requested_variant | [88]find | [89]glyph_block | [90]fromCodePoint | [91]codepoint | [92]U+ | [93]toUpperCase | [94]padStart | [95]missing_codepoint | [96]
+[caused by]:  | [97]parseInt | [98]isVersionAtLeast | [99]readLatexRenderFailureReason | [100]layout_error | [101]renderer_unavailable | [102]empty_expression | [103]undefined_control_sequence | [104]unknown_environment | [105]tex_parse_error
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=46B file=latex/src/LatexRecoveryMetrics
+   locals: e
+     0  get_arg0 0: e
+     1  push_atom_value recovered
+     6  put_field Recovered
+    15  get_arg0 0: e
+    16  push_atom_value failed
+    21  put_field Failed
+    30  get_arg0 0: e
+    31  push_atom_value unavailable
+    36  put_field Unavailable
+    45  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=147B file=latex/src/LatexRecoveryMetrics
+   locals: e
+   closure: r
+     0  get_var_ref_check 0: r
+     3  get_field codepoint  ;+28B
+    36  get_arg0 0: e
+    37  get_field first
+    70  gte
+    71  dup
+    72  if_false8 -> 0092
+    74  drop
+    75  get_var_ref_check 0: r
+    78  get_field codepoint
+   111  get_arg0 0: e
+   112  get_field last
+   145  lte
+L  146  return
+
+-- fn name=o args=2 vars=1 closure=6 cpool=2 bc=729B file=latex/src/LatexRecoveryMetrics
+   locals: t, a, r
+   closure: l, e, c, i, s, n
+     0  set_loc_uninitialized 0: r
+     3  get_var_ref0 0: l
+     4  get_arg0 0: t
+     5  call1 #args=1
+     6  put_loc0 0: r
+     7  get_var_ref_check 1: e
+    10  get_field countMetric  ;+28B
+    43  push_atom_value latex.native.recovery
+    48  push_1 1
+    49  object
+    50  push_atom_value native
+    55  define_field source
+    60  push_atom_value mathjax
+    65  define_field fallback
+    70  get_arg1 1: a
+    71  define_field outcome
+    76  undefined
+    77  get_loc_check 0: r
+    80  strict_eq
+    81  if_false8 -> 0058
+    83  get_var_ref2 2: c
+    84  get_arg0 0: t
+    85  call1 #args=1
+    86  goto8 -> 005d
+L   88  push_atom_value missing_glyph
+L   93  define_field reason
+    98  undefined
+    99  get_loc_check 0: r
+   102  dup
+   103  is_undefined_or_null
+   104  if_false8 -> 006e
+   106  drop
+   107  undefined
+   108  goto8 -> 008f
+L  110  get_field variant
+L  143  strict_eq
+   144  if_false8 -> 0099
+   146  push_atom_value unknown
+   151  goto8 -> 0111
+L  153  get_var_ref_check 3: i
+   156  get_field2 has
+   189  get_loc_check 0: r
+   192  get_field variant
+   225  call_method #args=1
+   228  if_false8 -> 010c
+   230  get_loc_check 0: r
+   233  get_field variant
+   266  goto8 -> 0111
+L  268  push_atom_value other
+L  273  define_field requested_variant
+   278  undefined
+   279  get_loc_check 0: r
+   282  strict_eq
+   283  if_false8 -> 0124
+   285  push_atom_value unknown
+   290  goto8 -> 0180
+L  292  get_var_ref_check 4: s
+   295  get_field2 find
+   328  fclosure8 0: <function <atom:0>>
+   330  call_method #args=1
+   333  dup
+   334  is_undefined_or_null
+   335  if_false8 -> 0155
+   337  drop
+   338  undefined
+   339  goto8 -> 0176
+L  341  get_field name
+L  374  dup
+   375  is_undefined_or_null
+   376  if_false8 -> 0180
+   378  drop
+   379  push_atom_value other
+L  384  define_field glyph_block
+   389  undefined
+   390  get_loc_check 0: r
+   393  strict_eq
+   394  if_false8 -> 0194
+   396  push_atom_value unknown
+   401  goto16 -> 02d2
+L  404  get_var_ref_check 5: n
+   407  get_field2 has
+   440  get_var String
+   445  get_field2 fromCodePoint
+   478  get_loc_check 0: r
+   481  get_field codepoint
+   514  call_method #args=1
+   517  call_method #args=1
+   520  if_false -> 02cd
+   525  push_atom_value U+
+   530  get_field2 concat
+   563  get_loc_check 0: r
+   566  get_field codepoint
+   599  get_field2 toString
+   632  push_i8 16
+   634  call_method #args=1
+   637  get_field2 toUpperCase
+   670  call_method #args=0
+   673  get_field2 padStart
+   706  push_4 4
+   707  push_const8 1: <string None>
+   709  call_method #args=2
+   712  call_method #args=1
+   715  goto8 -> 02d2
+L  717  push_atom_value other
+L  722  define_field missing_codepoint
+   727  call3 #args=3
+   728  return_undef
+
+-- fn name=l args=1 vars=3 closure=0 cpool=2 bc=271B file=latex/src/LatexRecoveryMetrics
+   locals: e, t, a, r
+     0  set_loc_uninitialized 2: r
+     3  set_loc_uninitialized 1: a
+     6  set_loc_uninitialized 0: t
+     9  get_arg0 0: e
+    10  get_var Error
+    15  instanceof
+    16  lnot
+    17  if_false8 -> 0014
+    19  return_undef
+L   20  get_arg0 0: e
+    21  get_field message  ;+28B
+    54  get_field2 split
+    87  push_atom_value 
+[caused by]: 
+    92  push_1 1
+    93  call_method #args=2
+    96  push_0 0
+    97  get_array_el
+    98  put_loc0 0: t
+    99  push_const8 0: <string None>
+   101  push_const8 1: <string None>
+   103  regexp
+   104  get_field2 exec
+   137  get_loc_check 0: t
+   140  call_method #args=1
+   143  put_loc1 1: a
+   144  null
+   145  get_loc_check 1: a
+   148  strict_eq
+   149  dup
+   150  if_true8 -> 00a2
+   152  drop
+   153  get_loc_check 1: a
+   156  push_0 0
+   157  get_array_el
+   158  get_loc_check 0: t
+   161  strict_neq
+L  162  if_false8 -> 00a5
+   164  return_undef
+L  165  get_var Number
+   170  get_field2 parseInt
+   203  get_loc_check 1: a
+   206  push_1 1
+   207  get_array_el
+   208  push_i8 16
+   210  call_method #args=2
+   213  put_loc2 2: r
+   214  get_loc_check 2: r
+   217  push_i32 1114111
+   222  gt
+   223  dup
+   224  if_true8 -> 00f7
+   226  drop
+   227  get_loc_check 2: r
+   230  push_i32 55296
+   235  gte
+   236  if_false8 -> 00fb
+   238  get_loc_check 2: r
+   241  push_i32 57343
+   246  lte
+L  247  if_false8 -> 00fb
+   249  undefined
+   250  return
+L  251  object
+   252  get_loc_check 2: r
+   255  define_field codepoint
+   260  get_loc_check 1: a
+   263  push_2 2
+   264  get_array_el
+   265  define_field variant
+   270  return
+
+-- fn name=c args=1 vars=1 closure=2 cpool=0 bc=208B file=latex/src/LatexRecoveryMetrics
+   locals: e, r
+   closure: t, a
+     0  set_loc_uninitialized 0: r
+     3  get_var_ref_check 0: t
+     6  get_field isVersionAtLeast  ;+28B
+    39  push_i8 10
+    41  call1 #args=1
+    42  lnot
+    43  if_false8 -> 0033
+    45  push_atom_value unknown
+    50  return
+L   51  get_var_ref_check 1: a
+    54  get_field readLatexRenderFailureReason
+    87  get_arg0 0: e
+    88  call1 #args=1
+    89  put_loc0 0: r
+    90  get_var_ref_check 0: t
+    93  get_field isVersionAtLeast
+   126  push_i8 24
+   128  call1 #args=1
+   129  if_false8 -> 0090
+   131  push_6 6
+   132  get_loc_check 0: r
+   135  strict_eq
+   136  if_false8 -> 0090
+   138  push_atom_value layout_error
+   143  return
+L  144  get_loc_check 0: r
+   147  dup
+   148  push_1 1
+   149  strict_eq
+   150  if_false8 -> 009e
+   152  push_atom_value renderer_unavailable
+   157  return
+L  158  dup
+   159  push_2 2
+   160  strict_eq
+   161  if_false8 -> 00a9
+   163  push_atom_value empty_expression
+   168  return
+L  169  dup
+   170  push_3 3
+   171  strict_eq
+   172  if_false8 -> 00b4
+   174  push_atom_value undefined_control_sequence
+   179  return
+L  180  dup
+   181  push_4 4
+   182  strict_eq
+   183  if_false8 -> 00bf
+   185  push_atom_value unknown_environment
+   190  return
+L  191  dup
+   192  push_5 5
+   193  strict_eq
+   194  if_false8 -> 00ca
+   196  push_atom_value tex_parse_error
+   201  return
+L  202  push_atom_value unknown
+   207  return
+
+-- fn name=<atom:0> args=3 vars=10 closure=0 cpool=4 bc=874B file=latex/src/LatexRecoveryMetrics
+   locals: require, module, exports, e, t, a, r, n, i, s, o, l, c
+     0  fclosure8 1: <function o>
+     2  put_loc8 7: o
+     4  fclosure8 2: <function l>
+     6  put_loc8 8: l
+     8  fclosure8 3: <function c>
+    10  put_loc8 9: c
+    12  set_loc_uninitialized 6: s
+    15  set_loc_uninitialized 5: i
+    18  set_loc_uninitialized 4: n
+    21  set_loc_uninitialized 2: a
+    24  set_loc_uninitialized 1: t
+    27  set_loc_uninitialized 0: e
+    30  get_var Object
+    35  get_field2 defineProperty
+    68  get_arg2 2: exports
+    69  push_atom_value __esModule
+    74  object
+    75  push_0 0
+    76  lnot
+    77  define_field value
+    82  call_method #args=3
+    85  drop
+    86  get_arg2 2: exports
+    87  get_arg2 2: exports
+    88  undefined
+    89  insert2
+    90  put_field LatexRecoveryOutcome
+    99  put_field reportLatexNativeRecovery
+   108  get_arg0 0: require
+   109  push_atom_value oai_metrics_service/src/ValdiMetricsReporting
+   114  call1 #args=1
+   115  put_loc0 0: e
+   116  get_arg0 0: require
+   117  push_atom_value valdi_core/src/CompilerIntrinsics
+   122  call1 #args=1
+   123  put_loc1 1: t
+   124  get_arg0 0: require
+   125  push_atom_value ./LatexRenderErrors
+   130  call1 #args=1
+   131  put_loc2 2: a
+   132  fclosure8 0: <function <atom:0>>
+   134  get_loc3 3: r
+   135  dup
+   136  if_true8 -> 0098
+   138  drop
+   139  get_arg2 2: exports
+   140  object
+   141  set_loc3 3: r
+   142  insert2
+   143  put_field LatexRecoveryOutcome
+L  152  call1 #args=1
+   153  lnot
+   154  drop
+   155  get_var Set
+   160  dup
+   161  push_atom_value áčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽàâãçêôõÀÂÃÇÊÔÕ̧̀́̂̃̈̊̌
+   166  call_constructor #args=1
+   169  put_loc8 4: n
+   171  get_var Set
+   176  dup
+   177  push_atom_value normal
+   182  push_atom_value bold
+   187  push_atom_value italic
+   192  push_atom_value bold-italic
+   197  push_atom_value double-struck
+   202  push_atom_value fraktur
+   207  push_atom_value bold-fraktur
+   212  push_atom_value sans-serif
+   217  push_atom_value bold-sans-serif
+   222  push_atom_value sans-serif-italic
+   227  push_atom_value sans-serif-bold-italic
+   232  push_atom_value monospace
+   237  push_atom_value script
+   242  push_atom_value bold-script
+   247  push_atom_value -smallop
+   252  push_atom_value -largeop
+   257  push_atom_value -size3
+   262  push_atom_value -size4
+   267  push_atom_value -size5
+   272  push_atom_value -size6
+   277  push_atom_value -size7
+   282  push_atom_value -tex-mathit
+   287  push_atom_value -tex-calligraphic
+   292  push_atom_value -tex-bold-calligraphic
+   297  push_atom_value -tex-oldstyle
+   302  push_atom_value -tex-bold-oldstyle
+   307  push_atom_value -tex-variant
+   312  push_atom_value -lf-tp
+   317  push_atom_value -rt-bt
+   322  push_atom_value -ex-md
+   327  push_atom_value -bbold
+   332  push_atom_value -upsmall
+   337  array_from #args=32
+   340  push_atom_value -uplarge
+   345  define_field <bad:2147483465>
+   350  call_constructor #args=1
+   353  put_loc8 5: i
+   355  object
+   356  push_0 0
+   357  define_field first
+   362  push_i8 127
+   364  define_field last
+   369  push_atom_value basic_latin
+   374  define_field name
+   379  object
+   380  push_i16 128
+   383  define_field first
+   388  push_i16 255
+   391  define_field last
+   396  push_atom_value latin_1_supplement
+   401  define_field name
+   406  object
+   407  push_i16 256
+   410  define_field first
+   415  push_i16 383
+   418  define_field last
+   423  push_atom_value latin_extended_a
+   428  define_field name
+   433  object
+   434  push_i16 384
+   437  define_field first
+   442  push_i16 591
+   445  define_field last
+   450  push_atom_value latin_extended_b
+   455  define_field name
+   460  object
+   461  push_i16 768
+   464  define_field first
+   469  push_i16 879
+   472  define_field last
+   477  push_atom_value combining_diacritical_marks
+   482  define_field name
+   487  object
+   488  push_i16 880
+   491  define_field first
+   496  push_i16 1023
+   499  define_field last
+   504  push_atom_value greek_and_coptic
+   509  define_field name
+   514  object
+   515  push_i16 1024
+   518  define_field first
+   523  push_i16 1327
+   526  define_field last
+   531  push_atom_value cyrillic
+   536  define_field name
+   541  object
+   542  push_i16 1424
+   545  define_field first
+   550  push_i16 1535
+   553  define_field last
+   558  push_atom_value hebrew
+   563  define_field name
+   568  object
+   569  push_i16 1536
+   572  define_field first
+   577  push_i16 1791
+   580  define_field last
+   585  push_atom_value arabic
+   590  define_field name
+   595  object
+   596  push_i16 2304
+   599  define_field first
+   604  push_i16 2431
+   607  define_field last
+   612  push_atom_value devanagari
+   617  define_field name
+   622  object
+   623  push_i16 8192
+   626  define_field first
+   631  push_i16 11263
+   634  define_field last
+   639  push_atom_value punctuation_and_symbols
+   644  define_field name
+   649  object
+   650  push_i16 12352
+   653  define_field first
+   658  push_i16 12543
+   661  define_field last
+   666  push_atom_value hiragana_and_katakana
+   671  define_field name
+   676  object
+   677  push_i16 13312
+   680  define_field first
+   685  push_i16 19903
+   688  define_field last
+   693  push_atom_value cjk_ideographs
+   698  define_field name
+   703  object
+   704  push_i16 19968
+   707  define_field first
+   712  push_i32 40959
+   717  define_field last
+   722  push_atom_value cjk_ideographs
+   727  define_field name
+   732  object
+   733  push_i32 44032
+   738  define_field first
+   743  push_i32 55215
+   748  define_field last
+   753  push_atom_value hangul_syllables
+   758  define_field name
+   763  object
+   764  push_i32 119808
+   769  define_field first
+   774  push_i32 120831
+   779  define_field last
+   784  push_atom_value mathematical_alphanumeric_symbols
+   789  define_field name
+   794  object
+   795  push_i32 126976
+   800  define_field first
+   805  push_i32 129791
+   810  define_field last
+   815  push_atom_value pictographs_and_symbols
+   820  define_field name
+   825  object
+   826  push_i32 131072
+   831  define_field first
+   836  push_i32 205743
+   841  define_field last
+   846  push_atom_value cjk_ideographs
+   851  define_field name
+   856  array_from #args=18
+   859  put_loc8 6: s
+   861  get_arg2 2: exports
+   862  get_loc8 7: o
+   864  put_field reportLatexNativeRecovery
+   873  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/LatexRecoveryMetrics
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/LatexRenderErrors.js  (1089 B)
+# 原子基准=215 原子表 22 条
+-- 原子表 --
+   [0]latex/src/LatexRenderErrors | [1]require | [2]module | [3]exports | [4]e | [5]r | [6]t | [7]n | [8]a | [9]o | [10]__esModule | [11]createLatexRenderError | [12]readLatexRenderErrorMessage | [13]readLatexRenderFailureReason | [14]readLatexLayoutFailureReason | [15]readLatexParseFailureReason | [16]valdi_core/src/CompilerIntrinsics | [17]assign | [18]isVersionAtLeast | [19]startsWith | [20]Undefined control sequence | [21]Unknown environment
+
+-- fn name=r args=2 vars=0 closure=0 cpool=0 bc=58B file=latex/src/LatexRenderErrors
+   locals: e, r
+     0  get_var Object
+     5  get_field2 assign  ;+28B
+    38  get_var Error
+    43  dup
+    44  get_arg1 1: r
+    45  call_constructor #args=1
+    48  object
+    49  get_arg0 0: e
+    50  define_field reason
+    55  tail_call_method #args=2
+
+-- fn name=t args=1 vars=0 closure=0 cpool=0 bc=52B file=latex/src/LatexRenderErrors
+   locals: e
+     0  get_arg0 0: e
+     1  get_var Error
+     6  instanceof
+     7  if_false8 -> 002c
+     9  get_arg0 0: e
+    10  get_field message  ;+28B
+    43  return
+L   44  get_var String
+    49  get_arg0 0: e
+    50  call1 #args=1
+    51  return
+
+-- fn name=n args=1 vars=0 closure=0 cpool=0 bc=52B file=latex/src/LatexRenderErrors
+   locals: e
+     0  get_arg0 0: e
+     1  get_var Error
+     6  instanceof
+     7  if_false8 -> 0032
+     9  get_arg0 0: e
+    10  get_field reason  ;+28B
+    43  dup
+    44  is_undefined_or_null
+    45  if_false8 -> 0033
+    47  drop
+    48  push_0 0
+    49  return
+L   50  push_0 0
+L   51  return
+
+-- fn name=a args=0 vars=0 closure=1 cpool=0 bc=45B file=latex/src/LatexRenderErrors
+   closure: e
+     0  get_var_ref_check 0: e
+     3  get_field isVersionAtLeast  ;+28B
+    36  push_i8 24
+    38  call1 #args=1
+    39  if_false8 -> 002b
+    41  push_6 6
+    42  return
+L   43  push_0 0
+    44  return
+
+-- fn name=o args=1 vars=0 closure=0 cpool=0 bc=94B file=latex/src/LatexRenderErrors
+   locals: e
+     0  get_arg0 0: e
+     1  get_field2 startsWith  ;+28B
+    34  push_atom_value Undefined control sequence
+    39  call_method #args=1
+    42  if_false8 -> 002e
+    44  push_3 3
+    45  return
+L   46  get_arg0 0: e
+    47  get_field2 startsWith
+    80  push_atom_value Unknown environment
+    85  call_method #args=1
+    88  if_false8 -> 005c
+    90  push_4 4
+    91  return
+L   92  push_5 5
+    93  return
+
+-- fn name=<atom:0> args=3 vars=6 closure=0 cpool=5 bc=197B file=latex/src/LatexRenderErrors
+   locals: require, module, exports, e, r, t, n, a, o
+     0  fclosure8 0: <function r>
+     2  put_loc1 1: r
+     3  fclosure8 1: <function t>
+     5  put_loc2 2: t
+     6  fclosure8 2: <function n>
+     8  put_loc3 3: n
+     9  fclosure8 3: <function a>
+    11  put_loc8 4: a
+    13  fclosure8 4: <function o>
+    15  put_loc8 5: o
+    17  set_loc_uninitialized 0: e
+    20  get_var Object
+    25  get_field2 defineProperty  ;+28B
+    58  get_arg2 2: exports
+    59  push_atom_value __esModule
+    64  object
+    65  push_0 0
+    66  lnot
+    67  define_field value
+    72  call_method #args=3
+    75  drop
+    76  get_arg2 2: exports
+    77  get_arg2 2: exports
+    78  get_arg2 2: exports
+    79  get_arg2 2: exports
+    80  get_arg2 2: exports
+    81  undefined
+    82  insert2
+    83  put_field createLatexRenderError
+    92  insert2
+    93  put_field readLatexRenderErrorMessage
+   102  insert2
+   103  put_field readLatexRenderFailureReason
+   112  insert2
+   113  put_field readLatexLayoutFailureReason
+   122  put_field readLatexParseFailureReason
+   131  get_arg0 0: require
+   132  push_atom_value valdi_core/src/CompilerIntrinsics
+   137  call1 #args=1
+   138  put_loc0 0: e
+   139  get_arg2 2: exports
+   140  get_loc1 1: r
+   141  put_field createLatexRenderError
+   150  get_arg2 2: exports
+   151  get_loc2 2: t
+   152  put_field readLatexRenderErrorMessage
+   161  get_arg2 2: exports
+   162  get_loc3 3: n
+   163  put_field readLatexRenderFailureReason
+   172  get_arg2 2: exports
+   173  get_loc8 4: a
+   175  put_field readLatexLayoutFailureReason
+   184  get_arg2 2: exports
+   185  get_loc8 5: o
+   187  put_field readLatexParseFailureReason
+   196  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/LatexRenderErrors
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/LatexRenderer.js  (194 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]latex/src/LatexRenderer | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=latex/src/LatexRenderer
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/LatexRenderer
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/LatexShapesView.js  (2543 B)
+# 原子基准=215 原子表 50 条
+-- 原子表 --
+   [0]latex/src/LatexShapesView | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]i | [7]s | [8]LatexShapesView | [9]r | [10]__esModule | [11]valdi_core/src/JSX | [12]jsx | [13]makeNodePrototype | [14]shape | [15]TlX8TfUu7n_c5Xad | [16]valdi_core/src/Component | [17]valdi_core/src/Style | [18]Component | [19]onRender | [20]Style | [21]flexShrink | [22]left | [23]absolute | [24]position | [25]top | [26]viewModel | [27]shapes | [28]beginRender | [29]renderKey | [30]: | [31]setAttributeStyle | [32]style | [33]setAttributeString | [34]accessibilityCategory | [35]fillColor | [36]color | [37]setAttributeNumber | [38]height | [39]setAttributeFunction | [40]onTap | [41]setAttribute | [42]path | [43]scaleX | [44]scale | [45]scaleY | [46]transformOrigin | [47]top left | [48]width | [49]endRender
+
+-- fn name=<atom:0> args=0 vars=3 closure=3 cpool=0 bc=1372B file=latex/src/LatexShapesView
+   locals: i, s, this
+   closure: e, t, r
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 0: i
+     5  push_0 0
+     6  put_loc0 0: i
+L    7  get_loc_check 0: i
+    10  get_loc2 2: this
+    11  get_field viewModel  ;+28B
+    44  get_field shapes
+    77  get_length
+    78  lt
+    79  if_false -> 055b
+    84  set_loc_uninitialized 1: s
+    87  get_loc2 2: this
+    88  get_field viewModel
+   121  get_field shapes
+   154  get_loc_check 0: i
+   157  get_array_el
+   158  put_loc1 1: s
+   159  get_var_ref_check 0: e
+   162  get_field2 beginRender
+   195  get_var_ref_check 1: t
+   198  push_empty_string
+   199  get_field2 concat
+   232  get_loc2 2: this
+   233  get_field viewModel
+   266  get_field renderKey
+   299  push_atom_value :
+   304  get_loc_check 0: i
+   307  call_method #args=3
+   310  call_method #args=2
+   313  drop
+   314  get_var_ref_check 0: e
+   317  get_field2 setAttributeStyle
+   350  push_atom_value style
+   355  get_var_ref_check 2: r
+   358  call_method #args=2
+   361  drop
+   362  get_var_ref_check 0: e
+   365  get_field2 setAttributeString
+   398  push_atom_value accessibilityCategory
+   403  get_loc2 2: this
+   404  get_field viewModel
+   437  get_field accessibilityCategory
+   470  call_method #args=2
+   473  drop
+   474  get_var_ref_check 0: e
+   477  get_field2 setAttributeString
+   510  push_atom_value fillColor
+   515  get_loc_check 1: s
+   518  get_field color
+   551  call_method #args=2
+   554  drop
+   555  get_var_ref_check 0: e
+   558  get_field2 setAttributeNumber
+   591  push_atom_value height
+   596  get_loc2 2: this
+   597  get_field viewModel
+   630  get_field height
+   663  call_method #args=2
+   666  drop
+   667  get_var_ref_check 0: e
+   670  get_field2 setAttributeFunction
+   703  push_atom_value onTap
+   708  get_loc2 2: this
+   709  get_field viewModel
+   742  get_field onTap
+   775  call_method #args=2
+   778  drop
+   779  get_var_ref_check 0: e
+   782  get_field2 setAttribute
+   815  push_atom_value path
+   820  get_loc_check 1: s
+   823  get_field path
+   856  call_method #args=2
+   859  drop
+   860  get_var_ref_check 0: e
+   863  get_field2 setAttributeNumber
+   896  push_atom_value scaleX
+   901  get_loc2 2: this
+   902  get_field viewModel
+   935  get_field scale
+   968  call_method #args=2
+   971  drop
+   972  get_var_ref_check 0: e
+   975  get_field2 setAttributeNumber
+  1008  push_atom_value scaleY
+  1013  get_loc2 2: this
+  1014  get_field viewModel
+  1047  get_field scale
+  1080  call_method #args=2
+  1083  drop
+  1084  get_var_ref_check 0: e
+  1087  get_field2 setAttributeString
+  1120  push_atom_value transformOrigin
+  1125  undefined
+  1126  get_loc2 2: this
+  1127  get_field viewModel
+  1160  get_field scale
+  1193  strict_eq
+  1194  if_false8 -> 04af
+  1196  undefined
+  1197  goto8 -> 04b4
+L 1199  push_atom_value top left
+L 1204  call_method #args=2
+  1207  drop
+  1208  get_var_ref_check 0: e
+  1211  get_field2 setAttributeNumber
+  1244  push_atom_value width
+  1249  get_loc2 2: this
+  1250  get_field viewModel
+  1283  get_field width
+  1316  call_method #args=2
+  1319  drop
+  1320  get_var_ref_check 0: e
+  1323  get_field2 endRender
+  1356  call_method #args=0
+  1359  drop
+  1360  get_loc_check 0: i
+  1363  post_inc
+  1364  put_loc_check 0: i
+  1367  drop
+  1368  goto16 -> 0007
+L 1371  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=0 bc=49B file=latex/src/LatexShapesView
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  return
+
+-- fn name=<atom:0> args=3 vars=8 closure=0 cpool=2 bc=347B file=latex/src/LatexShapesView
+   locals: require, module, exports, e, t, i, s, LatexShapesView, <class_fields_init>, LatexShapesView, r
+     0  set_loc_uninitialized 7: r
+     3  set_loc_uninitialized 6: LatexShapesView
+     6  set_loc_uninitialized 3: s
+     9  set_loc_uninitialized 2: i
+    12  set_loc_uninitialized 1: t
+    15  set_loc_uninitialized 0: e
+    18  get_var Object
+    23  get_field2 defineProperty  ;+28B
+    56  get_arg2 2: exports
+    57  push_atom_value __esModule
+    62  object
+    63  push_0 0
+    64  lnot
+    65  define_field value
+    70  call_method #args=3
+    73  drop
+    74  get_arg2 2: exports
+    75  undefined
+    76  put_field LatexShapesView
+    85  get_arg0 0: require
+    86  push_atom_value valdi_core/src/JSX
+    91  call1 #args=1
+    92  get_field jsx
+   125  put_loc0 0: e
+   126  get_loc_check 0: e
+   129  get_field2 makeNodePrototype
+   162  push_atom_value shape
+   167  undefined
+   168  push_atom_value TlX8TfUu7n_c5Xad
+   173  call_method #args=3
+   176  put_loc1 1: t
+   177  get_arg0 0: require
+   178  push_atom_value valdi_core/src/Component
+   183  call1 #args=1
+   184  put_loc2 2: i
+   185  get_arg0 0: require
+   186  push_atom_value valdi_core/src/Style
+   191  call1 #args=1
+   192  put_loc3 3: s
+   193  set_loc_uninitialized 4: LatexShapesView
+   196  get_loc_check 2: i
+   199  get_field Component
+   232  set_loc_uninitialized 5: <class_fields_init>
+   235  push_const8 1: <function <atom:0>>
+   237  define_class LatexShapesView,1
+   243  fclosure8 0: <function <atom:0>>
+   245  define_method onRender,0
+   251  undefined
+   252  put_loc8 5: <class_fields_init>
+   254  drop
+   255  set_loc8 4: LatexShapesView
+   257  close_loc 5: <class_fields_init>
+   260  put_loc8 6: LatexShapesView
+   262  get_arg2 2: exports
+   263  get_loc_check 6: LatexShapesView
+   266  put_field LatexShapesView
+   275  get_loc_check 3: s
+   278  get_field Style
+   311  dup
+   312  object
+   313  push_0 0
+   314  define_field flexShrink
+   319  push_0 0
+   320  define_field left
+   325  push_atom_value absolute
+   330  define_field position
+   335  push_0 0
+   336  define_field top
+   341  call_constructor #args=1
+   344  put_loc8 7: r
+   346  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/LatexShapesView
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/LatexView.js  (12256 B)
+# 原子基准=215 原子表 157 条
+-- 原子表 --
+   [0]latex/src/LatexView | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]r | [7]i | [8]o | [9]s | [10]a | [11]n | [12]d | [13]l | [14]c | [15]h | [16]v | [17]u | [18]y | [19]b | [20]g | [21]w | [22]R | [23]x | [24]p | [25]LatexView | [26]M | [27]k | [28]__esModule | [29]valdi_core/src/ValdiRuntimeProvider | [30]getValdiRuntime | [31]valdi_core/src/JSX | [32]jsx | [33]makeNodePrototype | [34]layout | [35]ImSwIIatLvgeXHw- | [36]makeComponentPrototype | [37]T64k2wk3XV3GuSDy | [38]image | [39]BGNvNSryZpu2KUGH | [40]custom-view | [41]YtNZHPmyoOZkgEVI | [42]YTn-uHp4HX79T30P | [43]label | [44]yPJkfKmwbpVZ24Hr | [45]coreutils/src/unicode/TextCoding | [46]valdi_core/src/Asset | [47]valdi_core/src/Component | [48]valdi_core/src/CompilerIntrinsics | [49]valdi_core/src/Device | [50]valdi_core/src/Style | [51]./DefaultLatexRenderer | [52]./LatexRenderErrors | [53]./LatexRecoveryMetrics | [54]./LatexShapesView | [55]#000000 | [56]#ffffff | [57]No LaTeX renderer is available. On web, register a custom view class and provide webLatexRendererClass. | [58]StatefulComponent | [59]onCreate | [60]onDestroy | [61]onRender | [62]reportRenderFailure | [63]renderWebLatexRenderer | [64]getDefaultLatexRenderer | [65]renderMathWithRecovery | [66]reportNativeRecovery | [67]renderFallbackText | [68]renderMath | [69]makeRenderKey | [70]usesNativeLatexRenderer | [71]makeSvgAsset | [72]resolveMathColor | [73]Style | [74]flexShrink | [75]root | [76]transparent | [77]backgroundColor | [78]minWidth | [79]numberOfLines | [80]fallbackText | [81]auto | [82]height | [83]minHeight | [84]fit-content | [85]width | [86]webRenderer | [87]contain | [88]objectFit | [89]svg | [90]Device | [91]isDarkMode | [92]state | [93]handleDarkModeChange | [94]setState | [95]observeDarkMode | [96]darkModeObserver | [97]cancel | [98]viewModel | [99]webLatexRendererClass | [100]isLoggingEnabled | [101]console | [102]warn | [103]isVersionAtLeast | [104]Failed to render LaTeX expression.  | [105]readLatexRenderErrorMessage | [106]readLatexRenderFailureReason | [107]fontScale | [108]beginRender | [109]latex | [110]setAttributeStyle | [111]style | [112]setAttributeNumber | [113]endRender | [114]beginComponent | [115]LatexShapesView | [116]setViewModelProperty | [117]accessibilityCategory | [118]onTap | [119]renderKey | [120]key | [121]scale | [122]shapes | [123]endComponent | [124]setAttributeString | [125]setAttributeFunction | [126]setAttribute | [127]src | [128]block | [129]inline | [130]: | [131]reportedFailureKey | [132]onRenderFailure | [133]webClass | [134]color | [135]reportedRecovery | [136]LatexRecoveryOutcome | [137]Unavailable | [138]Recovered | [139]Native LaTeX rendering failed; recovered with MathJax.  | [140]Failed | [141]createLatexRenderError | [142] MathJax recovery failed:  | [143]outcome | [144]reportLatexNativeRecovery | [145]cachedKey | [146]cachedRender | [147]native | [148]javascript | [149]useNativeLatexRenderer | [150]isAndroid | [151]cachedSvg | [152]cachedSvgAsset | [153]makeAssetFromBytes | [154]TextEncoder | [155]encode | [156]isFinite
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=122B file=latex/src/LatexView
+   locals: e
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field state  ;+28B
+    36  get_field isDarkMode
+    69  get_arg0 0: e
+    70  strict_neq
+    71  dup
+    72  if_false8 -> 0079
+    74  drop
+    75  get_var_ref_check 0: this
+    78  get_field2 setState
+   111  object
+   112  get_arg0 0: e
+   113  define_field isDarkMode
+   118  call_method #args=1
+L  121  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=2 cpool=1 bc=153B file=latex/src/LatexView
+   locals: this, this.active_func, new.target, arguments
+   closure: <class_fields_init>, v
+     0  special_object 2
+     2  put_loc1 1: this.active_func
+     3  special_object 3
+     5  put_loc2 2: new.target
+     6  set_loc_uninitialized 0: this
+     9  special_object 0
+    11  put_loc3 3: arguments
+    12  check_ctor
+    13  get_loc1 1: this.active_func
+    14  get_super
+    15  get_loc2 2: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc3 3: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 0: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 0: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 0: this
+    48  object
+    49  get_var_ref_check 1: v
+    52  get_field Device
+    85  get_field2 isDarkMode
+   118  call_method #args=0
+   121  define_field isDarkMode
+   126  put_field state
+   135  get_loc_check 0: this
+   138  fclosure8 0: <function <atom:0>>
+   140  put_field handleDarkModeChange
+   149  get_loc_check 0: this
+   152  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=119B file=latex/src/LatexView
+   locals: this
+   closure: v
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_var_ref_check 0: v
+     6  get_field Device  ;+28B
+    39  get_field2 observeDarkMode
+    72  get_loc0 0: this
+    73  get_field handleDarkModeChange
+   106  call_method #args=1
+   109  put_field darkModeObserver
+   118  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=93B file=latex/src/LatexView
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field darkModeObserver  ;+28B
+    36  dup
+    37  is_undefined_or_null
+    38  if_false8 -> 002c
+    40  drop
+    41  undefined
+    42  goto8 -> 0050
+L   44  get_field2 cancel
+    77  call_method #args=0
+L   80  drop
+    81  get_loc0 0: this
+    82  undefined
+    83  put_field darkModeObserver
+    92  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=6 cpool=0 bc=727B file=latex/src/LatexView
+   closure: t, w, i, this, n, d
+     0  get_var_ref_check 0: t
+     3  get_field2 beginComponent  ;+28B
+    36  get_var_ref_check 1: w
+    39  get_field LatexShapesView
+    72  get_var_ref_check 2: i
+    75  undefined
+    76  undefined
+    77  call_method #args=4
+    80  drop
+    81  get_var_ref_check 0: t
+    84  get_field2 setViewModelProperty
+   117  push_atom_value accessibilityCategory
+   122  get_var_ref3 3: this
+   123  get_field viewModel
+   156  get_field accessibilityCategory
+   189  call_method #args=2
+   192  drop
+   193  get_var_ref_check 0: t
+   196  get_field2 setViewModelProperty
+   229  push_atom_value height
+   234  get_var_ref_check 4: n
+   237  get_field height
+   270  call_method #args=2
+   273  drop
+   274  get_var_ref_check 0: t
+   277  get_field2 setViewModelProperty
+   310  push_atom_value onTap
+   315  get_var_ref3 3: this
+   316  get_field viewModel
+   349  get_field onTap
+   382  call_method #args=2
+   385  drop
+   386  get_var_ref_check 0: t
+   389  get_field2 setViewModelProperty
+   422  push_atom_value renderKey
+   427  get_var_ref_check 4: n
+   430  get_field key
+   463  call_method #args=2
+   466  drop
+   467  get_var_ref_check 0: t
+   470  get_field2 setViewModelProperty
+   503  push_atom_value scale
+   508  push_1 1
+   509  get_var_ref_check 5: d
+   512  strict_eq
+   513  if_false8 -> 0206
+   515  undefined
+   516  goto8 -> 0209
+L  518  get_var_ref_check 5: d
+L  521  call_method #args=2
+   524  drop
+   525  get_var_ref_check 0: t
+   528  get_field2 setViewModelProperty
+   561  push_atom_value shapes
+   566  get_var_ref_check 4: n
+   569  get_field shapes
+   602  call_method #args=2
+   605  drop
+   606  get_var_ref_check 0: t
+   609  get_field2 setViewModelProperty
+   642  push_atom_value width
+   647  get_var_ref_check 4: n
+   650  get_field width
+   683  call_method #args=2
+   686  drop
+   687  get_var_ref_check 0: t
+   690  get_field2 endComponent
+   723  call_method #args=0
+   726  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=7 cpool=0 bc=644B file=latex/src/LatexView
+   closure: t, o, n, k, this, c, l
+     0  get_var_ref_check 0: t
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 1: o
+    39  get_var_ref_check 2: n
+    42  get_field key
+    75  call_method #args=2
+    78  drop
+    79  get_var_ref_check 0: t
+    82  get_field2 setAttributeStyle
+   115  push_atom_value style
+   120  get_var_ref_check 3: k
+   123  get_field svg
+   156  call_method #args=2
+   159  drop
+   160  get_var_ref_check 0: t
+   163  get_field2 setAttributeString
+   196  push_atom_value accessibilityCategory
+   201  get_var_ref 4: this
+   204  get_field viewModel
+   237  get_field accessibilityCategory
+   270  call_method #args=2
+   273  drop
+   274  get_var_ref_check 0: t
+   277  get_field2 setAttributeNumber
+   310  push_atom_value height
+   315  get_var_ref_check 5: c
+   318  call_method #args=2
+   321  drop
+   322  get_var_ref_check 0: t
+   325  get_field2 setAttributeFunction
+   358  push_atom_value onTap
+   363  get_var_ref 4: this
+   366  get_field viewModel
+   399  get_field onTap
+   432  call_method #args=2
+   435  drop
+   436  get_var_ref_check 0: t
+   439  get_field2 setAttribute
+   472  push_atom_value src
+   477  get_var_ref 4: this
+   480  get_field2 makeSvgAsset
+   513  get_var_ref_check 2: n
+   516  get_field svg
+   549  call_method #args=1
+   552  call_method #args=2
+   555  drop
+   556  get_var_ref_check 0: t
+   559  get_field2 setAttributeNumber
+   592  push_atom_value width
+   597  get_var_ref_check 6: l
+   600  call_method #args=2
+   603  drop
+   604  get_var_ref_check 0: t
+   607  get_field2 endRender
+   640  call_method #args=0
+   643  return_undef
+
+-- fn name=<atom:0> args=0 vars=8 closure=11 cpool=2 bc=1295B file=latex/src/LatexView
+   locals: s, a, n, v, d, l, c, this
+   closure: t, w, i, o, k, e, p, h, b, M, r
+     0  push_this
+     1  put_loc8 7: this
+     3  set_loc_uninitialized 6: c
+     6  set_loc_uninitialized 5: l
+     9  set_loc_uninitialized 4: d
+    12  set_loc_uninitialized 2: n
+    15  set_loc_uninitialized 1: a
+    18  set_loc_uninitialized 0: s
+    21  get_loc8 7: this
+    23  get_field viewModel  ;+28B
+    56  get_field webLatexRendererClass
+    89  put_loc0 0: s
+    90  undefined
+    91  get_loc_check 0: s
+    94  strict_neq
+    95  if_false8 -> 008c
+    97  get_loc8 7: this
+    99  get_field2 renderWebLatexRenderer
+   132  get_loc_check 0: s
+   135  call_method #args=1
+   138  drop
+   139  return_undef
+L  140  get_loc8 7: this
+   142  get_field2 getDefaultLatexRenderer
+   175  get_loc8 7: this
+   177  get_field2 usesNativeLatexRenderer
+   210  call_method #args=0
+   213  lnot
+   214  call_method #args=1
+   217  put_loc1 1: a
+   218  undefined
+   219  get_loc_check 1: a
+   222  strict_eq
+   223  if_false -> 01b4
+   228  get_var_ref_check 5: e
+   231  get_field isLoggingEnabled
+   264  dup
+   265  if_false8 -> 0138
+   267  drop
+   268  get_var console
+   273  get_field2 warn
+   306  get_var_ref_check 6: p
+   309  call_method #args=1
+L  312  drop
+   313  get_var_ref_check 7: h
+   316  get_field isVersionAtLeast
+   349  push_i8 10
+   351  call1 #args=1
+   352  dup
+   353  if_false8 -> 018b
+   355  drop
+   356  get_loc8 7: this
+   358  get_field2 reportRenderFailure
+   391  push_1 1
+   392  call_method #args=1
+L  395  drop
+   396  get_loc8 7: this
+   398  get_field2 renderFallbackText
+   431  call_method #args=0
+   434  drop
+   435  return_undef
+L  436  undefined
+   437  put_loc2 2: n
+   438  catch -> 01ed
+   443  get_loc8 7: this
+   445  get_field2 renderMathWithRecovery
+   478  get_loc_check 1: a
+   481  call_method #args=1
+   484  dup
+   485  put_loc_check 2: n
+   488  drop
+   489  drop
+   490  goto16 -> 0337
+L  493  put_loc3 3: v
+   494  catch -> 0336
+   499  get_var_ref_check 5: e
+   502  get_field isLoggingEnabled
+   535  dup
+   536  if_false8 -> 0293
+   538  drop
+   539  get_var console
+   544  get_field2 warn
+   577  push_atom_value Failed to render LaTeX expression. 
+   582  get_field2 concat
+   615  get_var_ref_check 8: b
+   618  get_field readLatexRenderErrorMessage
+   651  get_loc3 3: v
+   652  call1 #args=1
+   653  call_method #args=1
+   656  call_method #args=1
+L  659  drop
+   660  get_var_ref_check 7: h
+   663  get_field isVersionAtLeast
+   696  push_i8 10
+   698  call1 #args=1
+   699  dup
+   700  if_false8 -> 030b
+   702  drop
+   703  get_loc8 7: this
+   705  get_field2 reportRenderFailure
+   738  get_var_ref_check 8: b
+   741  get_field readLatexRenderFailureReason
+   774  get_loc3 3: v
+   775  call1 #args=1
+   776  call_method #args=1
+L  779  drop
+   780  get_loc8 7: this
+   782  get_field2 renderFallbackText
+   815  call_method #args=0
+   818  drop
+   819  undefined
+   820  nip_catch
+   821  return
+L  822  throw
+L  823  get_var_ref 9: M
+   826  get_loc8 7: this
+   828  get_field viewModel
+   861  get_field fontScale
+   894  call1 #args=1
+   895  put_loc8 4: d
+   897  get_loc_check 2: n
+   900  get_field width
+   933  get_loc_check 4: d
+   936  mul
+   937  put_loc8 5: l
+   939  get_loc_check 2: n
+   942  get_field height
+   975  get_loc_check 4: d
+   978  mul
+   979  put_loc8 6: c
+   981  get_var_ref_check 0: t
+   984  get_field2 beginRender
+  1017  get_var_ref_check 10: r
+  1020  push_atom_value latex
+  1025  call_method #args=2
+  1028  drop
+  1029  get_var_ref_check 0: t
+  1032  get_field2 setAttributeStyle
+  1065  push_atom_value style
+  1070  get_var_ref_check 4: k
+  1073  get_field root
+  1106  call_method #args=2
+  1109  drop
+  1110  get_var_ref_check 0: t
+  1113  get_field2 setAttributeNumber
+  1146  push_atom_value height
+  1151  get_loc_check 6: c
+  1154  call_method #args=2
+  1157  drop
+  1158  get_var_ref_check 0: t
+  1161  get_field2 setAttributeNumber
+  1194  push_atom_value width
+  1199  get_loc_check 5: l
+  1202  call_method #args=2
+  1205  drop
+  1206  undefined
+  1207  get_loc_check 2: n
+  1210  get_field svg
+  1243  strict_eq
+  1244  if_false8 -> 04e3
+  1246  fclosure8 0: <function <atom:0>>
+  1248  call0 #args=0
+  1249  goto8 -> 04e6
+L 1251  fclosure8 1: <function <atom:0>>
+  1253  call0 #args=0
+L 1254  drop
+  1255  get_var_ref_check 0: t
+  1258  get_field2 endRender
+  1291  call_method #args=0
+  1294  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=341B file=latex/src/LatexView
+   locals: e, t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  push_empty_string
+     6  get_field2 concat  ;+28B
+    39  push_0 0
+    40  lnot
+    41  get_loc1 1: this
+    42  get_field viewModel
+    75  get_field block
+   108  strict_eq
+   109  if_false8 -> 0076
+   111  push_atom_value block
+   116  goto8 -> 007b
+L  118  push_atom_value inline
+L  123  push_atom_value :
+   128  get_loc1 1: this
+   129  get_field viewModel
+   162  get_field latex
+   195  call_method #args=3
+   198  put_loc0 0: t
+   199  get_loc_check 0: t
+   202  get_loc1 1: this
+   203  get_field reportedFailureKey
+   236  strict_neq
+   237  dup
+   238  if_false8 -> 0154
+   240  drop
+   241  get_loc1 1: this
+   242  get_loc_check 0: t
+   245  put_field reportedFailureKey
+   254  get_loc1 1: this
+   255  get_field viewModel
+   288  get_field2 onRenderFailure
+   321  dup
+   322  is_undefined_or_null
+   323  if_false8 -> 014a
+   325  drop
+   326  drop
+   327  undefined
+   328  goto8 -> 0154
+L  330  object
+   331  get_arg0 0: e
+   332  define_field reason
+   337  call_method #args=1
+L  340  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=3 cpool=0 bc=746B file=latex/src/LatexView
+   locals: e, this
+   closure: t, s, k
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: t
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: s
+    41  get_arg0 0: e
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: t
+    49  get_field2 setAttributeStyle
+    82  push_atom_value style
+    87  get_var_ref_check 2: k
+    90  get_field webRenderer
+   123  call_method #args=2
+   126  drop
+   127  get_var_ref_check 0: t
+   130  get_field2 setAttributeString
+   163  push_atom_value accessibilityCategory
+   168  get_loc0 0: this
+   169  get_field viewModel
+   202  get_field accessibilityCategory
+   235  call_method #args=2
+   238  drop
+   239  get_var_ref_check 0: t
+   242  get_field2 setAttributeFunction
+   275  push_atom_value onTap
+   280  get_loc0 0: this
+   281  get_field viewModel
+   314  get_field onTap
+   347  call_method #args=2
+   350  drop
+   351  get_var_ref_check 0: t
+   354  get_field2 setAttributeString
+   387  push_atom_value webClass
+   392  get_arg0 0: e
+   393  call_method #args=2
+   396  drop
+   397  get_var_ref_check 0: t
+   400  get_field2 setAttributeString
+   433  push_atom_value latex
+   438  get_loc0 0: this
+   439  get_field viewModel
+   472  get_field latex
+   505  call_method #args=2
+   508  drop
+   509  get_var_ref_check 0: t
+   512  get_field2 setAttribute
+   545  push_atom_value block
+   550  push_0 0
+   551  lnot
+   552  get_loc0 0: this
+   553  get_field viewModel
+   586  get_field block
+   619  strict_eq
+   620  call_method #args=2
+   623  drop
+   624  get_var_ref_check 0: t
+   627  get_field2 setAttributeString
+   660  push_atom_value color
+   665  get_loc0 0: this
+   666  get_field2 resolveMathColor
+   699  call_method #args=0
+   702  call_method #args=2
+   705  drop
+   706  get_var_ref_check 0: t
+   709  get_field2 endRender
+   742  call_method #args=0
+   745  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=40B file=latex/src/LatexView
+   locals: e
+   closure: y
+     0  get_var_ref_check 0: y
+     3  get_field getDefaultLatexRenderer  ;+28B
+    36  get_arg0 0: e
+    37  tail_call #args=1
+
+-- fn name=<atom:0> args=1 vars=7 closure=4 cpool=0 bc=1182B file=latex/src/LatexView
+   locals: t, e, r, o, s, t, i, this
+   closure: g, e, b, h
+     0  push_this
+     1  put_loc8 6: this
+     3  catch -> 00bb
+     8  set_loc_uninitialized 0: e
+    11  get_loc8 6: this
+    13  get_field2 renderMath  ;+28B
+    46  get_arg0 0: t
+    47  call_method #args=1
+    50  put_loc0 0: e
+    51  get_loc8 6: this
+    53  get_field reportedRecovery
+    86  dup
+    87  is_undefined_or_null
+    88  if_false8 -> 005e
+    90  drop
+    91  undefined
+    92  goto8 -> 007f
+L   94  get_field key
+L  127  get_loc_check 0: e
+   130  get_field key
+   163  strict_neq
+   164  dup
+   165  if_false8 -> 00b5
+   167  drop
+   168  get_loc8 6: this
+   170  undefined
+   171  insert2
+   172  put_field reportedRecovery
+L  181  drop
+   182  get_loc_check 0: e
+   185  nip_catch
+   186  return
+L  187  put_loc1 1: r
+   188  catch -> 049d
+   193  set_loc_uninitialized 3: s
+   196  set_loc_uninitialized 2: o
+   199  get_loc8 6: this
+   201  get_field2 usesNativeLatexRenderer
+   234  call_method #args=0
+   237  lnot
+   238  if_false8 -> 00f2
+   240  get_loc1 1: r
+   241  throw
+L  242  get_loc8 6: this
+   244  get_field2 getDefaultLatexRenderer
+   277  push_0 0
+   278  lnot
+   279  call_method #args=1
+   282  put_loc2 2: o
+   283  get_loc_check 2: o
+   286  get_arg0 0: t
+   287  strict_eq
+   288  if_false8 -> 0124
+   290  get_loc1 1: r
+   291  throw
+L  292  get_loc8 6: this
+   294  get_field2 makeRenderKey
+   327  get_loc8 6: this
+   329  get_field2 resolveMathColor
+   362  call_method #args=0
+   365  call_method #args=1
+   368  put_loc3 3: s
+   369  undefined
+   370  get_loc_check 2: o
+   373  strict_eq
+   374  if_false8 -> 01ea
+   376  get_loc8 6: this
+   378  get_field2 reportNativeRecovery
+   411  get_loc1 1: r
+   412  get_loc_check 3: s
+   415  get_var_ref_check 0: g
+   418  get_field LatexRecoveryOutcome
+   451  get_field Unavailable
+   484  call_method #args=3
+   487  drop
+   488  get_loc1 1: r
+   489  throw
+L  490  catch -> 0334
+   495  set_loc_uninitialized 4: t
+   498  get_loc8 6: this
+   500  get_field2 renderMath
+   533  get_loc_check 2: o
+   536  call_method #args=1
+   539  put_loc8 4: t
+   541  get_loc8 6: this
+   543  get_field2 reportNativeRecovery
+   576  get_loc1 1: r
+   577  get_loc_check 3: s
+   580  get_var_ref_check 0: g
+   583  get_field LatexRecoveryOutcome
+   616  get_field Recovered
+   649  call_method #args=3
+   652  drop
+   653  get_var_ref_check 1: e
+   656  get_field isLoggingEnabled
+   689  dup
+   690  if_false8 -> 032d
+   692  drop
+   693  get_var console
+   698  get_field2 warn
+   731  push_atom_value Native LaTeX rendering failed; recovered with MathJax. 
+   736  get_field2 concat
+   769  get_var_ref_check 2: b
+   772  get_field readLatexRenderErrorMessage
+   805  get_loc1 1: r
+   806  call1 #args=1
+   807  call_method #args=1
+   810  call_method #args=1
+L  813  drop
+   814  get_loc_check 4: t
+   817  nip_catch
+   818  nip_catch
+   819  return
+L  820  put_loc8 5: i
+   822  catch -> 049c
+   827  get_loc8 6: this
+   829  get_field2 reportNativeRecovery
+   862  get_loc1 1: r
+   863  get_loc_check 3: s
+   866  get_var_ref_check 0: g
+   869  get_field LatexRecoveryOutcome
+   902  get_field Failed
+   935  call_method #args=3
+   938  drop
+   939  get_var_ref_check 3: h
+   942  get_field isVersionAtLeast
+   975  push_i8 10
+   977  call1 #args=1
+   978  if_false -> 049a
+   983  get_var_ref_check 2: b
+   986  get_field createLatexRenderError
+  1019  get_var_ref_check 2: b
+  1022  get_field readLatexRenderFailureReason
+  1055  get_loc1 1: r
+  1056  call1 #args=1
+  1057  push_empty_string
+  1058  get_field2 concat
+  1091  get_var_ref_check 2: b
+  1094  get_field readLatexRenderErrorMessage
+  1127  get_loc1 1: r
+  1128  call1 #args=1
+  1129  push_atom_value  MathJax recovery failed: 
+  1134  get_var_ref_check 2: b
+  1137  get_field readLatexRenderErrorMessage
+  1170  get_loc8 5: i
+  1172  call1 #args=1
+  1173  call_method #args=3
+  1176  call2 #args=2
+  1177  throw
+L 1178  get_loc1 1: r
+  1179  throw
+L 1180  throw
+L 1181  throw
+
+-- fn name=<atom:0> args=3 vars=1 closure=1 cpool=0 bc=219B file=latex/src/LatexView
+   locals: e, t, r, this
+   closure: g
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field reportedRecovery  ;+28B
+    36  dup
+    37  is_undefined_or_null
+    38  if_false8 -> 002c
+    40  drop
+    41  undefined
+    42  goto8 -> 004d
+L   44  get_field key
+L   77  get_arg1 1: t
+    78  strict_eq
+    79  dup
+    80  if_false8 -> 0098
+    82  drop
+    83  get_loc0 0: this
+    84  get_field reportedRecovery
+   117  get_field outcome
+   150  get_arg2 2: r
+   151  strict_eq
+L  152  dup
+   153  if_true8 -> 00da
+   155  drop
+   156  get_loc0 0: this
+   157  object
+   158  get_arg1 1: t
+   159  define_field key
+   164  get_arg2 2: r
+   165  define_field outcome
+   170  put_field reportedRecovery
+   179  get_var_ref_check 0: g
+   182  get_field reportLatexNativeRecovery
+   215  get_arg0 0: e
+   216  get_arg2 2: r
+   217  call2 #args=2
+L  218  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=4 cpool=0 bc=754B file=latex/src/LatexView
+   locals: this
+   closure: t, a, k, n
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: t
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: a
+    41  push_atom_value latex
+    46  call_method #args=2
+    49  drop
+    50  get_var_ref_check 0: t
+    53  get_field2 setAttributeStyle
+    86  push_atom_value style
+    91  get_var_ref_check 2: k
+    94  get_field root
+   127  call_method #args=2
+   130  drop
+   131  get_var_ref_check 0: t
+   134  get_field2 beginRender
+   167  get_var_ref_check 3: n
+   170  undefined
+   171  call_method #args=2
+   174  drop
+   175  get_var_ref_check 0: t
+   178  get_field2 setAttributeStyle
+   211  push_atom_value style
+   216  get_var_ref_check 2: k
+   219  get_field fallbackText
+   252  call_method #args=2
+   255  drop
+   256  get_var_ref_check 0: t
+   259  get_field2 setAttributeString
+   292  push_atom_value value
+   297  get_loc0 0: this
+   298  get_field viewModel
+   331  get_field latex
+   364  call_method #args=2
+   367  drop
+   368  get_var_ref_check 0: t
+   371  get_field2 setAttributeString
+   404  push_atom_value accessibilityCategory
+   409  get_loc0 0: this
+   410  get_field viewModel
+   443  get_field accessibilityCategory
+   476  call_method #args=2
+   479  drop
+   480  get_var_ref_check 0: t
+   483  get_field2 setAttributeString
+   516  push_atom_value color
+   521  get_loc0 0: this
+   522  get_field2 resolveMathColor
+   555  call_method #args=0
+   558  call_method #args=2
+   561  drop
+   562  get_var_ref_check 0: t
+   565  get_field2 setAttributeFunction
+   598  push_atom_value onTap
+   603  get_loc0 0: this
+   604  get_field viewModel
+   637  get_field onTap
+   670  call_method #args=2
+   673  drop
+   674  get_var_ref_check 0: t
+   677  get_field2 endRender
+   710  call_method #args=0
+   713  drop
+   714  get_var_ref_check 0: t
+   717  get_field2 endRender
+   750  call_method #args=0
+   753  return_undef
+
+-- fn name=<atom:0> args=1 vars=4 closure=0 cpool=0 bc=401B file=latex/src/LatexView
+   locals: e, t, r, i, this
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 2: i
+     5  set_loc_uninitialized 1: r
+     8  set_loc_uninitialized 0: t
+    11  get_loc3 3: this
+    12  get_field2 resolveMathColor  ;+28B
+    45  call_method #args=0
+    48  put_loc0 0: t
+    49  get_loc3 3: this
+    50  get_field2 makeRenderKey
+    83  get_loc_check 0: t
+    86  call_method #args=1
+    89  put_loc1 1: r
+    90  get_loc3 3: this
+    91  get_field cachedKey
+   124  get_loc_check 1: r
+   127  strict_eq
+   128  if_false8 -> 00cb
+   130  undefined
+   131  get_loc3 3: this
+   132  get_field cachedRender
+   165  strict_neq
+   166  if_false8 -> 00cb
+   168  get_loc3 3: this
+   169  get_field cachedRender
+   202  return
+L  203  object
+   204  get_arg0 0: e
+   205  get_loc3 3: this
+   206  get_field viewModel
+   239  get_field latex
+   272  object
+   273  push_0 0
+   274  lnot
+   275  get_loc3 3: this
+   276  get_field viewModel
+   309  get_field block
+   342  strict_eq
+   343  define_field block
+   348  get_loc_check 0: t
+   351  define_field color
+   356  call2 #args=2
+   357  null
+   358  copy_data_properties 6
+   360  drop
+   361  drop
+   362  get_loc_check 1: r
+   365  define_field key
+   370  put_loc2 2: i
+   371  get_loc3 3: this
+   372  get_loc_check 1: r
+   375  put_field cachedKey
+   384  get_loc3 3: this
+   385  get_loc_check 2: i
+   388  put_field cachedRender
+   397  get_loc_check 2: i
+   400  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=257B file=latex/src/LatexView
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_empty_string
+     3  get_field2 concat  ;+28B
+    36  get_loc0 0: this
+    37  get_field2 usesNativeLatexRenderer
+    70  call_method #args=0
+    73  if_false8 -> 0052
+    75  push_atom_value native
+    80  goto8 -> 0057
+L   82  push_atom_value javascript
+L   87  push_atom_value :
+    92  push_0 0
+    93  lnot
+    94  get_loc0 0: this
+    95  get_field viewModel
+   128  get_field block
+   161  strict_eq
+   162  if_false8 -> 00ab
+   164  push_atom_value block
+   169  goto8 -> 00b0
+L  171  push_atom_value inline
+L  176  push_atom_value :
+   181  get_arg0 0: e
+   182  push_atom_value :
+   187  get_loc0 0: this
+   188  get_field viewModel
+   221  get_field latex
+   254  tail_call_method #args=7
+
+-- fn name=<atom:0> args=0 vars=2 closure=2 cpool=0 bc=200B file=latex/src/LatexView
+   locals: e, this
+   closure: v, h
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  get_loc1 1: this
+     6  get_field viewModel  ;+28B
+    39  get_field useNativeLatexRenderer
+    72  put_loc0 0: e
+    73  undefined
+    74  get_loc_check 0: e
+    77  strict_neq
+    78  if_false8 -> 0054
+    80  get_loc_check 0: e
+    83  return
+L   84  get_var_ref_check 0: v
+    87  get_field Device
+   120  get_field2 isAndroid
+   153  call_method #args=0
+   156  dup
+   157  if_false8 -> 00c7
+   159  drop
+   160  get_var_ref_check 1: h
+   163  get_field isVersionAtLeast
+   196  push_i8 24
+   198  call1 #args=1
+L  199  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=2 cpool=0 bc=257B file=latex/src/LatexView
+   locals: e, this
+   closure: l, d
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field cachedSvg  ;+28B
+    36  get_arg0 0: e
+    37  strict_eq
+    38  dup
+    39  if_false8 -> 004e
+    41  drop
+    42  undefined
+    43  get_loc0 0: this
+    44  get_field cachedSvgAsset
+    77  strict_neq
+L   78  dup
+    79  if_true -> 00dd
+    84  drop
+    85  get_loc0 0: this
+    86  get_arg0 0: e
+    87  put_field cachedSvg
+    96  get_loc0 0: this
+    97  get_var_ref_check 0: l
+   100  get_field makeAssetFromBytes
+   133  get_var_ref_check 1: d
+   136  get_field TextEncoder
+   169  dup
+   170  call_constructor #args=0
+   173  get_field2 encode
+   206  get_arg0 0: e
+   207  call_method #args=1
+   210  call1 #args=1
+   211  insert2
+   212  put_field cachedSvgAsset
+L  221  drop
+   222  get_loc0 0: this
+   223  get_field cachedSvgAsset
+   256  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=2 cpool=0 bc=151B file=latex/src/LatexView
+   locals: this
+   closure: x, R
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field viewModel  ;+28B
+    36  get_field color
+    69  dup
+    70  is_undefined_or_null
+    71  if_false8 -> 0096
+    73  drop
+    74  get_loc0 0: this
+    75  get_field state
+   108  get_field isDarkMode
+   141  if_false8 -> 0093
+   143  get_var_ref_check 0: x
+   146  return
+L  147  get_var_ref_check 1: R
+L  150  return
+
+-- fn name=M args=1 vars=0 closure=0 cpool=0 bc=58B file=latex/src/LatexView
+   locals: e
+     0  undefined
+     1  get_arg0 0: e
+     2  strict_neq
+     3  if_false8 -> 0038
+     5  get_var Number
+    10  get_field2 isFinite  ;+28B
+    43  get_arg0 0: e
+    44  call_method #args=1
+    47  if_false8 -> 0038
+    49  get_arg0 0: e
+    50  push_0 0
+    51  gt
+    52  if_false8 -> 0038
+    54  get_arg0 0: e
+    55  return
+L   56  push_1 1
+    57  return
+
+-- fn name=<atom:0> args=3 vars=26 closure=0 cpool=16 bc=1097B file=latex/src/LatexView
+   locals: require, module, exports, e, t, r, i, o, s, a, n, d, l, c, h, v, u, y, b, g, w, R, x, p, LatexView, <class_fields_init>, LatexView, M, k
+     0  fclosure8 15: <function M>
+     2  put_loc8 24: M
+     4  set_loc_uninitialized 25: k
+     7  set_loc_uninitialized 23: LatexView
+    10  set_loc_uninitialized 20: p
+    13  set_loc_uninitialized 19: x
+    16  set_loc_uninitialized 18: R
+    19  set_loc_uninitialized 17: w
+    22  set_loc_uninitialized 16: g
+    25  set_loc_uninitialized 15: b
+    28  set_loc_uninitialized 14: y
+    31  set_loc_uninitialized 13: u
+    34  set_loc_uninitialized 12: v
+    37  set_loc_uninitialized 11: h
+    40  set_loc_uninitialized 10: c
+    43  set_loc_uninitialized 9: l
+    46  set_loc_uninitialized 8: d
+    49  set_loc_uninitialized 7: n
+    52  set_loc_uninitialized 6: a
+    55  set_loc_uninitialized 5: s
+    58  set_loc_uninitialized 4: o
+    61  set_loc_uninitialized 3: i
+    64  set_loc_uninitialized 2: r
+    67  set_loc_uninitialized 1: t
+    70  set_loc_uninitialized 0: e
+    73  get_var Object
+    78  get_field2 defineProperty
+   111  get_arg2 2: exports
+   112  push_atom_value __esModule
+   117  object
+   118  push_0 0
+   119  lnot
+   120  define_field value
+   125  call_method #args=3
+   128  drop
+   129  get_arg2 2: exports
+   130  undefined
+   131  put_field LatexView
+   140  get_arg0 0: require
+   141  push_atom_value valdi_core/src/ValdiRuntimeProvider
+   146  call1 #args=1
+   147  get_field2 getValdiRuntime
+   180  call_method #args=0
+   183  put_loc0 0: e
+   184  get_arg0 0: require
+   185  push_atom_value valdi_core/src/JSX
+   190  call1 #args=1
+   191  get_field jsx
+   224  put_loc1 1: t
+   225  get_loc_check 1: t
+   228  get_field2 makeNodePrototype
+   261  push_atom_value layout
+   266  undefined
+   267  push_atom_value ImSwIIatLvgeXHw-
+   272  call_method #args=3
+   275  put_loc2 2: r
+   276  get_loc_check 1: t
+   279  get_field2 makeComponentPrototype
+   312  undefined
+   313  push_atom_value T64k2wk3XV3GuSDy
+   318  call_method #args=2
+   321  put_loc3 3: i
+   322  get_loc_check 1: t
+   325  get_field2 makeNodePrototype
+   358  push_atom_value image
+   363  undefined
+   364  push_atom_value BGNvNSryZpu2KUGH
+   369  call_method #args=3
+   372  put_loc8 4: o
+   374  get_loc_check 1: t
+   377  get_field2 makeNodePrototype
+   410  push_atom_value custom-view
+   415  undefined
+   416  push_atom_value YtNZHPmyoOZkgEVI
+   421  call_method #args=3
+   424  put_loc8 5: s
+   426  get_loc_check 1: t
+   429  get_field2 makeNodePrototype
+   462  push_atom_value layout
+   467  undefined
+   468  push_atom_value YTn-uHp4HX79T30P
+   473  call_method #args=3
+   476  put_loc8 6: a
+   478  get_loc_check 1: t
+   481  get_field2 makeNodePrototype
+   514  push_atom_value label
+   519  undefined
+   520  push_atom_value yPJkfKmwbpVZ24Hr
+   525  call_method #args=3
+   528  put_loc8 7: n
+   530  get_arg0 0: require
+   531  push_atom_value coreutils/src/unicode/TextCoding
+   536  call1 #args=1
+   537  put_loc8 8: d
+   539  get_arg0 0: require
+   540  push_atom_value valdi_core/src/Asset
+   545  call1 #args=1
+   546  put_loc8 9: l
+   548  get_arg0 0: require
+   549  push_atom_value valdi_core/src/Component
+   554  call1 #args=1
+   555  put_loc8 10: c
+   557  get_arg0 0: require
+   558  push_atom_value valdi_core/src/CompilerIntrinsics
+   563  call1 #args=1
+   564  put_loc8 11: h
+   566  get_arg0 0: require
+   567  push_atom_value valdi_core/src/Device
+   572  call1 #args=1
+   573  put_loc8 12: v
+   575  get_arg0 0: require
+   576  push_atom_value valdi_core/src/Style
+   581  call1 #args=1
+   582  put_loc8 13: u
+   584  get_arg0 0: require
+   585  push_atom_value ./DefaultLatexRenderer
+   590  call1 #args=1
+   591  put_loc8 14: y
+   593  get_arg0 0: require
+   594  push_atom_value ./LatexRenderErrors
+   599  call1 #args=1
+   600  put_loc8 15: b
+   602  get_arg0 0: require
+   603  push_atom_value ./LatexRecoveryMetrics
+   608  call1 #args=1
+   609  put_loc8 16: g
+   611  get_arg0 0: require
+   612  push_atom_value ./LatexShapesView
+   617  call1 #args=1
+   618  put_loc8 17: w
+   620  push_atom_value #000000
+   625  put_loc8 18: R
+   627  push_atom_value #ffffff
+   632  put_loc8 19: x
+   634  push_atom_value No LaTeX renderer is available. On web, register a custom view class and provide webLatexRendererClass.
+   639  put_loc8 20: p
+   641  set_loc_uninitialized 21: LatexView
+   644  get_loc_check 10: c
+   647  get_field StatefulComponent
+   680  set_loc_uninitialized 22: <class_fields_init>
+   683  push_const8 0: <function <atom:0>>
+   685  define_class LatexView,1
+   691  fclosure8 1: <function <atom:0>>
+   693  define_method onCreate,0
+   699  fclosure8 2: <function <atom:0>>
+   701  define_method onDestroy,0
+   707  fclosure8 3: <function <atom:0>>
+   709  define_method onRender,0
+   715  fclosure8 4: <function <atom:0>>
+   717  define_method reportRenderFailure,0
+   723  fclosure8 5: <function <atom:0>>
+   725  define_method renderWebLatexRenderer,0
+   731  fclosure8 6: <function <atom:0>>
+   733  define_method getDefaultLatexRenderer,0
+   739  fclosure8 7: <function <atom:0>>
+   741  define_method renderMathWithRecovery,0
+   747  fclosure8 8: <function <atom:0>>
+   749  define_method reportNativeRecovery,0
+   755  fclosure8 9: <function <atom:0>>
+   757  define_method renderFallbackText,0
+   763  fclosure8 10: <function <atom:0>>
+   765  define_method renderMath,0
+   771  fclosure8 11: <function <atom:0>>
+   773  define_method makeRenderKey,0
+   779  fclosure8 12: <function <atom:0>>
+   781  define_method usesNativeLatexRenderer,0
+   787  fclosure8 13: <function <atom:0>>
+   789  define_method makeSvgAsset,0
+   795  fclosure8 14: <function <atom:0>>
+   797  define_method resolveMathColor,0
+   803  undefined
+   804  put_loc8 22: <class_fields_init>
+   806  drop
+   807  set_loc8 21: LatexView
+   809  close_loc 22: <class_fields_init>
+   812  put_loc8 23: LatexView
+   814  get_arg2 2: exports
+   815  get_loc_check 23: LatexView
+   818  put_field LatexView
+   827  object
+   828  get_loc_check 13: u
+   831  get_field Style
+   864  dup
+   865  object
+   866  push_0 0
+   867  define_field flexShrink
+   872  call_constructor #args=1
+   875  define_field root
+   880  get_loc_check 13: u
+   883  get_field Style
+   916  dup
+   917  object
+   918  push_atom_value transparent
+   923  define_field backgroundColor
+   928  push_1 1
+   929  define_field flexShrink
+   934  push_0 0
+   935  define_field minWidth
+   940  push_0 0
+   941  define_field numberOfLines
+   946  call_constructor #args=1
+   949  define_field fallbackText
+   954  get_loc_check 13: u
+   957  get_field Style
+   990  dup
+   991  object
+   992  push_0 0
+   993  define_field flexShrink
+   998  push_atom_value auto
+  1003  define_field height
+  1008  push_0 0
+  1009  define_field minHeight
+  1014  push_atom_value fit-content
+  1019  define_field width
+  1024  call_constructor #args=1
+  1027  define_field webRenderer
+  1032  get_loc_check 13: u
+  1035  get_field Style
+  1068  dup
+  1069  object
+  1070  push_0 0
+  1071  define_field flexShrink
+  1076  push_atom_value contain
+  1081  define_field objectFit
+  1086  call_constructor #args=1
+  1089  define_field svg
+  1094  put_loc8 25: k
+  1096  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/LatexView
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NativeLatexRenderer.js  (1096 B)
+# 原子基准=215 原子表 22 条
+-- 原子表 --
+   [0]latex/src/NativeLatexRenderer | [1]require | [2]module | [3]exports | [4]e | [5]r | [6]t | [7]a | [8]s | [9]n | [10]__esModule | [11]NATIVE_LATEX_RENDERER | [12]math_renderer/src/MathRenderer | [13]latex/src/LatexRenderErrors | [14]valdi_core/src/CompilerIntrinsics | [15]renderMathExpression | [16]isVersionAtLeast | [17]readLatexRenderErrorMessage | [18]createLatexRenderError | [19]readMathRenderFailureReason | [20]readLatexParseFailureReason | [21]readLatexLayoutFailureReason
+
+-- fn name=<atom:0> args=2 vars=1 closure=3 cpool=0 bc=100B file=latex/src/NativeLatexRenderer
+   locals: r, a, n
+   closure: e, t, s
+     0  catch -> 002e
+     5  get_var_ref_check 0: e
+     8  get_field renderMathExpression  ;+28B
+    41  get_arg0 0: r
+    42  get_arg1 1: a
+    43  call2 #args=2
+    44  nip_catch
+    45  return
+L   46  put_loc0 0: n
+    47  catch -> 0063
+    52  get_var_ref_check 1: t
+    55  get_field isVersionAtLeast
+    88  push_i8 10
+    90  call1 #args=1
+    91  if_false8 -> 0061
+    93  get_var_ref2 2: s
+    94  get_loc0 0: n
+    95  call1 #args=1
+    96  throw
+L   97  get_loc0 0: n
+    98  throw
+L   99  throw
+
+-- fn name=s args=1 vars=1 closure=2 cpool=0 bc=90B file=latex/src/NativeLatexRenderer
+   locals: e, t
+   closure: r, n
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref_check 0: r
+     6  get_field readLatexRenderErrorMessage  ;+28B
+    39  get_arg0 0: e
+    40  call1 #args=1
+    41  put_loc0 0: t
+    42  get_var_ref_check 0: r
+    45  get_field createLatexRenderError
+    78  get_var_ref1 1: n
+    79  get_arg0 0: e
+    80  get_loc_check 0: t
+    83  call2 #args=2
+    84  get_loc_check 0: t
+    87  tail_call #args=2
+
+-- fn name=n args=2 vars=0 closure=2 cpool=0 bc=142B file=latex/src/NativeLatexRenderer
+   locals: t, a
+   closure: e, r
+     0  get_var_ref_check 0: e
+     3  get_field readMathRenderFailureReason  ;+28B
+    36  get_arg0 0: t
+    37  call1 #args=1
+    38  dup
+    39  push_1 1
+    40  strict_eq
+    41  if_false8 -> 002d
+    43  push_2 2
+    44  return
+L   45  dup
+    46  push_2 2
+    47  strict_eq
+    48  if_false8 -> 005a
+    50  get_var_ref_check 1: r
+    53  get_field readLatexParseFailureReason
+    86  get_arg1 1: a
+    87  tail_call #args=1
+L   90  dup
+    91  push_3 3
+    92  strict_eq
+    93  if_false8 -> 0086
+    95  get_var_ref_check 1: r
+    98  get_field readLatexLayoutFailureReason
+   131  tail_call #args=0
+L  134  dup
+   135  push_0 0
+   136  strict_eq
+   137  if_false8 -> 008d
+   139  push_0 0
+   140  return
+L  141  return_undef
+
+-- fn name=<atom:0> args=3 vars=6 closure=0 cpool=3 bc=133B file=latex/src/NativeLatexRenderer
+   locals: require, module, exports, e, r, t, a, s, n
+     0  fclosure8 1: <function s>
+     2  put_loc8 4: s
+     4  fclosure8 2: <function n>
+     6  put_loc8 5: n
+     8  set_loc_uninitialized 3: a
+    11  set_loc_uninitialized 2: t
+    14  set_loc_uninitialized 1: r
+    17  set_loc_uninitialized 0: e
+    20  get_var Object
+    25  get_field2 defineProperty  ;+28B
+    58  get_arg2 2: exports
+    59  push_atom_value __esModule
+    64  object
+    65  push_0 0
+    66  lnot
+    67  define_field value
+    72  call_method #args=3
+    75  drop
+    76  get_arg2 2: exports
+    77  undefined
+    78  put_field NATIVE_LATEX_RENDERER
+    87  get_arg0 0: require
+    88  push_atom_value math_renderer/src/MathRenderer
+    93  call1 #args=1
+    94  put_loc0 0: e
+    95  get_arg0 0: require
+    96  push_atom_value latex/src/LatexRenderErrors
+   101  call1 #args=1
+   102  put_loc1 1: r
+   103  get_arg0 0: require
+   104  push_atom_value valdi_core/src/CompilerIntrinsics
+   109  call1 #args=1
+   110  put_loc2 2: t
+   111  fclosure8 0: <function <atom:0>>
+   113  set_name a
+   118  put_loc3 3: a
+   119  get_arg2 2: exports
+   120  get_loc_check 3: a
+   123  put_field NATIVE_LATEX_RENDERER
+   132  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=latex/src/NativeLatexRenderer
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

@@ -1,0 +1,2305 @@
+# json_patch — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/ApplyJSONPatch.js  (6036 B)
+# 原子基准=215 原子表 60 条
+-- 原子表 --
+   [0]json_patch/src/ApplyJSONPatch | [1]require | [2]module | [3]exports | [4]ApplyJSONPatch | [5]r | [6]t | [7]e | [8]o | [9]n | [10]i | [11]a | [12]s | [13]u | [14]h | [15]l | [16]p | [17]y | [18]__esModule | [19]beginSubObject | [20]endSubObject | [21]onReplaceRoot | [22]onAppendRoot | [23]onRemoveRoot | [24]onTruncateRoot | [25]onAppend | [26]onInsert | [27]onReplace | [28]onRemove | [29]onTruncate | [30]writeValue | [31]resolveCurrentContainer | [32]popFrame | [33]rootValue | [34]pathStack | [35]push | [36]key | [37]keyAsNumber | [38]isArray | [39]Cannot remove property " | [40]" from a non-container value. | [41]pop | [42]JSON patch visitor paths ended out of order. | [43]Cannot enter property " | [44]" on a non-container value. | [45]hasOwnProperty | [46]call | [47]Cannot write property " | [48]Cannot read property " | [49]keys | [50]Cannot append incompatible JSON patch values. | [51]slice | [52]min | [53]The truncate operation requires an existing string or array value. | [54]Cannot write array index  | [55] past length  | [56]. | [57]Cannot remove array index  | [58] from length  | [59]splice
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=40B file=json_patch/src/ApplyJSONPatch
+   locals: r, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: r
+    17  put_field rootValue
+    26  get_loc0 0: this
+    27  array_from #args=0
+    30  put_field pathStack
+    39  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=37B file=json_patch/src/ApplyJSONPatch
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field rootValue  ;+28B
+    36  return
+
+-- fn name=<atom:0> args=2 vars=1 closure=0 cpool=0 bc=86B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field pathStack  ;+28B
+    36  get_field2 push
+    69  object
+    70  get_arg0 0: r
+    71  define_field key
+    76  get_arg1 1: t
+    77  define_field keyAsNumber
+    82  call_method #args=1
+    85  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=40B file=json_patch/src/ApplyJSONPatch
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 popFrame  ;+28B
+    36  call_method #args=0
+    39  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=14B file=json_patch/src/ApplyJSONPatch
+   locals: r, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_arg0 0: r
+     4  put_field rootValue
+    13  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=50B file=json_patch/src/ApplyJSONPatch
+   locals: r, this
+   closure: n
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_var_ref0 0: n
+     4  get_loc0 0: this
+     5  get_field rootValue  ;+28B
+    38  get_arg0 0: r
+    39  call2 #args=2
+    40  put_field rootValue
+    49  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=14B file=json_patch/src/ApplyJSONPatch
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  null
+     4  put_field rootValue
+    13  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=50B file=json_patch/src/ApplyJSONPatch
+   locals: r, this
+   closure: a
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_var_ref0 0: a
+     4  get_loc0 0: this
+     5  get_field rootValue  ;+28B
+    38  get_arg0 0: r
+    39  call2 #args=2
+    40  put_field rootValue
+    49  return_undef
+
+-- fn name=<atom:0> args=3 vars=2 closure=3 cpool=0 bc=64B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, i, a, this
+   closure: o, n, e
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: a
+     5  get_loc1 1: this
+     6  get_field2 resolveCurrentContainer  ;+28B
+    39  get_arg1 1: t
+    40  call_method #args=1
+    43  put_loc0 0: a
+    44  get_var_ref0 0: o
+    45  get_loc_check 0: a
+    48  get_arg0 0: r
+    49  get_arg1 1: t
+    50  get_var_ref1 1: n
+    51  get_var_ref2 2: e
+    52  get_loc_check 0: a
+    55  get_arg0 0: r
+    56  get_arg1 1: t
+    57  call3 #args=3
+    58  get_arg2 2: i
+    59  call2 #args=2
+    60  call #args=4
+    63  return_undef
+
+-- fn name=<atom:0> args=3 vars=1 closure=0 cpool=0 bc=43B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 writeValue  ;+28B
+    36  get_arg0 0: r
+    37  get_arg1 1: t
+    38  get_arg2 2: e
+    39  call_method #args=3
+    42  return_undef
+
+-- fn name=<atom:0> args=3 vars=1 closure=0 cpool=0 bc=43B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 writeValue  ;+28B
+    36  get_arg0 0: r
+    37  get_arg1 1: t
+    38  get_arg2 2: e
+    39  call_method #args=3
+    42  return_undef
+
+-- fn name=<atom:0> args=2 vars=2 closure=2 cpool=0 bc=222B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e, this
+   closure: l, y
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  get_loc1 1: this
+     6  get_field2 resolveCurrentContainer  ;+28B
+    39  get_arg1 1: t
+    40  call_method #args=1
+    43  put_loc0 0: e
+    44  get_var Array
+    49  get_field2 isArray
+    82  get_loc_check 0: e
+    85  call_method #args=1
+    88  if_false8 -> 0067
+    90  undefined
+    91  get_arg1 1: t
+    92  strict_neq
+    93  if_false8 -> 0067
+    95  get_var_ref0 0: l
+    96  get_loc_check 0: e
+    99  get_arg1 1: t
+   100  call2 #args=2
+   101  drop
+   102  return_undef
+L  103  get_var_ref1 1: y
+   104  get_loc_check 0: e
+   107  call1 #args=1
+   108  lnot
+   109  if_false8 -> 00d7
+   111  get_var Array
+   116  get_field2 isArray
+   149  get_loc_check 0: e
+   152  call_method #args=1
+   155  lnot
+   156  if_false8 -> 00d7
+   158  get_var Error
+   163  dup
+   164  push_atom_value Cannot remove property "
+   169  get_field2 concat
+   202  get_arg0 0: r
+   203  push_atom_value " from a non-container value.
+   208  call_method #args=2
+   211  call_constructor #args=1
+   214  throw
+L  215  get_loc_check 0: e
+   218  get_arg0 0: r
+   219  delete
+   220  drop
+   221  return_undef
+
+-- fn name=<atom:0> args=3 vars=2 closure=3 cpool=0 bc=64B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, n, i, this
+   closure: o, a, e
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: i
+     5  get_loc1 1: this
+     6  get_field2 resolveCurrentContainer  ;+28B
+    39  get_arg1 1: t
+    40  call_method #args=1
+    43  put_loc0 0: i
+    44  get_var_ref0 0: o
+    45  get_loc_check 0: i
+    48  get_arg0 0: r
+    49  get_arg1 1: t
+    50  get_var_ref1 1: a
+    51  get_var_ref2 2: e
+    52  get_loc_check 0: i
+    55  get_arg0 0: r
+    56  get_arg1 1: t
+    57  call3 #args=3
+    58  get_arg2 2: n
+    59  call2 #args=2
+    60  call #args=4
+    63  return_undef
+
+-- fn name=<atom:0> args=3 vars=1 closure=1 cpool=0 bc=48B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e, this
+   closure: o
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref0 0: o
+     3  get_loc0 0: this
+     4  get_field2 resolveCurrentContainer  ;+28B
+    37  get_arg1 1: t
+    38  call_method #args=1
+    41  get_arg0 0: r
+    42  get_arg1 1: t
+    43  get_arg2 2: e
+    44  call #args=4
+    47  return_undef
+
+-- fn name=<atom:0> args=1 vars=7 closure=5 cpool=0 bc=440B file=json_patch/src/ApplyJSONPatch
+   locals: e, o, n, i, a, h, l, this
+   closure: p, s, r, u, t
+     0  push_this
+     1  put_loc8 6: this
+     3  set_loc_uninitialized 0: o
+     6  push_0 0
+     7  get_loc8 6: this
+     9  get_field pathStack  ;+28B
+    42  get_length
+    43  strict_eq
+    44  if_false8 -> 0052
+    46  get_loc8 6: this
+    48  get_field rootValue
+    81  return
+L   82  get_var_ref0 0: p
+    83  get_loc8 6: this
+    85  get_field rootValue
+   118  call1 #args=1
+   119  dup
+   120  if_true8 -> 00ae
+   122  drop
+   123  get_loc8 6: this
+   125  get_var_ref1 1: s
+   126  get_loc8 6: this
+   128  get_field pathStack
+   161  push_0 0
+   162  get_array_el
+   163  call1 #args=1
+   164  insert2
+   165  put_field rootValue
+L  174  drop
+   175  get_loc8 6: this
+   177  get_field rootValue
+   210  put_loc0 0: o
+   211  set_loc_uninitialized 1: n
+   214  push_0 0
+   215  put_loc1 1: n
+L  216  get_loc_check 1: n
+   219  get_loc8 6: this
+   221  get_field pathStack
+   254  get_length
+   255  lt
+   256  if_false -> 01b4
+   261  set_loc_uninitialized 5: l
+   264  set_loc_uninitialized 4: h
+   267  set_loc_uninitialized 3: a
+   270  set_loc_uninitialized 2: i
+   273  get_loc8 6: this
+   275  get_field pathStack
+   308  get_loc_check 1: n
+   311  get_array_el
+   312  put_loc2 2: i
+   313  get_loc8 6: this
+   315  get_field pathStack
+   348  get_loc_check 1: n
+   351  push_1 1
+   352  add
+   353  get_array_el
+   354  put_loc3 3: a
+   355  get_var_ref2 2: r
+   356  get_loc_check 0: o
+   359  get_loc_check 2: i
+   362  call2 #args=2
+   363  put_loc8 4: h
+   365  get_var_ref0 0: p
+   366  get_loc_check 4: h
+   369  call1 #args=1
+   370  if_false8 -> 017e
+   372  get_loc_check 4: h
+   375  dup
+   376  put_loc_check 0: o
+   379  drop
+   380  goto8 -> 01a7
+L  382  undefined
+   383  get_loc_check 3: a
+   386  strict_eq
+   387  if_false8 -> 018a
+   389  get_var_ref3 3: u
+   390  get_arg0 0: e
+   391  call1 #args=1
+   392  goto8 -> 018f
+L  394  get_var_ref1 1: s
+   395  get_loc_check 3: a
+   398  call1 #args=1
+L  399  put_loc8 5: l
+   401  get_var_ref 4: t
+   404  get_loc_check 0: o
+   407  get_loc_check 2: i
+   410  get_loc_check 5: l
+   413  call3 #args=3
+   414  drop
+   415  get_loc_check 5: l
+   418  dup
+   419  put_loc_check 0: o
+   422  drop
+L  423  get_loc_check 1: n
+   426  push_1 1
+   427  add
+   428  dup
+   429  put_loc_check 1: n
+   432  drop
+   433  goto16 -> 00d8
+L  436  get_loc_check 0: o
+   439  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=92B file=json_patch/src/ApplyJSONPatch
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  undefined
+     3  get_loc0 0: this
+     4  get_field pathStack  ;+28B
+    37  get_field2 pop
+    70  call_method #args=0
+    73  strict_eq
+    74  if_false8 -> 005b
+    76  get_var Error
+    81  dup
+    82  push_atom_value JSON patch visitor paths ended out of order.
+    87  call_constructor #args=1
+    90  throw
+L   91  return_undef
+
+-- fn name=r args=2 vars=0 closure=1 cpool=0 bc=446B file=json_patch/src/ApplyJSONPatch
+   locals: r, t
+   closure: y
+     0  get_var Array
+     5  get_field2 isArray  ;+28B
+    38  get_arg0 0: r
+    39  call_method #args=1
+    42  if_false8 -> 0077
+    44  undefined
+    45  get_arg1 1: t
+    46  get_field keyAsNumber
+    79  strict_neq
+    80  if_false8 -> 0077
+    82  get_arg0 0: r
+    83  get_arg1 1: t
+    84  get_field keyAsNumber
+   117  get_array_el
+   118  return
+L  119  get_var_ref0 0: y
+   120  get_arg0 0: r
+   121  call1 #args=1
+   122  lnot
+   123  if_false -> 0107
+   128  get_var Array
+   133  get_field2 isArray
+   166  get_arg0 0: r
+   167  call_method #args=1
+   170  lnot
+   171  if_false8 -> 0107
+   173  get_var Error
+   178  dup
+   179  push_atom_value Cannot enter property "
+   184  get_field2 concat
+   217  get_arg1 1: t
+   218  get_field key
+   251  push_atom_value " on a non-container value.
+   256  call_method #args=2
+   259  call_constructor #args=1
+   262  throw
+L  263  get_var Object
+   268  get_field prototype
+   301  get_field hasOwnProperty
+   334  get_field2 call
+   367  get_arg0 0: r
+   368  get_arg1 1: t
+   369  get_field key
+   402  call_method #args=2
+   405  if_false8 -> 01bc
+   407  get_arg0 0: r
+   408  get_arg1 1: t
+   409  get_field key
+   442  get_array_el
+   443  return
+L  444  undefined
+   445  return
+
+-- fn name=t args=3 vars=0 closure=3 cpool=0 bc=306B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e
+   closure: h, y, i
+     0  get_var Array
+     5  get_field2 isArray  ;+28B
+    38  get_arg0 0: r
+    39  call_method #args=1
+    42  if_false8 -> 007a
+    44  undefined
+    45  get_arg1 1: t
+    46  get_field keyAsNumber
+    79  strict_neq
+    80  if_false8 -> 007a
+    82  get_var_ref0 0: h
+    83  get_arg0 0: r
+    84  get_arg1 1: t
+    85  get_field keyAsNumber
+   118  get_arg2 2: e
+   119  call3 #args=3
+   120  drop
+   121  return_undef
+L  122  get_var_ref1 1: y
+   123  get_arg0 0: r
+   124  call1 #args=1
+   125  lnot
+   126  if_false -> 010a
+   131  get_var Array
+   136  get_field2 isArray
+   169  get_arg0 0: r
+   170  call_method #args=1
+   173  lnot
+   174  if_false8 -> 010a
+   176  get_var Error
+   181  dup
+   182  push_atom_value Cannot write property "
+   187  get_field2 concat
+   220  get_arg1 1: t
+   221  get_field key
+   254  push_atom_value " on a non-container value.
+   259  call_method #args=2
+   262  call_constructor #args=1
+   265  throw
+L  266  get_var_ref2 2: i
+   267  get_arg0 0: r
+   268  get_arg1 1: t
+   269  get_field key
+   302  get_arg2 2: e
+   303  call3 #args=3
+   304  drop
+   305  return_undef
+
+-- fn name=e args=3 vars=0 closure=1 cpool=0 bc=278B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e
+   closure: y
+     0  get_var Array
+     5  get_field2 isArray  ;+28B
+    38  get_arg0 0: r
+    39  call_method #args=1
+    42  if_false8 -> 0035
+    44  undefined
+    45  get_arg2 2: e
+    46  strict_neq
+    47  if_false8 -> 0035
+    49  get_arg0 0: r
+    50  get_arg2 2: e
+    51  get_array_el
+    52  return
+L   53  get_var_ref0 0: y
+    54  get_arg0 0: r
+    55  call1 #args=1
+    56  dup
+    57  if_true8 -> 0066
+    59  drop
+    60  get_var Array
+    65  get_field2 isArray
+    98  get_arg0 0: r
+    99  call_method #args=1
+L  102  if_false8 -> 00dd
+   104  get_var Object
+   109  get_field prototype
+   142  get_field hasOwnProperty
+   175  get_field2 call
+   208  get_arg0 0: r
+   209  get_arg1 1: t
+   210  call_method #args=2
+   213  if_false8 -> 00db
+   215  get_arg0 0: r
+   216  get_arg1 1: t
+   217  get_array_el
+   218  return
+L  219  undefined
+   220  return
+L  221  get_var Error
+   226  dup
+   227  push_atom_value Cannot read property "
+   232  get_field2 concat
+   265  get_arg1 1: t
+   266  push_atom_value " from a non-container value.
+   271  call_method #args=2
+   274  call_constructor #args=1
+   277  throw
+
+-- fn name=o args=4 vars=0 closure=3 cpool=0 bc=171B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e, o
+   closure: h, y, i
+     0  get_var Array
+     5  get_field2 isArray  ;+28B
+    38  get_arg0 0: r
+    39  call_method #args=1
+    42  if_false8 -> 0038
+    44  undefined
+    45  get_arg2 2: e
+    46  strict_neq
+    47  if_false8 -> 0038
+    49  get_var_ref0 0: h
+    50  get_arg0 0: r
+    51  get_arg2 2: e
+    52  get_arg3 3: o
+    53  call3 #args=3
+    54  drop
+    55  return_undef
+L   56  get_var_ref1 1: y
+    57  get_arg0 0: r
+    58  call1 #args=1
+    59  lnot
+    60  if_false8 -> 00a4
+    62  get_var Array
+    67  get_field2 isArray
+   100  get_arg0 0: r
+   101  call_method #args=1
+   104  lnot
+   105  if_false8 -> 00a4
+   107  get_var Error
+   112  dup
+   113  push_atom_value Cannot write property "
+   118  get_field2 concat
+   151  get_arg1 1: t
+   152  push_atom_value " on a non-container value.
+   157  call_method #args=2
+   160  call_constructor #args=1
+   163  throw
+L  164  get_var_ref2 2: i
+   165  get_arg0 0: r
+   166  get_arg1 1: t
+   167  get_arg3 3: o
+   168  call3 #args=3
+   169  drop
+   170  return_undef
+
+-- fn name=n args=2 vars=2 closure=2 cpool=0 bc=314B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e, e
+   closure: y, i
+     0  undefined
+     1  get_arg0 0: r
+     2  strict_eq
+     3  if_false8 -> 0007
+     5  get_arg1 1: t
+     6  return
+L    7  push_atom_value string
+    12  get_arg0 0: r
+    13  typeof
+    14  eq
+    15  if_false8 -> 001f
+    17  push_atom_value string
+    22  get_arg1 1: t
+    23  typeof
+    24  eq
+    25  if_false8 -> 001f
+    27  get_arg0 0: r
+    28  get_arg1 1: t
+    29  add
+    30  return
+L   31  get_var Array
+    36  get_field2 isArray
+    69  get_arg0 0: r
+    70  call_method #args=1
+    73  if_false -> 00dc
+    78  get_var Array
+    83  get_field2 isArray
+   116  get_arg1 1: t
+   117  call_method #args=1
+   120  if_false8 -> 00b3
+   122  set_loc_uninitialized 0: e
+   125  get_arg1 1: t
+   126  for_of_start
+   127  goto8 -> 00ab
+L  129  put_loc0 0: e
+   130  get_arg0 0: r
+   131  get_field2 push
+   164  get_loc_check 0: e
+   167  call_method #args=1
+   170  drop
+L  171  for_of_next 0
+   173  if_false8 -> 0081
+   175  drop
+   176  iterator_close
+   177  get_arg0 0: r
+   178  return
+L  179  get_arg0 0: r
+   180  get_field2 push
+   213  get_arg1 1: t
+   214  call_method #args=1
+   217  drop
+   218  get_arg0 0: r
+   219  return
+L  220  get_var_ref0 0: y
+   221  get_arg0 0: r
+   222  call1 #args=1
+   223  if_false8 -> 012b
+   225  get_var_ref0 0: y
+   226  get_arg1 1: t
+   227  call1 #args=1
+   228  if_false8 -> 012b
+   230  set_loc_uninitialized 1: e
+   233  get_var Object
+   238  get_field2 keys
+   271  get_arg1 1: t
+   272  call_method #args=1
+   275  for_of_start
+   276  goto8 -> 0123
+L  278  put_loc1 1: e
+   279  get_var_ref1 1: i
+   280  get_arg0 0: r
+   281  get_loc_check 1: e
+   284  get_arg1 1: t
+   285  get_loc_check 1: e
+   288  get_array_el
+   289  call3 #args=3
+   290  drop
+L  291  for_of_next 0
+   293  if_false8 -> 0116
+   295  drop
+   296  iterator_close
+   297  get_arg0 0: r
+   298  return
+L  299  get_var Error
+   304  dup
+   305  push_atom_value Cannot append incompatible JSON patch values.
+   310  call_constructor #args=1
+   313  throw
+
+-- fn name=i args=3 vars=0 closure=0 cpool=0 bc=89B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e
+     0  push_atom_value __proto__
+     5  get_arg1 1: t
+     6  strict_neq
+     7  if_false8 -> 0011
+     9  get_arg0 0: r
+    10  get_arg1 1: t
+    11  to_propkey2
+    12  get_arg2 2: e
+    13  insert3
+    14  put_array_el
+    15  goto8 -> 0058
+L   17  get_var Object
+    22  get_field2 defineProperty  ;+28B
+    55  get_arg0 0: r
+    56  get_arg1 1: t
+    57  object
+    58  push_0 0
+    59  lnot
+    60  define_field configurable
+    65  push_0 0
+    66  lnot
+    67  define_field enumerable
+    72  get_arg2 2: e
+    73  define_field value
+    78  push_0 0
+    79  lnot
+    80  define_field writable
+    85  call_method #args=3
+L   88  return_undef
+
+-- fn name=a args=2 vars=0 closure=0 cpool=0 bc=164B file=json_patch/src/ApplyJSONPatch
+   locals: r, t
+     0  push_atom_value string
+     5  get_arg0 0: r
+     6  typeof
+     7  eq
+     8  if_false8 -> 0031
+    10  get_arg0 0: r
+    11  get_field2 slice  ;+28B
+    44  push_0 0
+    45  get_arg1 1: t
+    46  tail_call_method #args=2
+L   49  get_var Array
+    54  get_field2 isArray
+    87  get_arg0 0: r
+    88  call_method #args=1
+    91  if_false8 -> 0095
+    93  get_arg0 0: r
+    94  get_var Math
+    99  get_field2 min
+   132  get_arg0 0: r
+   133  get_length
+   134  get_arg1 1: t
+   135  call_method #args=2
+   138  put_field length
+   147  get_arg0 0: r
+   148  return
+L  149  get_var Error
+   154  dup
+   155  push_atom_value The truncate operation requires an existing string or array value.
+   160  call_constructor #args=1
+   163  throw
+
+-- fn name=s args=1 vars=0 closure=0 cpool=0 bc=44B file=json_patch/src/ApplyJSONPatch
+   locals: r
+     0  undefined
+     1  get_arg0 0: r
+     2  get_field keyAsNumber  ;+28B
+    35  strict_eq
+    36  if_false8 -> 0028
+    38  object
+    39  return
+L   40  array_from #args=0
+    43  return
+
+-- fn name=u args=1 vars=0 closure=0 cpool=0 bc=11B file=json_patch/src/ApplyJSONPatch
+   locals: r
+     0  undefined
+     1  get_arg0 0: r
+     2  strict_eq
+     3  if_false8 -> 0007
+     5  object
+     6  return
+L    7  array_from #args=0
+    10  return
+
+-- fn name=h args=3 vars=0 closure=0 cpool=0 bc=123B file=json_patch/src/ApplyJSONPatch
+   locals: r, t, e
+     0  get_arg1 1: t
+     1  get_arg0 0: r
+     2  get_length
+     3  gt
+     4  if_false8 -> 0046
+     6  get_var Error
+    11  dup
+    12  push_atom_value Cannot write array index 
+    17  get_field2 concat  ;+28B
+    50  get_arg1 1: t
+    51  push_atom_value  past length 
+    56  get_arg0 0: r
+    57  get_length
+    58  push_atom_value .
+    63  call_method #args=4
+    66  call_constructor #args=1
+    69  throw
+L   70  get_arg1 1: t
+    71  get_arg0 0: r
+    72  get_length
+    73  strict_neq
+    74  if_false8 -> 0054
+    76  get_arg0 0: r
+    77  get_arg1 1: t
+    78  to_propkey2
+    79  get_arg2 2: e
+    80  insert3
+    81  put_array_el
+    82  goto8 -> 007a
+L   84  get_arg0 0: r
+    85  get_field2 push
+   118  get_arg2 2: e
+   119  call_method #args=1
+L  122  return_undef
+
+-- fn name=l args=2 vars=0 closure=0 cpool=0 bc=110B file=json_patch/src/ApplyJSONPatch
+   locals: r, t
+     0  get_arg1 1: t
+     1  get_arg0 0: r
+     2  get_length
+     3  gte
+     4  if_false8 -> 0046
+     6  get_var Error
+    11  dup
+    12  push_atom_value Cannot remove array index 
+    17  get_field2 concat  ;+28B
+    50  get_arg1 1: t
+    51  push_atom_value  from length 
+    56  get_arg0 0: r
+    57  get_length
+    58  push_atom_value .
+    63  call_method #args=4
+    66  call_constructor #args=1
+    69  throw
+L   70  get_arg0 0: r
+    71  get_field2 splice
+   104  get_arg1 1: t
+   105  push_1 1
+   106  call_method #args=2
+   109  return_undef
+
+-- fn name=p args=1 vars=0 closure=1 cpool=0 bc=50B file=json_patch/src/ApplyJSONPatch
+   locals: r
+   closure: y
+     0  get_var_ref0 0: y
+     1  get_arg0 0: r
+     2  call1 #args=1
+     3  dup
+     4  if_true8 -> 0031
+     6  drop
+     7  get_var Array
+    12  get_field2 isArray  ;+28B
+    45  get_arg0 0: r
+    46  call_method #args=1
+L   49  return
+
+-- fn name=y args=1 vars=0 closure=0 cpool=0 bc=63B file=json_patch/src/ApplyJSONPatch
+   locals: r
+     0  push_atom_value object
+     5  get_arg0 0: r
+     6  typeof
+     7  eq
+     8  dup
+     9  if_false8 -> 003e
+    11  drop
+    12  null
+    13  get_arg0 0: r
+    14  strict_neq
+    15  dup
+    16  if_false8 -> 003e
+    18  drop
+    19  get_var Array
+    24  get_field2 isArray  ;+28B
+    57  get_arg0 0: r
+    58  call_method #args=1
+    61  lnot
+L   62  return
+
+-- fn name=<atom:0> args=3 vars=16 closure=0 cpool=29 bc=278B file=json_patch/src/ApplyJSONPatch
+   locals: require, module, exports, ApplyJSONPatch, <class_fields_init>, ApplyJSONPatch, r, t, e, o, n, i, a, s, u, h, l, p, y
+     0  fclosure8 16: <function r>
+     2  put_loc3 3: r
+     3  fclosure8 17: <function t>
+     5  put_loc8 4: t
+     7  fclosure8 18: <function e>
+     9  put_loc8 5: e
+    11  fclosure8 19: <function o>
+    13  put_loc8 6: o
+    15  fclosure8 20: <function n>
+    17  put_loc8 7: n
+    19  fclosure8 21: <function i>
+    21  put_loc8 8: i
+    23  fclosure8 22: <function a>
+    25  put_loc8 9: a
+    27  fclosure8 23: <function s>
+    29  put_loc8 10: s
+    31  fclosure8 24: <function u>
+    33  put_loc8 11: u
+    35  fclosure8 25: <function h>
+    37  put_loc8 12: h
+    39  fclosure8 26: <function l>
+    41  put_loc8 13: l
+    43  fclosure8 27: <function p>
+    45  put_loc8 14: p
+    47  fclosure8 28: <function y>
+    49  put_loc8 15: y
+    51  set_loc_uninitialized 2: ApplyJSONPatch
+    54  get_var Object
+    59  get_field2 defineProperty
+    92  get_arg2 2: exports
+    93  push_atom_value __esModule
+    98  object
+    99  push_0 0
+   100  lnot
+   101  define_field value
+   106  call_method #args=3
+   109  drop
+   110  get_arg2 2: exports
+   111  undefined
+   112  put_field ApplyJSONPatch
+   121  set_loc_uninitialized 0: ApplyJSONPatch
+   124  undefined
+   125  set_loc_uninitialized 1: <class_fields_init>
+   128  push_const8 0: <function <atom:0>>
+   130  define_class ApplyJSONPatch,0
+   136  fclosure8 1: <function <atom:0>>
+   138  define_method value,1
+   144  fclosure8 2: <function <atom:0>>
+   146  define_method beginSubObject,0
+   152  fclosure8 3: <function <atom:0>>
+   154  define_method endSubObject,0
+   160  fclosure8 4: <function <atom:0>>
+   162  define_method onReplaceRoot,0
+   168  fclosure8 5: <function <atom:0>>
+   170  define_method onAppendRoot,0
+   176  fclosure8 6: <function <atom:0>>
+   178  define_method onRemoveRoot,0
+   184  fclosure8 7: <function <atom:0>>
+   186  define_method onTruncateRoot,0
+   192  fclosure8 8: <function <atom:0>>
+   194  define_method onAppend,0
+   200  fclosure8 9: <function <atom:0>>
+   202  define_method onInsert,0
+   208  fclosure8 10: <function <atom:0>>
+   210  define_method onReplace,0
+   216  fclosure8 11: <function <atom:0>>
+   218  define_method onRemove,0
+   224  fclosure8 12: <function <atom:0>>
+   226  define_method onTruncate,0
+   232  fclosure8 13: <function <atom:0>>
+   234  define_method writeValue,0
+   240  fclosure8 14: <function <atom:0>>
+   242  define_method resolveCurrentContainer,0
+   248  fclosure8 15: <function <atom:0>>
+   250  define_method popFrame,0
+   256  undefined
+   257  put_loc1 1: <class_fields_init>
+   258  drop
+   259  set_loc0 0: ApplyJSONPatch
+   260  close_loc 1: <class_fields_init>
+   263  put_loc2 2: ApplyJSONPatch
+   264  get_arg2 2: exports
+   265  get_loc_check 2: ApplyJSONPatch
+   268  put_field ApplyJSONPatch
+   277  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=json_patch/src/ApplyJSONPatch
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/JSONPatch.js  (3053 B)
+# 原子基准=215 原子表 41 条
+-- 原子表 --
+   [0]json_patch/src/JSONPatch | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]JSONPatch | [7]o | [8]n | [9]a | [10]r | [11]__esModule | [12]./JSONPatchParser | [13]./JSONPatchTypes | [14]parse | [15]fromValue | [16]visit | [17]operations | [18]JSONPatchParser | [19]parseValue | [20]p | [21]c | [22]i | [23]path | [24]beginSubObject | [25]endSubObject | [26]operation | [27]JSONPatchOperationType | [28]Append | [29]Insert | [30]Replace | [31]Remove | [32]onTruncateRoot | [33]onRemoveRoot | [34]onReplaceRoot | [35]onAppendRoot | [36]onTruncate | [37]onRemove | [38]onReplace | [39]onInsert | [40]onAppend
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=27B file=json_patch/src/JSONPatch
+   locals: e, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: e
+    17  put_field operations
+    26  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=81B file=json_patch/src/JSONPatch
+   locals: t
+   closure: JSONPatch, e
+     0  get_var_ref_check 0: JSONPatch
+     3  dup
+     4  get_var_ref_check 1: e
+     7  get_field JSONPatchParser  ;+28B
+    40  get_field2 parse
+    73  get_arg0 0: t
+    74  call_method #args=1
+    77  call_constructor #args=1
+    80  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=81B file=json_patch/src/JSONPatch
+   locals: t
+   closure: JSONPatch, e
+     0  get_var_ref_check 0: JSONPatch
+     3  dup
+     4  get_var_ref_check 1: e
+     7  get_field JSONPatchParser  ;+28B
+    40  get_field2 parseValue
+    73  get_arg0 0: t
+    74  call_method #args=1
+    77  call_constructor #args=1
+    80  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=0 bc=57B file=json_patch/src/JSONPatch
+   locals: e, t, this
+   closure: o
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field operations  ;+28B
+    39  for_of_start
+    40  goto8 -> 0032
+L   42  put_loc0 0: t
+    43  get_var_ref0 0: o
+    44  get_loc_check 0: t
+    47  get_arg0 0: e
+    48  call2 #args=2
+    49  drop
+L   50  for_of_next 0
+    52  if_false8 -> 002a
+    54  drop
+    55  iterator_close
+    56  return_undef
+
+-- fn name=o args=2 vars=7 closure=3 cpool=0 bc=264B file=json_patch/src/JSONPatch
+   locals: e, t, o, p, c, i, n, e, n
+   closure: n, r, a
+     0  set_loc_uninitialized 3: i
+     3  set_loc_uninitialized 2: c
+     6  set_loc_uninitialized 1: p
+     9  set_loc_uninitialized 0: o
+    12  get_arg0 0: e
+    13  get_field path  ;+28B
+    46  put_loc0 0: o
+    47  push_0 0
+    48  get_loc_check 0: o
+    51  get_length
+    52  strict_eq
+    53  if_false8 -> 003d
+    55  get_var_ref0 0: n
+    56  get_arg0 0: e
+    57  get_arg1 1: t
+    58  call2 #args=2
+    59  drop
+    60  return_undef
+L   61  get_loc_check 0: o
+    64  get_loc_check 0: o
+    67  get_length
+    68  push_1 1
+    69  sub
+    70  get_array_el
+    71  put_loc1 1: p
+    72  get_var String
+    77  get_loc_check 1: p
+    80  call1 #args=1
+    81  put_loc2 2: c
+    82  get_var_ref1 1: r
+    83  get_loc_check 1: p
+    86  call1 #args=1
+    87  put_loc3 3: i
+    88  set_loc_uninitialized 4: n
+    91  push_0 0
+    92  put_loc8 4: n
+L   94  get_loc_check 4: n
+    97  get_loc_check 0: o
+   100  get_length
+   101  push_1 1
+   102  sub
+   103  lt
+   104  if_false8 -> 00b6
+   106  set_loc_uninitialized 5: e
+   109  get_loc_check 0: o
+   112  get_loc_check 4: n
+   115  get_array_el
+   116  put_loc8 5: e
+   118  get_arg1 1: t
+   119  get_field2 beginSubObject
+   152  get_var String
+   157  get_loc_check 5: e
+   160  call1 #args=1
+   161  get_var_ref1 1: r
+   162  get_loc_check 5: e
+   165  call1 #args=1
+   166  call_method #args=2
+   169  drop
+   170  get_loc_check 4: n
+   173  push_1 1
+   174  add
+   175  dup
+   176  put_loc_check 4: n
+   179  drop
+   180  goto8 -> 005e
+L  182  get_var_ref2 2: a
+   183  get_arg0 0: e
+   184  get_loc_check 2: c
+   187  get_loc_check 3: i
+   190  get_arg1 1: t
+   191  call #args=4
+   194  drop
+   195  set_loc_uninitialized 6: n
+   198  get_loc_check 0: o
+   201  get_length
+   202  push_2 2
+   203  sub
+   204  put_loc8 6: n
+L  206  get_loc_check 6: n
+   209  push_0 0
+   210  gte
+   211  if_false8 -> 0107
+   213  get_arg1 1: t
+   214  get_field2 endSubObject
+   247  call_method #args=0
+   250  drop
+   251  get_loc_check 6: n
+   254  push_1 1
+   255  sub
+   256  dup
+   257  put_loc_check 6: n
+   260  drop
+   261  goto8 -> 00ce
+L  263  return_undef
+
+-- fn name=n args=2 vars=0 closure=1 cpool=0 bc=692B file=json_patch/src/JSONPatch
+   locals: e, o
+   closure: t
+     0  get_arg0 0: e
+     1  get_field operation  ;+28B
+    34  get_var_ref_check 0: t
+    37  get_field JSONPatchOperationType
+    70  get_field Append
+   103  strict_neq
+   104  if_false -> 026c
+   109  get_arg0 0: e
+   110  get_field operation
+   143  get_var_ref_check 0: t
+   146  get_field JSONPatchOperationType
+   179  get_field Insert
+   212  strict_neq
+   213  if_false -> 0223
+   218  get_arg0 0: e
+   219  get_field operation
+   252  get_var_ref_check 0: t
+   255  get_field JSONPatchOperationType
+   288  get_field Replace
+   321  strict_neq
+   322  if_false -> 0223
+   327  get_arg0 0: e
+   328  get_field operation
+   361  get_var_ref_check 0: t
+   364  get_field JSONPatchOperationType
+   397  get_field Remove
+   430  strict_neq
+   431  if_false8 -> 01fb
+   433  get_arg1 1: o
+   434  get_field2 onTruncateRoot
+   467  get_arg0 0: e
+   468  get_field value
+   501  call_method #args=1
+   504  goto16 -> 02b3
+L  507  get_arg1 1: o
+   508  get_field2 onRemoveRoot
+   541  call_method #args=0
+   544  goto16 -> 02b3
+L  547  get_arg1 1: o
+   548  get_field2 onReplaceRoot
+   581  get_arg0 0: e
+   582  get_field value
+   615  call_method #args=1
+   618  goto8 -> 02b3
+L  620  get_arg1 1: o
+   621  get_field2 onAppendRoot
+   654  get_arg0 0: e
+   655  get_field value
+   688  call_method #args=1
+L  691  return_undef
+
+-- fn name=a args=4 vars=0 closure=1 cpool=0 bc=776B file=json_patch/src/JSONPatch
+   locals: e, o, n, a
+   closure: t
+     0  get_arg0 0: e
+     1  get_field operation  ;+28B
+    34  get_var_ref_check 0: t
+    37  get_field JSONPatchOperationType
+    70  get_field Append
+   103  strict_neq
+   104  if_false -> 02be
+   109  get_arg0 0: e
+   110  get_field operation
+   143  get_var_ref_check 0: t
+   146  get_field JSONPatchOperationType
+   179  get_field Insert
+   212  strict_neq
+   213  if_false -> 0273
+   218  get_arg0 0: e
+   219  get_field operation
+   252  get_var_ref_check 0: t
+   255  get_field JSONPatchOperationType
+   288  get_field Replace
+   321  strict_neq
+   322  if_false -> 0227
+   327  get_arg0 0: e
+   328  get_field operation
+   361  get_var_ref_check 0: t
+   364  get_field JSONPatchOperationType
+   397  get_field Remove
+   430  strict_neq
+   431  if_false8 -> 01fd
+   433  get_arg3 3: a
+   434  get_field2 onTruncate
+   467  get_arg1 1: o
+   468  get_arg2 2: n
+   469  get_arg0 0: e
+   470  get_field value
+   503  call_method #args=3
+   506  goto16 -> 0307
+L  509  get_arg3 3: a
+   510  get_field2 onRemove
+   543  get_arg1 1: o
+   544  get_arg2 2: n
+   545  call_method #args=2
+   548  goto16 -> 0307
+L  551  get_arg3 3: a
+   552  get_field2 onReplace
+   585  get_arg1 1: o
+   586  get_arg2 2: n
+   587  get_arg0 0: e
+   588  get_field value
+   621  call_method #args=3
+   624  goto16 -> 0307
+L  627  get_arg3 3: a
+   628  get_field2 onInsert
+   661  get_arg1 1: o
+   662  get_arg2 2: n
+   663  get_arg0 0: e
+   664  get_field value
+   697  call_method #args=3
+   700  goto8 -> 0307
+L  702  get_arg3 3: a
+   703  get_field2 onAppend
+   736  get_arg1 1: o
+   737  get_arg2 2: n
+   738  get_arg0 0: e
+   739  get_field value
+   772  call_method #args=3
+L  775  return_undef
+
+-- fn name=r args=1 vars=0 closure=0 cpool=0 bc=14B file=json_patch/src/JSONPatch
+   locals: e
+     0  push_atom_value number
+     5  get_arg0 0: e
+     6  typeof
+     7  eq
+     8  if_false8 -> 000c
+    10  get_arg0 0: e
+    11  return
+L   12  undefined
+    13  return
+
+-- fn name=<atom:0> args=3 vars=9 closure=0 cpool=8 bc=177B file=json_patch/src/JSONPatch
+   locals: require, module, exports, e, t, JSONPatch, <class_fields_init>, JSONPatch, o, n, a, r
+     0  fclosure8 4: <function o>
+     2  put_loc8 5: o
+     4  fclosure8 5: <function n>
+     6  put_loc8 6: n
+     8  fclosure8 6: <function a>
+    10  put_loc8 7: a
+    12  fclosure8 7: <function r>
+    14  put_loc8 8: r
+    16  set_loc_uninitialized 4: JSONPatch
+    19  set_loc_uninitialized 1: t
+    22  set_loc_uninitialized 0: e
+    25  get_var Object
+    30  get_field2 defineProperty
+    63  get_arg2 2: exports
+    64  push_atom_value __esModule
+    69  object
+    70  push_0 0
+    71  lnot
+    72  define_field value
+    77  call_method #args=3
+    80  drop
+    81  get_arg2 2: exports
+    82  undefined
+    83  put_field JSONPatch
+    92  get_arg0 0: require
+    93  push_atom_value ./JSONPatchParser
+    98  call1 #args=1
+    99  put_loc0 0: e
+   100  get_arg0 0: require
+   101  push_atom_value ./JSONPatchTypes
+   106  call1 #args=1
+   107  put_loc1 1: t
+   108  set_loc_uninitialized 2: JSONPatch
+   111  undefined
+   112  set_loc_uninitialized 3: <class_fields_init>
+   115  push_const8 0: <function <atom:0>>
+   117  define_class JSONPatch,0
+   123  swap
+   124  fclosure8 1: <function <atom:0>>
+   126  define_method parse,0
+   132  swap
+   133  swap
+   134  fclosure8 2: <function <atom:0>>
+   136  define_method fromValue,0
+   142  swap
+   143  fclosure8 3: <function <atom:0>>
+   145  define_method visit,0
+   151  undefined
+   152  put_loc3 3: <class_fields_init>
+   153  drop
+   154  set_loc2 2: JSONPatch
+   155  close_loc 3: <class_fields_init>
+   158  close_loc 2: JSONPatch
+   161  put_loc8 4: JSONPatch
+   163  get_arg2 2: exports
+   164  get_loc_check 4: JSONPatch
+   167  put_field JSONPatch
+   176  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=json_patch/src/JSONPatch
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/JSONPatchParser.js  (6308 B)
+# 原子基准=215 原子表 74 条
+-- 原子表 --
+   [0]json_patch/src/JSONPatchParser | [1]require | [2]module | [3]exports | [4]e | [5]r | [6]t | [7]n | [8]JSONPatchParser | [9]i | [10]o | [11]a | [12]s | [13]p | [14]u | [15]h | [16]c | [17]f | [18]l | [19]v | [20]O | [21]__esModule | [22]./JSONPatchTypes | [23]parse | [24]parseValue | [25]InheritPrevious | [26]RequireExplicit | [27]UseParentPath | [28]Unable to parse JSON patch:  | [29]channel | [30]operation | [31]path | [32]missingOperationBehavior | [33]missingPathBehavior | [34]isArray | [35]P | [36]d | [37]N | [38]w | [39]y | [40]S | [41]JSON patch operations must be objects. | [42]patch | [43]The patch operation requires an array value. | [44]JSONPatchOperationType | [45]Append | [46]Insert | [47]Replace | [48]The  | [49] operation requires a v field. | [50]Truncate | [51]Remove | [52]push | [53]The truncate operation requires a non-negative integer value. | [54]The c field must be a non-negative integer. | [55]Nested JSON patch operations must include an o field. | [56]The first JSON patch operation must include an o field. | [57]The o field must be a string. | [58]The p field must be a string. | [59]/ | [60]indexOf | [61]~ | [62]slice | [63]charAt | [64]Invalid path escape sequence "~ | [65]". | [66]append | [67]remove | [68]replace | [69]truncate | [70]Unsupported JSON patch operation " | [71]test | [72]isSafeInteger | [73]isInteger
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=39B file=json_patch/src/JSONPatchParser
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field InheritPrevious
+    13  push_atom_value InheritPrevious
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field RequireExplicit
+    32  push_atom_value RequireExplicit
+    37  put_array_el
+    38  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=39B file=json_patch/src/JSONPatchParser
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field InheritPrevious
+    13  push_atom_value InheritPrevious
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field UseParentPath
+    32  push_atom_value UseParentPath
+    37  put_array_el
+    38  return_undef
+
+-- fn name=<atom:0> args=1 vars=3 closure=0 cpool=0 bc=194B file=json_patch/src/JSONPatchParser
+   locals: e, r, t, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 0: r
+     5  undefined
+     6  put_loc0 0: r
+     7  catch -> 003e
+    12  get_var JSON
+    17  get_field2 parse  ;+28B
+    50  get_arg0 0: e
+    51  call_method #args=1
+    54  dup
+    55  put_loc_check 0: r
+    58  drop
+    59  drop
+    60  goto8 -> 009a
+L   62  put_loc1 1: t
+    63  catch -> 0099
+    68  get_var Error
+    73  dup
+    74  push_atom_value Unable to parse JSON patch: 
+    79  get_field2 concat
+   112  get_loc1 1: t
+   113  get_field message
+   146  call_method #args=1
+   149  call_constructor #args=1
+   152  throw
+L  153  throw
+L  154  get_loc2 2: this
+   155  get_field2 parseValue
+   188  get_loc_check 0: r
+   191  tail_call_method #args=1
+
+-- fn name=<atom:0> args=1 vars=1 closure=3 cpool=0 bc=120B file=json_patch/src/JSONPatchParser
+   locals: e, r
+   closure: i, t, n
+     0  set_loc_uninitialized 0: r
+     3  array_from #args=0
+     6  put_loc0 0: r
+     7  get_var_ref0 0: i
+     8  get_arg0 0: e
+     9  array_from #args=0
+    12  object
+    13  undefined
+    14  define_field channel
+    19  undefined
+    20  define_field operation
+    25  undefined
+    26  define_field path
+    31  get_var_ref1 1: t
+    32  get_field InheritPrevious
+    65  define_field missingOperationBehavior
+    70  get_var_ref2 2: n
+    71  get_field InheritPrevious
+   104  define_field missingPathBehavior
+   109  get_loc_check 0: r
+   112  call #args=4
+   115  drop
+   116  get_loc_check 0: r
+   119  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=15B file=json_patch/src/JSONPatchParser
+   locals: this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  return_undef
+
+-- fn name=i args=4 vars=1 closure=1 cpool=0 bc=80B file=json_patch/src/JSONPatchParser
+   locals: e, r, t, n, i
+   closure: o
+     0  get_var Array
+     5  get_field2 isArray  ;+28B
+    38  get_arg0 0: e
+    39  call_method #args=1
+    42  if_false8 -> 0046
+    44  set_loc_uninitialized 0: i
+    47  get_arg0 0: e
+    48  for_of_start
+    49  goto8 -> 003f
+L   51  put_loc0 0: i
+    52  get_var_ref0 0: o
+    53  get_loc_check 0: i
+    56  get_arg1 1: r
+    57  get_arg2 2: t
+    58  get_arg3 3: n
+    59  call #args=4
+    62  drop
+L   63  for_of_next 0
+    65  if_false8 -> 0033
+    67  drop
+    68  iterator_close
+    69  return_undef
+L   70  get_var_ref0 0: o
+    71  get_arg0 0: e
+    72  get_arg1 1: r
+    73  get_arg2 2: t
+    74  get_arg3 3: n
+    75  call #args=4
+    78  drop
+    79  return_undef
+
+-- fn name=o args=4 vars=8 closure=11 cpool=0 bc=1289B file=json_patch/src/JSONPatchParser
+   locals: r, o, u, h, f, P, d, N, w, e, y, S
+   closure: O, a, s, p, l, t, n, i, c, e, v
+     0  set_loc_uninitialized 7: S
+     3  set_loc_uninitialized 6: y
+     6  set_loc_uninitialized 4: w
+     9  set_loc_uninitialized 3: N
+    12  set_loc_uninitialized 2: d
+    15  set_loc_uninitialized 1: P
+    18  set_loc_uninitialized 0: f
+    21  get_var_ref0 0: O
+    22  get_arg0 0: r
+    23  call1 #args=1
+    24  lnot
+    25  if_false8 -> 002a
+    27  get_var Error
+    32  dup
+    33  push_atom_value JSON patch operations must be objects.
+    38  call_constructor #args=1
+    41  throw
+L   42  get_arg0 0: r
+    43  put_loc0 0: f
+    44  get_var_ref1 1: a
+    45  get_loc_check 0: f
+    48  get_arg2 2: u
+    49  get_field channel
+    82  call2 #args=2
+    83  put_loc1 1: P
+    84  get_var_ref2 2: s
+    85  get_loc_check 0: f
+    88  get_arg2 2: u
+    89  get_field operation
+   122  get_arg2 2: u
+   123  get_field missingOperationBehavior
+   156  call3 #args=3
+   157  put_loc2 2: d
+   158  get_var_ref3 3: p
+   159  get_loc_check 0: f
+   162  get_arg2 2: u
+   163  get_field path
+   196  get_arg2 2: u
+   197  get_field missingPathBehavior
+   230  call3 #args=3
+   231  put_loc3 3: N
+   232  get_var_ref 4: l
+   235  get_arg1 1: o
+   236  get_loc_check 3: N
+   239  call2 #args=2
+   240  put_loc8 4: w
+   242  get_arg2 2: u
+   243  get_loc_check 1: P
+   246  put_field channel
+   255  get_arg2 2: u
+   256  get_loc_check 2: d
+   259  put_field operation
+   268  get_arg2 2: u
+   269  get_loc_check 3: N
+   272  put_field path
+   281  push_atom_value patch
+   286  get_loc_check 2: d
+   289  strict_eq
+   290  if_false -> 0225
+   295  set_loc_uninitialized 5: e
+   298  get_var Array
+   303  get_field2 isArray
+   336  get_loc_check 0: f
+   339  get_field v
+   372  call_method #args=1
+   375  lnot
+   376  if_false8 -> 0189
+   378  get_var Error
+   383  dup
+   384  push_atom_value The patch operation requires an array value.
+   389  call_constructor #args=1
+   392  throw
+L  393  object
+   394  get_loc_check 1: P
+   397  define_field channel
+   402  undefined
+   403  define_field operation
+   408  undefined
+   409  define_field path
+   414  get_var_ref 5: t
+   417  get_field RequireExplicit
+   450  define_field missingOperationBehavior
+   455  get_var_ref 6: n
+   458  get_field UseParentPath
+   491  define_field missingPathBehavior
+   496  put_loc8 5: e
+   498  get_var_ref 7: i
+   501  get_loc_check 0: f
+   504  get_field v
+   537  get_loc_check 4: w
+   540  get_loc_check 5: e
+   543  get_arg3 3: h
+   544  call #args=4
+   547  drop
+   548  return_undef
+L  549  get_var_ref 8: c
+   552  get_loc_check 2: d
+   555  call1 #args=1
+   556  put_loc8 6: y
+   558  get_loc_check 0: f
+   561  get_field v
+   594  put_loc8 7: S
+   596  get_loc_check 6: y
+   599  get_var_ref_check 9: e
+   602  get_field JSONPatchOperationType
+   635  get_field Append
+   668  strict_eq
+   669  dup
+   670  if_true -> 033a
+   675  drop
+   676  get_loc_check 6: y
+   679  get_var_ref_check 9: e
+   682  get_field JSONPatchOperationType
+   715  get_field Insert
+   748  strict_eq
+   749  dup
+   750  if_true8 -> 033a
+   752  drop
+   753  get_loc_check 6: y
+   756  get_var_ref_check 9: e
+   759  get_field JSONPatchOperationType
+   792  get_field Replace
+   825  strict_eq
+L  826  if_false8 -> 039f
+   828  undefined
+   829  get_loc_check 0: f
+   832  get_field v
+   865  strict_eq
+   866  if_false8 -> 039f
+   868  get_var Error
+   873  dup
+   874  push_atom_value The 
+   879  get_field2 concat
+   912  get_loc_check 2: d
+   915  push_atom_value  operation requires a v field.
+   920  call_method #args=2
+   923  call_constructor #args=1
+   926  throw
+L  927  get_loc_check 6: y
+   930  get_var_ref_check 9: e
+   933  get_field JSONPatchOperationType
+   966  get_field Truncate
+   999  strict_neq
+  1000  if_false -> 04b0
+  1005  get_loc_check 6: y
+  1008  get_var_ref_check 9: e
+  1011  get_field JSONPatchOperationType
+  1044  get_field Remove
+  1077  strict_neq
+  1078  if_false8 -> 0478
+  1080  get_arg3 3: h
+  1081  get_field2 push
+  1114  object
+  1115  get_loc_check 6: y
+  1118  define_field operation
+  1123  get_loc_check 4: w
+  1126  define_field path
+  1131  get_loc_check 7: S
+  1134  define_field value
+  1139  call_method #args=1
+  1142  goto8 -> 04ae
+L 1144  get_arg3 3: h
+  1145  get_field2 push
+  1178  object
+  1179  get_loc_check 6: y
+  1182  define_field operation
+  1187  get_loc_check 4: w
+  1190  define_field path
+  1195  call_method #args=1
+L 1198  drop
+  1199  return_undef
+L 1200  get_var_ref 10: v
+  1203  get_loc_check 7: S
+  1206  call1 #args=1
+  1207  lnot
+  1208  if_false8 -> 04c9
+  1210  get_var Error
+  1215  dup
+  1216  push_atom_value The truncate operation requires a non-negative integer value.
+  1221  call_constructor #args=1
+  1224  throw
+L 1225  get_arg3 3: h
+  1226  get_field2 push
+  1259  object
+  1260  get_loc_check 6: y
+  1263  define_field operation
+  1268  get_loc_check 4: w
+  1271  define_field path
+  1276  get_loc_check 7: S
+  1279  define_field value
+  1284  call_method #args=1
+  1287  drop
+  1288  return_undef
+
+-- fn name=a args=2 vars=0 closure=1 cpool=0 bc=169B file=json_patch/src/JSONPatchParser
+   locals: e, r
+   closure: v
+     0  undefined
+     1  get_arg0 0: e
+     2  get_field c  ;+28B
+    35  strict_eq
+    36  dup
+    37  if_true8 -> 004c
+    39  drop
+    40  null
+    41  get_arg0 0: e
+    42  get_field c
+    75  strict_eq
+L   76  if_false8 -> 0050
+    78  get_arg1 1: r
+    79  return
+L   80  get_var_ref0 0: v
+    81  get_arg0 0: e
+    82  get_field c
+   115  call1 #args=1
+   116  lnot
+   117  if_false8 -> 0086
+   119  get_var Error
+   124  dup
+   125  push_atom_value The c field must be a non-negative integer.
+   130  call_constructor #args=1
+   133  throw
+L  134  get_arg0 0: e
+   135  get_field c
+   168  return
+
+-- fn name=s args=3 vars=0 closure=1 cpool=0 bc=246B file=json_patch/src/JSONPatchParser
+   locals: e, r, n
+   closure: t
+     0  undefined
+     1  get_arg0 0: e
+     2  get_field o  ;+28B
+    35  strict_eq
+    36  dup
+    37  if_true8 -> 004c
+    39  drop
+    40  null
+    41  get_arg0 0: e
+    42  get_field o
+    75  strict_eq
+L   76  if_false8 -> 0099
+    78  get_arg2 2: n
+    79  get_var_ref0 0: t
+    80  get_field RequireExplicit
+   113  strict_eq
+   114  if_false8 -> 0083
+   116  get_var Error
+   121  dup
+   122  push_atom_value Nested JSON patch operations must include an o field.
+   127  call_constructor #args=1
+   130  throw
+L  131  undefined
+   132  get_arg1 1: r
+   133  strict_eq
+   134  if_false8 -> 0097
+   136  get_var Error
+   141  dup
+   142  push_atom_value The first JSON patch operation must include an o field.
+   147  call_constructor #args=1
+   150  throw
+L  151  get_arg1 1: r
+   152  return
+L  153  push_atom_value string
+   158  get_arg0 0: e
+   159  get_field o
+   192  typeof
+   193  neq
+   194  if_false8 -> 00d3
+   196  get_var Error
+   201  dup
+   202  push_atom_value The o field must be a string.
+   207  call_constructor #args=1
+   210  throw
+L  211  get_arg0 0: e
+   212  get_field o
+   245  return
+
+-- fn name=p args=3 vars=0 closure=2 cpool=0 bc=225B file=json_patch/src/JSONPatchParser
+   locals: e, r, t
+   closure: n, u
+     0  undefined
+     1  get_arg0 0: e
+     2  get_field p  ;+28B
+    35  strict_eq
+    36  dup
+    37  if_true8 -> 004c
+    39  drop
+    40  null
+    41  get_arg0 0: e
+    42  get_field p
+    75  strict_eq
+L   76  if_false8 -> 0081
+    78  get_arg2 2: t
+    79  get_var_ref0 0: n
+    80  get_field UseParentPath
+   113  strict_eq
+   114  dup
+   115  if_true8 -> 0079
+   117  drop
+   118  undefined
+   119  get_arg1 1: r
+   120  strict_eq
+L  121  if_false8 -> 007f
+   123  array_from #args=0
+   126  return
+L  127  get_arg1 1: r
+   128  return
+L  129  push_atom_value string
+   134  get_arg0 0: e
+   135  get_field p
+   168  typeof
+   169  neq
+   170  if_false8 -> 00bb
+   172  get_var Error
+   177  dup
+   178  push_atom_value The p field must be a string.
+   183  call_constructor #args=1
+   186  throw
+L  187  get_var_ref1 1: u
+   188  get_arg0 0: e
+   189  get_field p
+   222  tail_call #args=1
+
+-- fn name=u args=1 vars=4 closure=2 cpool=0 bc=136B file=json_patch/src/JSONPatchParser
+   locals: e, r, t, n, e
+   closure: h, f
+     0  set_loc_uninitialized 1: t
+     3  set_loc_uninitialized 0: r
+     6  push_empty_string
+     7  get_arg0 0: e
+     8  strict_eq
+     9  if_false8 -> 000f
+    11  array_from #args=0
+    14  return
+L   15  get_arg0 0: e
+    16  get_field2 split  ;+28B
+    49  push_atom_value /
+    54  call_method #args=1
+    57  put_loc0 0: r
+    58  array_from #args=0
+    61  put_loc1 1: t
+    62  set_loc_uninitialized 2: n
+    65  get_loc_check 0: r
+    68  for_of_start
+    69  goto8 -> 007e
+L   71  put_loc2 2: n
+    72  set_loc_uninitialized 3: e
+    75  get_var_ref0 0: h
+    76  get_loc_check 2: n
+    79  call1 #args=1
+    80  put_loc3 3: e
+    81  get_loc_check 1: t
+    84  get_field2 push
+   117  get_var_ref1 1: f
+   118  get_loc_check 3: e
+   121  call1 #args=1
+   122  call_method #args=1
+   125  drop
+L  126  for_of_next 0
+   128  if_false8 -> 0047
+   130  drop
+   131  iterator_close
+   132  get_loc_check 1: t
+   135  return
+
+-- fn name=h args=1 vars=4 closure=0 cpool=2 bc=577B file=json_patch/src/JSONPatchParser
+   locals: e, r, t, n, i
+     0  set_loc_uninitialized 2: n
+     3  set_loc_uninitialized 1: t
+     6  set_loc_uninitialized 0: r
+     9  get_arg0 0: e
+    10  get_field2 indexOf  ;+28B
+    43  push_atom_value ~
+    48  call_method #args=1
+    51  put_loc0 0: r
+    52  push_minus1 -1
+    53  get_loc_check 0: r
+    56  strict_eq
+    57  if_false8 -> 003d
+    59  get_arg0 0: e
+    60  return
+L   61  array_from #args=0
+    64  put_loc1 1: t
+    65  push_0 0
+    66  put_loc2 2: n
+L   67  push_minus1 -1
+    68  get_loc_check 0: r
+    71  strict_neq
+    72  if_false -> 01bf
+    77  set_loc_uninitialized 3: i
+    80  get_loc_check 0: r
+    83  get_loc_check 2: n
+    86  gt
+    87  dup
+    88  if_false8 -> 00ad
+    90  drop
+    91  get_loc_check 1: t
+    94  get_field2 push
+   127  get_arg0 0: e
+   128  get_field2 slice
+   161  get_loc_check 2: n
+   164  get_loc_check 0: r
+   167  call_method #args=2
+   170  call_method #args=1
+L  173  drop
+   174  get_arg0 0: e
+   175  get_field2 charAt
+   208  get_loc_check 0: r
+   211  push_1 1
+   212  add
+   213  call_method #args=1
+   216  put_loc3 3: i
+   217  push_const8 0: <string None>
+   219  get_loc_check 3: i
+   222  strict_eq
+   223  if_false8 -> 0110
+   225  get_loc_check 1: t
+   228  get_field2 push
+   261  push_atom_value ~
+   266  call_method #args=1
+   269  drop
+   270  goto8 -> 0180
+L  272  push_const8 1: <string None>
+   274  get_loc_check 3: i
+   277  strict_neq
+   278  if_false8 -> 0153
+   280  get_var Error
+   285  dup
+   286  push_atom_value Invalid path escape sequence "~
+   291  get_field2 concat
+   324  get_loc_check 3: i
+   327  push_atom_value ".
+   332  call_method #args=2
+   335  call_constructor #args=1
+   338  throw
+L  339  get_loc_check 1: t
+   342  get_field2 push
+   375  push_atom_value /
+   380  call_method #args=1
+   383  drop
+L  384  get_loc_check 0: r
+   387  push_2 2
+   388  add
+   389  dup
+   390  put_loc_check 2: n
+   393  drop
+   394  get_arg0 0: e
+   395  get_field2 indexOf
+   428  push_atom_value ~
+   433  get_loc_check 2: n
+   436  call_method #args=2
+   439  dup
+   440  put_loc_check 0: r
+   443  drop
+   444  goto16 -> 0043
+L  447  get_loc_check 2: n
+   450  get_arg0 0: e
+   451  get_length
+   452  lt
+   453  dup
+   454  if_false8 -> 0218
+   456  drop
+   457  get_loc_check 1: t
+   460  get_field2 push
+   493  get_arg0 0: e
+   494  get_field2 slice
+   527  get_loc_check 2: n
+   530  call_method #args=1
+   533  call_method #args=1
+L  536  drop
+   537  get_loc_check 1: t
+   540  get_field2 join
+   573  push_empty_string
+   574  tail_call_method #args=1
+
+-- fn name=c args=1 vars=0 closure=1 cpool=0 bc=452B file=json_patch/src/JSONPatchParser
+   locals: r
+   closure: e
+     0  push_atom_value add
+     5  get_arg0 0: r
+     6  strict_eq
+     7  if_false8 -> 004f
+     9  get_var_ref_check 0: e
+    12  get_field JSONPatchOperationType  ;+28B
+    45  get_field Insert
+    78  return
+L   79  push_atom_value append
+    84  get_arg0 0: r
+    85  strict_eq
+    86  if_false8 -> 009e
+    88  get_var_ref_check 0: e
+    91  get_field JSONPatchOperationType
+   124  get_field Append
+   157  return
+L  158  push_atom_value remove
+   163  get_arg0 0: r
+   164  strict_eq
+   165  if_false8 -> 00ed
+   167  get_var_ref_check 0: e
+   170  get_field JSONPatchOperationType
+   203  get_field Remove
+   236  return
+L  237  push_atom_value replace
+   242  get_arg0 0: r
+   243  strict_eq
+   244  if_false8 -> 013c
+   246  get_var_ref_check 0: e
+   249  get_field JSONPatchOperationType
+   282  get_field Replace
+   315  return
+L  316  push_atom_value truncate
+   321  get_arg0 0: r
+   322  strict_eq
+   323  if_false8 -> 018b
+   325  get_var_ref_check 0: e
+   328  get_field JSONPatchOperationType
+   361  get_field Truncate
+   394  return
+L  395  get_var Error
+   400  dup
+   401  push_atom_value Unsupported JSON patch operation "
+   406  get_field2 concat
+   439  get_arg0 0: r
+   440  push_atom_value ".
+   445  call_method #args=2
+   448  call_constructor #args=1
+   451  throw
+
+-- fn name=f args=1 vars=1 closure=1 cpool=0 bc=108B file=json_patch/src/JSONPatchParser
+   locals: e, t
+   closure: r
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref_check 0: r
+     6  get_field2 test  ;+28B
+    39  get_arg0 0: e
+    40  call_method #args=1
+    43  lnot
+    44  if_false8 -> 0030
+    46  get_arg0 0: e
+    47  return
+L   48  get_var Number
+    53  get_arg0 0: e
+    54  call1 #args=1
+    55  put_loc0 0: t
+    56  get_var Number
+    61  get_field2 isSafeInteger
+    94  get_loc_check 0: t
+    97  call_method #args=1
+   100  if_false8 -> 006a
+   102  get_loc_check 0: t
+   105  return
+L  106  get_arg0 0: e
+   107  return
+
+-- fn name=l args=2 vars=3 closure=0 cpool=0 bc=141B file=json_patch/src/JSONPatchParser
+   locals: e, r, t, n, n
+     0  set_loc_uninitialized 0: t
+     3  push_0 0
+     4  get_arg0 0: e
+     5  get_length
+     6  strict_eq
+     7  if_false8 -> 000b
+     9  get_arg1 1: r
+    10  return
+L   11  push_0 0
+    12  get_arg1 1: r
+    13  get_length
+    14  strict_eq
+    15  if_false8 -> 0013
+    17  get_arg0 0: e
+    18  return
+L   19  array_from #args=0
+    22  put_loc0 0: t
+    23  set_loc_uninitialized 1: n
+    26  get_arg0 0: e
+    27  for_of_start
+    28  goto8 -> 004a
+L   30  put_loc1 1: n
+    31  get_loc_check 0: t
+    34  get_field2 push
+    67  get_loc_check 1: n
+    70  call_method #args=1
+    73  drop
+L   74  for_of_next 0
+    76  if_false8 -> 001e
+    78  drop
+    79  iterator_close
+    80  set_loc_uninitialized 2: n
+    83  get_arg1 1: r
+    84  for_of_start
+    85  goto8 -> 0083
+L   87  put_loc2 2: n
+    88  get_loc_check 0: t
+    91  get_field2 push
+   124  get_loc_check 2: n
+   127  call_method #args=1
+   130  drop
+L  131  for_of_next 0
+   133  if_false8 -> 0057
+   135  drop
+   136  iterator_close
+   137  get_loc_check 0: t
+   140  return
+
+-- fn name=v args=1 vars=0 closure=0 cpool=0 bc=62B file=json_patch/src/JSONPatchParser
+   locals: e
+     0  push_atom_value number
+     5  get_arg0 0: e
+     6  typeof
+     7  eq
+     8  dup
+     9  if_false8 -> 003d
+    11  drop
+    12  get_var Number
+    17  get_field2 isInteger  ;+28B
+    50  get_arg0 0: e
+    51  call_method #args=1
+    54  dup
+    55  if_false8 -> 003d
+    57  drop
+    58  get_arg0 0: e
+    59  push_0 0
+    60  gte
+L   61  return
+
+-- fn name=O args=1 vars=0 closure=0 cpool=0 bc=63B file=json_patch/src/JSONPatchParser
+   locals: e
+     0  push_atom_value object
+     5  get_arg0 0: e
+     6  typeof
+     7  eq
+     8  dup
+     9  if_false8 -> 003e
+    11  drop
+    12  null
+    13  get_arg0 0: e
+    14  strict_neq
+    15  dup
+    16  if_false8 -> 003e
+    18  drop
+    19  get_var Array
+    24  get_field2 isArray  ;+28B
+    57  get_arg0 0: e
+    58  call_method #args=1
+    61  lnot
+L   62  return
+
+-- fn name=<atom:0> args=3 vars=19 closure=0 cpool=19 bc=221B file=json_patch/src/JSONPatchParser
+   locals: require, module, exports, e, r, t, n, JSONPatchParser, <class_fields_init>, JSONPatchParser, i, o, a, s, p, u, h, c, f, l, v, O
+     0  fclosure8 7: <function i>
+     2  put_loc8 7: i
+     4  fclosure8 8: <function o>
+     6  put_loc8 8: o
+     8  fclosure8 9: <function a>
+    10  put_loc8 9: a
+    12  fclosure8 10: <function s>
+    14  put_loc8 10: s
+    16  fclosure8 11: <function p>
+    18  put_loc8 11: p
+    20  fclosure8 12: <function u>
+    22  put_loc8 12: u
+    24  fclosure8 13: <function h>
+    26  put_loc8 13: h
+    28  fclosure8 14: <function c>
+    30  put_loc8 14: c
+    32  fclosure8 15: <function f>
+    34  put_loc8 15: f
+    36  fclosure8 16: <function l>
+    38  put_loc8 16: l
+    40  fclosure8 17: <function v>
+    42  put_loc8 17: v
+    44  fclosure8 18: <function O>
+    46  put_loc8 18: O
+    48  set_loc_uninitialized 6: JSONPatchParser
+    51  set_loc_uninitialized 1: r
+    54  set_loc_uninitialized 0: e
+    57  get_var Object
+    62  get_field2 defineProperty
+    95  get_arg2 2: exports
+    96  push_atom_value __esModule
+   101  object
+   102  push_0 0
+   103  lnot
+   104  define_field value
+   109  call_method #args=3
+   112  drop
+   113  get_arg2 2: exports
+   114  undefined
+   115  put_field JSONPatchParser
+   124  get_arg0 0: require
+   125  push_atom_value ./JSONPatchTypes
+   130  call1 #args=1
+   131  put_loc0 0: e
+   132  push_const8 0: <string None>
+   134  push_const8 1: <string None>
+   136  regexp
+   137  put_loc1 1: r
+   138  fclosure8 2: <function <atom:0>>
+   140  get_loc2 2: t
+   141  dup
+   142  if_true8 -> 0093
+   144  drop
+   145  object
+   146  set_loc2 2: t
+L  147  call1 #args=1
+   148  lnot
+   149  drop
+   150  fclosure8 3: <function <atom:0>>
+   152  get_loc3 3: n
+   153  dup
+   154  if_true8 -> 009f
+   156  drop
+   157  object
+   158  set_loc3 3: n
+L  159  call1 #args=1
+   160  drop
+   161  set_loc_uninitialized 4: JSONPatchParser
+   164  undefined
+   165  set_loc_uninitialized 5: <class_fields_init>
+   168  push_const8 6: <function <atom:0>>
+   170  define_class JSONPatchParser,0
+   176  swap
+   177  fclosure8 4: <function <atom:0>>
+   179  define_method parse,0
+   185  swap
+   186  swap
+   187  fclosure8 5: <function <atom:0>>
+   189  define_method parseValue,0
+   195  swap
+   196  undefined
+   197  put_loc8 5: <class_fields_init>
+   199  drop
+   200  set_loc8 4: JSONPatchParser
+   202  close_loc 5: <class_fields_init>
+   205  put_loc8 6: JSONPatchParser
+   207  get_arg2 2: exports
+   208  get_loc_check 6: JSONPatchParser
+   211  put_field JSONPatchParser
+   220  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=json_patch/src/JSONPatchParser
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/JSONPatchTypes.js  (431 B)
+# 原子基准=215 原子表 12 条
+-- 原子表 --
+   [0]json_patch/src/JSONPatchTypes | [1]require | [2]module | [3]exports | [4]e | [5]__esModule | [6]JSONPatchOperationType | [7]Append | [8]Insert | [9]Remove | [10]Replace | [11]Truncate
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=96B file=json_patch/src/JSONPatchTypes
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field Append
+    13  push_atom_value Append
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field Insert
+    32  push_atom_value Insert
+    37  put_array_el
+    38  get_arg0 0: e
+    39  get_arg0 0: e
+    40  push_2 2
+    41  insert2
+    42  put_field Remove
+    51  push_atom_value Remove
+    56  put_array_el
+    57  get_arg0 0: e
+    58  get_arg0 0: e
+    59  push_3 3
+    60  insert2
+    61  put_field Replace
+    70  push_atom_value Replace
+    75  put_array_el
+    76  get_arg0 0: e
+    77  get_arg0 0: e
+    78  push_4 4
+    79  insert2
+    80  put_field Truncate
+    89  push_atom_value Truncate
+    94  put_array_el
+    95  return_undef
+
+-- fn name=<atom:0> args=3 vars=1 closure=0 cpool=1 bc=89B file=json_patch/src/JSONPatchTypes
+   locals: require, module, exports, e
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  drop
+    56  get_arg2 2: exports
+    57  undefined
+    58  put_field JSONPatchOperationType
+    67  fclosure8 0: <function <atom:0>>
+    69  get_loc0 0: e
+    70  dup
+    71  if_true8 -> 0057
+    73  drop
+    74  get_arg2 2: exports
+    75  object
+    76  set_loc0 0: e
+    77  insert2
+    78  put_field JSONPatchOperationType
+L   87  call1 #args=1
+    88  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=json_patch/src/JSONPatchTypes
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

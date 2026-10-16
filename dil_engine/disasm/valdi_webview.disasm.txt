@@ -1,0 +1,76 @@
+# valdi_webview — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/WebView.js  (470 B)
+# 原子基准=215 原子表 10 条
+-- 原子表 --
+   [0]valdi_webview/src/WebView | [1]require | [2]module | [3]exports | [4]e | [5]WebView | [6]__esModule | [7]./WebViewNative | [8]createController | [9]createNativeController
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=39B file=valdi_webview/src/WebView
+   closure: e
+     0  get_var_ref_check 0: e
+     3  get_field createNativeController  ;+28B
+    36  tail_call #args=0
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=15B file=valdi_webview/src/WebView
+   locals: this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  return_undef
+
+-- fn name=<atom:0> args=3 vars=4 closure=0 cpool=2 bc=128B file=valdi_webview/src/WebView
+   locals: require, module, exports, e, WebView, <class_fields_init>, WebView
+     0  set_loc_uninitialized 3: WebView
+     3  set_loc_uninitialized 0: e
+     6  get_var Object
+    11  get_field2 defineProperty  ;+28B
+    44  get_arg2 2: exports
+    45  push_atom_value __esModule
+    50  object
+    51  push_0 0
+    52  lnot
+    53  define_field value
+    58  call_method #args=3
+    61  drop
+    62  get_arg2 2: exports
+    63  undefined
+    64  put_field WebView
+    73  get_arg0 0: require
+    74  push_atom_value ./WebViewNative
+    79  call1 #args=1
+    80  put_loc0 0: e
+    81  set_loc_uninitialized 1: WebView
+    84  undefined
+    85  set_loc_uninitialized 2: <class_fields_init>
+    88  push_const8 1: <function <atom:0>>
+    90  define_class WebView,0
+    96  swap
+    97  fclosure8 0: <function <atom:0>>
+    99  define_method createController,0
+   105  swap
+   106  undefined
+   107  put_loc2 2: <class_fields_init>
+   108  drop
+   109  set_loc1 1: WebView
+   110  close_loc 2: <class_fields_init>
+   113  put_loc3 3: WebView
+   114  get_arg2 2: exports
+   115  get_loc_check 3: WebView
+   118  put_field WebView
+   127  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_webview/src/WebView
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

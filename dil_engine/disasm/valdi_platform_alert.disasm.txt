@@ -1,0 +1,321 @@
+# valdi_platform_alert — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/PlatformAlert.js  (2617 B)
+# 原子基准=215 原子表 39 条
+-- 原子表 --
+   [0]valdi_platform_alert/src/PlatformAlert | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]r | [7]o | [8]i | [9]__esModule | [10]supportsPlatformPrompt | [11]platformAlert | [12]valdi_core/src/CompilerIntrinsics | [13]valdi_core/src/Device | [14]./NativePlatformAlert | [15]present | [16]prompt | [17]isVersionAtLeast | [18]Device | [19]isWeb | [20]isIOS | [21]isAndroid | [22]actions | [23]Platform alerts require one or two actions | [24]id | [25]Platform alert action identifiers must not be empty | [26]Platform alert action identifiers must be unique:  | [27]role | [28]Platform alerts support at most one cancel action | [29]presentPlatformAlert | [30]selectedActionId | [31]Native text prompts are unavailable on this platform | [32]presentPlatformAlertWithTextInput | [33]title | [34]confirm | [35]confirmTitle | [36]cancel | [37]cancelTitle | [38]initialValue
+
+-- fn name=o args=0 vars=0 closure=2 cpool=0 bc=276B file=valdi_platform_alert/src/PlatformAlert
+   closure: e, t
+     0  get_var_ref_check 0: e
+     3  get_field isVersionAtLeast  ;+28B
+    36  push_i16 281
+    39  call1 #args=1
+    40  dup
+    41  if_false -> 0113
+    46  drop
+    47  get_var_ref_check 1: t
+    50  get_field Device
+    83  get_field2 isWeb
+   116  call_method #args=0
+   119  lnot
+   120  dup
+   121  if_false -> 0113
+   126  drop
+   127  get_var_ref_check 1: t
+   130  get_field Device
+   163  get_field2 isIOS
+   196  call_method #args=0
+   199  dup
+   200  if_true8 -> 0113
+   202  drop
+   203  get_var_ref_check 1: t
+   206  get_field Device
+   239  get_field2 isAndroid
+   272  call_method #args=0
+L  275  return
+
+-- fn name=i args=1 vars=3 closure=0 cpool=0 bc=535B file=valdi_platform_alert/src/PlatformAlert
+   locals: e, t, r, o
+     0  set_loc_uninitialized 1: r
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: e
+     7  get_field actions  ;+28B
+    40  get_length
+    41  push_1 1
+    42  lt
+    43  dup
+    44  if_true8 -> 0054
+    46  drop
+    47  get_arg0 0: e
+    48  get_field actions
+    81  get_length
+    82  push_2 2
+    83  gt
+L   84  if_false8 -> 0065
+    86  get_var Error
+    91  dup
+    92  push_atom_value Platform alerts require one or two actions
+    97  call_constructor #args=1
+   100  throw
+L  101  get_var Set
+   106  dup
+   107  call_constructor #args=0
+   110  put_loc0 0: t
+   111  push_0 0
+   112  put_loc1 1: r
+   113  set_loc_uninitialized 2: o
+   116  get_arg0 0: e
+   117  get_field actions
+   150  for_of_start
+   151  goto16 -> 01f7
+   154  put_loc2 2: o
+   155  push_0 0
+   156  get_loc_check 2: o
+   159  get_field id
+   192  get_length
+   193  strict_eq
+   194  if_false8 -> 00d3
+   196  get_var Error
+   201  dup
+   202  push_atom_value Platform alert action identifiers must not be empty
+   207  call_constructor #args=1
+   210  throw
+L  211  get_loc_check 0: t
+   214  get_field2 has
+   247  get_loc_check 2: o
+   250  get_field id
+   283  call_method #args=1
+   286  if_false8 -> 0177
+   288  get_var Error
+   293  dup
+   294  push_atom_value Platform alert action identifiers must be unique: 
+   299  get_field2 concat
+   332  get_loc_check 2: o
+   335  get_field id
+   368  call_method #args=1
+   371  call_constructor #args=1
+   374  throw
+L  375  get_loc_check 0: t
+   378  get_field2 add
+   411  get_loc_check 2: o
+   414  get_field id
+   447  call_method #args=1
+   450  drop
+   451  push_1 1
+   452  get_loc_check 2: o
+   455  get_field role
+   488  strict_eq
+   489  dup
+   490  if_false8 -> 01f6
+   492  drop
+   493  get_loc_check 1: r
+   496  push_1 1
+   497  add
+   498  dup
+   499  put_loc_check 1: r
+L  502  drop
+L  503  for_of_next 0
+   505  if_false -> 009a
+   510  drop
+   511  iterator_close
+   512  get_loc_check 1: r
+   515  push_1 1
+   516  gt
+   517  if_false8 -> 0216
+   519  get_var Error
+   524  dup
+   525  push_atom_value Platform alerts support at most one cancel action
+   530  call_constructor #args=1
+   533  throw
+L  534  return_undef
+
+-- fn name=<atom:0> args=2 vars=0 closure=2 cpool=0 bc=29B file=valdi_platform_alert/src/PlatformAlert
+   locals: e, r
+   closure: t, o
+     0  undefined
+     1  get_arg1 1: r
+     2  strict_eq
+     3  if_false8 -> 0010
+     5  get_var_ref0 0: t
+     6  object
+     7  get_arg0 0: e
+     8  define_field selectedActionId
+    13  call1 #args=1
+    14  goto8 -> 001c
+L   16  get_var_ref1 1: o
+    17  get_var Error
+    22  dup
+    23  get_arg1 1: r
+    24  call_constructor #args=1
+    27  call1 #args=1
+L   28  return_undef
+
+-- fn name=<atom:0> args=2 vars=0 closure=2 cpool=1 bc=41B file=valdi_platform_alert/src/PlatformAlert
+   locals: t, o
+   closure: r, e
+     0  get_var_ref_check 0: r
+     3  get_field presentPlatformAlert  ;+28B
+    36  get_var_ref1 1: e
+    37  fclosure8 0: <function <atom:0>>
+    39  call2 #args=2
+    40  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=1 bc=16B file=valdi_platform_alert/src/PlatformAlert
+   locals: e
+   closure: r, i
+     0  get_var_ref1 1: i
+     1  get_arg0 0: e
+     2  call1 #args=1
+     3  drop
+     4  get_var Promise
+     9  dup
+    10  fclosure8 0: <function <atom:0>>
+    12  call_constructor #args=1
+    15  return
+
+-- fn name=<atom:0> args=3 vars=0 closure=2 cpool=0 bc=35B file=valdi_platform_alert/src/PlatformAlert
+   locals: t, r, i
+   closure: e, o
+     0  undefined
+     1  get_arg2 2: i
+     2  strict_eq
+     3  if_false8 -> 0016
+     5  get_var_ref0 0: e
+     6  push_atom_value confirm
+    11  get_arg0 0: t
+    12  strict_eq
+    13  if_false8 -> 0012
+    15  get_arg1 1: r
+    16  goto8 -> 0013
+L   18  undefined
+L   19  call1 #args=1
+    20  goto8 -> 0022
+L   22  get_var_ref1 1: o
+    23  get_var Error
+    28  dup
+    29  get_arg2 2: i
+    30  call_constructor #args=1
+    33  call1 #args=1
+L   34  return_undef
+
+-- fn name=<atom:0> args=2 vars=0 closure=2 cpool=1 bc=273B file=valdi_platform_alert/src/PlatformAlert
+   locals: e, o
+   closure: r, t
+     0  get_var_ref_check 0: r
+     3  get_field presentPlatformAlertWithTextInput  ;+28B
+    36  object
+    37  get_var_ref1 1: t
+    38  get_field title
+    71  define_field title
+    76  get_var_ref1 1: t
+    77  get_field message
+   110  define_field message
+   115  object
+   116  push_atom_value confirm
+   121  define_field id
+   126  get_var_ref1 1: t
+   127  get_field confirmTitle
+   160  define_field title
+   165  push_0 0
+   166  define_field role
+   171  object
+   172  push_atom_value cancel
+   177  define_field id
+   182  get_var_ref1 1: t
+   183  get_field cancelTitle
+   216  define_field title
+   221  push_1 1
+   222  define_field role
+   227  array_from #args=2
+   230  define_field actions
+   235  get_var_ref1 1: t
+   236  get_field initialValue
+   269  fclosure8 0: <function <atom:0>>
+   271  call3 #args=3
+   272  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=3 cpool=1 bc=114B file=valdi_platform_alert/src/PlatformAlert
+   locals: t
+   closure: r, e, o
+     0  get_var_ref_check 1: e
+     3  get_field isVersionAtLeast  ;+28B
+    36  push_i16 281
+    39  call1 #args=1
+    40  if_false8 -> 003a
+    42  get_var_ref2 2: o
+    43  call0 #args=0
+    44  if_false8 -> 003a
+    46  get_var Promise
+    51  dup
+    52  fclosure8 0: <function <atom:0>>
+    54  call_constructor #args=1
+    57  return
+L   58  get_var Promise
+    63  get_field2 reject
+    96  get_var Error
+   101  dup
+   102  push_atom_value Native text prompts are unavailable on this platform
+   107  call_constructor #args=1
+   110  call_method #args=1
+   113  return
+
+-- fn name=<atom:0> args=3 vars=5 closure=0 cpool=4 bc=165B file=valdi_platform_alert/src/PlatformAlert
+   locals: require, module, exports, e, t, r, o, i
+     0  fclosure8 0: <function o>
+     2  put_loc3 3: o
+     3  fclosure8 1: <function i>
+     5  put_loc8 4: i
+     7  set_loc_uninitialized 2: r
+    10  set_loc_uninitialized 1: t
+    13  set_loc_uninitialized 0: e
+    16  get_var Object
+    21  get_field2 defineProperty  ;+28B
+    54  get_arg2 2: exports
+    55  push_atom_value __esModule
+    60  object
+    61  push_0 0
+    62  lnot
+    63  define_field value
+    68  call_method #args=3
+    71  drop
+    72  get_arg2 2: exports
+    73  get_arg2 2: exports
+    74  undefined
+    75  insert2
+    76  put_field supportsPlatformPrompt
+    85  put_field platformAlert
+    94  get_arg0 0: require
+    95  push_atom_value valdi_core/src/CompilerIntrinsics
+   100  call1 #args=1
+   101  put_loc0 0: e
+   102  get_arg0 0: require
+   103  push_atom_value valdi_core/src/Device
+   108  call1 #args=1
+   109  put_loc1 1: t
+   110  get_arg0 0: require
+   111  push_atom_value ./NativePlatformAlert
+   116  call1 #args=1
+   117  put_loc2 2: r
+   118  get_arg2 2: exports
+   119  get_loc3 3: o
+   120  put_field supportsPlatformPrompt
+   129  get_arg2 2: exports
+   130  object
+   131  fclosure8 2: <function <atom:0>>
+   133  set_name present
+   138  define_field present
+   143  fclosure8 3: <function <atom:0>>
+   145  set_name prompt
+   150  define_field prompt
+   155  put_field platformAlert
+   164  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_platform_alert/src/PlatformAlert
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

@@ -1,0 +1,16 @@
+# 只反编译这些（其余符号只用于命名）。
+# 关键：**inflate 的直调也列进来** —— 脚本会先给它们建函数并命名，
+# 这样 inflate 的伪代码里出现的就是 `crc32(...)`/`adler32(...)` 而不是 `FUN_0052xxxx`。
+inflateGzipPayloadWithZlib|0x520f14
+gunzipUtf8|0x520ec0
+gunzipUtf8WithLimit|0x520ef0
+CppMethodRef_gunzipUtf8_thunk|0x522ee4
+CppMethodRef_gunzipUtf8WithLimit_thunk|0x522f28
+# ---- inflate 的 zlib 直调（都在 0x520000+0x4000 切片内）----
+inflateStateCheck|0x522f58
+crc32|0x523000
+adler32|0x523254
+inflate_table|0x523514
+zcalloc_thunk|0x5238e4
+zcfree_thunk|0x5238ec
+

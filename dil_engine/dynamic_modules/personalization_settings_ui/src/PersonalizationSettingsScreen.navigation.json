@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "titleKey": "personalization_settings_title",
+  "titleDisplayMode": 1,
+  "backgroundVisibility": 2,
+  "trailingActions": [
+    {
+      "id": "save-personalization",
+      "titleKey": "personalization_settings_save",
+      "style": 2,
+      "disabled": true
+    }
+  ]
+}

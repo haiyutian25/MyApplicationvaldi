@@ -1,0 +1,367 @@
+# audio_player — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/AudioPlayer.js  (2949 B)
+# 原子基准=215 原子表 33 条
+-- 原子表 --
+   [0]audio_player/src/AudioPlayer | [1]require | [2]module | [3]exports | [4]e | [5]NativeAudioPlayerControllerListenerAdapter | [6]t | [7]r | [8]AudioPlayerController | [9]o | [10]__esModule | [11]setNativeAudioPlayerControllerFactoryForTest | [12]./NativeAudioPlayer | [13]onLoaded | [14]onFailure | [15]onPlaybackProgress | [16]onPlaybackBufferDurationChanged | [17]onPlaybackEnded | [18]play | [19]pause | [20]setRate | [21]setVolume | [22]loadItemWithUrl | [23]unload | [24]seek | [25]dispose | [26]getListener | [27]durationSeconds | [28]nativeController | [29]listenerAdapter | [30]setListener | [31]listener | [32]createNativeAudioPlayerController
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=27B file=audio_player/src/AudioPlayer
+   locals: e, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: e
+    17  put_field getListener
+    26  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=124B file=audio_player/src/AudioPlayer
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 getListener  ;+28B
+    36  call_method #args=0
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 007b
+L   47  get_field2 onLoaded
+    80  object
+    81  get_arg0 0: e
+    82  get_field durationSeconds
+   115  define_field durationSeconds
+   120  call_method #args=1
+L  123  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=127B file=audio_player/src/AudioPlayer
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 getListener  ;+28B
+    36  call_method #args=0
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 007e
+L   47  get_field2 onFailure
+    80  get_var Error
+    85  dup
+    86  get_arg0 0: e
+    87  get_field message
+   120  call_constructor #args=1
+   123  call_method #args=1
+L  126  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=85B file=audio_player/src/AudioPlayer
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 getListener  ;+28B
+    36  call_method #args=0
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 0054
+L   47  get_field2 onPlaybackProgress
+    80  get_arg0 0: e
+    81  call_method #args=1
+L   84  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=85B file=audio_player/src/AudioPlayer
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 getListener  ;+28B
+    36  call_method #args=0
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 0054
+L   47  get_field2 onPlaybackBufferDurationChanged
+    80  get_arg0 0: e
+    81  call_method #args=1
+L   84  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=84B file=audio_player/src/AudioPlayer
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 getListener  ;+28B
+    36  call_method #args=0
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 0053
+L   47  get_field2 onPlaybackEnded
+    80  call_method #args=0
+L   83  return_undef
+
+-- fn name=r args=1 vars=0 closure=2 cpool=0 bc=12B file=audio_player/src/AudioPlayer
+   locals: e
+   closure: t, o
+     0  get_arg0 0: e
+     1  dup
+     2  is_undefined_or_null
+     3  if_false8 -> 0007
+     5  drop
+     6  get_var_ref1 1: o
+L    7  dup
+     8  put_var_ref_check 0: t
+    11  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=35B file=audio_player/src/AudioPlayer
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field listener  ;+28B
+    34  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=3 cpool=1 bc=153B file=audio_player/src/AudioPlayer
+   locals: this
+   closure: <class_fields_init>, t, NativeAudioPlayerControllerListenerAdapter
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_var_ref_check 1: t
+    19  call0 #args=0
+    20  put_field nativeController
+    29  get_loc0 0: this
+    30  get_var_ref_check 2: NativeAudioPlayerControllerListenerAdapter
+    33  dup
+    34  fclosure8 0: <function <atom:0>>
+    36  call_constructor #args=1
+    39  put_field listenerAdapter
+    48  get_loc0 0: this
+    49  get_field nativeController
+    82  get_field2 setListener
+   115  get_loc0 0: this
+   116  get_field listenerAdapter
+   149  call_method #args=1
+   152  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=73B file=audio_player/src/AudioPlayer
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field nativeController  ;+28B
+    36  get_field2 play
+    69  call_method #args=0
+    72  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=73B file=audio_player/src/AudioPlayer
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field nativeController  ;+28B
+    36  get_field2 pause
+    69  call_method #args=0
+    72  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=74B file=audio_player/src/AudioPlayer
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field nativeController  ;+28B
+    36  get_field2 setRate
+    69  get_arg0 0: e
+    70  call_method #args=1
+    73  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=74B file=audio_player/src/AudioPlayer
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field nativeController  ;+28B
+    36  get_field2 setVolume
+    69  get_arg0 0: e
+    70  call_method #args=1
+    73  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=74B file=audio_player/src/AudioPlayer
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field nativeController  ;+28B
+    36  get_field2 loadItemWithUrl
+    69  get_arg0 0: e
+    70  call_method #args=1
+    73  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=73B file=audio_player/src/AudioPlayer
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field nativeController  ;+28B
+    36  get_field2 unload
+    69  call_method #args=0
+    72  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=74B file=audio_player/src/AudioPlayer
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field nativeController  ;+28B
+    36  get_field2 seek
+    69  get_arg0 0: e
+    70  call_method #args=1
+    73  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=157B file=audio_player/src/AudioPlayer
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field nativeController  ;+28B
+    36  get_field2 setListener
+    69  undefined
+    70  call_method #args=1
+    73  drop
+    74  get_loc0 0: this
+    75  get_field nativeController
+   108  get_field2 dispose
+   141  call_method #args=0
+   144  drop
+   145  get_loc0 0: this
+   146  undefined
+   147  put_field listener
+   156  return_undef
+
+-- fn name=o args=0 vars=0 closure=1 cpool=0 bc=39B file=audio_player/src/AudioPlayer
+   closure: e
+     0  get_var_ref_check 0: e
+     3  get_field createNativeAudioPlayerController  ;+28B
+    36  tail_call #args=0
+
+-- fn name=<atom:0> args=3 vars=10 closure=0 cpool=17 bc=289B file=audio_player/src/AudioPlayer
+   locals: require, module, exports, e, NativeAudioPlayerControllerListenerAdapter, <class_fields_init>, NativeAudioPlayerControllerListenerAdapter, t, r, AudioPlayerController, <class_fields_init>, AudioPlayerController, o
+     0  fclosure8 6: <function r>
+     2  put_loc8 5: r
+     4  fclosure8 16: <function o>
+     6  put_loc8 9: o
+     8  set_loc_uninitialized 8: AudioPlayerController
+    11  set_loc_uninitialized 4: t
+    14  set_loc_uninitialized 3: NativeAudioPlayerControllerListenerAdapter
+    17  set_loc_uninitialized 0: e
+    20  get_var Object
+    25  get_field2 defineProperty  ;+28B
+    58  get_arg2 2: exports
+    59  push_atom_value __esModule
+    64  object
+    65  push_0 0
+    66  lnot
+    67  define_field value
+    72  call_method #args=3
+    75  drop
+    76  get_arg2 2: exports
+    77  get_arg2 2: exports
+    78  undefined
+    79  insert2
+    80  put_field setNativeAudioPlayerControllerFactoryForTest
+    89  put_field AudioPlayerController
+    98  get_arg0 0: require
+    99  push_atom_value ./NativeAudioPlayer
+   104  call1 #args=1
+   105  put_loc0 0: e
+   106  set_loc_uninitialized 1: NativeAudioPlayerControllerListenerAdapter
+   109  undefined
+   110  set_loc_uninitialized 2: <class_fields_init>
+   113  push_const8 0: <function <atom:0>>
+   115  define_class NativeAudioPlayerControllerListenerAdapter,0
+   121  fclosure8 1: <function <atom:0>>
+   123  define_method onLoaded,0
+   129  fclosure8 2: <function <atom:0>>
+   131  define_method onFailure,0
+   137  fclosure8 3: <function <atom:0>>
+   139  define_method onPlaybackProgress,0
+   145  fclosure8 4: <function <atom:0>>
+   147  define_method onPlaybackBufferDurationChanged,0
+   153  fclosure8 5: <function <atom:0>>
+   155  define_method onPlaybackEnded,0
+   161  undefined
+   162  put_loc2 2: <class_fields_init>
+   163  drop
+   164  set_loc1 1: NativeAudioPlayerControllerListenerAdapter
+   165  close_loc 2: <class_fields_init>
+   168  put_loc3 3: NativeAudioPlayerControllerListenerAdapter
+   169  get_loc8 9: o
+   171  put_loc8 4: t
+   173  get_arg2 2: exports
+   174  get_loc8 5: r
+   176  put_field setNativeAudioPlayerControllerFactoryForTest
+   185  set_loc_uninitialized 6: AudioPlayerController
+   188  undefined
+   189  set_loc_uninitialized 7: <class_fields_init>
+   192  push_const8 7: <function <atom:0>>
+   194  define_class AudioPlayerController,0
+   200  fclosure8 8: <function <atom:0>>
+   202  define_method play,0
+   208  fclosure8 9: <function <atom:0>>
+   210  define_method pause,0
+   216  fclosure8 10: <function <atom:0>>
+   218  define_method setRate,0
+   224  fclosure8 11: <function <atom:0>>
+   226  define_method setVolume,0
+   232  fclosure8 12: <function <atom:0>>
+   234  define_method loadItemWithUrl,0
+   240  fclosure8 13: <function <atom:0>>
+   242  define_method unload,0
+   248  fclosure8 14: <function <atom:0>>
+   250  define_method seek,0
+   256  fclosure8 15: <function <atom:0>>
+   258  define_method dispose,0
+   264  undefined
+   265  put_loc8 7: <class_fields_init>
+   267  drop
+   268  set_loc8 6: AudioPlayerController
+   270  close_loc 7: <class_fields_init>
+   273  put_loc8 8: AudioPlayerController
+   275  get_arg2 2: exports
+   276  get_loc_check 8: AudioPlayerController
+   279  put_field AudioPlayerController
+   288  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=audio_player/src/AudioPlayer
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

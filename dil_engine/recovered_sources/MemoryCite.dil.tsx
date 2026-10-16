@@ -1,0 +1,5 @@
+
+	function MemoryCite() {
+		return null;
+	}
+

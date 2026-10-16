@@ -1,0 +1,1757 @@
+# settings_text_editor — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/TextEditorModels.js  (212 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]settings_text_editor/src/TextEditorModels | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=settings_text_editor/src/TextEditorModels
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=settings_text_editor/src/TextEditorModels
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/TextEditorScreen.js  (20101 B)
+# 原子基准=215 原子表 235 条
+-- 原子表 --
+   [0]settings_text_editor/src/TextEditorScreen | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]i | [7]o | [8]s | [9]r | [10]n | [11]d | [12]a | [13]l | [14]p | [15]c | [16]h | [17]u | [18]y | [19]g | [20]v | [21]w | [22]m | [23]M | [24]P | [25]b | [26]V | [27]S | [28]f | [29]C | [30]x | [31]A | [32]R | [33]T | [34]I | [35]k | [36]E | [37]L | [38]_ | [39]q | [40]D | [41]N | [42]TextEditorScreen | [43]H | [44]B | [45]__esModule | [46]valdi_core/src/JSX | [47]jsx | [48]makeComponentPrototype | [49]QHwgtbBIjMRfC4yQ | [50]makeNodePrototype | [51]view | [52]52kl0w5UIi7aNJwH | [53]hcXN9DigmcrRxKEG | [54]n0I8oWHnB4HMxKtO | [55]textGravity | [56]top | [57]Ng5Ic14q532wdDNH | [58]JPHs2RLCZW92Sc8r | [59]8wR4SX12ezMxkkLc | [60]mBMJ__cG5o6CWfvn | [61]hur7yiqe48zqOsT0 | [62]accessibilityCategory | [63]header | [64]align | [65]center | [66]qhqlIsre3Cna4AQ3 | [67]laxteRgn4iOJEJIP | [68]CQuicpIuGrGmrwXA | [69]nvF9BuXnDz8TBBgX | [70]hFxOVTXiskrEbHUd | [71]8VG2Huu9tZ6NV9A8 | [72]Xrfckj_QfHlYPHwv | [73]UCXVn8idns6jpNk4 | [74]oai_ui/src/components/settings/SettingsTheme | [75]dil_icon_assets/res | [76]oai_core/src/OAITheme | [77]oai_ui/src/components/Button | [78]oai_ui/src/components/ActivityIndicator | [79]oai_ui/src/components/CharacterCounter | [80]oai_ui/src/components/SafeArea | [81]oai_ui/src/components/Text | [82]oai_ui/src/components/TextArea | [83]valdi_core/src/Component | [84]valdi_core/src/ElementRef | [85]valdi_ui/src/Platform | [86]valdi_ui/src/components/IconButton | [87]settings-text-editor.input | [88]settings-text-editor.inline-title | [89]settings-text-editor.bottom-actions | [90]settings-text-editor.bottom-safe-area | [91]settings-text-editor.save | [92]settings-text-editor.suggestion. | [93]SafeAreaEdge | [94]Bottom | [95]StatefulComponent | [96]onCreate | [97]onViewModelUpdate | [98]appearance | [99]onRender | [100]renderInlineTitle | [101]renderDescription | [102]renderSuggestions | [103]renderSuggestion | [104]renderFinishAction | [105]canFinishEditing | [106]isValid | [107]applySuggestion | [108]ElementRef | [109]inputRef | [110]headerRef | [111]headerHeight | [112]viewModel | [113]draft | [114]consumedSuggestionIDs | [115]state | [116]handleHeaderLayout | [117]renderSaving | [118]updateDraft | [119]finishEditing | [120]setAttribute | [121]topScrollEdgeContainer | [122]single | [123]getNativeNode | [124]height | [125]setState | [126]beginComponent | [127]ActivityIndicator | [128]setViewModelProperty | [129]color | [130]text | [131]endComponent | [132]isSaving | [133]truncateCharacters | [134]maximumLength | [135]countPolicy | [136]context | [137]callbacks | [138]onDraftChanged | [139]onEditingFinished | [140]selection | [141]focused | [142]resolveSettingsEditorAppearance | [143]resolveSettingsTheme | [144]editorPresentation | [145]SettingsEditorPresentation | [146]Page | [147]supportsNativeTextViewScrollEdges | [148]OAITheme | [149]fill | [150]mode | [151]OAIThemeMode | [152]System | [153]setUnnamedSlot | [154]beginRender | [155]setAttributeStyle | [156]style | [157]root | [158]slowClipping | [159]editorContent | [160]TextArea | [161]accessibilityId | [162]accessibilityLabel | [163]background | [164]contentInsetTop | [165]contentPadding | [166]description | [167]contentPaddingWithDescription | [168]disabled | [169]typography | [170]maxLength | [171]onChange | [172]placeholder | [173]radius | [174]size | [175]inputSize | [176]variant | [177]TextAreaVariant | [178]Plain | [179]endRender | [180]SafeArea | [181]edges | [182]setAttributeRef | [183]headerOverlay | [184]setAttributeFunction | [185]onLayout | [186]setAttributeString | [187]bottomActions | [188]CharacterCounter | [189]characterCountAccessibilityLabel | [190]errorThreshold | [191]format | [192]CharacterCounterFormat | [193]RemainingAndMaximum | [194]visibilityThreshold | [195]warningThreshold | [196]inlineTitle | [197]Text | [198]title | [199]titleTypography | [200]descriptionSize | [201]tone | [202]TextTone | [203]Secondary | [204]suggestionActions | [205]filter | [206]suggestions | [207]map | [208]includes | [209]id | [210]insertedText | [211]Button | [212]label | [213]onPress | [214]suggestionSize | [215]suggestionButton | [216]ButtonVariant | [217]Ghost | [218]finishActionLayout | [219]IconButton | [220]saveAccessibilityLabel | [221]loading | [222]children | [223]imageStyle | [224]finishActionIcon | [225]material | [226]finishMaterial | [227]finishAction | [228]src | [229]checkCircleFilled | [230]tintImage | [231]countCharacters | [232]onSuggestionSelected | [233]test | [234] 
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=382B file=settings_text_editor/src/TextEditorScreen
+   locals: e
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field inputRef  ;+28B
+    36  get_field2 setAttribute
+    69  push_atom_value topScrollEdgeContainer
+    74  get_var_ref_check 0: this
+    77  get_field headerRef
+   110  get_field2 single
+   143  call_method #args=0
+   146  dup
+   147  is_undefined_or_null
+   148  if_false8 -> 009a
+   150  drop
+   151  undefined
+   152  goto8 -> 00be
+L  154  get_field2 getNativeNode
+   187  call_method #args=0
+L  190  call_method #args=2
+   193  drop
+   194  get_arg0 0: e
+   195  get_field height
+   228  get_var_ref_check 0: this
+   231  get_field state
+   264  get_field headerHeight
+   297  strict_neq
+   298  dup
+   299  if_false8 -> 017d
+   301  drop
+   302  get_var_ref_check 0: this
+   305  get_field2 setState
+   338  object
+   339  get_arg0 0: e
+   340  get_field height
+   373  define_field headerHeight
+   378  call_method #args=1
+L  381  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=4 cpool=0 bc=235B file=settings_text_editor/src/TextEditorScreen
+   closure: e, V, w, this
+     0  get_var_ref_check 0: e
+     3  get_field2 beginComponent  ;+28B
+    36  get_var_ref_check 1: V
+    39  get_field ActivityIndicator
+    72  get_var_ref_check 2: w
+    75  undefined
+    76  undefined
+    77  call_method #args=4
+    80  drop
+    81  get_var_ref_check 0: e
+    84  get_field2 setViewModelProperty
+   117  push_atom_value color
+   122  get_var_ref_check 3: this
+   125  get_field appearance
+   158  get_field text
+   191  call_method #args=2
+   194  drop
+   195  get_var_ref_check 0: e
+   198  get_field2 endComponent
+   231  call_method #args=0
+   234  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=2 cpool=0 bc=498B file=settings_text_editor/src/TextEditorScreen
+   locals: e, t
+   closure: this, S
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref_check 0: this
+     6  get_field viewModel  ;+28B
+    39  get_field isSaving
+    72  if_false8 -> 004b
+    74  return_undef
+L   75  get_var_ref_check 1: S
+    78  get_field truncateCharacters
+   111  get_arg0 0: e
+   112  get_var_ref_check 0: this
+   115  get_field viewModel
+   148  get_field maximumLength
+   181  get_var_ref_check 0: this
+   184  get_field viewModel
+   217  get_field countPolicy
+   250  call3 #args=3
+   251  put_loc0 0: t
+   252  get_loc_check 0: t
+   255  get_var_ref_check 0: this
+   258  get_field state
+   291  get_field draft
+   324  strict_neq
+   325  dup
+   326  if_false -> 01f1
+   331  drop
+   332  get_var_ref_check 0: this
+   335  get_field2 setState
+   368  object
+   369  get_loc_check 0: t
+   372  define_field draft
+   377  call_method #args=1
+   380  drop
+   381  get_var_ref_check 0: this
+   384  get_field context
+   417  dup
+   418  is_undefined_or_null
+   419  if_false8 -> 01a9
+   421  drop
+   422  undefined
+   423  goto8 -> 01f1
+L  425  get_field callbacks
+   458  get_field2 onDraftChanged
+   491  get_loc_check 0: t
+   494  call_method #args=1
+L  497  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=227B file=settings_text_editor/src/TextEditorScreen
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field canFinishEditing  ;+28B
+    36  dup
+    37  if_false -> 00e2
+    42  drop
+    43  get_var_ref_check 0: this
+    46  get_field context
+    79  dup
+    80  is_undefined_or_null
+    81  if_false8 -> 0058
+    83  drop
+    84  undefined
+    85  goto16 -> 00e2
+L   88  get_field callbacks
+   121  get_field2 onEditingFinished
+   154  get_var_ref_check 0: this
+   157  get_field state
+   190  get_field draft
+   223  call_method #args=1
+L  226  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=6 cpool=4 bc=310B file=settings_text_editor/src/TextEditorScreen
+   locals: this, this.active_func, new.target, arguments
+   closure: e, V, w, S, <class_fields_init>, R
+     0  special_object 2
+     2  put_loc1 1: this.active_func
+     3  special_object 3
+     5  put_loc2 2: new.target
+     6  set_loc_uninitialized 0: this
+     9  special_object 0
+    11  put_loc3 3: arguments
+    12  check_ctor
+    13  get_loc1 1: this.active_func
+    14  get_super
+    15  get_loc2 2: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc3 3: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 0: this
+    30  get_var_ref_check 4: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 0: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 0: this
+    48  get_var_ref_check 5: R
+    51  get_field ElementRef
+    84  dup
+    85  call_constructor #args=0
+    88  put_field inputRef
+    97  get_loc_check 0: this
+   100  get_var_ref_check 5: R
+   103  get_field ElementRef
+   136  dup
+   137  call_constructor #args=0
+   140  put_field headerRef
+   149  get_loc_check 0: this
+   152  object
+   153  push_0 0
+   154  define_field headerHeight
+   159  get_loc_check 0: this
+   162  get_field viewModel
+   195  get_field value
+   228  define_field draft
+   233  array_from #args=0
+   236  define_field consumedSuggestionIDs
+   241  put_field state
+   250  get_loc_check 0: this
+   253  fclosure8 0: <function <atom:0>>
+   255  put_field handleHeaderLayout
+   264  get_loc_check 0: this
+   267  fclosure8 1: <function <atom:0>>
+   269  put_field renderSaving
+   278  get_loc_check 0: this
+   281  fclosure8 2: <function <atom:0>>
+   283  put_field updateDraft
+   292  get_loc_check 0: this
+   295  fclosure8 3: <function <atom:0>>
+   297  put_field finishEditing
+   306  get_loc_check 0: this
+   309  return
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=0 bc=237B file=settings_text_editor/src/TextEditorScreen
+   locals: e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  get_loc1 1: this
+     6  get_field state  ;+28B
+    39  get_field draft
+    72  get_length
+    73  put_loc0 0: e
+    74  get_loc1 1: this
+    75  get_field inputRef
+   108  get_field2 setAttribute
+   141  push_atom_value selection
+   146  get_loc_check 0: e
+   149  get_loc_check 0: e
+   152  array_from #args=2
+   155  call_method #args=2
+   158  drop
+   159  get_loc1 1: this
+   160  get_field inputRef
+   193  get_field2 setAttribute
+   226  push_atom_value focused
+   231  push_0 0
+   232  lnot
+   233  call_method #args=2
+   236  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=450B file=settings_text_editor/src/TextEditorScreen
+   locals: e, e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  undefined
+     3  get_arg0 0: e
+     4  strict_neq
+     5  if_false -> 01c1
+    10  get_arg0 0: e
+    11  get_field value  ;+28B
+    44  get_loc1 1: this
+    45  get_field viewModel
+    78  get_field value
+   111  strict_neq
+   112  if_false -> 01c1
+   117  set_loc_uninitialized 0: e
+   120  get_loc1 1: this
+   121  get_field viewModel
+   154  get_field value
+   187  get_loc1 1: this
+   188  get_field state
+   221  get_field draft
+   254  strict_neq
+   255  put_loc0 0: e
+   256  get_loc1 1: this
+   257  get_field2 setState
+   290  object
+   291  get_loc1 1: this
+   292  get_field viewModel
+   325  get_field value
+   358  define_field draft
+   363  get_loc_check 0: e
+   366  if_false8 -> 0175
+   368  array_from #args=0
+   371  goto8 -> 01b8
+L  373  get_loc1 1: this
+   374  get_field state
+   407  get_field consumedSuggestionIDs
+L  440  define_field consumedSuggestionIDs
+   445  call_method #args=1
+   448  drop
+L  449  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=39B file=settings_text_editor/src/TextEditorScreen
+   closure: m
+     0  get_var_ref_check 0: m
+     3  get_field resolveSettingsEditorAppearance  ;+28B
+    36  tail_call #args=0
+
+-- fn name=<atom:0> args=0 vars=0 closure=4 cpool=0 bc=448B file=settings_text_editor/src/TextEditorScreen
+   closure: e, o, this, p
+     0  get_var_ref_check 0: e
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 1: o
+    39  undefined
+    40  call_method #args=2
+    43  drop
+    44  get_var_ref_check 0: e
+    47  get_field2 setAttributeRef
+    80  get_var_ref2 2: this
+    81  get_field headerRef
+   114  call_method #args=1
+   117  drop
+   118  get_var_ref_check 0: e
+   121  get_field2 setAttributeStyle
+   154  push_atom_value style
+   159  get_var_ref_check 3: p
+   162  if_false8 -> 00e9
+   164  get_var_ref2 2: this
+   165  get_field appearance
+   198  get_field headerOverlay
+   231  goto8 -> 00ea
+L  233  undefined
+L  234  call_method #args=2
+   237  drop
+   238  get_var_ref_check 0: e
+   241  get_field2 setAttributeFunction
+   274  push_atom_value onLayout
+   279  get_var_ref_check 3: p
+   282  if_false8 -> 0140
+   284  get_var_ref2 2: this
+   285  get_field handleHeaderLayout
+   318  goto8 -> 0141
+L  320  undefined
+L  321  call_method #args=2
+   324  drop
+   325  get_var_ref2 2: this
+   326  get_field2 renderInlineTitle
+   359  call_method #args=0
+   362  drop
+   363  get_var_ref_check 3: p
+   366  dup
+   367  if_false8 -> 0197
+   369  drop
+   370  get_var_ref2 2: this
+   371  get_field2 renderDescription
+   404  call_method #args=0
+L  407  drop
+   408  get_var_ref_check 0: e
+   411  get_field2 endRender
+   444  call_method #args=0
+   447  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=7 cpool=0 bc=1308B file=settings_text_editor/src/TextEditorScreen
+   closure: e, d, L, this, S, a, l
+     0  get_var_ref_check 0: e
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 1: d
+    39  undefined
+    40  call_method #args=2
+    43  drop
+    44  get_var_ref_check 0: e
+    47  get_field2 setAttributeString
+    80  push_atom_value accessibilityId
+    85  get_var_ref_check 2: L
+    88  call_method #args=2
+    91  drop
+    92  get_var_ref_check 0: e
+    95  get_field2 setAttributeStyle
+   128  push_atom_value style
+   133  get_var_ref3 3: this
+   134  get_field appearance
+   167  get_field bottomActions
+   200  call_method #args=2
+   203  drop
+   204  get_var_ref_check 0: e
+   207  get_field2 beginComponent
+   240  get_var_ref_check 4: S
+   243  get_field CharacterCounter
+   276  get_var_ref_check 5: a
+   279  undefined
+   280  undefined
+   281  call_method #args=4
+   284  drop
+   285  get_var_ref_check 0: e
+   288  get_field2 setViewModelProperty
+   321  push_atom_value accessibilityLabel
+   326  get_var_ref3 3: this
+   327  get_field viewModel
+   360  get_field characterCountAccessibilityLabel
+   393  call_method #args=2
+   396  drop
+   397  get_var_ref_check 0: e
+   400  get_field2 setViewModelProperty
+   433  push_atom_value countPolicy
+   438  get_var_ref3 3: this
+   439  get_field viewModel
+   472  get_field countPolicy
+   505  call_method #args=2
+   508  drop
+   509  get_var_ref_check 0: e
+   512  get_field2 setViewModelProperty
+   545  push_atom_value errorThreshold
+   550  get_var_ref3 3: this
+   551  get_field viewModel
+   584  get_field errorThreshold
+   617  call_method #args=2
+   620  drop
+   621  get_var_ref_check 0: e
+   624  get_field2 setViewModelProperty
+   657  push_atom_value format
+   662  get_var_ref_check 4: S
+   665  get_field CharacterCounterFormat
+   698  get_field RemainingAndMaximum
+   731  call_method #args=2
+   734  drop
+   735  get_var_ref_check 0: e
+   738  get_field2 setViewModelProperty
+   771  push_atom_value maximumLength
+   776  get_var_ref3 3: this
+   777  get_field viewModel
+   810  get_field maximumLength
+   843  call_method #args=2
+   846  drop
+   847  get_var_ref_check 0: e
+   850  get_field2 setViewModelProperty
+   883  push_atom_value value
+   888  get_var_ref3 3: this
+   889  get_field state
+   922  get_field draft
+   955  call_method #args=2
+   958  drop
+   959  get_var_ref_check 0: e
+   962  get_field2 setViewModelProperty
+   995  push_atom_value visibilityThreshold
+  1000  get_var_ref3 3: this
+  1001  get_field viewModel
+  1034  get_field visibilityThreshold
+  1067  call_method #args=2
+  1070  drop
+  1071  get_var_ref_check 0: e
+  1074  get_field2 setViewModelProperty
+  1107  push_atom_value warningThreshold
+  1112  get_var_ref3 3: this
+  1113  get_field viewModel
+  1146  get_field warningThreshold
+  1179  call_method #args=2
+  1182  drop
+  1183  get_var_ref_check 0: e
+  1186  get_field2 endComponent
+  1219  call_method #args=0
+  1222  drop
+  1223  get_var_ref_check 6: l
+  1226  dup
+  1227  if_true8 -> 04f3
+  1229  drop
+  1230  get_var_ref3 3: this
+  1231  get_field2 renderFinishAction
+  1264  call_method #args=0
+L 1267  drop
+  1268  get_var_ref_check 0: e
+  1271  get_field2 endRender
+  1304  call_method #args=0
+  1307  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=18 cpool=2 bc=2885B file=settings_text_editor/src/TextEditorScreen
+   closure: e, o, this, p, d, L, S, a, l, i, s, x, r, k, f, n, _, N
+     0  get_var_ref_check 0: e
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 9: i
+    39  undefined
+    40  call_method #args=2
+    43  drop
+    44  get_var_ref_check 0: e
+    47  get_field2 setAttributeStyle
+    80  push_atom_value style
+    85  get_var_ref2 2: this
+    86  get_field appearance
+   119  get_field root
+   152  call_method #args=2
+   155  drop
+   156  get_var_ref_check 0: e
+   159  get_field2 setAttribute
+   192  push_atom_value slowClipping
+   197  get_var_ref_check 3: p
+   200  call_method #args=2
+   203  drop
+   204  get_var_ref_check 8: l
+   207  dup
+   208  if_true8 -> 00d6
+   210  drop
+   211  fclosure8 0: <function <atom:0>>
+   213  call0 #args=0
+L  214  drop
+   215  get_var_ref_check 0: e
+   218  get_field2 beginRender
+   251  get_var_ref_check 10: s
+   254  undefined
+   255  call_method #args=2
+   258  drop
+   259  get_var_ref_check 0: e
+   262  get_field2 setAttributeStyle
+   295  push_atom_value style
+   300  get_var_ref2 2: this
+   301  get_field appearance
+   334  get_field editorContent
+   367  call_method #args=2
+   370  drop
+   371  get_var_ref_check 3: p
+   374  dup
+   375  if_true8 -> 019f
+   377  drop
+   378  get_var_ref2 2: this
+   379  get_field2 renderDescription
+   412  call_method #args=0
+L  415  drop
+   416  get_var_ref_check 0: e
+   419  get_field2 beginComponent
+   452  get_var_ref_check 11: x
+   455  get_field TextArea
+   488  get_var_ref_check 12: r
+   491  undefined
+   492  undefined
+   493  call_method #args=4
+   496  drop
+   497  get_var_ref_check 0: e
+   500  get_field2 setViewModelProperty
+   533  push_atom_value accessibilityId
+   538  get_var_ref_check 13: k
+   541  call_method #args=2
+   544  drop
+   545  get_var_ref_check 0: e
+   548  get_field2 setViewModelProperty
+   581  push_atom_value accessibilityLabel
+   586  get_var_ref2 2: this
+   587  get_field viewModel
+   620  get_field accessibilityLabel
+   653  call_method #args=2
+   656  drop
+   657  get_var_ref_check 0: e
+   660  get_field2 setViewModelProperty
+   693  push_atom_value background
+   698  get_var_ref2 2: this
+   699  get_field appearance
+   732  get_field background
+   765  call_method #args=2
+   768  drop
+   769  get_var_ref_check 0: e
+   772  get_field2 setViewModelProperty
+   805  push_atom_value color
+   810  get_var_ref2 2: this
+   811  get_field appearance
+   844  get_field text
+   877  call_method #args=2
+   880  drop
+   881  get_var_ref_check 0: e
+   884  get_field2 setViewModelProperty
+   917  push_atom_value contentInsetTop
+   922  get_var_ref_check 3: p
+   925  if_false8 -> 03e4
+   927  get_var_ref2 2: this
+   928  get_field state
+   961  get_field headerHeight
+   994  goto8 -> 03e5
+L  996  undefined
+L  997  call_method #args=2
+  1000  drop
+  1001  get_var_ref_check 0: e
+  1004  get_field2 setViewModelProperty
+  1037  push_atom_value contentPadding
+  1042  undefined
+  1043  get_var_ref2 2: this
+  1044  get_field viewModel
+  1077  get_field description
+  1110  strict_eq
+  1111  if_false8 -> 049e
+  1113  get_var_ref2 2: this
+  1114  get_field appearance
+  1147  get_field contentPadding
+  1180  goto8 -> 04e1
+L 1182  get_var_ref2 2: this
+  1183  get_field appearance
+  1216  get_field contentPaddingWithDescription
+L 1249  call_method #args=2
+  1252  drop
+  1253  get_var_ref_check 0: e
+  1256  get_field2 setViewModelProperty
+  1289  push_atom_value countPolicy
+  1294  get_var_ref2 2: this
+  1295  get_field viewModel
+  1328  get_field countPolicy
+  1361  call_method #args=2
+  1364  drop
+  1365  get_var_ref_check 0: e
+  1368  get_field2 setViewModelProperty
+  1401  push_atom_value fill
+  1406  push_0 0
+  1407  lnot
+  1408  call_method #args=2
+  1411  drop
+  1412  get_var_ref_check 0: e
+  1415  get_field2 setViewModelProperty
+  1448  push_atom_value disabled
+  1453  get_var_ref2 2: this
+  1454  get_field viewModel
+  1487  get_field isSaving
+  1520  call_method #args=2
+  1523  drop
+  1524  get_var_ref_check 0: e
+  1527  get_field2 setViewModelProperty
+  1560  push_atom_value typography
+  1565  get_var_ref2 2: this
+  1566  get_field appearance
+  1599  get_field typography
+  1632  call_method #args=2
+  1635  drop
+  1636  get_var_ref_check 0: e
+  1639  get_field2 setViewModelProperty
+  1672  push_atom_value inputRef
+  1677  get_var_ref2 2: this
+  1678  get_field inputRef
+  1711  call_method #args=2
+  1714  drop
+  1715  get_var_ref_check 0: e
+  1718  get_field2 setViewModelProperty
+  1751  push_atom_value maxLength
+  1756  get_var_ref2 2: this
+  1757  get_field viewModel
+  1790  get_field maximumLength
+  1823  call_method #args=2
+  1826  drop
+  1827  get_var_ref_check 0: e
+  1830  get_field2 setViewModelProperty
+  1863  push_atom_value onChange
+  1868  get_var_ref2 2: this
+  1869  get_field updateDraft
+  1902  call_method #args=2
+  1905  drop
+  1906  get_var_ref_check 0: e
+  1909  get_field2 setViewModelProperty
+  1942  push_atom_value placeholder
+  1947  get_var_ref2 2: this
+  1948  get_field viewModel
+  1981  get_field placeholder
+  2014  call_method #args=2
+  2017  drop
+  2018  get_var_ref_check 0: e
+  2021  get_field2 setViewModelProperty
+  2054  push_atom_value radius
+  2059  get_var_ref2 2: this
+  2060  get_field appearance
+  2093  get_field radius
+  2126  call_method #args=2
+  2129  drop
+  2130  get_var_ref_check 0: e
+  2133  get_field2 setViewModelProperty
+  2166  push_atom_value size
+  2171  get_var_ref2 2: this
+  2172  get_field appearance
+  2205  get_field inputSize
+  2238  call_method #args=2
+  2241  drop
+  2242  get_var_ref_check 0: e
+  2245  get_field2 setViewModelProperty
+  2278  push_atom_value value
+  2283  get_var_ref2 2: this
+  2284  get_field state
+  2317  get_field draft
+  2350  call_method #args=2
+  2353  drop
+  2354  get_var_ref_check 0: e
+  2357  get_field2 setViewModelProperty
+  2390  push_atom_value variant
+  2395  get_var_ref_check 11: x
+  2398  get_field TextAreaVariant
+  2431  get_field Plain
+  2464  call_method #args=2
+  2467  drop
+  2468  get_var_ref_check 0: e
+  2471  get_field2 endComponent
+  2504  call_method #args=0
+  2507  drop
+  2508  get_var_ref2 2: this
+  2509  get_field2 renderSuggestions
+  2542  call_method #args=0
+  2545  drop
+  2546  get_var_ref_check 0: e
+  2549  get_field2 endRender
+  2582  call_method #args=0
+  2585  drop
+  2586  get_var_ref_check 0: e
+  2589  get_field2 beginComponent
+  2622  get_var_ref_check 14: f
+  2625  get_field SafeArea
+  2658  get_var_ref_check 15: n
+  2661  undefined
+  2662  undefined
+  2663  call_method #args=4
+  2666  drop
+  2667  get_var_ref_check 0: e
+  2670  get_field2 setViewModelProperty
+  2703  push_atom_value accessibilityId
+  2708  get_var_ref_check 16: _
+  2711  call_method #args=2
+  2714  drop
+  2715  get_var_ref_check 0: e
+  2718  get_field2 setViewModelProperty
+  2751  push_atom_value edges
+  2756  get_var_ref_check 17: N
+  2759  call_method #args=2
+  2762  drop
+  2763  get_var_ref_check 0: e
+  2766  get_field2 setUnnamedSlot
+  2799  fclosure8 1: <function <atom:0>>
+  2801  call_method #args=1
+  2804  drop
+  2805  get_var_ref_check 0: e
+  2808  get_field2 endComponent
+  2841  call_method #args=0
+  2844  drop
+  2845  get_var_ref_check 0: e
+  2848  get_field2 endRender
+  2881  call_method #args=0
+  2884  return_undef
+
+-- fn name=<atom:0> args=0 vars=3 closure=19 cpool=1 bc=519B file=settings_text_editor/src/TextEditorScreen
+   locals: l, p, this
+   closure: e, o, d, L, S, a, i, s, x, r, k, f, n, _, N, m, T, P, t
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: p
+     5  set_loc_uninitialized 0: l
+     8  get_var_ref_check 15: m
+    11  get_field resolveSettingsTheme  ;+28B
+    44  call0 #args=0
+    45  get_field editorPresentation
+    78  get_var_ref_check 15: m
+    81  get_field SettingsEditorPresentation
+   114  get_field Page
+   147  strict_eq
+   148  put_loc0 0: l
+   149  get_loc_check 0: l
+   152  lnot
+   153  dup
+   154  if_false8 -> 00c2
+   156  drop
+   157  get_var_ref_check 16: T
+   160  get_field supportsNativeTextViewScrollEdges
+   193  call0 #args=0
+L  194  put_loc1 1: p
+   195  get_var_ref_check 0: e
+   198  get_field2 beginComponent
+   231  get_var_ref_check 17: P
+   234  get_field OAITheme
+   267  get_var_ref_check 18: t
+   270  undefined
+   271  undefined
+   272  call_method #args=4
+   275  drop
+   276  get_var_ref_check 0: e
+   279  get_field2 setViewModelProperty
+   312  push_atom_value fill
+   317  push_0 0
+   318  lnot
+   319  call_method #args=2
+   322  drop
+   323  get_var_ref_check 0: e
+   326  get_field2 setViewModelProperty
+   359  push_atom_value mode
+   364  get_var_ref_check 17: P
+   367  get_field OAIThemeMode
+   400  get_field System
+   433  call_method #args=2
+   436  drop
+   437  get_var_ref_check 0: e
+   440  get_field2 setUnnamedSlot
+   473  fclosure8 0: <function <atom:0>>
+   475  call_method #args=1
+   478  drop
+   479  get_var_ref_check 0: e
+   482  get_field2 endComponent
+   515  call_method #args=0
+   518  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=5 cpool=0 bc=815B file=settings_text_editor/src/TextEditorScreen
+   locals: this
+   closure: e, l, E, C, p
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: e
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: l
+    41  undefined
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: e
+    49  get_field2 setAttributeString
+    82  push_atom_value accessibilityId
+    87  get_var_ref_check 2: E
+    90  call_method #args=2
+    93  drop
+    94  get_var_ref_check 0: e
+    97  get_field2 setAttributeStyle
+   130  push_atom_value style
+   135  get_loc0 0: this
+   136  get_field appearance
+   169  get_field inlineTitle
+   202  call_method #args=2
+   205  drop
+   206  get_var_ref_check 0: e
+   209  get_field2 beginComponent
+   242  get_var_ref_check 3: C
+   245  get_field Text
+   278  get_var_ref_check 4: p
+   281  undefined
+   282  undefined
+   283  call_method #args=4
+   286  drop
+   287  get_var_ref_check 0: e
+   290  get_field2 setViewModelProperty
+   323  push_atom_value accessibilityLabel
+   328  get_loc0 0: this
+   329  get_field viewModel
+   362  get_field title
+   395  call_method #args=2
+   398  drop
+   399  get_var_ref_check 0: e
+   402  get_field2 setViewModelProperty
+   435  push_atom_value color
+   440  get_loc0 0: this
+   441  get_field appearance
+   474  get_field text
+   507  call_method #args=2
+   510  drop
+   511  get_var_ref_check 0: e
+   514  get_field2 setViewModelProperty
+   547  push_atom_value typography
+   552  get_loc0 0: this
+   553  get_field appearance
+   586  get_field titleTypography
+   619  call_method #args=2
+   622  drop
+   623  get_var_ref_check 0: e
+   626  get_field2 setViewModelProperty
+   659  push_atom_value value
+   664  get_loc0 0: this
+   665  get_field viewModel
+   698  get_field title
+   731  call_method #args=2
+   734  drop
+   735  get_var_ref_check 0: e
+   738  get_field2 endComponent
+   771  call_method #args=0
+   774  drop
+   775  get_var_ref_check 0: e
+   778  get_field2 endRender
+   811  call_method #args=0
+   814  return_undef
+
+-- fn name=<atom:0> args=0 vars=2 closure=4 cpool=0 bc=676B file=settings_text_editor/src/TextEditorScreen
+   locals: t, this
+   closure: e, c, C, h
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field viewModel  ;+28B
+    39  get_field description
+    72  put_loc0 0: t
+    73  undefined
+    74  get_loc_check 0: t
+    77  strict_neq
+    78  dup
+    79  if_false -> 02a3
+    84  drop
+    85  get_var_ref_check 0: e
+    88  get_field2 beginRender
+   121  get_var_ref_check 1: c
+   124  undefined
+   125  call_method #args=2
+   128  drop
+   129  get_var_ref_check 0: e
+   132  get_field2 setAttributeStyle
+   165  push_atom_value style
+   170  get_loc1 1: this
+   171  get_field appearance
+   204  get_field description
+   237  call_method #args=2
+   240  drop
+   241  get_var_ref_check 0: e
+   244  get_field2 beginComponent
+   277  get_var_ref_check 2: C
+   280  get_field Text
+   313  get_var_ref_check 3: h
+   316  undefined
+   317  undefined
+   318  call_method #args=4
+   321  drop
+   322  get_var_ref_check 0: e
+   325  get_field2 setViewModelProperty
+   358  push_atom_value size
+   363  get_loc1 1: this
+   364  get_field appearance
+   397  get_field descriptionSize
+   430  call_method #args=2
+   433  drop
+   434  get_var_ref_check 0: e
+   437  get_field2 setViewModelProperty
+   470  push_atom_value tone
+   475  get_var_ref_check 2: C
+   478  get_field TextTone
+   511  get_field Secondary
+   544  call_method #args=2
+   547  drop
+   548  get_var_ref_check 0: e
+   551  get_field2 setViewModelProperty
+   584  push_atom_value value
+   589  get_loc_check 0: t
+   592  call_method #args=2
+   595  drop
+   596  get_var_ref_check 0: e
+   599  get_field2 endComponent
+   632  call_method #args=0
+   635  drop
+   636  get_var_ref_check 0: e
+   639  get_field2 endRender
+   672  call_method #args=0
+L  675  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=139B file=settings_text_editor/src/TextEditorScreen
+   locals: e
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field state  ;+28B
+    34  get_field consumedSuggestionIDs
+    67  get_field2 includes
+   100  get_arg0 0: e
+   101  get_field id
+   134  call_method #args=1
+   137  lnot
+   138  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=38B file=settings_text_editor/src/TextEditorScreen
+   locals: e
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field2 renderSuggestion  ;+28B
+    34  get_arg0 0: e
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=2 closure=3 cpool=2 bc=372B file=settings_text_editor/src/TextEditorScreen
+   locals: t, this
+   closure: B, e, u
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_var_ref0 0: B
+     6  get_loc1 1: this
+     7  get_field viewModel  ;+28B
+    40  get_field suggestionActions
+    73  dup
+    74  is_undefined_or_null
+    75  if_false8 -> 0051
+    77  drop
+    78  array_from #args=0
+L   81  call1 #args=1
+    82  get_field2 filter
+   115  fclosure8 0: <function <atom:0>>
+   117  call_method #args=1
+   120  put_loc0 0: t
+   121  push_0 0
+   122  get_loc_check 0: t
+   125  get_length
+   126  strict_neq
+   127  dup
+   128  if_false -> 0173
+   133  drop
+   134  get_var_ref_check 1: e
+   137  get_field2 beginRender
+   170  get_var_ref_check 2: u
+   173  undefined
+   174  call_method #args=2
+   177  drop
+   178  get_var_ref_check 1: e
+   181  get_field2 setAttributeStyle
+   214  push_atom_value style
+   219  get_loc1 1: this
+   220  get_field appearance
+   253  get_field suggestions
+   286  call_method #args=2
+   289  drop
+   290  get_loc_check 0: t
+   293  get_field2 map
+   326  fclosure8 1: <function <atom:0>>
+   328  call_method #args=1
+   331  drop
+   332  get_var_ref_check 1: e
+   335  get_field2 endRender
+   368  call_method #args=0
+L  371  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=38B file=settings_text_editor/src/TextEditorScreen
+   closure: this, t
+     0  get_var_ref0 0: this
+     1  get_field2 applySuggestion  ;+28B
+    34  get_var_ref1 1: t
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=1 vars=3 closure=5 cpool=1 bc=1136B file=settings_text_editor/src/TextEditorScreen
+   locals: t, i, o, this
+   closure: H, e, b, y, D
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: o
+     5  set_loc_uninitialized 0: i
+     8  get_var_ref0 0: H
+     9  get_loc2 2: this
+    10  get_field state  ;+28B
+    43  get_field draft
+    76  get_arg0 0: t
+    77  get_field insertedText
+   110  call2 #args=2
+   111  put_loc0 0: i
+   112  get_loc2 2: this
+   113  get_field viewModel
+   146  get_field isSaving
+   179  dup
+   180  if_true8 -> 0109
+   182  drop
+   183  push_0 0
+   184  lnot
+   185  get_arg0 0: t
+   186  get_field disabled
+   219  strict_eq
+   220  dup
+   221  if_true8 -> 0109
+   223  drop
+   224  get_loc2 2: this
+   225  get_field2 isValid
+   258  get_loc_check 0: i
+   261  call_method #args=1
+   264  lnot
+L  265  put_loc1 1: o
+   266  get_var_ref_check 1: e
+   269  get_field2 beginComponent
+   302  get_var_ref_check 2: b
+   305  get_field Button
+   338  get_var_ref_check 3: y
+   341  undefined
+   342  undefined
+   343  call_method #args=4
+   346  drop
+   347  get_var_ref_check 1: e
+   350  get_field2 setViewModelProperty
+   383  push_atom_value accessibilityId
+   388  push_empty_string
+   389  get_field2 concat
+   422  get_var_ref_check 4: D
+   425  get_arg0 0: t
+   426  get_field id
+   459  call_method #args=2
+   462  call_method #args=2
+   465  drop
+   466  get_var_ref_check 1: e
+   469  get_field2 setViewModelProperty
+   502  push_atom_value accessibilityLabel
+   507  get_arg0 0: t
+   508  get_field accessibilityLabel
+   541  dup
+   542  is_undefined_or_null
+   543  if_false8 -> 0244
+   545  drop
+   546  get_arg0 0: t
+   547  get_field label
+L  580  call_method #args=2
+   583  drop
+   584  get_var_ref_check 1: e
+   587  get_field2 setViewModelProperty
+   620  push_atom_value disabled
+   625  get_loc_check 1: o
+   628  call_method #args=2
+   631  drop
+   632  get_var_ref_check 1: e
+   635  get_field2 setViewModelProperty
+   668  push_atom_value label
+   673  get_arg0 0: t
+   674  get_field label
+   707  call_method #args=2
+   710  drop
+   711  get_var_ref_check 1: e
+   714  get_field2 setViewModelProperty
+   747  push_atom_value onPress
+   752  fclosure8 0: <function <atom:0>>
+   754  call_method #args=2
+   757  drop
+   758  get_var_ref_check 1: e
+   761  get_field2 setViewModelProperty
+   794  push_atom_value size
+   799  get_loc2 2: this
+   800  get_field appearance
+   833  get_field suggestionSize
+   866  call_method #args=2
+   869  drop
+   870  get_var_ref_check 1: e
+   873  get_field2 setViewModelProperty
+   906  push_atom_value style
+   911  get_loc2 2: this
+   912  get_field appearance
+   945  get_field suggestionButton
+   978  call_method #args=2
+   981  drop
+   982  get_var_ref_check 1: e
+   985  get_field2 setViewModelProperty
+  1018  push_atom_value variant
+  1023  get_var_ref_check 2: b
+  1026  get_field ButtonVariant
+  1059  get_field Ghost
+  1092  call_method #args=2
+  1095  drop
+  1096  get_var_ref_check 1: e
+  1099  get_field2 endComponent
+  1132  call_method #args=0
+  1135  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=6 cpool=0 bc=1398B file=settings_text_editor/src/TextEditorScreen
+   locals: this
+   closure: e, g, I, v, q, M
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: e
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: g
+    41  undefined
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: e
+    49  get_field2 setAttributeStyle
+    82  push_atom_value style
+    87  get_loc0 0: this
+    88  get_field appearance
+   121  get_field finishActionLayout
+   154  call_method #args=2
+   157  drop
+   158  get_var_ref_check 0: e
+   161  get_field2 beginComponent
+   194  get_var_ref_check 2: I
+   197  get_field IconButton
+   230  get_var_ref_check 3: v
+   233  undefined
+   234  undefined
+   235  call_method #args=4
+   238  drop
+   239  get_var_ref_check 0: e
+   242  get_field2 setViewModelProperty
+   275  push_atom_value accessibilityId
+   280  get_var_ref_check 4: q
+   283  call_method #args=2
+   286  drop
+   287  get_var_ref_check 0: e
+   290  get_field2 setViewModelProperty
+   323  push_atom_value accessibilityLabel
+   328  get_loc0 0: this
+   329  get_field viewModel
+   362  get_field saveAccessibilityLabel
+   395  call_method #args=2
+   398  drop
+   399  get_var_ref_check 0: e
+   402  get_field2 setViewModelProperty
+   435  push_atom_value disabled
+   440  get_loc0 0: this
+   441  get_field canFinishEditing
+   474  lnot
+   475  call_method #args=2
+   478  drop
+   479  get_var_ref_check 0: e
+   482  get_field2 setViewModelProperty
+   515  push_atom_value loading
+   520  get_loc0 0: this
+   521  get_field viewModel
+   554  get_field isSaving
+   587  call_method #args=2
+   590  drop
+   591  get_var_ref_check 0: e
+   594  get_field2 setViewModelProperty
+   627  push_atom_value children
+   632  get_loc0 0: this
+   633  get_field viewModel
+   666  get_field isSaving
+   699  if_false8 -> 02e1
+   701  get_loc0 0: this
+   702  get_field renderSaving
+   735  goto8 -> 02e2
+L  737  undefined
+L  738  call_method #args=2
+   741  drop
+   742  get_var_ref_check 0: e
+   745  get_field2 setViewModelProperty
+   778  push_atom_value imageStyle
+   783  get_loc0 0: this
+   784  get_field appearance
+   817  get_field finishActionIcon
+   850  call_method #args=2
+   853  drop
+   854  get_var_ref_check 0: e
+   857  get_field2 setViewModelProperty
+   890  push_atom_value material
+   895  get_loc0 0: this
+   896  get_field appearance
+   929  get_field finishMaterial
+   962  call_method #args=2
+   965  drop
+   966  get_var_ref_check 0: e
+   969  get_field2 setViewModelProperty
+  1002  push_atom_value onPress
+  1007  get_loc0 0: this
+  1008  get_field finishEditing
+  1041  call_method #args=2
+  1044  drop
+  1045  get_var_ref_check 0: e
+  1048  get_field2 setViewModelProperty
+  1081  push_atom_value style
+  1086  get_loc0 0: this
+  1087  get_field appearance
+  1120  get_field finishAction
+  1153  call_method #args=2
+  1156  drop
+  1157  get_var_ref_check 0: e
+  1160  get_field2 setViewModelProperty
+  1193  push_atom_value src
+  1198  get_var_ref_check 5: M
+  1201  get_field default
+  1234  get_field checkCircleFilled
+  1267  call_method #args=2
+  1270  drop
+  1271  get_var_ref_check 0: e
+  1274  get_field2 setViewModelProperty
+  1307  push_atom_value tintImage
+  1312  push_0 0
+  1313  lnot
+  1314  call_method #args=2
+  1317  drop
+  1318  get_var_ref_check 0: e
+  1321  get_field2 endComponent
+  1354  call_method #args=0
+  1357  drop
+  1358  get_var_ref_check 0: e
+  1361  get_field2 endRender
+  1394  call_method #args=0
+  1397  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=179B file=settings_text_editor/src/TextEditorScreen
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field viewModel  ;+28B
+    36  get_field isSaving
+    69  lnot
+    70  dup
+    71  if_false8 -> 00b2
+    73  drop
+    74  get_loc0 0: this
+    75  get_field2 isValid
+   108  get_loc0 0: this
+   109  get_field state
+   142  get_field draft
+   175  call_method #args=1
+L  178  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=176B file=settings_text_editor/src/TextEditorScreen
+   locals: e, this
+   closure: S
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: S
+     5  get_field countCharacters  ;+28B
+    38  get_arg0 0: e
+    39  get_loc0 0: this
+    40  get_field viewModel
+    73  get_field countPolicy
+   106  call2 #args=2
+   107  get_loc0 0: this
+   108  get_field viewModel
+   141  get_field maximumLength
+   174  lte
+   175  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=0 bc=754B file=settings_text_editor/src/TextEditorScreen
+   locals: e, t, this
+   closure: H
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field viewModel  ;+28B
+    39  get_field isSaving
+    72  dup
+    73  if_true -> 0104
+    78  drop
+    79  push_0 0
+    80  lnot
+    81  get_arg0 0: e
+    82  get_field disabled
+   115  strict_eq
+   116  dup
+   117  if_true -> 0104
+   122  drop
+   123  get_loc1 1: this
+   124  get_field state
+   157  get_field consumedSuggestionIDs
+   190  get_field2 includes
+   223  get_arg0 0: e
+   224  get_field id
+   257  call_method #args=1
+L  260  if_false8 -> 0107
+   262  return_undef
+L  263  get_var_ref0 0: H
+   264  get_loc1 1: this
+   265  get_field state
+   298  get_field draft
+   331  get_arg0 0: e
+   332  get_field insertedText
+   365  call2 #args=2
+   366  put_loc0 0: t
+   367  get_loc1 1: this
+   368  get_field2 isValid
+   401  get_loc_check 0: t
+   404  call_method #args=1
+   407  dup
+   408  if_false -> 02f1
+   413  drop
+   414  get_loc1 1: this
+   415  get_field2 setState
+   448  object
+   449  array_from #args=0
+   452  push_0 0
+   453  get_loc1 1: this
+   454  get_field state
+   487  get_field consumedSuggestionIDs
+   520  append
+   521  get_arg0 0: e
+   522  get_field id
+   555  define_array_el
+   556  inc
+   557  drop
+   558  define_field consumedSuggestionIDs
+   563  call_method #args=1
+   566  drop
+   567  get_loc1 1: this
+   568  get_field2 updateDraft
+   601  get_loc_check 0: t
+   604  call_method #args=1
+   607  drop
+   608  get_loc1 1: this
+   609  get_field context
+   642  dup
+   643  is_undefined_or_null
+   644  if_false8 -> 028a
+   646  drop
+   647  undefined
+   648  goto8 -> 02f1
+L  650  get_field callbacks
+   683  get_field2 onSuggestionSelected
+   716  get_arg0 0: e
+   717  get_field id
+   750  call_method #args=1
+L  753  return_undef
+
+-- fn name=H args=2 vars=0 closure=0 cpool=4 bc=191B file=settings_text_editor/src/TextEditorScreen
+   locals: e, t
+     0  push_0 0
+     1  get_arg0 0: e
+     2  get_length
+     3  strict_eq
+     4  dup
+     5  if_true8 -> 0068
+     7  drop
+     8  push_0 0
+     9  get_arg1 1: t
+    10  get_length
+    11  strict_eq
+    12  dup
+    13  if_true8 -> 0068
+    15  drop
+    16  push_const8 0: <string None>
+    18  push_const8 1: <string None>
+    20  regexp
+    21  get_field2 test  ;+28B
+    54  get_arg0 0: e
+    55  call_method #args=1
+    58  dup
+    59  if_true8 -> 0068
+    61  drop
+    62  push_const8 2: <string None>
+    64  push_const8 3: <string None>
+    66  regexp
+    67  get_field2 test
+   100  get_arg1 1: t
+   101  call_method #args=1
+L  104  if_false8 -> 0092
+   106  push_empty_string
+   107  get_field2 concat
+   140  get_arg0 0: e
+   141  get_arg1 1: t
+   142  call_method #args=2
+   145  return
+L  146  push_empty_string
+   147  get_field2 concat
+   180  get_arg0 0: e
+   181  push_atom_value  
+   186  get_arg1 1: t
+   187  call_method #args=3
+   190  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=155B file=settings_text_editor/src/TextEditorScreen
+   locals: e
+   closure: t
+     0  get_var_ref_check 0: t
+     3  get_field2 has  ;+28B
+    36  get_arg0 0: e
+    37  get_field id
+    70  call_method #args=1
+    73  lnot
+    74  dup
+    75  if_false8 -> 009a
+    77  drop
+    78  get_var_ref_check 0: t
+    81  get_field2 add
+   114  get_arg0 0: e
+   115  get_field id
+   148  call_method #args=1
+   151  drop
+   152  push_0 0
+   153  lnot
+L  154  return
+
+-- fn name=B args=1 vars=1 closure=0 cpool=1 bc=52B file=settings_text_editor/src/TextEditorScreen
+   locals: e, t
+     0  set_loc_uninitialized 0: t
+     3  get_var Set
+     8  dup
+     9  call_constructor #args=0
+    12  put_loc0 0: t
+    13  get_arg0 0: e
+    14  get_field2 filter  ;+28B
+    47  fclosure8 0: <function <atom:0>>
+    49  tail_call_method #args=1
+
+-- fn name=<atom:0> args=3 vars=43 closure=0 cpool=15 bc=1507B file=settings_text_editor/src/TextEditorScreen
+   locals: require, module, exports, e, t, i, o, s, r, n, d, a, l, p, c, h, u, y, g, v, w, m, M, P, b, V, S, f, C, x, A, R, T, I, k, E, L, _, q, D, N, TextEditorScreen, <class_fields_init>, TextEditorScreen, H, B
+     0  fclosure8 13: <function H>
+     2  put_loc8 41: H
+     4  fclosure8 14: <function B>
+     6  put_loc8 42: B
+     8  set_loc_uninitialized 40: TextEditorScreen
+    11  set_loc_uninitialized 37: N
+    14  set_loc_uninitialized 36: D
+    17  set_loc_uninitialized 35: q
+    20  set_loc_uninitialized 34: _
+    23  set_loc_uninitialized 33: L
+    26  set_loc_uninitialized 32: E
+    29  set_loc_uninitialized 31: k
+    32  set_loc_uninitialized 30: I
+    35  set_loc_uninitialized 29: T
+    38  set_loc_uninitialized 28: R
+    41  set_loc_uninitialized 27: A
+    44  set_loc_uninitialized 26: x
+    47  set_loc_uninitialized 25: C
+    50  set_loc_uninitialized 24: f
+    53  set_loc_uninitialized 23: S
+    56  set_loc_uninitialized 22: V
+    59  set_loc_uninitialized 21: b
+    62  set_loc_uninitialized 20: P
+    65  set_loc_uninitialized 19: M
+    68  set_loc_uninitialized 18: m
+    71  set_loc_uninitialized 17: w
+    74  set_loc_uninitialized 16: v
+    77  set_loc_uninitialized 15: g
+    80  set_loc_uninitialized 14: y
+    83  set_loc_uninitialized 13: u
+    86  set_loc_uninitialized 12: h
+    89  set_loc_uninitialized 11: c
+    92  set_loc_uninitialized 10: p
+    95  set_loc_uninitialized 9: l
+    98  set_loc_uninitialized 8: a
+   101  set_loc_uninitialized 7: d
+   104  set_loc_uninitialized 6: n
+   107  set_loc_uninitialized 5: r
+   110  set_loc_uninitialized 4: s
+   113  set_loc_uninitialized 3: o
+   116  set_loc_uninitialized 2: i
+   119  set_loc_uninitialized 1: t
+   122  set_loc_uninitialized 0: e
+   125  get_var Object
+   130  get_field2 defineProperty
+   163  get_arg2 2: exports
+   164  push_atom_value __esModule
+   169  object
+   170  push_0 0
+   171  lnot
+   172  define_field value
+   177  call_method #args=3
+   180  drop
+   181  get_arg2 2: exports
+   182  undefined
+   183  put_field TextEditorScreen
+   192  get_arg0 0: require
+   193  push_atom_value valdi_core/src/JSX
+   198  call1 #args=1
+   199  get_field jsx
+   232  put_loc0 0: e
+   233  get_loc_check 0: e
+   236  get_field2 makeComponentPrototype
+   269  undefined
+   270  push_atom_value QHwgtbBIjMRfC4yQ
+   275  call_method #args=2
+   278  put_loc1 1: t
+   279  get_loc_check 0: e
+   282  get_field2 makeNodePrototype
+   315  push_atom_value view
+   320  undefined
+   321  push_atom_value 52kl0w5UIi7aNJwH
+   326  call_method #args=3
+   329  put_loc2 2: i
+   330  get_loc_check 0: e
+   333  get_field2 makeNodePrototype
+   366  push_atom_value view
+   371  undefined
+   372  push_atom_value hcXN9DigmcrRxKEG
+   377  call_method #args=3
+   380  put_loc3 3: o
+   381  get_loc_check 0: e
+   384  get_field2 makeNodePrototype
+   417  push_atom_value view
+   422  undefined
+   423  push_atom_value n0I8oWHnB4HMxKtO
+   428  call_method #args=3
+   431  put_loc8 4: s
+   433  get_loc_check 0: e
+   436  get_field2 makeComponentPrototype
+   469  push_atom_value textGravity
+   474  push_atom_value top
+   479  array_from #args=2
+   482  push_atom_value Ng5Ic14q532wdDNH
+   487  call_method #args=2
+   490  put_loc8 5: r
+   492  get_loc_check 0: e
+   495  get_field2 makeComponentPrototype
+   528  undefined
+   529  push_atom_value JPHs2RLCZW92Sc8r
+   534  call_method #args=2
+   537  put_loc8 6: n
+   539  get_loc_check 0: e
+   542  get_field2 makeNodePrototype
+   575  push_atom_value view
+   580  undefined
+   581  push_atom_value 8wR4SX12ezMxkkLc
+   586  call_method #args=3
+   589  put_loc8 7: d
+   591  get_loc_check 0: e
+   594  get_field2 makeComponentPrototype
+   627  undefined
+   628  push_atom_value mBMJ__cG5o6CWfvn
+   633  call_method #args=2
+   636  put_loc8 8: a
+   638  get_loc_check 0: e
+   641  get_field2 makeNodePrototype
+   674  push_atom_value view
+   679  undefined
+   680  push_atom_value hur7yiqe48zqOsT0
+   685  call_method #args=3
+   688  put_loc8 9: l
+   690  get_loc_check 0: e
+   693  get_field2 makeComponentPrototype
+   726  push_atom_value accessibilityCategory
+   731  push_atom_value header
+   736  push_atom_value align
+   741  push_atom_value center
+   746  array_from #args=4
+   749  push_atom_value qhqlIsre3Cna4AQ3
+   754  call_method #args=2
+   757  put_loc8 10: p
+   759  get_loc_check 0: e
+   762  get_field2 makeNodePrototype
+   795  push_atom_value view
+   800  undefined
+   801  push_atom_value laxteRgn4iOJEJIP
+   806  call_method #args=3
+   809  put_loc8 11: c
+   811  get_loc_check 0: e
+   814  get_field2 makeComponentPrototype
+   847  undefined
+   848  push_atom_value CQuicpIuGrGmrwXA
+   853  call_method #args=2
+   856  put_loc8 12: h
+   858  get_loc_check 0: e
+   861  get_field2 makeNodePrototype
+   894  push_atom_value view
+   899  undefined
+   900  push_atom_value nvF9BuXnDz8TBBgX
+   905  call_method #args=3
+   908  put_loc8 13: u
+   910  get_loc_check 0: e
+   913  get_field2 makeComponentPrototype
+   946  undefined
+   947  push_atom_value hFxOVTXiskrEbHUd
+   952  call_method #args=2
+   955  put_loc8 14: y
+   957  get_loc_check 0: e
+   960  get_field2 makeNodePrototype
+   993  push_atom_value view
+   998  undefined
+   999  push_atom_value 8VG2Huu9tZ6NV9A8
+  1004  call_method #args=3
+  1007  put_loc8 15: g
+  1009  get_loc_check 0: e
+  1012  get_field2 makeComponentPrototype
+  1045  undefined
+  1046  push_atom_value Xrfckj_QfHlYPHwv
+  1051  call_method #args=2
+  1054  put_loc8 16: v
+  1056  get_loc_check 0: e
+  1059  get_field2 makeComponentPrototype
+  1092  undefined
+  1093  push_atom_value UCXVn8idns6jpNk4
+  1098  call_method #args=2
+  1101  put_loc8 17: w
+  1103  get_arg0 0: require
+  1104  push_atom_value oai_ui/src/components/settings/SettingsTheme
+  1109  call1 #args=1
+  1110  put_loc8 18: m
+  1112  get_arg0 0: require
+  1113  push_atom_value dil_icon_assets/res
+  1118  call1 #args=1
+  1119  put_loc8 19: M
+  1121  get_arg0 0: require
+  1122  push_atom_value oai_core/src/OAITheme
+  1127  call1 #args=1
+  1128  put_loc8 20: P
+  1130  get_arg0 0: require
+  1131  push_atom_value oai_ui/src/components/Button
+  1136  call1 #args=1
+  1137  put_loc8 21: b
+  1139  get_arg0 0: require
+  1140  push_atom_value oai_ui/src/components/ActivityIndicator
+  1145  call1 #args=1
+  1146  put_loc8 22: V
+  1148  get_arg0 0: require
+  1149  push_atom_value oai_ui/src/components/CharacterCounter
+  1154  call1 #args=1
+  1155  put_loc8 23: S
+  1157  get_arg0 0: require
+  1158  push_atom_value oai_ui/src/components/SafeArea
+  1163  call1 #args=1
+  1164  put_loc8 24: f
+  1166  get_arg0 0: require
+  1167  push_atom_value oai_ui/src/components/Text
+  1172  call1 #args=1
+  1173  put_loc8 25: C
+  1175  get_arg0 0: require
+  1176  push_atom_value oai_ui/src/components/TextArea
+  1181  call1 #args=1
+  1182  put_loc8 26: x
+  1184  get_arg0 0: require
+  1185  push_atom_value valdi_core/src/Component
+  1190  call1 #args=1
+  1191  put_loc8 27: A
+  1193  get_arg0 0: require
+  1194  push_atom_value valdi_core/src/ElementRef
+  1199  call1 #args=1
+  1200  put_loc8 28: R
+  1202  get_arg0 0: require
+  1203  push_atom_value valdi_ui/src/Platform
+  1208  call1 #args=1
+  1209  put_loc8 29: T
+  1211  get_arg0 0: require
+  1212  push_atom_value valdi_ui/src/components/IconButton
+  1217  call1 #args=1
+  1218  put_loc8 30: I
+  1220  push_atom_value settings-text-editor.input
+  1225  put_loc8 31: k
+  1227  push_atom_value settings-text-editor.inline-title
+  1232  put_loc8 32: E
+  1234  push_atom_value settings-text-editor.bottom-actions
+  1239  put_loc8 33: L
+  1241  push_atom_value settings-text-editor.bottom-safe-area
+  1246  put_loc8 34: _
+  1248  push_atom_value settings-text-editor.save
+  1253  put_loc8 35: q
+  1255  push_atom_value settings-text-editor.suggestion.
+  1260  put_loc8 36: D
+  1262  get_loc_check 24: f
+  1265  get_field SafeAreaEdge
+  1298  get_field Bottom
+  1331  array_from #args=1
+  1334  put_loc8 37: N
+  1336  set_loc_uninitialized 38: TextEditorScreen
+  1339  get_loc_check 27: A
+  1342  get_field StatefulComponent
+  1375  set_loc_uninitialized 39: <class_fields_init>
+  1378  push_const8 0: <function <atom:0>>
+  1380  define_class TextEditorScreen,1
+  1386  fclosure8 1: <function <atom:0>>
+  1388  define_method onCreate,0
+  1394  fclosure8 2: <function <atom:0>>
+  1396  define_method onViewModelUpdate,0
+  1402  fclosure8 3: <function <atom:0>>
+  1404  define_method appearance,1
+  1410  fclosure8 4: <function <atom:0>>
+  1412  define_method onRender,0
+  1418  fclosure8 5: <function <atom:0>>
+  1420  define_method renderInlineTitle,0
+  1426  fclosure8 6: <function <atom:0>>
+  1428  define_method renderDescription,0
+  1434  fclosure8 7: <function <atom:0>>
+  1436  define_method renderSuggestions,0
+  1442  fclosure8 8: <function <atom:0>>
+  1444  define_method renderSuggestion,0
+  1450  fclosure8 9: <function <atom:0>>
+  1452  define_method renderFinishAction,0
+  1458  fclosure8 10: <function <atom:0>>
+  1460  define_method canFinishEditing,1
+  1466  fclosure8 11: <function <atom:0>>
+  1468  define_method isValid,0
+  1474  fclosure8 12: <function <atom:0>>
+  1476  define_method applySuggestion,0
+  1482  undefined
+  1483  put_loc8 39: <class_fields_init>
+  1485  drop
+  1486  set_loc8 38: TextEditorScreen
+  1488  close_loc 39: <class_fields_init>
+  1491  put_loc8 40: TextEditorScreen
+  1493  get_arg2 2: exports
+  1494  get_loc_check 40: TextEditorScreen
+  1497  put_field TextEditorScreen
+  1506  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=settings_text_editor/src/TextEditorScreen
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

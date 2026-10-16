@@ -1,0 +1,4585 @@
+# olympic_connections — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## res.js  (323 B)
+# 原子基准=215 原子表 9 条
+-- 原子表 --
+   [0]olympic_connections/res | [1]require | [2]module | [3]exports | [4]e | [5]o | [6]__esModule | [7]valdi_core/src/AssetCatalog | [8]loadCatalog
+
+-- fn name=<atom:0> args=3 vars=2 closure=0 cpool=0 bc=127B file=olympic_connections/res
+   locals: require, module, exports, e, o
+     0  set_loc_uninitialized 1: o
+     3  set_loc_uninitialized 0: e
+     6  get_var Object
+    11  get_field2 defineProperty  ;+28B
+    44  get_arg2 2: exports
+    45  push_atom_value __esModule
+    50  object
+    51  push_0 0
+    52  lnot
+    53  define_field value
+    58  call_method #args=3
+    61  drop
+    62  get_arg0 0: require
+    63  push_atom_value valdi_core/src/AssetCatalog
+    68  call1 #args=1
+    69  put_loc0 0: e
+    70  get_loc_check 0: e
+    73  get_field loadCatalog
+   106  push_atom_value olympic_connections/res
+   111  call1 #args=1
+   112  put_loc1 1: o
+   113  get_arg2 2: exports
+   114  get_loc_check 1: o
+   117  put_field default
+   126  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=olympic_connections/res
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/OlympicConnectionsComponent.js  (38987 B)
+# 原子基准=215 原子表 438 条
+-- 原子表 --
+   [0]olympic_connections/src/OlympicConnectionsComponent | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]o | [7]n | [8]i | [9]r | [10]d | [11]s | [12]a | [13]c | [14]l | [15]g | [16]u | [17]h | [18]y | [19]p | [20]v | [21]m | [22]b | [23]w | [24]S | [25]A | [26]C | [27]f | [28]R | [29]I | [30]k | [31]D | [32]P | [33]x | [34]N | [35]O | [36]T | [37]L | [38]B | [39]H | [40]M | [41]_ | [42]E | [43]z | [44]F | [45]q | [46]V | [47]U | [48]j | [49]J | [50]W | [51]K | [52]G | [53]X | [54]$ | [55]Z | [56]Q | [57]Y | [58]ee | [59]te | [60]oe | [61]ne | [62]ie | [63]re | [64]de | [65]OlympicConnectionsErrorBoundary | [66]OlympicConnectionsComponent | [67]se | [68]ae | [69]ce | [70]le | [71]ge | [72]ue | [73]he | [74]ye | [75]pe | [76]ve | [77]me | [78]be | [79]we | [80]Se | [81]Ae | [82]Ce | [83]fe | [84]Re | [85]Ie | [86]ke | [87]De | [88]Pe | [89]xe | [90]Ne | [91]Oe | [92]__esModule | [93]valdi_core/src/ValdiRuntimeProvider | [94]getValdiRuntime | [95]valdi_core/src/JSX | [96]jsx | [97]makeNodePrototype | [98]view | [99]PGwAJIDZN42VRyCk | [100]label | [101]EINYLEKVGRExjb9K | [102]makeComponentPrototype | [103]kWUyhikKtV6U4DO7 | [104]JkRaGrXtZUVdlCJC | [105]htC-kZlcFXYs5oJ_ | [106]scroll | [107]w6Sd9XO9jXa5GcTj | [108]QD3zFMk1dQGRddhX | [109]Dmleqx9FZXOJ97G0 | [110]accessibilityLabel | [111]Loading connections | [112]kXC6BU8ofzpbDQTQ | [113]DUoKuXY-3EpcTAFd | [114]1xE91bNy0zPFQrFw | [115]Y2WztfHOE1RLHaA3 | [116]sygHF1AqHoVIQ3k0 | [117]qWZBg4jkUbs8tjJX | [118]SGsNSN6TbV86beEp | [119]omcAgmtWpkk9PtZ6 | [120]accessibilityCategory | [121]button | [122]bVa5IszlyI0n7hC_ | [123]NyY1iPhhuk5S3om4 | [124]DTtzJLy1OU17Ztf9 | [125]DYttjmufoY1BnsHx | [126]awlc5keqlQo4NZHu | [127]Ku3G4okA7dJBisxR | [128]MN8tNh6192FLNC0R | [129]CHug60AM1WAP1b4u | [130]TyAJLkONGdUQDYAI | [131]giH13dRyfOW4FUX9 | [132]image | [133]objectFit | [134]contain | [135]4oXtiN9e_QAE9Otg | [136]7j-D_wRbn8DyNqEG | [137]zqVohgCo437bfhZP | [138]PHcPF31kGuEahdiH | [139]Rq49tk2PR9gOap6r | [140]U-2Z_fpwu1pIi4O9 | [141]s_avc2DTGuR2Vxiu | [142]wDl3xce7Hce6VjMy | [143]Ys0_cCwWCj0P1ebL | [144]native_menu/src/NativeMenuButton | [145]oai_core/src/OAITheme | [146]oai_core/src/OAITokens | [147]olympic_analytics/src/OlympicNavigationAnalytics | [148]valdi_core/src/Asset | [149]valdi_core/src/Component | [150]valdi_core/src/Device | [151]valdi_core/src/Style | [152]olympic_connections/res | [153]connector_openai_olympic | [154]apple_health | [155]health_kit | [156]list_account_connections | [157]get_apple_health_connector_status | [158]get_organization | [159]sync_account_connection | [160]delete_account_connection | [161]initiate_organization_oauth | [162]Add account | [163]Jan | [164]Feb | [165]Mar | [166]Apr | [167]May | [168]Jun | [169]Jul | [170]Aug | [171]Sep | [172]Oct | [173]Nov | [174]Dec | [175]OAIColor | [176]Transparent | [177]{} | [178]StatefulComponent | [179]onRender | [180]onError | [181]onCreate | [182]onViewModelUpdate | [183]renderList | [184]renderBody | [185]renderLoadingRows | [186]renderSkeletonRow | [187]renderErrorState | [188]renderErrorMessage | [189]renderLoadedRows | [190]renderAddConnectionRow | [191]renderConnectionRow | [192]renderProviderBadge | [193]renderEllipsisButton | [194]providerLogoAsset | [195]renderActionPanel | [196]renderPanelAction | [197]toggleActionPanel | [198]handleMenuAction | [199]handleSync | [200]handleRemove | [201]handleReconnect | [202]addConnector | [203]loadFromHost | [204]scheduleHostLoad | [205]loadRows | [206]loadOrganizations | [207]runConnectionTool | [208]runReconnectTool | [209]Style | [210]backgroundColor | [211]100% | [212]height | [213]width | [214]root | [215]stretch | [216]alignItems | [217]column | [218]flexDirection | [219]paddingBottom | [220]paddingTop | [221]content | [222]contentWithNativeBottomClearance | [223]list | [224]center | [225]row | [226]gap | [227]minHeight | [228]paddingLeft | [229]paddingRight | [230]addRow | [231]BgTertiary | [232]BorderLight | [233]borderColor | [234]borderRadius | [235]borderWidth | [236]flexShrink | [237]justifyContent | [238]relative | [239]position | [240]addBadge | [241]IconPrimary | [242]left | [243]absolute | [244]top | [245]addBadgePlusHorizontal | [246]addBadgePlusVertical | [247]TextPrimary | [248]color | [249]system-medium 17 | [250]font | [251]addRowLabel | [252]flexGrow | [253]minWidth | [254]textColumn | [255]system 17 | [256]ellipsis | [257]textOverflow | [258]rowTitle | [259]TextSecondary | [260]system 16 | [261]rowSubtitle | [262]providerBadge | [263]providerLogoImage | [264]providerFallbackIcon | [265]appleHealthBadge | [266]appleHealthIcon | [267]BgElevatedPrimary | [268]BorderDefault | [269]marginLeft | [270]marginRight | [271]marginTop | [272]actionPanel | [273]panelAction | [274]system 15 | [275]panelActionLabel | [276]TextStatusError | [277]panelActionLabelDestructive | [278]skeletonList | [279]skeletonBadge | [280]58% | [281]skeletonTitle | [282]42% | [283]skeletonSubtitle | [284]BgStatusError | [285]BorderStatusError | [286]errorMessageContainer | [287]system 14 | [288]errorMessageText | [289]state | [290]beginRender | [291]setAttributeStyle | [292]style | [293]setAttributeString | [294]endRender | [295]renderUnnamedSlot | [296]viewModel | [297]host | [298]actionHandler | [299]setState | [300]loading | [301]rows | [302]requestSequence | [303]didStartHostLoad | [304]createOlympicViewSessionId | [305]viewSessionId | [306]providerLogoAssets | [307]handleAddDefaultConnector | [308]trackOlympicNavigationPageViewed | [309]context | [310]connections | [311]errorMessage | [312]map | [313]openActionConnectionID | [314]pendingConnectionID | [315]pendingActionKind | [316]actionErrorConnectionID | [317]beginComponent | [318]OAITheme | [319]setViewModelProperty | [320]mode | [321]OAIThemeMode | [322]System | [323]setUnnamedSlot | [324]endComponent | [325]Device | [326]isIOS | [327]error | [328]empty | [329]loaded | [330]Unsupported Olympic connections state:  | [331]Failed to list account connections | [332]skeleton- | [333]setAttributeFunction | [334]onTap | [335]id | [336]title | [337]account | [338]kind | [339]appleHealth | [340]setAttribute | [341]src | [342]providerLogoBase64 | [343]building | [344]tint | [345]IconTertiary | [346]NativeMenuButton | [347]More actions for  | [348]actions | [349]foregroundColor | [350]onFallbackTap | [351]onSelect | [352]makeAssetFromUrl | [353]isLoggingEnabled | [354]console | [355]warn | [356]Failed to create Olympic provider logo asset:  | [357]-actions | [358]expired | [359]connectionState | [360]Reconnect | [361]Sync now | [362]Remove account | [363]sync | [364]reconnect | [365]refresh | [366]disconnect | [367]organizationId | [368]connectorID | [369]requestModal | [370]stringify | [371]connectionsAddFlow | [372]params | [373]requestLinkToConnector | [374]isDestroyed | [375]all | [376]accountConnections | [377]appleHealthConnectorStatus | [378]connected | [379]push | [380]organization_id | [381]organization | [382]get_organization failed for  | [383]connection_id | [384]authUrl | [385]openExternal | [386]callTool | [387]isError | [388] returned an error response | [389]trim | [390]isArray | [391]text | [392]type | [393]structuredContent | [394]structured_content | [395]result | [396]organizationName | [397]lastSyncTime | [398]operationStatus | [399]logoBase64 | [400]endpoints | [401]flatMap | [402]connectionType | [403]gatewayId | [404]startsWith | [405]data:image/ | [406]data:image/png;base64, | [407]connectorId | [408]Apple Health | [409]subtitle | [410]Connected | [411]canRefresh | [412]canDisconnect | [413]legacy | [414]Access has expired | [415]deleting | [416]find | [417]fhir-gateway | [418]Unknown provider | [419]syncing | [420]Syncing... | [421]Deleting... | [422]Last synced  | [423]Not synced yet | [424]parse | [425]isNaN | [426]getMonth | [427]  | [428]getDate | [429] at  | [430]Something went wrong. | [431]destructive | [432]chatgpt_native | [433]callback_mode | [434]gateway_id | [435]renderFailure | [436]Host tool response was not a JSON object. | [437]idle
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=0 bc=62B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  object
+    49  put_field state
+    58  get_loc_check 3: this
+    61  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=4 cpool=0 bc=560B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+   closure: t, o, Oe, n
+     0  push_this
+     1  put_loc0 0: this
+     2  undefined
+     3  get_loc0 0: this
+     4  get_field state  ;+28B
+    37  get_field message
+    70  strict_neq
+    71  if_false -> 0207
+    76  get_var_ref_check 0: t
+    79  get_field2 beginRender
+   112  get_var_ref_check 1: o
+   115  undefined
+   116  call_method #args=2
+   119  drop
+   120  get_var_ref_check 0: t
+   123  get_field2 setAttributeStyle
+   156  push_atom_value style
+   161  get_var_ref_check 2: Oe
+   164  get_field errorMessageContainer
+   197  call_method #args=2
+   200  drop
+   201  get_var_ref_check 0: t
+   204  get_field2 beginRender
+   237  get_var_ref_check 3: n
+   240  undefined
+   241  call_method #args=2
+   244  drop
+   245  get_var_ref_check 0: t
+   248  get_field2 setAttributeStyle
+   281  push_atom_value style
+   286  get_var_ref_check 2: Oe
+   289  get_field errorMessageText
+   322  call_method #args=2
+   325  drop
+   326  get_var_ref_check 0: t
+   329  get_field2 setAttributeString
+   362  push_atom_value value
+   367  get_loc0 0: this
+   368  get_field state
+   401  get_field message
+   434  call_method #args=2
+   437  drop
+   438  get_var_ref_check 0: t
+   441  get_field2 endRender
+   474  call_method #args=0
+   477  drop
+   478  get_var_ref_check 0: t
+   481  get_field2 endRender
+   514  call_method #args=0
+   517  drop
+   518  return_undef
+L  519  get_var_ref_check 0: t
+   522  get_field2 renderUnnamedSlot
+   555  get_loc0 0: this
+   556  call_method #args=1
+   559  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=0 bc=300B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, this
+   closure: Ie
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_arg0 0: e
+     6  get_field message  ;+28B
+    39  put_loc0 0: t
+    40  get_var_ref0 0: Ie
+    41  get_loc1 1: this
+    42  get_field viewModel
+    75  get_field host
+   108  get_loc1 1: this
+   109  get_field viewModel
+   142  get_field actionHandler
+   175  get_loc_check 0: t
+   178  call3 #args=3
+   179  drop
+   180  undefined
+   181  get_loc1 1: this
+   182  get_field state
+   215  get_field message
+   248  strict_eq
+   249  dup
+   250  if_false8 -> 012b
+   252  drop
+   253  get_loc1 1: this
+   254  get_field2 setState
+   287  object
+   288  get_loc_check 0: t
+   291  define_field message
+   296  call_method #args=1
+L  299  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=43B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: this, W
+     0  get_var_ref_check 0: this
+     3  get_field2 addConnector  ;+28B
+    36  get_var_ref_check 1: W
+    39  call_method #args=1
+    42  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=3 cpool=1 bc=191B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this, this.active_func, new.target, arguments
+   closure: W, <class_fields_init>, F
+     0  special_object 2
+     2  put_loc1 1: this.active_func
+     3  special_object 3
+     5  put_loc2 2: new.target
+     6  set_loc_uninitialized 0: this
+     9  special_object 0
+    11  put_loc3 3: arguments
+    12  check_ctor
+    13  get_loc1 1: this.active_func
+    14  get_super
+    15  get_loc2 2: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc3 3: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 0: this
+    30  get_var_ref_check 1: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 0: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 0: this
+    48  object
+    49  push_atom_value loading
+    54  define_field state
+    59  array_from #args=0
+    62  define_field rows
+    67  put_field state
+    76  get_loc_check 0: this
+    79  push_0 0
+    80  put_field requestSequence
+    89  get_loc_check 0: this
+    92  push_1 1
+    93  lnot
+    94  put_field didStartHostLoad
+   103  get_loc_check 0: this
+   106  get_var_ref_check 2: F
+   109  get_field createOlympicViewSessionId
+   142  call0 #args=0
+   143  put_field viewSessionId
+   152  get_loc_check 0: this
+   155  get_var Map
+   160  dup
+   161  call_constructor #args=0
+   164  put_field providerLogoAssets
+   173  get_loc_check 0: this
+   176  fclosure8 0: <function <atom:0>>
+   178  put_field handleAddDefaultConnector
+   187  get_loc_check 0: this
+   190  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=199B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+   closure: F
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: F
+     5  get_field trackOlympicNavigationPageViewed  ;+28B
+    38  get_loc0 0: this
+    39  get_field context
+    72  dup
+    73  is_undefined_or_null
+    74  if_false8 -> 0050
+    76  drop
+    77  undefined
+    78  goto8 -> 0071
+L   80  get_field host
+L  113  push_atom_value connections
+   118  push_atom_value connections
+   123  get_loc0 0: this
+   124  get_field viewSessionId
+   157  call #args=4
+   160  drop
+   161  get_loc0 0: this
+   162  get_field2 loadFromHost
+   195  call_method #args=0
+   198  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=439B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+   closure: ve
+     0  push_this
+     1  put_loc0 0: this
+     2  undefined
+     3  get_loc0 0: this
+     4  get_field context  ;+28B
+    37  dup
+    38  is_undefined_or_null
+    39  if_false8 -> 002d
+    41  drop
+    42  undefined
+    43  goto8 -> 004e
+L   45  get_field host
+L   78  strict_eq
+    79  if_false -> 0191
+    84  get_loc0 0: this
+    85  get_field2 setState
+   118  object
+   119  get_loc0 0: this
+   120  get_field viewModel
+   153  get_field state
+   186  define_field state
+   191  get_loc0 0: this
+   192  get_field viewModel
+   225  get_field errorMessage
+   258  define_field errorMessage
+   263  get_loc0 0: this
+   264  get_field viewModel
+   297  get_field rows
+   330  get_field2 map
+   363  get_var_ref0 0: ve
+   364  call_method #args=1
+   367  define_field rows
+   372  undefined
+   373  define_field openActionConnectionID
+   378  undefined
+   379  define_field pendingConnectionID
+   384  undefined
+   385  define_field pendingActionKind
+   390  undefined
+   391  define_field actionErrorConnectionID
+   396  call_method #args=1
+   399  goto8 -> 01b6
+L  401  get_loc0 0: this
+   402  get_field2 scheduleHostLoad
+   435  call_method #args=0
+L  438  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=7 cpool=0 bc=647B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: t, d, Oe, s, a, U, this
+     0  get_var_ref_check 0: t
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 1: d
+    39  undefined
+    40  call_method #args=2
+    43  drop
+    44  get_var_ref_check 0: t
+    47  get_field2 setAttributeStyle
+    80  push_atom_value style
+    85  get_var_ref_check 2: Oe
+    88  get_field root
+   121  call_method #args=2
+   124  drop
+   125  get_var_ref_check 0: t
+   128  get_field2 beginRender
+   161  get_var_ref_check 3: s
+   164  undefined
+   165  call_method #args=2
+   168  drop
+   169  get_var_ref_check 0: t
+   172  get_field2 setAttributeStyle
+   205  push_atom_value style
+   210  get_var_ref_check 2: Oe
+   213  get_field scroll
+   246  call_method #args=2
+   249  drop
+   250  get_var_ref_check 0: t
+   253  get_field2 beginRender
+   286  get_var_ref_check 4: a
+   289  undefined
+   290  call_method #args=2
+   293  drop
+   294  get_var_ref_check 0: t
+   297  get_field2 setAttributeStyle
+   330  push_atom_value style
+   335  get_var_ref_check 5: U
+   338  get_field Device
+   371  get_field2 isIOS
+   404  call_method #args=0
+   407  if_false8 -> 01bf
+   409  get_var_ref_check 2: Oe
+   412  get_field contentWithNativeBottomClearance
+   445  goto8 -> 01e3
+L  447  get_var_ref_check 2: Oe
+   450  get_field content
+L  483  call_method #args=2
+   486  drop
+   487  get_var_ref 6: this
+   490  get_field2 renderList
+   523  call_method #args=0
+   526  drop
+   527  get_var_ref_check 0: t
+   530  get_field2 endRender
+   563  call_method #args=0
+   566  drop
+   567  get_var_ref_check 0: t
+   570  get_field2 endRender
+   603  call_method #args=0
+   606  drop
+   607  get_var_ref_check 0: t
+   610  get_field2 endRender
+   643  call_method #args=0
+   646  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=9 cpool=1 bc=374B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: t, d, Oe, s, a, U, this, OlympicConnectionsErrorBoundary, r
+     0  get_var_ref_check 0: t
+     3  get_field2 beginComponent  ;+28B
+    36  get_var_ref_check 7: OlympicConnectionsErrorBoundary
+    39  get_var_ref_check 8: r
+    42  undefined
+    43  undefined
+    44  call_method #args=4
+    47  drop
+    48  get_var_ref_check 0: t
+    51  get_field2 setViewModelProperty
+    84  push_atom_value host
+    89  get_var_ref 6: this
+    92  get_field context
+   125  dup
+   126  is_undefined_or_null
+   127  if_false8 -> 0085
+   129  drop
+   130  undefined
+   131  goto8 -> 00a6
+L  133  get_field host
+L  166  call_method #args=2
+   169  drop
+   170  get_var_ref_check 0: t
+   173  get_field2 setViewModelProperty
+   206  push_atom_value actionHandler
+   211  get_var_ref 6: this
+   214  get_field context
+   247  dup
+   248  is_undefined_or_null
+   249  if_false8 -> 00ff
+   251  drop
+   252  undefined
+   253  goto8 -> 0120
+L  255  get_field actionHandler
+L  288  call_method #args=2
+   291  drop
+   292  get_var_ref_check 0: t
+   295  get_field2 setUnnamedSlot
+   328  fclosure8 0: <function <atom:0>>
+   330  call_method #args=1
+   333  drop
+   334  get_var_ref_check 0: t
+   337  get_field2 endComponent
+   370  call_method #args=0
+   373  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=10 cpool=1 bc=317B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+   closure: t, d, Oe, s, a, U, OlympicConnectionsErrorBoundary, r, E, i
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 scheduleHostLoad  ;+28B
+    36  call_method #args=0
+    39  drop
+    40  get_var_ref_check 0: t
+    43  get_field2 beginComponent
+    76  get_var_ref_check 8: E
+    79  get_field OAITheme
+   112  get_var_ref_check 9: i
+   115  undefined
+   116  undefined
+   117  call_method #args=4
+   120  drop
+   121  get_var_ref_check 0: t
+   124  get_field2 setViewModelProperty
+   157  push_atom_value mode
+   162  get_var_ref_check 8: E
+   165  get_field OAIThemeMode
+   198  get_field System
+   231  call_method #args=2
+   234  drop
+   235  get_var_ref_check 0: t
+   238  get_field2 setUnnamedSlot
+   271  fclosure8 0: <function <atom:0>>
+   273  call_method #args=1
+   276  drop
+   277  get_var_ref_check 0: t
+   280  get_field2 endComponent
+   313  call_method #args=0
+   316  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=3 cpool=0 bc=243B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+   closure: t, c, Oe
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: t
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: c
+    41  undefined
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: t
+    49  get_field2 setAttributeStyle
+    82  push_atom_value style
+    87  get_var_ref_check 2: Oe
+    90  get_field list
+   123  call_method #args=2
+   126  drop
+   127  get_loc0 0: this
+   128  get_field2 renderAddConnectionRow
+   161  call_method #args=0
+   164  drop
+   165  get_loc0 0: this
+   166  get_field2 renderBody
+   199  call_method #args=0
+   202  drop
+   203  get_var_ref_check 0: t
+   206  get_field2 endRender
+   239  call_method #args=0
+   242  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=528B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+   closure: Ie
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field state  ;+28B
+    36  get_field state
+    69  dup
+    70  push_atom_value loading
+    75  strict_eq
+    76  if_false8 -> 0075
+    78  get_loc0 0: this
+    79  get_field2 renderLoadingRows
+   112  call_method #args=0
+   115  drop
+   116  return_undef
+L  117  dup
+   118  push_atom_value error
+   123  strict_eq
+   124  if_false8 -> 00a5
+   126  get_loc0 0: this
+   127  get_field2 renderErrorState
+   160  call_method #args=0
+   163  drop
+   164  return_undef
+L  165  dup
+   166  push_atom_value empty
+   171  strict_eq
+   172  if_false8 -> 00af
+   174  return_undef
+L  175  dup
+   176  push_atom_value loaded
+   181  strict_eq
+   182  if_false8 -> 00df
+   184  get_loc0 0: this
+   185  get_field2 renderLoadedRows
+   218  call_method #args=0
+   221  drop
+   222  return_undef
+L  223  get_var_ref0 0: Ie
+   224  get_loc0 0: this
+   225  get_field context
+   258  dup
+   259  is_undefined_or_null
+   260  if_false8 -> 010a
+   262  drop
+   263  undefined
+   264  goto8 -> 012b
+L  266  get_field host
+L  299  get_loc0 0: this
+   300  get_field context
+   333  dup
+   334  is_undefined_or_null
+   335  if_false8 -> 0155
+   337  drop
+   338  undefined
+   339  goto8 -> 0176
+L  341  get_field actionHandler
+L  374  push_atom_value Unsupported Olympic connections state: 
+   379  get_field2 concat
+   412  get_loc0 0: this
+   413  get_field state
+   446  get_field state
+   479  call_method #args=1
+   482  call3 #args=3
+   483  drop
+   484  get_loc0 0: this
+   485  get_field2 renderErrorMessage
+   518  push_atom_value Failed to list account connections
+   523  call_method #args=1
+   526  drop
+   527  return_undef
+
+-- fn name=<atom:0> args=2 vars=0 closure=1 cpool=0 bc=38B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field2 renderSkeletonRow  ;+28B
+    34  get_arg1 1: t
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=1 closure=3 cpool=1 bc=254B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+   closure: t, l, Oe
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: t
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: l
+    41  undefined
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: t
+    49  get_field2 setAttributeStyle
+    82  push_atom_value style
+    87  get_var_ref_check 2: Oe
+    90  get_field skeletonList
+   123  call_method #args=2
+   126  drop
+   127  get_var Array
+   132  get_field2 from
+   165  object
+   166  push_2 2
+   167  define_field length
+   172  call_method #args=1
+   175  get_field2 map
+   208  fclosure8 0: <function <atom:0>>
+   210  call_method #args=1
+   213  drop
+   214  get_var_ref_check 0: t
+   217  get_field2 endRender
+   250  call_method #args=0
+   253  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=7 cpool=0 bc=866B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+   closure: t, g, Oe, u, h, y, p
+     0  get_var_ref_check 0: t
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 1: g
+    39  push_atom_value skeleton-
+    44  get_field2 concat
+    77  get_arg0 0: e
+    78  call_method #args=1
+    81  call_method #args=2
+    84  drop
+    85  get_var_ref_check 0: t
+    88  get_field2 setAttributeStyle
+   121  push_atom_value style
+   126  get_var_ref_check 2: Oe
+   129  get_field row
+   162  call_method #args=2
+   165  drop
+   166  get_var_ref_check 0: t
+   169  get_field2 beginRender
+   202  get_var_ref_check 3: u
+   205  undefined
+   206  call_method #args=2
+   209  drop
+   210  get_var_ref_check 0: t
+   213  get_field2 setAttributeStyle
+   246  push_atom_value style
+   251  get_var_ref_check 2: Oe
+   254  get_field skeletonBadge
+   287  call_method #args=2
+   290  drop
+   291  get_var_ref_check 0: t
+   294  get_field2 endRender
+   327  call_method #args=0
+   330  drop
+   331  get_var_ref_check 0: t
+   334  get_field2 beginRender
+   367  get_var_ref_check 4: h
+   370  undefined
+   371  call_method #args=2
+   374  drop
+   375  get_var_ref_check 0: t
+   378  get_field2 setAttributeStyle
+   411  push_atom_value style
+   416  get_var_ref_check 2: Oe
+   419  get_field textColumn
+   452  call_method #args=2
+   455  drop
+   456  get_var_ref_check 0: t
+   459  get_field2 beginRender
+   492  get_var_ref_check 5: y
+   495  undefined
+   496  call_method #args=2
+   499  drop
+   500  get_var_ref_check 0: t
+   503  get_field2 setAttributeStyle
+   536  push_atom_value style
+   541  get_var_ref_check 2: Oe
+   544  get_field skeletonTitle
+   577  call_method #args=2
+   580  drop
+   581  get_var_ref_check 0: t
+   584  get_field2 endRender
+   617  call_method #args=0
+   620  drop
+   621  get_var_ref_check 0: t
+   624  get_field2 beginRender
+   657  get_var_ref_check 6: p
+   660  undefined
+   661  call_method #args=2
+   664  drop
+   665  get_var_ref_check 0: t
+   668  get_field2 setAttributeStyle
+   701  push_atom_value style
+   706  get_var_ref_check 2: Oe
+   709  get_field skeletonSubtitle
+   742  call_method #args=2
+   745  drop
+   746  get_var_ref_check 0: t
+   749  get_field2 endRender
+   782  call_method #args=0
+   785  drop
+   786  get_var_ref_check 0: t
+   789  get_field2 endRender
+   822  call_method #args=0
+   825  drop
+   826  get_var_ref_check 0: t
+   829  get_field2 endRender
+   862  call_method #args=0
+   865  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=45B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 renderErrorMessage  ;+28B
+    36  push_atom_value Failed to list account connections
+    41  call_method #args=1
+    44  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=4 cpool=0 bc=376B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+   closure: t, v, Oe, m
+     0  get_var_ref_check 0: t
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 1: v
+    39  undefined
+    40  call_method #args=2
+    43  drop
+    44  get_var_ref_check 0: t
+    47  get_field2 setAttributeStyle
+    80  push_atom_value style
+    85  get_var_ref_check 2: Oe
+    88  get_field errorMessageContainer
+   121  call_method #args=2
+   124  drop
+   125  get_var_ref_check 0: t
+   128  get_field2 beginRender
+   161  get_var_ref_check 3: m
+   164  undefined
+   165  call_method #args=2
+   168  drop
+   169  get_var_ref_check 0: t
+   172  get_field2 setAttributeStyle
+   205  push_atom_value style
+   210  get_var_ref_check 2: Oe
+   213  get_field errorMessageText
+   246  call_method #args=2
+   249  drop
+   250  get_var_ref_check 0: t
+   253  get_field2 setAttributeString
+   286  push_atom_value value
+   291  get_arg0 0: e
+   292  call_method #args=2
+   295  drop
+   296  get_var_ref_check 0: t
+   299  get_field2 endRender
+   332  call_method #args=0
+   335  drop
+   336  get_var_ref_check 0: t
+   339  get_field2 endRender
+   372  call_method #args=0
+   375  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=38B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field2 renderConnectionRow  ;+28B
+    34  get_arg0 0: e
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=1 bc=108B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field state  ;+28B
+    36  get_field rows
+    69  get_field2 map
+   102  fclosure8 0: <function <atom:0>>
+   104  call_method #args=1
+   107  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=8 cpool=0 bc=1002B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+   closure: t, b, Oe, oe, w, S, A, C
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: t
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: b
+    41  undefined
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: t
+    49  get_field2 setAttributeStyle
+    82  push_atom_value style
+    87  get_var_ref_check 2: Oe
+    90  get_field addRow
+   123  call_method #args=2
+   126  drop
+   127  get_var_ref_check 0: t
+   130  get_field2 setAttributeString
+   163  push_atom_value accessibilityLabel
+   168  get_var_ref_check 3: oe
+   171  call_method #args=2
+   174  drop
+   175  get_var_ref_check 0: t
+   178  get_field2 setAttributeFunction
+   211  push_atom_value onTap
+   216  get_loc0 0: this
+   217  get_field handleAddDefaultConnector
+   250  call_method #args=2
+   253  drop
+   254  get_var_ref_check 0: t
+   257  get_field2 beginRender
+   290  get_var_ref_check 4: w
+   293  undefined
+   294  call_method #args=2
+   297  drop
+   298  get_var_ref_check 0: t
+   301  get_field2 setAttributeStyle
+   334  push_atom_value style
+   339  get_var_ref_check 2: Oe
+   342  get_field addBadge
+   375  call_method #args=2
+   378  drop
+   379  get_var_ref_check 0: t
+   382  get_field2 beginRender
+   415  get_var_ref_check 5: S
+   418  undefined
+   419  call_method #args=2
+   422  drop
+   423  get_var_ref_check 0: t
+   426  get_field2 setAttributeStyle
+   459  push_atom_value style
+   464  get_var_ref_check 2: Oe
+   467  get_field addBadgePlusHorizontal
+   500  call_method #args=2
+   503  drop
+   504  get_var_ref_check 0: t
+   507  get_field2 endRender
+   540  call_method #args=0
+   543  drop
+   544  get_var_ref_check 0: t
+   547  get_field2 beginRender
+   580  get_var_ref_check 6: A
+   583  undefined
+   584  call_method #args=2
+   587  drop
+   588  get_var_ref_check 0: t
+   591  get_field2 setAttributeStyle
+   624  push_atom_value style
+   629  get_var_ref_check 2: Oe
+   632  get_field addBadgePlusVertical
+   665  call_method #args=2
+   668  drop
+   669  get_var_ref_check 0: t
+   672  get_field2 endRender
+   705  call_method #args=0
+   708  drop
+   709  get_var_ref_check 0: t
+   712  get_field2 endRender
+   745  call_method #args=0
+   748  drop
+   749  get_var_ref_check 0: t
+   752  get_field2 beginRender
+   785  get_var_ref_check 7: C
+   788  undefined
+   789  call_method #args=2
+   792  drop
+   793  get_var_ref_check 0: t
+   796  get_field2 setAttributeStyle
+   829  push_atom_value style
+   834  get_var_ref_check 2: Oe
+   837  get_field addRowLabel
+   870  call_method #args=2
+   873  drop
+   874  get_var_ref_check 0: t
+   877  get_field2 setAttributeString
+   910  push_atom_value value
+   915  get_var_ref_check 3: oe
+   918  call_method #args=2
+   921  drop
+   922  get_var_ref_check 0: t
+   925  get_field2 endRender
+   958  call_method #args=0
+   961  drop
+   962  get_var_ref_check 0: t
+   965  get_field2 endRender
+   998  call_method #args=0
+  1001  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=7 cpool=0 bc=1358B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, o, this
+   closure: Ce, t, f, Oe, R, I, k
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: o
+     5  get_var_ref0 0: Ce
+     6  get_arg0 0: e
+     7  get_loc1 1: this
+     8  get_field state  ;+28B
+    41  get_field pendingConnectionID
+    74  get_loc1 1: this
+    75  get_field state
+   108  get_field pendingActionKind
+   141  get_loc1 1: this
+   142  get_field state
+   175  get_field actionErrorConnectionID
+   208  call #args=4
+   211  put_loc0 0: o
+   212  get_var_ref_check 1: t
+   215  get_field2 beginRender
+   248  get_var_ref_check 2: f
+   251  get_arg0 0: e
+   252  get_field id
+   285  call_method #args=2
+   288  drop
+   289  get_var_ref_check 1: t
+   292  get_field2 setAttributeStyle
+   325  push_atom_value style
+   330  get_var_ref_check 3: Oe
+   333  get_field row
+   366  call_method #args=2
+   369  drop
+   370  get_loc1 1: this
+   371  get_field2 renderProviderBadge
+   404  get_arg0 0: e
+   405  call_method #args=1
+   408  drop
+   409  get_var_ref_check 1: t
+   412  get_field2 beginRender
+   445  get_var_ref_check 4: R
+   448  undefined
+   449  call_method #args=2
+   452  drop
+   453  get_var_ref_check 1: t
+   456  get_field2 setAttributeStyle
+   489  push_atom_value style
+   494  get_var_ref_check 3: Oe
+   497  get_field textColumn
+   530  call_method #args=2
+   533  drop
+   534  get_var_ref_check 1: t
+   537  get_field2 beginRender
+   570  get_var_ref_check 5: I
+   573  undefined
+   574  call_method #args=2
+   577  drop
+   578  get_var_ref_check 1: t
+   581  get_field2 setAttributeStyle
+   614  push_atom_value style
+   619  get_var_ref_check 3: Oe
+   622  get_field rowTitle
+   655  call_method #args=2
+   658  drop
+   659  get_var_ref_check 1: t
+   662  get_field2 setAttributeString
+   695  push_atom_value value
+   700  get_arg0 0: e
+   701  get_field title
+   734  call_method #args=2
+   737  drop
+   738  get_var_ref_check 1: t
+   741  get_field2 endRender
+   774  call_method #args=0
+   777  drop
+   778  undefined
+   779  get_loc_check 0: o
+   782  strict_neq
+   783  dup
+   784  if_false -> 03ea
+   789  drop
+   790  get_var_ref_check 1: t
+   793  get_field2 beginRender
+   826  get_var_ref_check 6: k
+   829  undefined
+   830  call_method #args=2
+   833  drop
+   834  get_var_ref_check 1: t
+   837  get_field2 setAttributeStyle
+   870  push_atom_value style
+   875  get_var_ref_check 3: Oe
+   878  get_field rowSubtitle
+   911  call_method #args=2
+   914  drop
+   915  get_var_ref_check 1: t
+   918  get_field2 setAttributeString
+   951  push_atom_value value
+   956  get_loc_check 0: o
+   959  call_method #args=2
+   962  drop
+   963  get_var_ref_check 1: t
+   966  get_field2 endRender
+   999  call_method #args=0
+L 1002  drop
+  1003  get_var_ref_check 1: t
+  1006  get_field2 endRender
+  1039  call_method #args=0
+  1042  drop
+  1043  push_atom_value account
+  1048  get_arg0 0: e
+  1049  get_field kind
+  1082  strict_eq
+  1083  dup
+  1084  if_false8 -> 0465
+  1086  drop
+  1087  get_loc1 1: this
+  1088  get_field2 renderEllipsisButton
+  1121  get_arg0 0: e
+  1122  call_method #args=1
+L 1125  drop
+  1126  get_var_ref_check 1: t
+  1129  get_field2 endRender
+  1162  call_method #args=0
+  1165  drop
+  1166  push_atom_value account
+  1171  get_arg0 0: e
+  1172  get_field kind
+  1205  strict_eq
+  1206  dup
+  1207  if_false -> 054d
+  1212  drop
+  1213  get_loc1 1: this
+  1214  get_field state
+  1247  get_field openActionConnectionID
+  1280  get_arg0 0: e
+  1281  get_field id
+  1314  strict_eq
+  1315  dup
+  1316  if_false8 -> 054d
+  1318  drop
+  1319  get_loc1 1: this
+  1320  get_field2 renderActionPanel
+  1353  get_arg0 0: e
+  1354  call_method #args=1
+L 1357  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=10 cpool=0 bc=1514B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, o, this
+   closure: t, D, Oe, P, J, x, N, O, T, z
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: o
+     5  push_atom_value appleHealth
+    10  get_arg0 0: e
+    11  get_field kind  ;+28B
+    44  strict_eq
+    45  if_false -> 01ef
+    50  get_var_ref_check 0: t
+    53  get_field2 beginRender
+    86  get_var_ref_check 1: D
+    89  undefined
+    90  call_method #args=2
+    93  drop
+    94  get_var_ref_check 0: t
+    97  get_field2 setAttributeStyle
+   130  push_atom_value style
+   135  get_var_ref_check 2: Oe
+   138  get_field appleHealthBadge
+   171  call_method #args=2
+   174  drop
+   175  get_var_ref_check 0: t
+   178  get_field2 beginRender
+   211  get_var_ref_check 3: P
+   214  undefined
+   215  call_method #args=2
+   218  drop
+   219  get_var_ref_check 0: t
+   222  get_field2 setAttributeStyle
+   255  push_atom_value style
+   260  get_var_ref_check 2: Oe
+   263  get_field appleHealthIcon
+   296  call_method #args=2
+   299  drop
+   300  get_var_ref_check 0: t
+   303  get_field2 setAttribute
+   336  push_atom_value src
+   341  get_var_ref_check 4: J
+   344  get_field default
+   377  get_field appleHealth
+   410  call_method #args=2
+   413  drop
+   414  get_var_ref_check 0: t
+   417  get_field2 endRender
+   450  call_method #args=0
+   453  drop
+   454  get_var_ref_check 0: t
+   457  get_field2 endRender
+   490  call_method #args=0
+   493  drop
+   494  return_undef
+L  495  get_loc1 1: this
+   496  get_field2 providerLogoAsset
+   529  get_arg0 0: e
+   530  get_field providerLogoBase64
+   563  call_method #args=1
+   566  put_loc0 0: o
+   567  undefined
+   568  get_loc_check 0: o
+   571  strict_neq
+   572  if_false -> 03bc
+   577  get_var_ref_check 0: t
+   580  get_field2 beginRender
+   613  get_var_ref_check 5: x
+   616  undefined
+   617  call_method #args=2
+   620  drop
+   621  get_var_ref_check 0: t
+   624  get_field2 setAttributeStyle
+   657  push_atom_value style
+   662  get_var_ref_check 2: Oe
+   665  get_field providerBadge
+   698  call_method #args=2
+   701  drop
+   702  get_var_ref_check 0: t
+   705  get_field2 beginRender
+   738  get_var_ref_check 6: N
+   741  undefined
+   742  call_method #args=2
+   745  drop
+   746  get_var_ref_check 0: t
+   749  get_field2 setAttributeStyle
+   782  push_atom_value style
+   787  get_var_ref_check 2: Oe
+   790  get_field providerLogoImage
+   823  call_method #args=2
+   826  drop
+   827  get_var_ref_check 0: t
+   830  get_field2 setAttribute
+   863  push_atom_value src
+   868  get_loc_check 0: o
+   871  call_method #args=2
+   874  drop
+   875  get_var_ref_check 0: t
+   878  get_field2 endRender
+   911  call_method #args=0
+   914  drop
+   915  get_var_ref_check 0: t
+   918  get_field2 endRender
+   951  call_method #args=0
+   954  drop
+   955  return_undef
+L  956  get_var_ref_check 0: t
+   959  get_field2 beginRender
+   992  get_var_ref_check 7: O
+   995  undefined
+   996  call_method #args=2
+   999  drop
+  1000  get_var_ref_check 0: t
+  1003  get_field2 setAttributeStyle
+  1036  push_atom_value style
+  1041  get_var_ref_check 2: Oe
+  1044  get_field providerBadge
+  1077  call_method #args=2
+  1080  drop
+  1081  get_var_ref_check 0: t
+  1084  get_field2 beginRender
+  1117  get_var_ref_check 8: T
+  1120  undefined
+  1121  call_method #args=2
+  1124  drop
+  1125  get_var_ref_check 0: t
+  1128  get_field2 setAttributeStyle
+  1161  push_atom_value style
+  1166  get_var_ref_check 2: Oe
+  1169  get_field providerFallbackIcon
+  1202  call_method #args=2
+  1205  drop
+  1206  get_var_ref_check 0: t
+  1209  get_field2 setAttribute
+  1242  push_atom_value src
+  1247  get_var_ref_check 4: J
+  1250  get_field default
+  1283  get_field building
+  1316  call_method #args=2
+  1319  drop
+  1320  get_var_ref_check 0: t
+  1323  get_field2 setAttributeString
+  1356  push_atom_value tint
+  1361  get_var_ref_check 9: z
+  1364  get_field OAIColor
+  1397  get_field IconTertiary
+  1430  call_method #args=2
+  1433  drop
+  1434  get_var_ref_check 0: t
+  1437  get_field2 endRender
+  1470  call_method #args=0
+  1473  drop
+  1474  get_var_ref_check 0: t
+  1477  get_field2 endRender
+  1510  call_method #args=0
+  1513  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=71B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: this, e
+     0  get_var_ref0 0: this
+     1  get_field2 toggleActionPanel  ;+28B
+    34  get_var_ref1 1: e
+    35  get_field id
+    68  tail_call_method #args=1
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=39B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: t
+   closure: this, e
+     0  get_var_ref0 0: this
+     1  get_field2 handleMenuAction  ;+28B
+    34  get_var_ref1 1: e
+    35  get_arg0 0: t
+    36  tail_call_method #args=2
+
+-- fn name=<atom:0> args=1 vars=1 closure=5 cpool=2 bc=499B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, this
+   closure: t, _, L, fe, z
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: t
+     5  get_field2 beginComponent  ;+28B
+    38  get_var_ref_check 1: _
+    41  get_field NativeMenuButton
+    74  get_var_ref_check 2: L
+    77  undefined
+    78  undefined
+    79  call_method #args=4
+    82  drop
+    83  get_var_ref_check 0: t
+    86  get_field2 setViewModelProperty
+   119  push_atom_value accessibilityLabel
+   124  push_atom_value More actions for 
+   129  get_field2 concat
+   162  get_arg0 0: e
+   163  get_field title
+   196  call_method #args=1
+   199  call_method #args=2
+   202  drop
+   203  get_var_ref_check 0: t
+   206  get_field2 setViewModelProperty
+   239  push_atom_value actions
+   244  get_var_ref3 3: fe
+   245  get_arg0 0: e
+   246  call1 #args=1
+   247  call_method #args=2
+   250  drop
+   251  get_var_ref_check 0: t
+   254  get_field2 setViewModelProperty
+   287  push_atom_value foregroundColor
+   292  get_var_ref_check 4: z
+   295  get_field OAIColor
+   328  get_field IconPrimary
+   361  call_method #args=2
+   364  drop
+   365  get_var_ref_check 0: t
+   368  get_field2 setViewModelProperty
+   401  push_atom_value onFallbackTap
+   406  fclosure8 0: <function <atom:0>>
+   408  call_method #args=2
+   411  drop
+   412  get_var_ref_check 0: t
+   415  get_field2 setViewModelProperty
+   448  push_atom_value onSelect
+   453  fclosure8 1: <function <atom:0>>
+   455  call_method #args=2
+   458  drop
+   459  get_var_ref_check 0: t
+   462  get_field2 endComponent
+   495  call_method #args=0
+   498  return_undef
+
+-- fn name=<atom:0> args=1 vars=4 closure=3 cpool=0 bc=514B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: t, o, e, n, this
+   closure: he, q, e
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 0: o
+     5  get_var_ref0 0: he
+     6  get_arg0 0: t
+     7  call1 #args=1
+     8  put_loc0 0: o
+     9  undefined
+    10  get_loc_check 0: o
+    13  strict_neq
+    14  if_false -> 0201
+    19  get_loc3 3: this
+    20  get_field providerLogoAssets  ;+28B
+    53  get_field2 has
+    86  get_loc_check 0: o
+    89  call_method #args=1
+    92  if_false8 -> 00a7
+    94  get_loc3 3: this
+    95  get_field providerLogoAssets
+   128  get_field2 get
+   161  get_loc_check 0: o
+   164  tail_call_method #args=1
+L  167  catch -> 012a
+   172  set_loc_uninitialized 1: e
+   175  get_var_ref_check 1: q
+   178  get_field makeAssetFromUrl
+   211  get_loc_check 0: o
+   214  call1 #args=1
+   215  put_loc1 1: e
+   216  get_loc3 3: this
+   217  get_field providerLogoAssets
+   250  get_field2 set
+   283  get_loc_check 0: o
+   286  get_loc_check 1: e
+   289  call_method #args=2
+   292  drop
+   293  get_loc_check 1: e
+   296  nip_catch
+   297  return
+L  298  put_loc2 2: n
+   299  catch -> 0200
+   304  get_var_ref_check 2: e
+   307  get_field isLoggingEnabled
+   340  dup
+   341  if_false8 -> 01b1
+   343  drop
+   344  get_var console
+   349  get_field2 warn
+   382  push_atom_value Failed to create Olympic provider logo asset: 
+   387  get_field2 concat
+   420  get_var String
+   425  get_loc2 2: n
+   426  call1 #args=1
+   427  call_method #args=1
+   430  call_method #args=1
+L  433  drop
+   434  get_loc3 3: this
+   435  get_field providerLogoAssets
+   468  get_field2 set
+   501  get_loc_check 0: o
+   504  undefined
+   505  call_method #args=2
+   508  drop
+   509  undefined
+   510  nip_catch
+   511  return
+L  512  throw
+L  513  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=38B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: this, e
+     0  get_var_ref0 0: this
+     1  get_field2 handleReconnect  ;+28B
+    34  get_var_ref1 1: e
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=38B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: this, e
+     0  get_var_ref0 0: this
+     1  get_field2 handleSync  ;+28B
+    34  get_var_ref1 1: e
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=38B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: this, e
+     0  get_var_ref0 0: this
+     1  get_field2 handleRemove  ;+28B
+    34  get_var_ref1 1: e
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=1 vars=1 closure=3 cpool=3 bc=426B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, this
+   closure: t, B, Oe
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: t
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: B
+    41  push_empty_string
+    42  get_field2 concat
+    75  get_arg0 0: e
+    76  get_field id
+   109  push_atom_value -actions
+   114  call_method #args=2
+   117  call_method #args=2
+   120  drop
+   121  get_var_ref_check 0: t
+   124  get_field2 setAttributeStyle
+   157  push_atom_value style
+   162  get_var_ref_check 2: Oe
+   165  get_field actionPanel
+   198  call_method #args=2
+   201  drop
+   202  push_atom_value expired
+   207  get_arg0 0: e
+   208  get_field connectionState
+   241  strict_eq
+   242  if_false8 -> 0124
+   244  get_loc0 0: this
+   245  get_field2 renderPanelAction
+   278  push_atom_value Reconnect
+   283  fclosure8 0: <function <atom:0>>
+   285  push_1 1
+   286  lnot
+   287  call_method #args=3
+   290  goto8 -> 0152
+L  292  get_loc0 0: this
+   293  get_field2 renderPanelAction
+   326  push_atom_value Sync now
+   331  fclosure8 1: <function <atom:0>>
+   333  push_1 1
+   334  lnot
+   335  call_method #args=3
+L  338  drop
+   339  get_loc0 0: this
+   340  get_field2 renderPanelAction
+   373  push_atom_value Remove account
+   378  fclosure8 2: <function <atom:0>>
+   380  push_0 0
+   381  lnot
+   382  call_method #args=3
+   385  drop
+   386  get_var_ref_check 0: t
+   389  get_field2 endRender
+   422  call_method #args=0
+   425  return_undef
+
+-- fn name=<atom:0> args=3 vars=0 closure=4 cpool=0 bc=509B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, o, n
+   closure: t, H, Oe, M
+     0  get_var_ref_check 0: t
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 1: H
+    39  undefined
+    40  call_method #args=2
+    43  drop
+    44  get_var_ref_check 0: t
+    47  get_field2 setAttributeStyle
+    80  push_atom_value style
+    85  get_var_ref_check 2: Oe
+    88  get_field panelAction
+   121  call_method #args=2
+   124  drop
+   125  get_var_ref_check 0: t
+   128  get_field2 setAttributeString
+   161  push_atom_value accessibilityLabel
+   166  get_arg0 0: e
+   167  call_method #args=2
+   170  drop
+   171  get_var_ref_check 0: t
+   174  get_field2 setAttributeFunction
+   207  push_atom_value onTap
+   212  get_arg1 1: o
+   213  call_method #args=2
+   216  drop
+   217  get_var_ref_check 0: t
+   220  get_field2 beginRender
+   253  get_var_ref_check 3: M
+   256  undefined
+   257  call_method #args=2
+   260  drop
+   261  get_var_ref_check 0: t
+   264  get_field2 setAttributeStyle
+   297  push_atom_value style
+   302  get_arg2 2: n
+   303  if_false8 -> 0157
+   305  get_var_ref_check 2: Oe
+   308  get_field panelActionLabelDestructive
+   341  goto8 -> 017b
+L  343  get_var_ref_check 2: Oe
+   346  get_field panelActionLabel
+L  379  call_method #args=2
+   382  drop
+   383  get_var_ref_check 0: t
+   386  get_field2 setAttributeString
+   419  push_atom_value value
+   424  get_arg0 0: e
+   425  call_method #args=2
+   428  drop
+   429  get_var_ref_check 0: t
+   432  get_field2 endRender
+   465  call_method #args=0
+   468  drop
+   469  get_var_ref_check 0: t
+   472  get_field2 endRender
+   505  call_method #args=0
+   508  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=160B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 setState  ;+28B
+    36  object
+    37  get_loc0 0: this
+    38  get_field state
+    71  null
+    72  copy_data_properties 6
+    74  drop
+    75  drop
+    76  get_loc0 0: this
+    77  get_field state
+   110  get_field openActionConnectionID
+   143  get_arg0 0: e
+   144  strict_eq
+   145  if_false8 -> 0096
+   147  undefined
+   148  goto8 -> 0097
+L  150  get_arg0 0: e
+L  151  define_field openActionConnectionID
+   156  call_method #args=1
+   159  return_undef
+
+-- fn name=<atom:0> args=2 vars=1 closure=0 cpool=0 bc=150B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_atom_value sync
+     7  get_arg1 1: t
+     8  strict_neq
+     9  if_false8 -> 006f
+    11  push_atom_value delete
+    16  get_arg1 1: t
+    17  strict_neq
+    18  if_false8 -> 0047
+    20  push_atom_value reconnect
+    25  get_arg1 1: t
+    26  strict_eq
+    27  dup
+    28  if_false8 -> 0095
+    30  drop
+    31  get_loc0 0: this
+    32  get_field2 handleReconnect
+    65  get_arg0 0: e
+    66  call_method #args=1
+    69  goto8 -> 0095
+L   71  get_loc0 0: this
+    72  get_field2 handleRemove
+   105  get_arg0 0: e
+   106  call_method #args=1
+   109  goto8 -> 0095
+L  111  get_loc0 0: this
+   112  get_field2 handleSync
+   145  get_arg0 0: e
+   146  call_method #args=1
+L  149  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=0 bc=292B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, this
+   closure: Q
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field context  ;+28B
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 0050
+L   47  get_field host
+L   80  put_loc0 0: t
+    81  undefined
+    82  get_loc_check 0: t
+    85  strict_neq
+    86  if_false8 -> 00ac
+    88  get_loc1 1: this
+    89  get_field2 runConnectionTool
+   122  get_loc_check 0: t
+   125  get_var_ref_check 0: Q
+   128  get_arg0 0: e
+   129  get_field id
+   162  push_atom_value sync
+   167  call_method #args=4
+   170  goto8 -> 0123
+L  172  get_loc1 1: this
+   173  get_field context
+   206  dup
+   207  is_undefined_or_null
+   208  if_false8 -> 00d6
+   210  drop
+   211  undefined
+   212  goto8 -> 0123
+L  214  get_field actionHandler
+   247  dup
+   248  is_undefined_or_null
+   249  if_false8 -> 00ff
+   251  drop
+   252  undefined
+   253  goto8 -> 0123
+L  255  get_field2 refresh
+   288  call_method #args=0
+L  291  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=0 bc=327B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, this
+   closure: Y
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field context  ;+28B
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 0050
+L   47  get_field host
+L   80  put_loc0 0: t
+    81  undefined
+    82  get_loc_check 0: t
+    85  strict_neq
+    86  if_false8 -> 00ad
+    88  get_loc1 1: this
+    89  get_field2 runConnectionTool
+   122  get_loc_check 0: t
+   125  get_var_ref_check 0: Y
+   128  get_arg0 0: e
+   129  get_field id
+   162  push_atom_value delete
+   167  call_method #args=4
+   170  goto16 -> 0146
+L  173  get_loc1 1: this
+   174  get_field context
+   207  dup
+   208  is_undefined_or_null
+   209  if_false8 -> 00d7
+   211  drop
+   212  undefined
+   213  goto8 -> 0146
+L  215  get_field actionHandler
+   248  dup
+   249  is_undefined_or_null
+   250  if_false8 -> 0100
+   252  drop
+   253  undefined
+   254  goto8 -> 0146
+L  256  get_field2 disconnect
+   289  get_arg0 0: e
+   290  get_field id
+   323  call_method #args=1
+L  326  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=329B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field context  ;+28B
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 0050
+L   47  get_field host
+L   80  put_loc0 0: t
+    81  undefined
+    82  get_loc_check 0: t
+    85  strict_neq
+    86  if_false8 -> 00af
+    88  undefined
+    89  get_arg0 0: e
+    90  get_field organizationId
+   123  strict_neq
+   124  dup
+   125  if_false -> 0148
+   130  drop
+   131  get_loc1 1: this
+   132  get_field2 runReconnectTool
+   165  get_loc_check 0: t
+   168  get_arg0 0: e
+   169  call_method #args=2
+   172  goto16 -> 0148
+L  175  get_loc1 1: this
+   176  get_field context
+   209  dup
+   210  is_undefined_or_null
+   211  if_false8 -> 00d9
+   213  drop
+   214  undefined
+   215  goto8 -> 0148
+L  217  get_field actionHandler
+   250  dup
+   251  is_undefined_or_null
+   252  if_false8 -> 0102
+   254  drop
+   255  undefined
+   256  goto8 -> 0148
+L  258  get_field2 addConnector
+   291  get_arg0 0: e
+   292  get_field connectorID
+   325  call_method #args=1
+L  328  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=2 cpool=0 bc=368B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, this
+   closure: K, G
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field context  ;+28B
+    39  dup
+    40  is_undefined_or_null
+    41  if_false8 -> 002f
+    43  drop
+    44  undefined
+    45  goto8 -> 0050
+L   47  get_field host
+L   80  put_loc0 0: t
+    81  undefined
+    82  get_loc_check 0: t
+    85  strict_neq
+    86  if_false -> 00f7
+    91  get_arg0 0: e
+    92  get_var_ref_check 0: K
+    95  strict_neq
+    96  if_false8 -> 00cd
+    98  get_arg0 0: e
+    99  get_var_ref_check 1: G
+   102  strict_neq
+   103  if_false8 -> 00cd
+   105  get_loc_check 0: t
+   108  get_field2 requestModal
+   141  get_var JSON
+   146  get_field2 stringify
+   179  object
+   180  object
+   181  push_atom_value connectionsAddFlow
+   186  define_field view
+   191  define_field params
+   196  call_method #args=1
+   199  call_method #args=1
+   202  goto16 -> 016f
+L  205  get_loc_check 0: t
+   208  get_field2 requestLinkToConnector
+   241  get_arg0 0: e
+   242  call_method #args=1
+   245  goto8 -> 016f
+L  247  get_loc1 1: this
+   248  get_field context
+   281  dup
+   282  is_undefined_or_null
+   283  if_false8 -> 0121
+   285  drop
+   286  undefined
+   287  goto8 -> 016f
+L  289  get_field actionHandler
+   322  dup
+   323  is_undefined_or_null
+   324  if_false8 -> 014a
+   326  drop
+   327  undefined
+   328  goto8 -> 016f
+L  330  get_field2 addConnector
+   363  get_arg0 0: e
+   364  call_method #args=1
+L  367  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=184B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+   closure: this, t
+     0  get_var_ref0 0: this
+     1  get_field2 isDestroyed  ;+28B
+    34  call_method #args=0
+    37  dup
+    38  if_true -> 00b7
+    43  drop
+    44  get_var_ref_check 1: t
+    47  get_var_ref0 0: this
+    48  get_field requestSequence
+    81  strict_neq
+    82  dup
+    83  if_true8 -> 00b7
+    85  drop
+    86  get_var_ref0 0: this
+    87  get_field2 setState
+   120  object
+   121  push_0 0
+   122  get_arg0 0: e
+   123  get_length
+   124  strict_eq
+   125  if_false8 -> 0086
+   127  push_atom_value empty
+   132  goto8 -> 008b
+L  134  push_atom_value loaded
+L  139  define_field state
+   144  undefined
+   145  define_field errorMessage
+   150  get_arg0 0: e
+   151  define_field rows
+   156  undefined
+   157  define_field openActionConnectionID
+   162  undefined
+   163  define_field pendingConnectionID
+   168  undefined
+   169  define_field pendingActionKind
+   174  undefined
+   175  define_field actionErrorConnectionID
+   180  call_method #args=1
+L  183  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=4 cpool=0 bc=315B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: o, n
+   closure: Ie, e, this, t
+     0  set_loc_uninitialized 0: n
+     3  get_arg0 0: o
+     4  get_var Error
+     9  instanceof
+    10  if_false8 -> 0030
+    12  get_arg0 0: o
+    13  get_field message  ;+28B
+    46  goto8 -> 0037
+L   48  get_var String
+    53  get_arg0 0: o
+    54  call1 #args=1
+L   55  put_loc0 0: n
+    56  get_var_ref0 0: Ie
+    57  get_var_ref_check 1: e
+    60  get_var_ref2 2: this
+    61  get_field context
+    94  dup
+    95  is_undefined_or_null
+    96  if_false8 -> 0066
+    98  drop
+    99  undefined
+   100  goto8 -> 0087
+L  102  get_field actionHandler
+L  135  get_loc_check 0: n
+   138  call3 #args=3
+   139  drop
+   140  get_var_ref2 2: this
+   141  get_field2 isDestroyed
+   174  call_method #args=0
+   177  dup
+   178  if_true -> 013a
+   183  drop
+   184  get_var_ref_check 3: t
+   187  get_var_ref2 2: this
+   188  get_field requestSequence
+   221  strict_neq
+   222  dup
+   223  if_true8 -> 013a
+   225  drop
+   226  get_var_ref2 2: this
+   227  get_field2 setState
+   260  object
+   261  push_atom_value error
+   266  define_field state
+   271  get_loc_check 0: n
+   274  define_field errorMessage
+   279  array_from #args=0
+   282  define_field rows
+   287  undefined
+   288  define_field openActionConnectionID
+   293  undefined
+   294  define_field pendingConnectionID
+   299  undefined
+   300  define_field pendingActionKind
+   305  undefined
+   306  define_field actionErrorConnectionID
+   311  call_method #args=1
+L  314  return_undef
+
+-- fn name=<atom:0> args=0 vars=3 closure=1 cpool=2 bc=385B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, this
+   closure: Ie
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: t
+     5  set_loc_uninitialized 0: e
+     8  get_loc2 2: this
+     9  get_field context  ;+28B
+    42  dup
+    43  is_undefined_or_null
+    44  if_false8 -> 0032
+    46  drop
+    47  undefined
+    48  goto8 -> 0053
+L   50  get_field host
+L   83  put_loc0 0: e
+    84  undefined
+    85  get_loc_check 0: e
+    88  strict_eq
+    89  if_false8 -> 005c
+    91  return_undef
+L   92  get_loc2 2: this
+    93  push_0 0
+    94  lnot
+    95  put_field didStartHostLoad
+   104  get_loc2 2: this
+   105  get_field2 requestSequence
+   138  inc
+   139  insert2
+   140  put_field requestSequence
+   149  put_loc1 1: t
+   150  get_loc2 2: this
+   151  get_field2 setState
+   184  object
+   185  get_loc2 2: this
+   186  get_field state
+   219  null
+   220  copy_data_properties 6
+   222  drop
+   223  drop
+   224  push_atom_value loading
+   229  define_field state
+   234  undefined
+   235  define_field errorMessage
+   240  undefined
+   241  define_field openActionConnectionID
+   246  undefined
+   247  define_field pendingConnectionID
+   252  undefined
+   253  define_field pendingActionKind
+   258  undefined
+   259  define_field actionErrorConnectionID
+   264  call_method #args=1
+   267  drop
+   268  get_loc2 2: this
+   269  get_field2 loadRows
+   302  get_loc_check 0: e
+   305  call_method #args=1
+   308  get_field2 then
+   341  fclosure8 0: <function <atom:0>>
+   343  call_method #args=1
+   346  get_field2 catch
+   379  fclosure8 1: <function <atom:0>>
+   381  call_method #args=1
+   384  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=79B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field2 isDestroyed  ;+28B
+    34  call_method #args=0
+    37  dup
+    38  if_true8 -> 004e
+    40  drop
+    41  get_var_ref0 0: this
+    42  get_field2 loadFromHost
+    75  call_method #args=0
+L   78  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=1 bc=216B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field didStartHostLoad  ;+28B
+    36  dup
+    37  if_true -> 00d7
+    42  drop
+    43  undefined
+    44  get_loc0 0: this
+    45  get_field context
+    78  dup
+    79  is_undefined_or_null
+    80  if_false8 -> 0056
+    82  drop
+    83  undefined
+    84  goto8 -> 0077
+L   86  get_field host
+L  119  strict_eq
+   120  dup
+   121  if_true8 -> 00d7
+   123  drop
+   124  get_loc0 0: this
+   125  push_0 0
+   126  lnot
+   127  put_field didStartHostLoad
+   136  get_var Promise
+   141  get_field2 resolve
+   174  call_method #args=0
+   177  get_field2 then
+   210  fclosure8 0: <function <atom:0>>
+   212  call_method #args=1
+L  215  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=8B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+   closure: be, r
+     0  get_var_ref0 0: be
+     1  get_arg0 0: e
+     2  get_var_ref_check 1: r
+     5  tail_call #args=2
+
+-- fn name=<atom:0> args=1 vars=7 closure=9 cpool=1 bc=373B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, n, i, r, d, this
+   closure: be, se, X, de, $, ge, le, ye, me
+     0  push_this
+     1  put_loc8 6: this
+     3  set_loc_uninitialized 5: d
+     6  set_loc_uninitialized 4: r
+     9  set_loc_uninitialized 3: i
+    12  set_loc_uninitialized 2: n
+    15  set_loc_uninitialized 1: o
+    18  set_loc_uninitialized 0: t
+    21  undefined
+    22  dup
+    23  is_undefined
+    24  if_true8 -> 0026
+L   26  for_of_start
+    27  for_of_next 0
+    29  drop
+    30  put_loc0 0: t
+    31  for_of_next 0
+    33  drop
+    34  put_loc1 1: o
+    35  iterator_close
+    36  goto8 -> 0068
+L   38  drop
+    39  get_var Promise
+    44  get_field2 all
+    77  get_var_ref1 1: se
+    78  get_arg0 0: e
+    79  get_var_ref_check 2: X
+    82  get_var_ref_check 3: de
+    85  call3 #args=3
+    86  get_var_ref1 1: se
+    87  get_arg0 0: e
+    88  get_var_ref_check 4: $
+    91  get_var_ref_check 3: de
+    94  call3 #args=3
+    95  array_from #args=2
+    98  call_method #args=1
+   101  await
+   102  goto8 -> 001a
+L  104  get_var_ref 5: ge
+   107  get_var_ref 6: le
+   110  get_loc_check 0: t
+   113  call1 #args=1
+   114  get_field accountConnections
+   147  call1 #args=1
+   148  put_loc2 2: n
+   149  get_var_ref 7: ye
+   152  get_var_ref 6: le
+   155  get_loc_check 1: o
+   158  call1 #args=1
+   159  get_field appleHealthConnectorStatus
+   192  call1 #args=1
+   193  put_loc3 3: i
+   194  get_loc8 6: this
+   196  get_field2 loadOrganizations
+   229  get_arg0 0: e
+   230  get_loc_check 2: n
+   233  call_method #args=2
+   236  await
+   237  put_loc8 4: r
+   239  get_loc_check 2: n
+   242  get_field2 map
+   275  fclosure8 0: <function <atom:0>>
+   277  call_method #args=1
+   280  put_loc8 5: d
+   282  get_loc_check 3: i
+   285  get_field connected
+   318  dup
+   319  if_false8 -> 0170
+   321  drop
+   322  get_loc_check 5: d
+   325  get_field2 push
+   358  get_var_ref 8: me
+   361  get_loc_check 3: i
+   364  call1 #args=1
+   365  call_method #args=1
+L  368  drop
+   369  get_loc_check 5: d
+   372  return_async
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=35B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+     0  get_arg0 0: e
+     1  get_field organizationId  ;+28B
+    34  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=6 cpool=0 bc=293B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: o, e, n
+   closure: ue, le, se, t, Z, e
+     0  catch -> 009e
+     5  set_loc_uninitialized 0: e
+     8  get_var_ref0 0: ue
+     9  get_var_ref1 1: le
+    10  get_var_ref2 2: se
+    11  get_var_ref3 3: t
+    12  get_var_ref_check 4: Z
+    15  get_var JSON
+    20  get_field2 stringify  ;+28B
+    53  object
+    54  get_arg0 0: o
+    55  define_field organization_id
+    60  call_method #args=1
+    63  call3 #args=3
+    64  await
+    65  call1 #args=1
+    66  get_field organization
+    99  call1 #args=1
+   100  put_loc0 0: e
+   101  undefined
+   102  get_loc_check 0: e
+   105  strict_eq
+   106  dup
+   107  if_true8 -> 0094
+   109  drop
+   110  get_loc_check 0: e
+   113  get_field id
+   146  get_arg0 0: o
+   147  strict_neq
+L  148  if_false8 -> 0099
+   150  undefined
+   151  nip_catch
+   152  return_async
+L  153  get_loc_check 0: e
+   156  nip_catch
+   157  return_async
+L  158  put_loc1 1: n
+   159  catch -> 0124
+   164  get_var_ref_check 5: e
+   167  get_field isLoggingEnabled
+   200  dup
+   201  if_false8 -> 0120
+   203  drop
+   204  get_var console
+   209  get_field2 warn
+   242  push_atom_value get_organization failed for 
+   247  get_field2 concat
+   280  get_arg0 0: o
+   281  call_method #args=1
+   284  get_loc1 1: n
+   285  call_method #args=2
+L  288  drop
+   289  undefined
+   290  nip_catch
+   291  return_async
+L  292  throw
+
+-- fn name=<atom:0> args=2 vars=4 closure=6 cpool=2 bc=255B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: t, o, n, i, r, e
+   closure: ue, le, se, Z, e, Ne
+     0  set_loc_uninitialized 2: r
+     3  set_loc_uninitialized 1: i
+     6  set_loc_uninitialized 0: n
+     9  get_var_ref 5: Ne
+    12  get_arg1 1: o
+    13  get_field2 map  ;+28B
+    46  fclosure8 0: <function <atom:0>>
+    48  call_method #args=1
+    51  call1 #args=1
+    52  put_loc0 0: n
+    53  get_var Promise
+    58  get_field2 all
+    91  get_loc_check 0: n
+    94  get_field2 map
+   127  fclosure8 1: <function <atom:0>>
+   129  call_method #args=1
+   132  call_method #args=1
+   135  await
+   136  put_loc1 1: i
+   137  get_var Map
+   142  dup
+   143  call_constructor #args=0
+   146  put_loc2 2: r
+   147  set_loc_uninitialized 3: e
+   150  get_loc_check 1: i
+   153  for_of_start
+   154  goto8 -> 00f5
+L  156  put_loc3 3: e
+   157  undefined
+   158  get_loc_check 3: e
+   161  strict_neq
+   162  dup
+   163  if_false8 -> 00f4
+   165  drop
+   166  get_loc_check 2: r
+   169  get_field2 set
+   202  get_loc_check 3: e
+   205  get_field id
+   238  get_loc_check 3: e
+   241  call_method #args=2
+L  244  drop
+L  245  for_of_next 0
+   247  if_false8 -> 009c
+   249  drop
+   250  iterator_close
+   251  get_loc_check 2: r
+   254  return_async
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=79B file=olympic_connections/src/OlympicConnectionsComponent
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field2 isDestroyed  ;+28B
+    34  call_method #args=0
+    37  dup
+    38  if_true8 -> 004e
+    40  drop
+    41  get_var_ref0 0: this
+    42  get_field2 loadFromHost
+    75  call_method #args=0
+L   78  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=4 cpool=0 bc=291B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: t, n
+   closure: Ie, e, this, o
+     0  set_loc_uninitialized 0: n
+     3  get_arg0 0: t
+     4  get_var Error
+     9  instanceof
+    10  if_false8 -> 0030
+    12  get_arg0 0: t
+    13  get_field message  ;+28B
+    46  goto8 -> 0037
+L   48  get_var String
+    53  get_arg0 0: t
+    54  call1 #args=1
+L   55  put_loc0 0: n
+    56  get_var_ref0 0: Ie
+    57  get_var_ref1 1: e
+    58  get_var_ref2 2: this
+    59  get_field context
+    92  dup
+    93  is_undefined_or_null
+    94  if_false8 -> 0064
+    96  drop
+    97  undefined
+    98  goto8 -> 0085
+L  100  get_field actionHandler
+L  133  get_loc_check 0: n
+   136  call3 #args=3
+   137  drop
+   138  get_var_ref2 2: this
+   139  get_field2 isDestroyed
+   172  call_method #args=0
+   175  dup
+   176  if_true8 -> 0122
+   178  drop
+   179  get_var_ref2 2: this
+   180  get_field2 setState
+   213  object
+   214  get_var_ref2 2: this
+   215  get_field state
+   248  null
+   249  copy_data_properties 6
+   251  drop
+   252  drop
+   253  push_atom_value loaded
+   258  define_field state
+   263  undefined
+   264  define_field openActionConnectionID
+   269  undefined
+   270  define_field pendingConnectionID
+   275  undefined
+   276  define_field pendingActionKind
+   281  get_var_ref3 3: o
+   282  define_field actionErrorConnectionID
+   287  call_method #args=1
+L  290  return_undef
+
+-- fn name=<atom:0> args=4 vars=1 closure=2 cpool=2 bc=309B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, n, this
+   closure: Ie, se
+     0  push_this
+     1  put_loc0 0: this
+     2  undefined
+     3  get_loc0 0: this
+     4  get_field state  ;+28B
+    37  get_field pendingConnectionID
+    70  strict_eq
+    71  dup
+    72  if_false -> 0134
+    77  drop
+    78  get_loc0 0: this
+    79  get_field2 setState
+   112  object
+   113  get_loc0 0: this
+   114  get_field state
+   147  null
+   148  copy_data_properties 6
+   150  drop
+   151  drop
+   152  undefined
+   153  define_field openActionConnectionID
+   158  get_arg2 2: o
+   159  define_field pendingConnectionID
+   164  get_arg3 3: n
+   165  define_field pendingActionKind
+   170  undefined
+   171  define_field actionErrorConnectionID
+   176  call_method #args=1
+   179  drop
+   180  get_var_ref1 1: se
+   181  get_arg0 0: e
+   182  get_arg1 1: t
+   183  get_var JSON
+   188  get_field2 stringify
+   221  object
+   222  get_arg2 2: o
+   223  define_field connection_id
+   228  call_method #args=1
+   231  call3 #args=3
+   232  get_field2 then
+   265  fclosure8 0: <function <atom:0>>
+   267  call_method #args=1
+   270  get_field2 catch
+   303  fclosure8 1: <function <atom:0>>
+   305  call_method #args=1
+L  308  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=4 cpool=0 bc=204B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: t, o
+   closure: pe, le, e, this
+     0  set_loc_uninitialized 0: o
+     3  get_var_ref0 0: pe
+     4  get_var_ref1 1: le
+     5  get_arg0 0: t
+     6  call1 #args=1
+     7  call1 #args=1
+     8  put_loc0 0: o
+     9  undefined
+    10  get_loc_check 0: o
+    13  get_field authUrl  ;+28B
+    46  strict_neq
+    47  dup
+    48  if_false8 -> 007c
+    50  drop
+    51  get_var_ref2 2: e
+    52  get_field2 openExternal
+    85  get_loc_check 0: o
+    88  get_field authUrl
+   121  call_method #args=1
+L  124  drop
+   125  get_var_ref3 3: this
+   126  get_field2 isDestroyed
+   159  call_method #args=0
+   162  dup
+   163  if_true8 -> 00cb
+   165  drop
+   166  get_var_ref3 3: this
+   167  get_field2 loadFromHost
+   200  call_method #args=0
+L  203  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=4 cpool=0 bc=321B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: o, n
+   closure: Ie, e, this, t
+     0  set_loc_uninitialized 0: n
+     3  get_arg0 0: o
+     4  get_var Error
+     9  instanceof
+    10  if_false8 -> 0030
+    12  get_arg0 0: o
+    13  get_field message  ;+28B
+    46  goto8 -> 0037
+L   48  get_var String
+    53  get_arg0 0: o
+    54  call1 #args=1
+L   55  put_loc0 0: n
+    56  get_var_ref0 0: Ie
+    57  get_var_ref1 1: e
+    58  get_var_ref2 2: this
+    59  get_field context
+    92  dup
+    93  is_undefined_or_null
+    94  if_false8 -> 0064
+    96  drop
+    97  undefined
+    98  goto8 -> 0085
+L  100  get_field actionHandler
+L  133  get_loc_check 0: n
+   136  call3 #args=3
+   137  drop
+   138  get_var_ref2 2: this
+   139  get_field2 isDestroyed
+   172  call_method #args=0
+   175  dup
+   176  if_true -> 0140
+   181  drop
+   182  get_var_ref2 2: this
+   183  get_field2 setState
+   216  object
+   217  get_var_ref2 2: this
+   218  get_field state
+   251  null
+   252  copy_data_properties 6
+   254  drop
+   255  drop
+   256  push_atom_value loaded
+   261  define_field state
+   266  undefined
+   267  define_field pendingConnectionID
+   272  undefined
+   273  define_field pendingActionKind
+   278  get_var_ref3 3: t
+   279  get_field id
+   312  define_field actionErrorConnectionID
+   317  call_method #args=1
+L  320  return_undef
+
+-- fn name=<atom:0> args=2 vars=2 closure=6 cpool=2 bc=389B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, this
+   closure: pe, le, Ie, Re, se, ee
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: o
+     5  undefined
+     6  get_loc1 1: this
+     7  get_field state  ;+28B
+    40  get_field pendingConnectionID
+    73  strict_neq
+    74  dup
+    75  if_true8 -> 0072
+    77  drop
+    78  undefined
+    79  get_arg1 1: t
+    80  get_field organizationId
+   113  strict_eq
+L  114  if_false8 -> 0075
+   116  return_undef
+L  117  get_loc1 1: this
+   118  get_field2 setState
+   151  object
+   152  get_loc1 1: this
+   153  get_field state
+   186  null
+   187  copy_data_properties 6
+   189  drop
+   190  drop
+   191  undefined
+   192  define_field openActionConnectionID
+   197  get_arg1 1: t
+   198  get_field id
+   231  define_field pendingConnectionID
+   236  push_atom_value reconnect
+   241  define_field pendingActionKind
+   246  undefined
+   247  define_field actionErrorConnectionID
+   252  call_method #args=1
+   255  drop
+   256  get_var_ref3 3: Re
+   257  get_arg1 1: t
+   258  call1 #args=1
+   259  put_loc0 0: o
+   260  get_var_ref 4: se
+   263  get_arg0 0: e
+   264  get_var_ref_check 5: ee
+   267  get_var JSON
+   272  get_field2 stringify
+   305  get_loc_check 0: o
+   308  call_method #args=1
+   311  call3 #args=3
+   312  get_field2 then
+   345  fclosure8 0: <function <atom:0>>
+   347  call_method #args=1
+   350  get_field2 catch
+   383  fclosure8 1: <function <atom:0>>
+   385  call_method #args=1
+   388  return_undef
+
+-- fn name=se args=3 vars=1 closure=2 cpool=0 bc=57B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, n
+   closure: ke, ae
+     0  set_loc_uninitialized 0: n
+     3  get_var_ref0 0: ke
+     4  get_arg0 0: e
+     5  get_field2 callTool  ;+28B
+    38  get_arg1 1: t
+    39  get_arg2 2: o
+    40  call_method #args=2
+    43  await
+    44  call1 #args=1
+    45  put_loc0 0: n
+    46  get_var_ref1 1: ae
+    47  get_loc_check 0: n
+    50  get_arg1 1: t
+    51  call2 #args=2
+    52  drop
+    53  get_loc_check 0: n
+    56  return_async
+
+-- fn name=ae args=2 vars=1 closure=1 cpool=0 bc=117B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o
+   closure: ce
+     0  set_loc_uninitialized 0: o
+     3  get_var_ref0 0: ce
+     4  get_arg0 0: e
+     5  call1 #args=1
+     6  put_loc0 0: o
+     7  push_0 0
+     8  lnot
+     9  get_arg0 0: e
+    10  get_field isError  ;+28B
+    43  strict_eq
+    44  dup
+    45  if_true8 -> 0035
+    47  drop
+    48  undefined
+    49  get_loc_check 0: o
+    52  strict_neq
+L   53  if_false8 -> 0074
+    55  get_var Error
+    60  dup
+    61  get_loc_check 0: o
+    64  dup
+    65  is_undefined_or_null
+    66  if_false8 -> 0070
+    68  drop
+    69  push_empty_string
+    70  get_field2 concat
+   103  get_arg1 1: t
+   104  push_atom_value  returned an error response
+   109  call_method #args=2
+L  112  call_constructor #args=1
+   115  throw
+L  116  return_undef
+
+-- fn name=ce args=1 vars=3 closure=1 cpool=0 bc=500B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, n
+   closure: De
+     0  set_loc_uninitialized 1: o
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: e
+     7  get_field error  ;+28B
+    40  put_loc0 0: t
+    41  push_atom_value string
+    46  get_loc_check 0: t
+    49  typeof
+    50  eq
+    51  if_false8 -> 0088
+    53  get_loc_check 0: t
+    56  get_field2 trim
+    89  call_method #args=0
+    92  get_length
+    93  push_0 0
+    94  gt
+    95  if_false8 -> 0088
+    97  get_loc_check 0: t
+   100  get_field2 trim
+   133  tail_call_method #args=0
+L  136  get_arg0 0: e
+   137  get_field content
+   170  put_loc1 1: o
+   171  get_var Array
+   176  get_field2 isArray
+   209  get_loc_check 1: o
+   212  call_method #args=1
+   215  if_false -> 01f3
+   220  set_loc_uninitialized 2: n
+   223  get_loc_check 1: o
+   226  for_of_start
+   227  goto16 -> 01ea
+   230  put_loc2 2: n
+   231  get_var_ref0 0: De
+   232  get_loc_check 2: n
+   235  call1 #args=1
+   236  if_false -> 01ea
+   241  push_atom_value text
+   246  get_loc_check 2: n
+   249  get_field type
+   282  strict_eq
+   283  if_false -> 01ea
+   288  push_atom_value string
+   293  get_loc_check 2: n
+   296  get_field text
+   329  typeof
+   330  eq
+   331  if_false -> 01ea
+   336  get_loc_check 2: n
+   339  get_field text
+   372  get_field2 trim
+   405  call_method #args=0
+   408  get_length
+   409  push_0 0
+   410  gt
+   411  if_false8 -> 01ea
+   413  get_loc_check 2: n
+   416  get_field text
+   449  get_field2 trim
+   482  call_method #args=0
+   485  nip_catch
+   486  rot3r
+   487  undefined
+   488  iterator_close
+   489  return
+L  490  for_of_next 0
+   492  if_false -> 00e6
+   497  drop
+   498  iterator_close
+L  499  return_undef
+
+-- fn name=le args=1 vars=3 closure=1 cpool=0 bc=149B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, n
+   closure: De
+     0  set_loc_uninitialized 2: n
+     3  set_loc_uninitialized 1: o
+     6  set_loc_uninitialized 0: t
+     9  get_arg0 0: e
+    10  get_field structuredContent  ;+28B
+    43  put_loc0 0: t
+    44  get_var_ref0 0: De
+    45  get_loc_check 0: t
+    48  call1 #args=1
+    49  if_false8 -> 0037
+    51  get_loc_check 0: t
+    54  return
+L   55  get_arg0 0: e
+    56  get_field structured_content
+    89  put_loc1 1: o
+    90  get_var_ref0 0: De
+    91  get_loc_check 1: o
+    94  call1 #args=1
+    95  if_false8 -> 0065
+    97  get_loc_check 1: o
+   100  return
+L  101  get_arg0 0: e
+   102  get_field result
+   135  put_loc2 2: n
+   136  get_var_ref0 0: De
+   137  get_loc_check 2: n
+   140  call1 #args=1
+   141  if_false8 -> 0093
+   143  get_loc_check 2: n
+   146  return
+L  147  object
+   148  return
+
+-- fn name=ge args=1 vars=3 closure=3 cpool=0 bc=459B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, e
+   closure: De, Pe, xe
+     0  set_loc_uninitialized 0: t
+     3  get_var Array
+     8  get_field2 isArray  ;+28B
+    41  get_arg0 0: e
+    42  call_method #args=1
+    45  lnot
+    46  if_false8 -> 0034
+    48  array_from #args=0
+    51  return
+L   52  array_from #args=0
+    55  put_loc0 0: t
+    56  set_loc_uninitialized 1: o
+    59  get_arg0 0: e
+    60  for_of_start
+    61  goto16 -> 01be
+    64  put_loc1 1: o
+    65  set_loc_uninitialized 2: e
+    68  get_var_ref0 0: De
+    69  get_loc_check 1: o
+    72  call1 #args=1
+    73  lnot
+    74  if_true -> 01be
+    79  get_loc_check 1: o
+    82  get_field id
+   115  put_loc2 2: e
+   116  push_atom_value string
+   121  get_loc_check 2: e
+   124  typeof
+   125  eq
+   126  dup
+   127  if_false -> 01bd
+   132  drop
+   133  push_0 0
+   134  get_loc_check 2: e
+   137  get_length
+   138  strict_neq
+   139  dup
+   140  if_false -> 01bd
+   145  drop
+   146  get_loc_check 0: t
+   149  get_field2 push
+   182  object
+   183  get_loc_check 2: e
+   186  define_field id
+   191  get_var_ref1 1: Pe
+   192  get_loc_check 1: o
+   195  get_field organizationId
+   228  call1 #args=1
+   229  dup
+   230  is_undefined_or_null
+   231  if_false8 -> 00eb
+   233  drop
+   234  undefined
+L  235  define_field organizationId
+   240  get_var_ref1 1: Pe
+   241  get_loc_check 1: o
+   244  get_field organizationName
+   277  call1 #args=1
+   278  dup
+   279  is_undefined_or_null
+   280  if_false8 -> 011c
+   282  drop
+   283  undefined
+L  284  define_field organizationName
+   289  push_atom_value connected
+   294  get_loc_check 1: o
+   297  get_field connectionState
+   330  strict_eq
+   331  if_false8 -> 0154
+   333  push_atom_value connected
+   338  goto8 -> 0159
+L  340  push_atom_value expired
+L  345  define_field connectionState
+   350  get_var_ref1 1: Pe
+   351  get_loc_check 1: o
+   354  get_field lastSyncTime
+   387  call1 #args=1
+   388  dup
+   389  is_undefined_or_null
+   390  if_false8 -> 018a
+   392  drop
+   393  undefined
+L  394  define_field lastSyncTime
+   399  get_var_ref2 2: xe
+   400  get_loc_check 1: o
+   403  get_field operationStatus
+   436  call1 #args=1
+   437  define_field operationStatus
+   442  call_method #args=1
+L  445  drop
+L  446  for_of_next 0
+   448  if_false -> 0040
+   453  drop
+   454  iterator_close
+   455  get_loc_check 0: t
+   458  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=146B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+   closure: De, Pe
+     0  get_var_ref0 0: De
+     1  get_arg0 0: e
+     2  call1 #args=1
+     3  if_false -> 008e
+     8  push_atom_value string
+    13  get_arg0 0: e
+    14  get_field connectionType  ;+28B
+    47  typeof
+    48  eq
+    49  if_false8 -> 008e
+    51  object
+    52  get_arg0 0: e
+    53  get_field connectionType
+    86  define_field connectionType
+    91  get_var_ref1 1: Pe
+    92  get_arg0 0: e
+    93  get_field gatewayId
+   126  call1 #args=1
+   127  dup
+   128  is_undefined_or_null
+   129  if_false8 -> 0085
+   131  drop
+   132  undefined
+L  133  define_field gatewayId
+   138  array_from #args=1
+   141  return
+L  142  array_from #args=0
+   145  return
+
+-- fn name=ue args=1 vars=3 closure=2 cpool=1 bc=361B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, n
+   closure: De, Pe
+     0  set_loc_uninitialized 2: n
+     3  set_loc_uninitialized 1: o
+     6  set_loc_uninitialized 0: t
+     9  get_var_ref0 0: De
+    10  get_arg0 0: e
+    11  call1 #args=1
+    12  lnot
+    13  if_false8 -> 0010
+    15  return_undef
+L   16  get_arg0 0: e
+    17  get_field id  ;+28B
+    50  put_loc0 0: t
+    51  get_arg0 0: e
+    52  get_field name
+    85  put_loc1 1: o
+    86  get_var_ref1 1: Pe
+    87  get_arg0 0: e
+    88  get_field logoBase64
+   121  call1 #args=1
+   122  dup
+   123  is_undefined_or_null
+   124  if_false8 -> 0080
+   126  drop
+   127  undefined
+L  128  put_loc2 2: n
+   129  push_atom_value string
+   134  get_loc_check 0: t
+   137  typeof
+   138  neq
+   139  dup
+   140  if_true8 -> 00ad
+   142  drop
+   143  push_0 0
+   144  get_loc_check 0: t
+   147  get_length
+   148  strict_eq
+   149  dup
+   150  if_true8 -> 00ad
+   152  drop
+   153  push_atom_value string
+   158  get_loc_check 1: o
+   161  typeof
+   162  neq
+   163  dup
+   164  if_true8 -> 00ad
+   166  drop
+   167  push_0 0
+   168  get_loc_check 1: o
+   171  get_length
+   172  strict_eq
+L  173  if_false8 -> 00b0
+   175  return_undef
+L  176  object
+   177  get_loc_check 0: t
+   180  define_field id
+   185  get_loc_check 1: o
+   188  define_field name
+   193  get_loc_check 2: n
+   196  define_field logoBase64
+   201  get_var Array
+   206  get_field2 isArray
+   239  get_arg0 0: e
+   240  get_field endpoints
+   273  call_method #args=1
+   276  if_false8 -> 0160
+   278  get_arg0 0: e
+   279  get_field endpoints
+   312  get_field2 flatMap
+   345  fclosure8 0: <function <atom:0>>
+   347  call_method #args=1
+   350  goto8 -> 0163
+L  352  array_from #args=0
+L  355  define_field endpoints
+   360  return
+
+-- fn name=he args=1 vars=0 closure=0 cpool=0 bc=101B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+     0  undefined
+     1  get_arg0 0: e
+     2  strict_neq
+     3  if_false8 -> 0064
+     5  push_0 0
+     6  get_arg0 0: e
+     7  get_length
+     8  strict_neq
+     9  if_false8 -> 0064
+    11  get_arg0 0: e
+    12  get_field2 startsWith  ;+28B
+    45  push_atom_value data:image/
+    50  call_method #args=1
+    53  if_false8 -> 0039
+    55  get_arg0 0: e
+    56  return
+L   57  push_atom_value data:image/png;base64,
+    62  get_field2 concat
+    95  get_arg0 0: e
+    96  call_method #args=1
+    99  return
+L  100  return_undef
+
+-- fn name=ye args=1 vars=1 closure=2 cpool=0 bc=138B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t
+   closure: De, K
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref0 0: De
+     4  get_arg0 0: e
+     5  call1 #args=1
+     6  lnot
+     7  if_false8 -> 001a
+     9  object
+    10  get_var_ref_check 1: K
+    13  define_field connectorId
+    18  push_1 1
+    19  lnot
+    20  define_field connected
+    25  return
+L   26  get_arg0 0: e
+    27  get_field connectorId  ;+28B
+    60  put_loc0 0: t
+    61  object
+    62  push_atom_value string
+    67  get_loc_check 0: t
+    70  typeof
+    71  eq
+    72  if_false8 -> 0057
+    74  get_loc_check 0: t
+    77  get_length
+    78  push_0 0
+    79  gt
+    80  if_false8 -> 0057
+    82  get_loc_check 0: t
+    85  goto8 -> 005a
+L   87  get_var_ref_check 1: K
+L   90  define_field connectorId
+    95  push_0 0
+    96  lnot
+    97  get_arg0 0: e
+    98  get_field connected
+   131  strict_eq
+   132  define_field connected
+   137  return
+
+-- fn name=pe args=1 vars=1 closure=0 cpool=0 bc=71B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t
+     0  set_loc_uninitialized 0: t
+     3  get_arg0 0: e
+     4  get_field authUrl  ;+28B
+    37  put_loc0 0: t
+    38  object
+    39  push_atom_value string
+    44  get_loc_check 0: t
+    47  typeof
+    48  eq
+    49  if_false8 -> 0040
+    51  get_loc_check 0: t
+    54  get_length
+    55  push_0 0
+    56  gt
+    57  if_false8 -> 0040
+    59  get_loc_check 0: t
+    62  goto8 -> 0041
+L   64  undefined
+L   65  define_field authUrl
+    70  return
+
+-- fn name=ve args=1 vars=0 closure=1 cpool=0 bc=493B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+   closure: W
+     0  push_atom_value Apple Health
+     5  get_arg0 0: e
+     6  get_field title  ;+28B
+    39  strict_eq
+    40  if_false -> 00fd
+    45  object
+    46  get_arg0 0: e
+    47  null
+    48  copy_data_properties 6
+    50  drop
+    51  drop
+    52  push_atom_value appleHealth
+    57  define_field kind
+    62  get_arg0 0: e
+    63  get_field subtitle
+    96  dup
+    97  is_undefined_or_null
+    98  if_false8 -> 0091
+   100  drop
+   101  get_arg0 0: e
+   102  get_field status
+   135  dup
+   136  is_undefined_or_null
+   137  if_false8 -> 0091
+   139  drop
+   140  push_atom_value Connected
+L  145  define_field subtitle
+   150  get_arg0 0: e
+   151  get_field status
+   184  dup
+   185  is_undefined_or_null
+   186  if_false8 -> 00e9
+   188  drop
+   189  get_arg0 0: e
+   190  get_field subtitle
+   223  dup
+   224  is_undefined_or_null
+   225  if_false8 -> 00e9
+   227  drop
+   228  push_atom_value Connected
+L  233  define_field status
+   238  push_1 1
+   239  lnot
+   240  define_field canRefresh
+   245  push_1 1
+   246  lnot
+   247  define_field canDisconnect
+   252  return
+L  253  object
+   254  get_arg0 0: e
+   255  null
+   256  copy_data_properties 6
+   258  drop
+   259  drop
+   260  get_arg0 0: e
+   261  get_field canRefresh
+   294  dup
+   295  if_true8 -> 014c
+   297  drop
+   298  get_arg0 0: e
+   299  get_field canDisconnect
+L  332  if_false8 -> 0155
+   334  push_atom_value account
+   339  goto8 -> 015a
+L  341  push_atom_value legacy
+L  346  define_field kind
+   351  push_atom_value Access has expired
+   356  get_arg0 0: e
+   357  get_field status
+   390  strict_eq
+   391  if_false8 -> 0190
+   393  push_atom_value expired
+   398  goto8 -> 0195
+L  400  push_atom_value connected
+L  405  define_field connectionState
+   410  get_arg0 0: e
+   411  get_field connectorID
+   444  get_var_ref_check 0: W
+   447  strict_eq
+   448  if_false8 -> 01e6
+   450  get_arg0 0: e
+   451  get_field id
+   484  goto8 -> 01e7
+L  486  undefined
+L  487  define_field organizationId
+   492  return
+
+-- fn name=me args=1 vars=0 closure=0 cpool=0 bc=134B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+     0  object
+     1  get_arg0 0: e
+     2  get_field connectorId  ;+28B
+    35  define_field id
+    40  get_arg0 0: e
+    41  get_field connectorId
+    74  define_field connectorID
+    79  push_atom_value appleHealth
+    84  define_field kind
+    89  push_atom_value Apple Health
+    94  define_field title
+    99  push_atom_value Connected
+   104  define_field subtitle
+   109  push_atom_value Connected
+   114  define_field status
+   119  push_1 1
+   120  lnot
+   121  define_field canRefresh
+   126  push_1 1
+   127  lnot
+   128  define_field canDisconnect
+   133  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=41B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+     0  push_atom_value fhir-gateway
+     5  get_arg0 0: e
+     6  get_field connectionType  ;+28B
+    39  strict_eq
+    40  return
+
+-- fn name=be args=2 vars=1 closure=3 cpool=1 bc=547B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o
+   closure: W, we, Se
+     0  set_loc_uninitialized 0: o
+     3  undefined
+     4  get_arg0 0: e
+     5  get_field organizationId  ;+28B
+    38  strict_neq
+    39  if_false8 -> 0072
+    41  get_arg1 1: t
+    42  get_field2 get
+    75  get_arg0 0: e
+    76  get_field organizationId
+   109  call_method #args=1
+   112  goto8 -> 0073
+L  114  undefined
+L  115  put_loc0 0: o
+   116  object
+   117  get_arg0 0: e
+   118  get_field id
+   151  define_field id
+   156  get_var_ref_check 0: W
+   159  define_field connectorID
+   164  push_atom_value account
+   169  define_field kind
+   174  get_var_ref1 1: we
+   175  get_arg0 0: e
+   176  get_loc_check 0: o
+   179  call2 #args=2
+   180  define_field title
+   185  get_var_ref2 2: Se
+   186  get_arg0 0: e
+   187  call1 #args=1
+   188  define_field subtitle
+   193  get_var_ref2 2: Se
+   194  get_arg0 0: e
+   195  call1 #args=1
+   196  define_field status
+   201  push_atom_value deleting
+   206  get_arg0 0: e
+   207  get_field operationStatus
+   240  strict_neq
+   241  define_field canRefresh
+   246  push_atom_value deleting
+   251  get_arg0 0: e
+   252  get_field operationStatus
+   285  strict_neq
+   286  define_field canDisconnect
+   291  get_arg0 0: e
+   292  get_field connectionState
+   325  define_field connectionState
+   330  get_arg0 0: e
+   331  get_field organizationId
+   364  define_field organizationId
+   369  get_loc_check 0: o
+   372  dup
+   373  is_undefined_or_null
+   374  if_false8 -> 017c
+   376  drop
+   377  undefined
+   378  goto8 -> 019d
+L  380  get_field logoBase64
+L  413  define_field providerLogoBase64
+   418  get_loc_check 0: o
+   421  dup
+   422  is_undefined_or_null
+   423  if_false8 -> 01ad
+   425  drop
+   426  undefined
+   427  goto8 -> 021d
+L  429  get_field endpoints
+   462  get_field2 find
+   495  fclosure8 0: <function <atom:0>>
+   497  call_method #args=1
+   500  dup
+   501  is_undefined_or_null
+   502  if_false8 -> 01fc
+   504  drop
+   505  undefined
+   506  goto8 -> 021d
+L  508  get_field gatewayId
+L  541  define_field gatewayId
+   546  return
+
+-- fn name=we args=2 vars=0 closure=0 cpool=0 bc=192B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t
+     0  undefined
+     1  get_arg0 0: e
+     2  get_field organizationName  ;+28B
+    35  strict_neq
+    36  if_false8 -> 0049
+    38  get_arg0 0: e
+    39  get_field organizationName
+    72  return
+L   73  undefined
+    74  get_arg1 1: t
+    75  strict_neq
+    76  if_false8 -> 0071
+    78  get_arg1 1: t
+    79  get_field name
+   112  return
+L  113  undefined
+   114  get_arg0 0: e
+   115  get_field organizationId
+   148  strict_neq
+   149  if_false8 -> 00ba
+   151  get_arg0 0: e
+   152  get_field organizationId
+   185  return
+L  186  push_atom_value Unknown provider
+   191  return
+
+-- fn name=Se args=1 vars=0 closure=1 cpool=0 bc=266B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+   closure: Ae
+     0  push_atom_value syncing
+     5  get_arg0 0: e
+     6  get_field operationStatus  ;+28B
+    39  strict_eq
+    40  if_false8 -> 0030
+    42  push_atom_value Syncing...
+    47  return
+L   48  push_atom_value deleting
+    53  get_arg0 0: e
+    54  get_field operationStatus
+    87  strict_eq
+    88  if_false8 -> 0060
+    90  push_atom_value Deleting...
+    95  return
+L   96  push_atom_value expired
+   101  get_arg0 0: e
+   102  get_field connectionState
+   135  strict_eq
+   136  if_false8 -> 0090
+   138  push_atom_value Access has expired
+   143  return
+L  144  undefined
+   145  get_arg0 0: e
+   146  get_field lastSyncTime
+   179  strict_neq
+   180  if_false8 -> 0104
+   182  push_atom_value Last synced 
+   187  get_field2 concat
+   220  get_var_ref0 0: Ae
+   221  get_arg0 0: e
+   222  get_field lastSyncTime
+   255  call1 #args=1
+   256  call_method #args=1
+   259  return
+L  260  push_atom_value Not synced yet
+   265  return
+
+-- fn name=Ae args=1 vars=4 closure=1 cpool=0 bc=312B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, e, o, o
+   closure: ie
+     0  set_loc_uninitialized 3: o
+     3  set_loc_uninitialized 0: t
+     6  get_var Date
+    11  get_field2 parse  ;+28B
+    44  get_arg0 0: e
+    45  call_method #args=1
+    48  put_loc0 0: t
+    49  get_var Number
+    54  get_field2 isNaN
+    87  get_loc_check 0: t
+    90  call_method #args=1
+    93  lnot
+    94  if_false -> 00fd
+    99  set_loc_uninitialized 2: o
+   102  set_loc_uninitialized 1: e
+   105  get_var Date
+   110  dup
+   111  get_loc_check 0: t
+   114  call_constructor #args=1
+   117  put_loc1 1: e
+   118  get_var_ref_check 0: ie
+   121  get_loc_check 1: e
+   124  get_field2 getMonth
+   157  call_method #args=0
+   160  get_array_el
+   161  put_loc2 2: o
+   162  undefined
+   163  get_loc_check 2: o
+   166  strict_neq
+   167  if_false8 -> 00fd
+   169  push_empty_string
+   170  get_field2 concat
+   203  get_loc_check 2: o
+   206  push_atom_value  
+   211  get_loc_check 1: e
+   214  get_field2 getDate
+   247  call_method #args=0
+   250  tail_call_method #args=3
+L  253  get_arg0 0: e
+   254  get_field2 split
+   287  push_atom_value  at 
+   292  call_method #args=1
+   295  push_0 0
+   296  get_array_el
+   297  put_loc3 3: o
+   298  get_loc_check 3: o
+   301  get_length
+   302  push_0 0
+   303  gt
+   304  if_false8 -> 0136
+   306  get_loc_check 3: o
+   309  return
+L  310  get_arg0 0: e
+   311  return
+
+-- fn name=Ce args=4 vars=0 closure=0 cpool=0 bc=224B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, n
+     0  push_atom_value account
+     5  get_arg0 0: e
+     6  get_field kind  ;+28B
+    39  strict_eq
+    40  if_false8 -> 0056
+    42  get_arg3 3: n
+    43  get_arg0 0: e
+    44  get_field id
+    77  strict_eq
+    78  if_false8 -> 0056
+    80  push_atom_value Something went wrong.
+    85  return
+L   86  get_arg1 1: t
+    87  get_arg0 0: e
+    88  get_field id
+   121  strict_neq
+   122  if_false8 -> 009f
+   124  get_arg0 0: e
+   125  get_field subtitle
+   158  return
+L  159  push_atom_value sync
+   164  get_arg2 2: o
+   165  strict_eq
+   166  if_false8 -> 00ae
+   168  push_atom_value Syncing...
+   173  return
+L  174  push_atom_value delete
+   179  get_arg2 2: o
+   180  strict_eq
+   181  if_false8 -> 00bd
+   183  push_atom_value Deleting...
+   188  return
+L  189  get_arg0 0: e
+   190  get_field subtitle
+   223  return
+
+-- fn name=fe args=1 vars=0 closure=0 cpool=0 bc=118B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+     0  push_atom_value expired
+     5  get_arg0 0: e
+     6  get_field connectionState  ;+28B
+    39  strict_eq
+    40  if_false8 -> 0041
+    42  object
+    43  push_atom_value reconnect
+    48  define_field id
+    53  push_atom_value Reconnect
+    58  define_field title
+    63  goto8 -> 0056
+L   65  object
+    66  push_atom_value sync
+    71  define_field id
+    76  push_atom_value Sync now
+    81  define_field title
+L   86  object
+    87  push_atom_value delete
+    92  define_field id
+    97  push_atom_value Remove account
+   102  define_field title
+   107  push_0 0
+   108  lnot
+   109  define_field destructive
+   114  array_from #args=2
+   117  return
+
+-- fn name=Re args=1 vars=1 closure=0 cpool=0 bc=152B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t
+     0  set_loc_uninitialized 0: t
+     3  object
+     4  get_arg0 0: e
+     5  get_field organizationId  ;+28B
+    38  dup
+    39  is_undefined_or_null
+    40  if_false8 -> 002c
+    42  drop
+    43  push_empty_string
+L   44  define_field organization_id
+    49  push_atom_value chatgpt_native
+    54  define_field callback_mode
+    59  put_loc0 0: t
+    60  undefined
+    61  get_arg0 0: e
+    62  get_field gatewayId
+    95  strict_neq
+    96  dup
+    97  if_false8 -> 0093
+    99  drop
+   100  get_loc_check 0: t
+   103  get_arg0 0: e
+   104  get_field gatewayId
+   137  insert2
+   138  put_field gateway_id
+L  147  drop
+   148  get_loc_check 0: t
+   151  return
+
+-- fn name=Ie args=3 vars=0 closure=0 cpool=0 bc=92B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o
+     0  undefined
+     1  get_arg0 0: e
+     2  strict_eq
+     3  if_false8 -> 0035
+     5  get_arg1 1: t
+     6  dup
+     7  is_undefined_or_null
+     8  if_false8 -> 000e
+    10  drop
+    11  undefined
+    12  goto8 -> 005b
+L   14  get_field2 renderFailure  ;+28B
+    47  get_arg2 2: o
+    48  call_method #args=1
+    51  goto8 -> 005b
+L   53  get_arg0 0: e
+    54  get_field2 renderFailure
+    87  get_arg2 2: o
+    88  call_method #args=1
+L   91  return_undef
+
+-- fn name=ke args=1 vars=1 closure=1 cpool=0 bc=73B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t
+   closure: De
+     0  set_loc_uninitialized 0: t
+     3  get_var JSON
+     8  get_field2 parse  ;+28B
+    41  get_arg0 0: e
+    42  call_method #args=1
+    45  put_loc0 0: t
+    46  get_var_ref0 0: De
+    47  get_loc_check 0: t
+    50  call1 #args=1
+    51  lnot
+    52  if_false8 -> 0045
+    54  get_var Error
+    59  dup
+    60  push_atom_value Host tool response was not a JSON object.
+    65  call_constructor #args=1
+    68  throw
+L   69  get_loc_check 0: t
+    72  return
+
+-- fn name=De args=1 vars=0 closure=0 cpool=0 bc=63B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+     0  push_atom_value object
+     5  get_arg0 0: e
+     6  typeof
+     7  eq
+     8  dup
+     9  if_false8 -> 003e
+    11  drop
+    12  null
+    13  get_arg0 0: e
+    14  strict_neq
+    15  dup
+    16  if_false8 -> 003e
+    18  drop
+    19  get_var Array
+    24  get_field2 isArray  ;+28B
+    57  get_arg0 0: e
+    58  call_method #args=1
+    61  lnot
+L   62  return
+
+-- fn name=Pe args=1 vars=0 closure=0 cpool=0 bc=20B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+     0  push_atom_value string
+     5  get_arg0 0: e
+     6  typeof
+     7  eq
+     8  if_false8 -> 0012
+    10  get_arg0 0: e
+    11  get_length
+    12  push_0 0
+    13  gt
+    14  if_false8 -> 0012
+    16  get_arg0 0: e
+    17  return
+L   18  undefined
+    19  return
+
+-- fn name=xe args=1 vars=0 closure=0 cpool=0 bc=28B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e
+     0  push_atom_value syncing
+     5  get_arg0 0: e
+     6  strict_eq
+     7  dup
+     8  if_true8 -> 0012
+    10  drop
+    11  push_atom_value deleting
+    16  get_arg0 0: e
+    17  strict_eq
+L   18  if_false8 -> 0016
+    20  get_arg0 0: e
+    21  return
+L   22  push_atom_value idle
+    27  return
+
+-- fn name=Ne args=1 vars=3 closure=0 cpool=0 bc=186B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: e, t, o, n
+     0  set_loc_uninitialized 1: o
+     3  set_loc_uninitialized 0: t
+     6  array_from #args=0
+     9  put_loc0 0: t
+    10  get_var Set
+    15  dup
+    16  call_constructor #args=0
+    19  put_loc1 1: o
+    20  set_loc_uninitialized 2: n
+    23  get_arg0 0: e
+    24  for_of_start
+    25  goto16 -> 00ad
+    28  put_loc2 2: n
+    29  undefined
+    30  get_loc_check 2: n
+    33  strict_eq
+    34  dup
+    35  if_true -> 00ac
+    40  drop
+    41  get_loc_check 1: o
+    44  get_field2 has
+    77  get_loc_check 2: n
+    80  call_method #args=1
+    83  dup
+    84  if_true8 -> 00ac
+    86  drop
+    87  get_loc_check 1: o
+    90  get_field2 add
+   123  get_loc_check 2: n
+   126  call_method #args=1
+   129  drop
+   130  get_loc_check 0: t
+   133  get_field2 push
+   166  get_loc_check 2: n
+   169  call_method #args=1
+L  172  drop
+L  173  for_of_next 0
+   175  if_false -> 001c
+   180  drop
+   181  iterator_close
+   182  get_loc_check 0: t
+   185  return
+
+-- fn name=<atom:0> args=3 vars=92 closure=0 cpool=57 bc=6929B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: require, module, exports, e, t, o, n, i, r, d, s, a, c, l, g, u, h, y, p, v, m, b, w, S, A, C, f, R, I, k, D, P, x, N, O, T, L, B, H, M, _, E, z, F, q, V, U, j, J, W, K, G, X, $, Z, Q, Y, ee, te, oe, ne, ie, re, de, OlympicConnectionsErrorBoundary, <class_fields_init>, OlympicConnectionsErrorBoundary, OlympicConnectionsComponent, <class_fields_init>, OlympicConnectionsComponent, se, ae, ce, le, ge, ue, he, ye, pe, ve, me, be, we, Se, Ae, Ce, fe, Re, Ie, ke, De, Pe, xe, Ne, Oe
+     0  fclosure8 33: <function se>
+     2  put_loc8 67: se
+     4  fclosure8 34: <function ae>
+     6  put_loc8 68: ae
+     8  fclosure8 35: <function ce>
+    10  put_loc8 69: ce
+    12  fclosure8 36: <function le>
+    14  put_loc8 70: le
+    16  fclosure8 37: <function ge>
+    18  put_loc8 71: ge
+    20  fclosure8 38: <function ue>
+    22  put_loc8 72: ue
+    24  fclosure8 39: <function he>
+    26  put_loc8 73: he
+    28  fclosure8 40: <function ye>
+    30  put_loc8 74: ye
+    32  fclosure8 41: <function pe>
+    34  put_loc8 75: pe
+    36  fclosure8 42: <function ve>
+    38  put_loc8 76: ve
+    40  fclosure8 43: <function me>
+    42  put_loc8 77: me
+    44  fclosure8 44: <function be>
+    46  put_loc8 78: be
+    48  fclosure8 45: <function we>
+    50  put_loc8 79: we
+    52  fclosure8 46: <function Se>
+    54  put_loc8 80: Se
+    56  fclosure8 47: <function Ae>
+    58  put_loc8 81: Ae
+    60  fclosure8 48: <function Ce>
+    62  put_loc8 82: Ce
+    64  fclosure8 49: <function fe>
+    66  put_loc8 83: fe
+    68  fclosure8 50: <function Re>
+    70  put_loc8 84: Re
+    72  fclosure8 51: <function Ie>
+    74  put_loc8 85: Ie
+    76  fclosure8 52: <function ke>
+    78  put_loc8 86: ke
+    80  fclosure8 53: <function De>
+    82  put_loc8 87: De
+    84  fclosure8 54: <function Pe>
+    86  put_loc8 88: Pe
+    88  fclosure8 55: <function xe>
+    90  put_loc8 89: xe
+    92  fclosure8 56: <function Ne>
+    94  put_loc8 90: Ne
+    96  set_loc_uninitialized 91: Oe
+    99  set_loc_uninitialized 66: OlympicConnectionsComponent
+   102  set_loc_uninitialized 63: OlympicConnectionsErrorBoundary
+   105  set_loc_uninitialized 60: de
+   108  set_loc_uninitialized 59: re
+   111  set_loc_uninitialized 58: ie
+   114  set_loc_uninitialized 57: ne
+   117  set_loc_uninitialized 56: oe
+   120  set_loc_uninitialized 55: te
+   123  set_loc_uninitialized 54: ee
+   126  set_loc_uninitialized 53: Y
+   129  set_loc_uninitialized 52: Q
+   132  set_loc_uninitialized 51: Z
+   135  set_loc_uninitialized 50: $
+   138  set_loc_uninitialized 49: X
+   141  set_loc_uninitialized 48: G
+   144  set_loc_uninitialized 47: K
+   147  set_loc_uninitialized 46: W
+   150  set_loc_uninitialized 45: J
+   153  set_loc_uninitialized 44: j
+   156  set_loc_uninitialized 43: U
+   159  set_loc_uninitialized 42: V
+   162  set_loc_uninitialized 41: q
+   165  set_loc_uninitialized 40: F
+   168  set_loc_uninitialized 39: z
+   171  set_loc_uninitialized 38: E
+   174  set_loc_uninitialized 37: _
+   177  set_loc_uninitialized 36: M
+   180  set_loc_uninitialized 35: H
+   183  set_loc_uninitialized 34: B
+   186  set_loc_uninitialized 33: L
+   189  set_loc_uninitialized 32: T
+   192  set_loc_uninitialized 31: O
+   195  set_loc_uninitialized 30: N
+   198  set_loc_uninitialized 29: x
+   201  set_loc_uninitialized 28: P
+   204  set_loc_uninitialized 27: D
+   207  set_loc_uninitialized 26: k
+   210  set_loc_uninitialized 25: I
+   213  set_loc_uninitialized 24: R
+   216  set_loc_uninitialized 23: f
+   219  set_loc_uninitialized 22: C
+   222  set_loc_uninitialized 21: A
+   225  set_loc_uninitialized 20: S
+   228  set_loc_uninitialized 19: w
+   231  set_loc_uninitialized 18: b
+   234  set_loc_uninitialized 17: m
+   237  set_loc_uninitialized 16: v
+   240  set_loc_uninitialized 15: p
+   243  set_loc_uninitialized 14: y
+   246  set_loc_uninitialized 13: h
+   249  set_loc_uninitialized 12: u
+   252  set_loc_uninitialized 11: g
+   255  set_loc_uninitialized 10: l
+   258  set_loc_uninitialized 9: c
+   261  set_loc_uninitialized 8: a
+   264  set_loc_uninitialized 7: s
+   267  set_loc_uninitialized 6: d
+   270  set_loc_uninitialized 5: r
+   273  set_loc_uninitialized 4: i
+   276  set_loc_uninitialized 3: n
+   279  set_loc_uninitialized 2: o
+   282  set_loc_uninitialized 1: t
+   285  set_loc_uninitialized 0: e
+   288  get_var Object
+   293  get_field2 defineProperty
+   326  get_arg2 2: exports
+   327  push_atom_value __esModule
+   332  object
+   333  push_0 0
+   334  lnot
+   335  define_field value
+   340  call_method #args=3
+   343  drop
+   344  get_arg2 2: exports
+   345  undefined
+   346  put_field OlympicConnectionsComponent
+   355  get_arg0 0: require
+   356  push_atom_value valdi_core/src/ValdiRuntimeProvider
+   361  call1 #args=1
+   362  get_field2 getValdiRuntime
+   395  call_method #args=0
+   398  put_loc0 0: e
+   399  get_arg0 0: require
+   400  push_atom_value valdi_core/src/JSX
+   405  call1 #args=1
+   406  get_field jsx
+   439  put_loc1 1: t
+   440  get_loc_check 1: t
+   443  get_field2 makeNodePrototype
+   476  push_atom_value view
+   481  undefined
+   482  push_atom_value PGwAJIDZN42VRyCk
+   487  call_method #args=3
+   490  put_loc2 2: o
+   491  get_loc_check 1: t
+   494  get_field2 makeNodePrototype
+   527  push_atom_value label
+   532  undefined
+   533  push_atom_value EINYLEKVGRExjb9K
+   538  call_method #args=3
+   541  put_loc3 3: n
+   542  get_loc_check 1: t
+   545  get_field2 makeComponentPrototype
+   578  undefined
+   579  push_atom_value kWUyhikKtV6U4DO7
+   584  call_method #args=2
+   587  put_loc8 4: i
+   589  get_loc_check 1: t
+   592  get_field2 makeComponentPrototype
+   625  undefined
+   626  push_atom_value JkRaGrXtZUVdlCJC
+   631  call_method #args=2
+   634  put_loc8 5: r
+   636  get_loc_check 1: t
+   639  get_field2 makeNodePrototype
+   672  push_atom_value view
+   677  undefined
+   678  push_atom_value htC-kZlcFXYs5oJ_
+   683  call_method #args=3
+   686  put_loc8 6: d
+   688  get_loc_check 1: t
+   691  get_field2 makeNodePrototype
+   724  push_atom_value scroll
+   729  undefined
+   730  push_atom_value w6Sd9XO9jXa5GcTj
+   735  call_method #args=3
+   738  put_loc8 7: s
+   740  get_loc_check 1: t
+   743  get_field2 makeNodePrototype
+   776  push_atom_value view
+   781  undefined
+   782  push_atom_value QD3zFMk1dQGRddhX
+   787  call_method #args=3
+   790  put_loc8 8: a
+   792  get_loc_check 1: t
+   795  get_field2 makeNodePrototype
+   828  push_atom_value view
+   833  undefined
+   834  push_atom_value Dmleqx9FZXOJ97G0
+   839  call_method #args=3
+   842  put_loc8 9: c
+   844  get_loc_check 1: t
+   847  get_field2 makeNodePrototype
+   880  push_atom_value view
+   885  push_atom_value accessibilityLabel
+   890  push_atom_value Loading connections
+   895  array_from #args=2
+   898  push_atom_value kXC6BU8ofzpbDQTQ
+   903  call_method #args=3
+   906  put_loc8 10: l
+   908  get_loc_check 1: t
+   911  get_field2 makeNodePrototype
+   944  push_atom_value view
+   949  undefined
+   950  push_atom_value DUoKuXY-3EpcTAFd
+   955  call_method #args=3
+   958  put_loc8 11: g
+   960  get_loc_check 1: t
+   963  get_field2 makeNodePrototype
+   996  push_atom_value view
+  1001  undefined
+  1002  push_atom_value 1xE91bNy0zPFQrFw
+  1007  call_method #args=3
+  1010  put_loc8 12: u
+  1012  get_loc_check 1: t
+  1015  get_field2 makeNodePrototype
+  1048  push_atom_value view
+  1053  undefined
+  1054  push_atom_value Y2WztfHOE1RLHaA3
+  1059  call_method #args=3
+  1062  put_loc8 13: h
+  1064  get_loc_check 1: t
+  1067  get_field2 makeNodePrototype
+  1100  push_atom_value view
+  1105  undefined
+  1106  push_atom_value sygHF1AqHoVIQ3k0
+  1111  call_method #args=3
+  1114  put_loc8 14: y
+  1116  get_loc_check 1: t
+  1119  get_field2 makeNodePrototype
+  1152  push_atom_value view
+  1157  undefined
+  1158  push_atom_value qWZBg4jkUbs8tjJX
+  1163  call_method #args=3
+  1166  put_loc8 15: p
+  1168  get_loc_check 1: t
+  1171  get_field2 makeNodePrototype
+  1204  push_atom_value view
+  1209  undefined
+  1210  push_atom_value SGsNSN6TbV86beEp
+  1215  call_method #args=3
+  1218  put_loc8 16: v
+  1220  get_loc_check 1: t
+  1223  get_field2 makeNodePrototype
+  1256  push_atom_value label
+  1261  undefined
+  1262  push_atom_value omcAgmtWpkk9PtZ6
+  1267  call_method #args=3
+  1270  put_loc8 17: m
+  1272  get_loc_check 1: t
+  1275  get_field2 makeNodePrototype
+  1308  push_atom_value view
+  1313  push_atom_value accessibilityCategory
+  1318  push_atom_value button
+  1323  array_from #args=2
+  1326  push_atom_value bVa5IszlyI0n7hC_
+  1331  call_method #args=3
+  1334  put_loc8 18: b
+  1336  get_loc_check 1: t
+  1339  get_field2 makeNodePrototype
+  1372  push_atom_value view
+  1377  undefined
+  1378  push_atom_value NyY1iPhhuk5S3om4
+  1383  call_method #args=3
+  1386  put_loc8 19: w
+  1388  get_loc_check 1: t
+  1391  get_field2 makeNodePrototype
+  1424  push_atom_value view
+  1429  undefined
+  1430  push_atom_value DTtzJLy1OU17Ztf9
+  1435  call_method #args=3
+  1438  put_loc8 20: S
+  1440  get_loc_check 1: t
+  1443  get_field2 makeNodePrototype
+  1476  push_atom_value view
+  1481  undefined
+  1482  push_atom_value DYttjmufoY1BnsHx
+  1487  call_method #args=3
+  1490  put_loc8 21: A
+  1492  get_loc_check 1: t
+  1495  get_field2 makeNodePrototype
+  1528  push_atom_value label
+  1533  undefined
+  1534  push_atom_value awlc5keqlQo4NZHu
+  1539  call_method #args=3
+  1542  put_loc8 22: C
+  1544  get_loc_check 1: t
+  1547  get_field2 makeNodePrototype
+  1580  push_atom_value view
+  1585  undefined
+  1586  push_atom_value Ku3G4okA7dJBisxR
+  1591  call_method #args=3
+  1594  put_loc8 23: f
+  1596  get_loc_check 1: t
+  1599  get_field2 makeNodePrototype
+  1632  push_atom_value view
+  1637  undefined
+  1638  push_atom_value MN8tNh6192FLNC0R
+  1643  call_method #args=3
+  1646  put_loc8 24: R
+  1648  get_loc_check 1: t
+  1651  get_field2 makeNodePrototype
+  1684  push_atom_value label
+  1689  undefined
+  1690  push_atom_value CHug60AM1WAP1b4u
+  1695  call_method #args=3
+  1698  put_loc8 25: I
+  1700  get_loc_check 1: t
+  1703  get_field2 makeNodePrototype
+  1736  push_atom_value label
+  1741  undefined
+  1742  push_atom_value TyAJLkONGdUQDYAI
+  1747  call_method #args=3
+  1750  put_loc8 26: k
+  1752  get_loc_check 1: t
+  1755  get_field2 makeNodePrototype
+  1788  push_atom_value view
+  1793  undefined
+  1794  push_atom_value giH13dRyfOW4FUX9
+  1799  call_method #args=3
+  1802  put_loc8 27: D
+  1804  get_loc_check 1: t
+  1807  get_field2 makeNodePrototype
+  1840  push_atom_value image
+  1845  push_atom_value objectFit
+  1850  push_atom_value contain
+  1855  array_from #args=2
+  1858  push_atom_value 4oXtiN9e_QAE9Otg
+  1863  call_method #args=3
+  1866  put_loc8 28: P
+  1868  get_loc_check 1: t
+  1871  get_field2 makeNodePrototype
+  1904  push_atom_value view
+  1909  undefined
+  1910  push_atom_value 7j-D_wRbn8DyNqEG
+  1915  call_method #args=3
+  1918  put_loc8 29: x
+  1920  get_loc_check 1: t
+  1923  get_field2 makeNodePrototype
+  1956  push_atom_value image
+  1961  push_atom_value objectFit
+  1966  push_atom_value contain
+  1971  array_from #args=2
+  1974  push_atom_value zqVohgCo437bfhZP
+  1979  call_method #args=3
+  1982  put_loc8 30: N
+  1984  get_loc_check 1: t
+  1987  get_field2 makeNodePrototype
+  2020  push_atom_value view
+  2025  undefined
+  2026  push_atom_value PHcPF31kGuEahdiH
+  2031  call_method #args=3
+  2034  put_loc8 31: O
+  2036  get_loc_check 1: t
+  2039  get_field2 makeNodePrototype
+  2072  push_atom_value image
+  2077  push_atom_value objectFit
+  2082  push_atom_value contain
+  2087  array_from #args=2
+  2090  push_atom_value Rq49tk2PR9gOap6r
+  2095  call_method #args=3
+  2098  put_loc8 32: T
+  2100  get_loc_check 1: t
+  2103  get_field2 makeComponentPrototype
+  2136  undefined
+  2137  push_atom_value U-2Z_fpwu1pIi4O9
+  2142  call_method #args=2
+  2145  put_loc8 33: L
+  2147  get_loc_check 1: t
+  2150  get_field2 makeNodePrototype
+  2183  push_atom_value view
+  2188  undefined
+  2189  push_atom_value s_avc2DTGuR2Vxiu
+  2194  call_method #args=3
+  2197  put_loc8 34: B
+  2199  get_loc_check 1: t
+  2202  get_field2 makeNodePrototype
+  2235  push_atom_value view
+  2240  push_atom_value accessibilityCategory
+  2245  push_atom_value button
+  2250  array_from #args=2
+  2253  push_atom_value wDl3xce7Hce6VjMy
+  2258  call_method #args=3
+  2261  put_loc8 35: H
+  2263  get_loc_check 1: t
+  2266  get_field2 makeNodePrototype
+  2299  push_atom_value label
+  2304  undefined
+  2305  push_atom_value Ys0_cCwWCj0P1ebL
+  2310  call_method #args=3
+  2313  put_loc8 36: M
+  2315  get_arg0 0: require
+  2316  push_atom_value native_menu/src/NativeMenuButton
+  2321  call1 #args=1
+  2322  put_loc8 37: _
+  2324  get_arg0 0: require
+  2325  push_atom_value oai_core/src/OAITheme
+  2330  call1 #args=1
+  2331  put_loc8 38: E
+  2333  get_arg0 0: require
+  2334  push_atom_value oai_core/src/OAITokens
+  2339  call1 #args=1
+  2340  put_loc8 39: z
+  2342  get_arg0 0: require
+  2343  push_atom_value olympic_analytics/src/OlympicNavigationAnalytics
+  2348  call1 #args=1
+  2349  put_loc8 40: F
+  2351  get_arg0 0: require
+  2352  push_atom_value valdi_core/src/Asset
+  2357  call1 #args=1
+  2358  put_loc8 41: q
+  2360  get_arg0 0: require
+  2361  push_atom_value valdi_core/src/Component
+  2366  call1 #args=1
+  2367  put_loc8 42: V
+  2369  get_arg0 0: require
+  2370  push_atom_value valdi_core/src/Device
+  2375  call1 #args=1
+  2376  put_loc8 43: U
+  2378  get_arg0 0: require
+  2379  push_atom_value valdi_core/src/Style
+  2384  call1 #args=1
+  2385  put_loc8 44: j
+  2387  get_arg0 0: require
+  2388  push_atom_value olympic_connections/res
+  2393  call1 #args=1
+  2394  put_loc8 45: J
+  2396  push_atom_value connector_openai_olympic
+  2401  put_loc8 46: W
+  2403  push_atom_value apple_health
+  2408  put_loc8 47: K
+  2410  push_atom_value health_kit
+  2415  put_loc8 48: G
+  2417  push_atom_value list_account_connections
+  2422  put_loc8 49: X
+  2424  push_atom_value get_apple_health_connector_status
+  2429  put_loc8 50: $
+  2431  push_atom_value get_organization
+  2436  put_loc8 51: Z
+  2438  push_atom_value sync_account_connection
+  2443  put_loc8 52: Q
+  2445  push_atom_value delete_account_connection
+  2450  put_loc8 53: Y
+  2452  push_atom_value initiate_organization_oauth
+  2457  put_loc8 54: ee
+  2459  push_2 2
+  2460  put_loc8 55: te
+  2462  push_atom_value Add account
+  2467  put_loc8 56: oe
+  2469  push_i16 164
+  2472  put_loc8 57: ne
+  2474  push_atom_value Jan
+  2479  push_atom_value Feb
+  2484  push_atom_value Mar
+  2489  push_atom_value Apr
+  2494  push_atom_value May
+  2499  push_atom_value Jun
+  2504  push_atom_value Jul
+  2509  push_atom_value Aug
+  2514  push_atom_value Sep
+  2519  push_atom_value Oct
+  2524  push_atom_value Nov
+  2529  push_atom_value Dec
+  2534  array_from #args=12
+  2537  put_loc8 58: ie
+  2539  get_loc_check 39: z
+  2542  get_field OAIColor
+  2575  get_field Transparent
+  2608  put_loc8 59: re
+  2610  push_atom_value {}
+  2615  put_loc8 60: de
+  2617  set_loc_uninitialized 61: OlympicConnectionsErrorBoundary
+  2620  get_loc_check 42: V
+  2623  get_field StatefulComponent
+  2656  set_loc_uninitialized 62: <class_fields_init>
+  2659  push_const8 0: <function <atom:0>>
+  2661  define_class OlympicConnectionsErrorBoundary,1
+  2667  fclosure8 1: <function <atom:0>>
+  2669  define_method onRender,0
+  2675  fclosure8 2: <function <atom:0>>
+  2677  define_method onError,0
+  2683  undefined
+  2684  put_loc8 62: <class_fields_init>
+  2686  drop
+  2687  set_loc8 61: OlympicConnectionsErrorBoundary
+  2689  close_loc 62: <class_fields_init>
+  2692  put_loc8 63: OlympicConnectionsErrorBoundary
+  2694  set_loc_uninitialized 64: OlympicConnectionsComponent
+  2697  get_loc_check 42: V
+  2700  get_field StatefulComponent
+  2733  set_loc_uninitialized 65: <class_fields_init>
+  2736  push_const8 3: <function <atom:0>>
+  2738  define_class OlympicConnectionsComponent,1
+  2744  fclosure8 4: <function <atom:0>>
+  2746  define_method onCreate,0
+  2752  fclosure8 5: <function <atom:0>>
+  2754  define_method onViewModelUpdate,0
+  2760  fclosure8 6: <function <atom:0>>
+  2762  define_method onRender,0
+  2768  fclosure8 7: <function <atom:0>>
+  2770  define_method renderList,0
+  2776  fclosure8 8: <function <atom:0>>
+  2778  define_method renderBody,0
+  2784  fclosure8 9: <function <atom:0>>
+  2786  define_method renderLoadingRows,0
+  2792  fclosure8 10: <function <atom:0>>
+  2794  define_method renderSkeletonRow,0
+  2800  fclosure8 11: <function <atom:0>>
+  2802  define_method renderErrorState,0
+  2808  fclosure8 12: <function <atom:0>>
+  2810  define_method renderErrorMessage,0
+  2816  fclosure8 13: <function <atom:0>>
+  2818  define_method renderLoadedRows,0
+  2824  fclosure8 14: <function <atom:0>>
+  2826  define_method renderAddConnectionRow,0
+  2832  fclosure8 15: <function <atom:0>>
+  2834  define_method renderConnectionRow,0
+  2840  fclosure8 16: <function <atom:0>>
+  2842  define_method renderProviderBadge,0
+  2848  fclosure8 17: <function <atom:0>>
+  2850  define_method renderEllipsisButton,0
+  2856  fclosure8 18: <function <atom:0>>
+  2858  define_method providerLogoAsset,0
+  2864  fclosure8 19: <function <atom:0>>
+  2866  define_method renderActionPanel,0
+  2872  fclosure8 20: <function <atom:0>>
+  2874  define_method renderPanelAction,0
+  2880  fclosure8 21: <function <atom:0>>
+  2882  define_method toggleActionPanel,0
+  2888  fclosure8 22: <function <atom:0>>
+  2890  define_method handleMenuAction,0
+  2896  fclosure8 23: <function <atom:0>>
+  2898  define_method handleSync,0
+  2904  fclosure8 24: <function <atom:0>>
+  2906  define_method handleRemove,0
+  2912  fclosure8 25: <function <atom:0>>
+  2914  define_method handleReconnect,0
+  2920  fclosure8 26: <function <atom:0>>
+  2922  define_method addConnector,0
+  2928  fclosure8 27: <function <atom:0>>
+  2930  define_method loadFromHost,0
+  2936  fclosure8 28: <function <atom:0>>
+  2938  define_method scheduleHostLoad,0
+  2944  fclosure8 29: <function <atom:0>>
+  2946  define_method loadRows,0
+  2952  fclosure8 30: <function <atom:0>>
+  2954  define_method loadOrganizations,0
+  2960  fclosure8 31: <function <atom:0>>
+  2962  define_method runConnectionTool,0
+  2968  fclosure8 32: <function <atom:0>>
+  2970  define_method runReconnectTool,0
+  2976  undefined
+  2977  put_loc8 65: <class_fields_init>
+  2979  drop
+  2980  set_loc8 64: OlympicConnectionsComponent
+  2982  close_loc 65: <class_fields_init>
+  2985  put_loc8 66: OlympicConnectionsComponent
+  2987  get_arg2 2: exports
+  2988  get_loc_check 66: OlympicConnectionsComponent
+  2991  put_field OlympicConnectionsComponent
+  3000  object
+  3001  get_loc_check 44: j
+  3004  get_field Style
+  3037  dup
+  3038  object
+  3039  get_loc_check 59: re
+  3042  define_field backgroundColor
+  3047  push_atom_value 100%
+  3052  define_field height
+  3057  push_atom_value 100%
+  3062  define_field width
+  3067  call_constructor #args=1
+  3070  define_field root
+  3075  get_loc_check 44: j
+  3078  get_field Style
+  3111  dup
+  3112  object
+  3113  get_loc_check 59: re
+  3116  define_field backgroundColor
+  3121  push_atom_value 100%
+  3126  define_field height
+  3131  push_atom_value 100%
+  3136  define_field width
+  3141  call_constructor #args=1
+  3144  define_field scroll
+  3149  get_loc_check 44: j
+  3152  get_field Style
+  3185  dup
+  3186  object
+  3187  push_atom_value stretch
+  3192  define_field alignItems
+  3197  push_atom_value column
+  3202  define_field flexDirection
+  3207  push_i8 12
+  3209  define_field paddingBottom
+  3214  push_i8 12
+  3216  define_field paddingTop
+  3221  push_atom_value 100%
+  3226  define_field width
+  3231  call_constructor #args=1
+  3234  define_field content
+  3239  get_loc_check 44: j
+  3242  get_field Style
+  3275  dup
+  3276  object
+  3277  push_atom_value stretch
+  3282  define_field alignItems
+  3287  push_atom_value column
+  3292  define_field flexDirection
+  3297  get_loc_check 57: ne
+  3300  define_field paddingBottom
+  3305  push_i8 12
+  3307  define_field paddingTop
+  3312  push_atom_value 100%
+  3317  define_field width
+  3322  call_constructor #args=1
+  3325  define_field contentWithNativeBottomClearance
+  3330  get_loc_check 44: j
+  3333  get_field Style
+  3366  dup
+  3367  object
+  3368  push_atom_value stretch
+  3373  define_field alignItems
+  3378  push_atom_value column
+  3383  define_field flexDirection
+  3388  push_atom_value 100%
+  3393  define_field width
+  3398  call_constructor #args=1
+  3401  define_field list
+  3406  get_loc_check 44: j
+  3409  get_field Style
+  3442  dup
+  3443  object
+  3444  push_atom_value center
+  3449  define_field alignItems
+  3454  push_atom_value row
+  3459  define_field flexDirection
+  3464  push_i8 12
+  3466  define_field gap
+  3471  push_i8 60
+  3473  define_field minHeight
+  3478  push_i8 10
+  3480  define_field paddingBottom
+  3485  push_i8 16
+  3487  define_field paddingLeft
+  3492  push_i8 16
+  3494  define_field paddingRight
+  3499  push_i8 10
+  3501  define_field paddingTop
+  3506  push_atom_value 100%
+  3511  define_field width
+  3516  call_constructor #args=1
+  3519  define_field addRow
+  3524  get_loc_check 44: j
+  3527  get_field Style
+  3560  dup
+  3561  object
+  3562  push_atom_value center
+  3567  define_field alignItems
+  3572  get_loc_check 39: z
+  3575  get_field OAIColor
+  3608  get_field BgTertiary
+  3641  define_field backgroundColor
+  3646  get_loc_check 39: z
+  3649  get_field OAIColor
+  3682  get_field BorderLight
+  3715  define_field borderColor
+  3720  push_i8 22
+  3722  define_field borderRadius
+  3727  push_1 1
+  3728  define_field borderWidth
+  3733  push_0 0
+  3734  define_field flexShrink
+  3739  push_i8 44
+  3741  define_field height
+  3746  push_atom_value center
+  3751  define_field justifyContent
+  3756  push_atom_value relative
+  3761  define_field position
+  3766  push_i8 44
+  3768  define_field width
+  3773  call_constructor #args=1
+  3776  define_field addBadge
+  3781  get_loc_check 44: j
+  3784  get_field Style
+  3817  dup
+  3818  object
+  3819  get_loc_check 39: z
+  3822  get_field OAIColor
+  3855  get_field IconPrimary
+  3888  define_field backgroundColor
+  3893  push_1 1
+  3894  define_field borderRadius
+  3899  push_2 2
+  3900  define_field height
+  3905  push_i8 13
+  3907  define_field left
+  3912  push_atom_value absolute
+  3917  define_field position
+  3922  push_i8 21
+  3924  define_field top
+  3929  push_i8 18
+  3931  define_field width
+  3936  call_constructor #args=1
+  3939  define_field addBadgePlusHorizontal
+  3944  get_loc_check 44: j
+  3947  get_field Style
+  3980  dup
+  3981  object
+  3982  get_loc_check 39: z
+  3985  get_field OAIColor
+  4018  get_field IconPrimary
+  4051  define_field backgroundColor
+  4056  push_1 1
+  4057  define_field borderRadius
+  4062  push_i8 18
+  4064  define_field height
+  4069  push_i8 21
+  4071  define_field left
+  4076  push_atom_value absolute
+  4081  define_field position
+  4086  push_i8 13
+  4088  define_field top
+  4093  push_2 2
+  4094  define_field width
+  4099  call_constructor #args=1
+  4102  define_field addBadgePlusVertical
+  4107  get_loc_check 44: j
+  4110  get_field Style
+  4143  dup
+  4144  object
+  4145  get_loc_check 39: z
+  4148  get_field OAIColor
+  4181  get_field TextPrimary
+  4214  define_field color
+  4219  push_atom_value system-medium 17
+  4224  define_field font
+  4229  call_constructor #args=1
+  4232  define_field addRowLabel
+  4237  get_loc_check 44: j
+  4240  get_field Style
+  4273  dup
+  4274  object
+  4275  push_atom_value center
+  4280  define_field alignItems
+  4285  get_loc_check 59: re
+  4288  define_field backgroundColor
+  4293  push_atom_value row
+  4298  define_field flexDirection
+  4303  push_i8 12
+  4305  define_field gap
+  4310  push_i8 70
+  4312  define_field minHeight
+  4317  push_i8 10
+  4319  define_field paddingBottom
+  4324  push_i8 16
+  4326  define_field paddingLeft
+  4331  push_i8 16
+  4333  define_field paddingRight
+  4338  push_i8 10
+  4340  define_field paddingTop
+  4345  push_atom_value 100%
+  4350  define_field width
+  4355  call_constructor #args=1
+  4358  define_field row
+  4363  get_loc_check 44: j
+  4366  get_field Style
+  4399  dup
+  4400  object
+  4401  push_atom_value stretch
+  4406  define_field alignItems
+  4411  push_atom_value column
+  4416  define_field flexDirection
+  4421  push_1 1
+  4422  define_field flexGrow
+  4427  push_1 1
+  4428  define_field flexShrink
+  4433  push_3 3
+  4434  define_field gap
+  4439  push_0 0
+  4440  define_field minWidth
+  4445  call_constructor #args=1
+  4448  define_field textColumn
+  4453  get_loc_check 44: j
+  4456  get_field Style
+  4489  dup
+  4490  object
+  4491  get_loc_check 39: z
+  4494  get_field OAIColor
+  4527  get_field TextPrimary
+  4560  define_field color
+  4565  push_atom_value system 17
+  4570  define_field font
+  4575  push_atom_value ellipsis
+  4580  define_field textOverflow
+  4585  call_constructor #args=1
+  4588  define_field rowTitle
+  4593  get_loc_check 44: j
+  4596  get_field Style
+  4629  dup
+  4630  object
+  4631  get_loc_check 39: z
+  4634  get_field OAIColor
+  4667  get_field TextSecondary
+  4700  define_field color
+  4705  push_atom_value system 16
+  4710  define_field font
+  4715  push_atom_value ellipsis
+  4720  define_field textOverflow
+  4725  call_constructor #args=1
+  4728  define_field rowSubtitle
+  4733  get_loc_check 44: j
+  4736  get_field Style
+  4769  dup
+  4770  object
+  4771  push_atom_value center
+  4776  define_field alignItems
+  4781  get_loc_check 39: z
+  4784  get_field OAIColor
+  4817  get_field BgTertiary
+  4850  define_field backgroundColor
+  4855  get_loc_check 39: z
+  4858  get_field OAIColor
+  4891  get_field BorderLight
+  4924  define_field borderColor
+  4929  push_i8 22
+  4931  define_field borderRadius
+  4936  push_1 1
+  4937  define_field borderWidth
+  4942  push_0 0
+  4943  define_field flexShrink
+  4948  push_atom_value column
+  4953  define_field flexDirection
+  4958  push_i8 44
+  4960  define_field height
+  4965  push_atom_value center
+  4970  define_field justifyContent
+  4975  push_i8 44
+  4977  define_field width
+  4982  call_constructor #args=1
+  4985  define_field providerBadge
+  4990  get_loc_check 44: j
+  4993  get_field Style
+  5026  dup
+  5027  object
+  5028  push_i8 32
+  5030  define_field height
+  5035  push_i8 32
+  5037  define_field width
+  5042  call_constructor #args=1
+  5045  define_field providerLogoImage
+  5050  get_loc_check 44: j
+  5053  get_field Style
+  5086  dup
+  5087  object
+  5088  push_i8 18
+  5090  define_field height
+  5095  push_i8 18
+  5097  define_field width
+  5102  call_constructor #args=1
+  5105  define_field providerFallbackIcon
+  5110  get_loc_check 44: j
+  5113  get_field Style
+  5146  dup
+  5147  object
+  5148  push_atom_value center
+  5153  define_field alignItems
+  5158  get_loc_check 39: z
+  5161  get_field OAIColor
+  5194  get_field BgTertiary
+  5227  define_field backgroundColor
+  5232  get_loc_check 39: z
+  5235  get_field OAIColor
+  5268  get_field BorderLight
+  5301  define_field borderColor
+  5306  push_i8 22
+  5308  define_field borderRadius
+  5313  push_1 1
+  5314  define_field borderWidth
+  5319  push_0 0
+  5320  define_field flexShrink
+  5325  push_atom_value row
+  5330  define_field flexDirection
+  5335  push_i8 44
+  5337  define_field height
+  5342  push_atom_value center
+  5347  define_field justifyContent
+  5352  push_i8 44
+  5354  define_field width
+  5359  call_constructor #args=1
+  5362  define_field appleHealthBadge
+  5367  get_loc_check 44: j
+  5370  get_field Style
+  5403  dup
+  5404  object
+  5405  push_i8 24
+  5407  define_field height
+  5412  push_i8 24
+  5414  define_field width
+  5419  call_constructor #args=1
+  5422  define_field appleHealthIcon
+  5427  get_loc_check 44: j
+  5430  get_field Style
+  5463  dup
+  5464  object
+  5465  push_atom_value stretch
+  5470  define_field alignItems
+  5475  get_loc_check 39: z
+  5478  get_field OAIColor
+  5511  get_field BgElevatedPrimary
+  5544  define_field backgroundColor
+  5549  get_loc_check 39: z
+  5552  get_field OAIColor
+  5585  get_field BorderDefault
+  5618  define_field borderColor
+  5623  push_i8 8
+  5625  define_field borderRadius
+  5630  push_1 1
+  5631  define_field borderWidth
+  5636  push_atom_value column
+  5641  define_field flexDirection
+  5646  push_i8 72
+  5648  define_field marginLeft
+  5653  push_i8 16
+  5655  define_field marginRight
+  5660  push_i8 -4
+  5662  define_field marginTop
+  5667  push_4 4
+  5668  define_field paddingBottom
+  5673  push_4 4
+  5674  define_field paddingTop
+  5679  call_constructor #args=1
+  5682  define_field actionPanel
+  5687  get_loc_check 44: j
+  5690  get_field Style
+  5723  dup
+  5724  object
+  5725  push_atom_value center
+  5730  define_field alignItems
+  5735  push_atom_value row
+  5740  define_field flexDirection
+  5745  push_i8 42
+  5747  define_field minHeight
+  5752  push_i8 12
+  5754  define_field paddingLeft
+  5759  push_i8 12
+  5761  define_field paddingRight
+  5766  call_constructor #args=1
+  5769  define_field panelAction
+  5774  get_loc_check 44: j
+  5777  get_field Style
+  5810  dup
+  5811  object
+  5812  get_loc_check 39: z
+  5815  get_field OAIColor
+  5848  get_field TextPrimary
+  5881  define_field color
+  5886  push_atom_value system 15
+  5891  define_field font
+  5896  call_constructor #args=1
+  5899  define_field panelActionLabel
+  5904  get_loc_check 44: j
+  5907  get_field Style
+  5940  dup
+  5941  object
+  5942  get_loc_check 39: z
+  5945  get_field OAIColor
+  5978  get_field TextStatusError
+  6011  define_field color
+  6016  push_atom_value system 15
+  6021  define_field font
+  6026  call_constructor #args=1
+  6029  define_field panelActionLabelDestructive
+  6034  get_loc_check 44: j
+  6037  get_field Style
+  6070  dup
+  6071  object
+  6072  push_atom_value stretch
+  6077  define_field alignItems
+  6082  push_atom_value column
+  6087  define_field flexDirection
+  6092  push_atom_value 100%
+  6097  define_field width
+  6102  call_constructor #args=1
+  6105  define_field skeletonList
+  6110  get_loc_check 44: j
+  6113  get_field Style
+  6146  dup
+  6147  object
+  6148  get_loc_check 39: z
+  6151  get_field OAIColor
+  6184  get_field BgTertiary
+  6217  define_field backgroundColor
+  6222  push_i8 22
+  6224  define_field borderRadius
+  6229  push_i8 44
+  6231  define_field height
+  6236  push_i8 44
+  6238  define_field width
+  6243  call_constructor #args=1
+  6246  define_field skeletonBadge
+  6251  get_loc_check 44: j
+  6254  get_field Style
+  6287  dup
+  6288  object
+  6289  get_loc_check 39: z
+  6292  get_field OAIColor
+  6325  get_field BgTertiary
+  6358  define_field backgroundColor
+  6363  push_i8 8
+  6365  define_field borderRadius
+  6370  push_i8 16
+  6372  define_field height
+  6377  push_atom_value 58%
+  6382  define_field width
+  6387  call_constructor #args=1
+  6390  define_field skeletonTitle
+  6395  get_loc_check 44: j
+  6398  get_field Style
+  6431  dup
+  6432  object
+  6433  get_loc_check 39: z
+  6436  get_field OAIColor
+  6469  get_field BgTertiary
+  6502  define_field backgroundColor
+  6507  push_7 7
+  6508  define_field borderRadius
+  6513  push_i8 14
+  6515  define_field height
+  6520  push_atom_value 42%
+  6525  define_field width
+  6530  call_constructor #args=1
+  6533  define_field skeletonSubtitle
+  6538  get_loc_check 44: j
+  6541  get_field Style
+  6574  dup
+  6575  object
+  6576  push_atom_value center
+  6581  define_field alignItems
+  6586  get_loc_check 39: z
+  6589  get_field OAIColor
+  6622  get_field BgStatusError
+  6655  define_field backgroundColor
+  6660  get_loc_check 39: z
+  6663  get_field OAIColor
+  6696  get_field BorderStatusError
+  6729  define_field borderColor
+  6734  push_i8 20
+  6736  define_field borderRadius
+  6741  push_1 1
+  6742  define_field borderWidth
+  6747  push_atom_value center
+  6752  define_field justifyContent
+  6757  push_i8 90
+  6759  define_field minHeight
+  6764  push_i8 16
+  6766  define_field paddingLeft
+  6771  push_i8 16
+  6773  define_field paddingRight
+  6778  push_atom_value 100%
+  6783  define_field width
+  6788  call_constructor #args=1
+  6791  define_field errorMessageContainer
+  6796  get_loc_check 44: j
+  6799  get_field Style
+  6832  dup
+  6833  object
+  6834  get_loc_check 39: z
+  6837  get_field OAIColor
+  6870  get_field TextStatusError
+  6903  define_field color
+  6908  push_atom_value system 14
+  6913  define_field font
+  6918  call_constructor #args=1
+  6921  define_field errorMessageText
+  6926  put_loc8 91: Oe
+  6928  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=olympic_connections/src/OlympicConnectionsComponent
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

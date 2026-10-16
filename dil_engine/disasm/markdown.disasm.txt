@@ -1,0 +1,5190 @@
+# markdown — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/Markdown.js  (23713 B)
+# 原子基准=215 原子表 173 条
+-- 原子表 --
+   [0]markdown/src/Markdown | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]n | [7]r | [8]i | [9]o | [10]Markdown | [11]s | [12]c | [13]u | [14]d | [15]a | [16]l | [17]h | [18]f | [19]m | [20]C | [21]k | [22]g | [23]p | [24]x | [25]v | [26]L | [27]A | [28]b | [29]y | [30]E | [31]R | [32]O | [33]I | [34]W | [35]S | [36]T | [37]P | [38]w | [39]$ | [40]M | [41]N | [42]_ | [43]B | [44]q | [45]D | [46]F | [47]__esModule | [48]./TextParser | [49]parse | [50]parseTextOnly | [51]parseInlines | [52]parseRich | [53]parseRichInlines | [54]Default | [55]TextOnly | [56]Rich | [57]RichLinkLabel | [58]blocks | [59]TextParser | [60]isAtEnd | [61]tryConsumeBlankLine | [62]consumeLine | [63]trim | [64]replace | [65]code | [66]text | [67]push | [68]language | [69]codeSource | [70]math | [71]level | [72]heading | [73]rule | [74]quote | [75]list | [76]kind | [77]inlines | [78]items | [79]paragraph | [80]  | [81]peekLine | [82]endsWith | [83]   | [84]  
+ | [85]\ | [86]
+ | [87]consumeLineTrimmed | [88]POSITIVE_INFINITY | [89]indentation | [90]pop | [91]contentIndentation | [92]depth | [93]checked | [94][x] | [95][ ] | [96]marker | [97]mark | [98]slice | [99]consumeLineWithNormalizedBreak | [100]consumeLeadingSpaces | [101]peekCharCode | [102]restore | [103]tryConsumeCharCode | [104]isAtLineEnd | [105]consumeRestOfLineTrimmed | [106]- | [107]+ | [108]consumeWhile | [109]. | [110]) | [111]peek | [112][ | [113]foldParagraphLineBreaks | [114]bold | [115]italic | [116]link | [117]href | [118]lastIndexOf | [119]` | [120]** | [121]charCodeAt | [122]latex | [123]< | [124]startsWith | [125]<sub> | [126]</sub> | [127]! | [128]labelEnd | [129]Image | [130]hrefStart | [131]hrefEnd | [132]alt | [133]image | [134]nextPosition | [135]forEach | [136]linkEnd | [137]strikethrough | [138]end | [139]includes | [140]~~ | [141]~ | [142]isWhitespace | [143]test | [144]fromCharCode | [145]\
+ | [146]indexOf | [147]& | [148]; | [149]amp | [150]apos | [151]' | [152]gt | [153]> | [154]lt | [155]quot | [156]" | [157]charAt | [158]X | [159]parseInt | [160]isFinite | [161]fromCodePoint | [162]https:// | [163]http:// | [164]( | [165]\( | [166]\) | [167]$$ | [168]\[ | [169]\] | [170]trimStart | [171]position | [172]finishLine
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=77B file=markdown/src/Markdown
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field Default
+    13  push_atom_value Default
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field TextOnly
+    32  push_atom_value TextOnly
+    37  put_array_el
+    38  get_arg0 0: e
+    39  get_arg0 0: e
+    40  push_2 2
+    41  insert2
+    42  put_field Rich
+    51  push_atom_value Rich
+    56  put_array_el
+    57  get_arg0 0: e
+    58  get_arg0 0: e
+    59  push_3 3
+    60  insert2
+    61  put_field RichLinkLabel
+    70  push_atom_value RichLinkLabel
+    75  put_array_el
+    76  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=27B file=markdown/src/Markdown
+   locals: e, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: e
+    17  put_field blocks
+    26  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=39B file=markdown/src/Markdown
+   locals: e
+   closure: s, o
+     0  get_var_ref0 0: s
+     1  get_arg0 0: e
+     2  get_var_ref1 1: o
+     3  get_field Default  ;+28B
+    36  tail_call #args=2
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=39B file=markdown/src/Markdown
+   locals: e
+   closure: s, o
+     0  get_var_ref0 0: s
+     1  get_arg0 0: e
+     2  get_var_ref1 1: o
+     3  get_field TextOnly  ;+28B
+    36  tail_call #args=2
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=41B file=markdown/src/Markdown
+   locals: e
+   closure: L, o
+     0  get_var_ref0 0: L
+     1  get_arg0 0: e
+     2  get_var_ref1 1: o
+     3  get_field Default  ;+28B
+    36  push_1 1
+    37  lnot
+    38  tail_call #args=3
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=39B file=markdown/src/Markdown
+   locals: e
+   closure: s, o
+     0  get_var_ref0 0: s
+     1  get_arg0 0: e
+     2  get_var_ref1 1: o
+     3  get_field Rich  ;+28B
+    36  tail_call #args=2
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=41B file=markdown/src/Markdown
+   locals: e
+   closure: L, o
+     0  get_var_ref0 0: L
+     1  get_arg0 0: e
+     2  get_var_ref1 1: o
+     3  get_field Rich  ;+28B
+    36  push_1 1
+    37  lnot
+    38  tail_call #args=3
+
+-- fn name=s args=2 vars=10 closure=16 cpool=4 bc=1379B file=markdown/src/Markdown
+   locals: n, r, i, s, e, t, n, e, n, h, e, e
+   closure: Markdown, e, m, f, c, o, D, C, u, k, g, a, p, l, t, d
+     0  set_loc_uninitialized 1: s
+     3  set_loc_uninitialized 0: i
+     6  push_0 0
+     7  get_arg0 0: n
+     8  get_length
+     9  strict_eq
+    10  if_false8 -> 0017
+    12  get_var_ref_check 0: Markdown
+    15  dup
+    16  array_from #args=0
+    19  call_constructor #args=1
+    22  return
+L   23  get_var_ref_check 1: e
+    26  get_field TextParser  ;+28B
+    59  dup
+    60  get_arg0 0: n
+    61  call_constructor #args=1
+    64  put_loc0 0: i
+    65  array_from #args=0
+    68  put_loc1 1: s
+L   69  get_loc_check 0: i
+    72  get_field2 isAtEnd
+   105  call_method #args=0
+   108  lnot
+   109  if_false -> 0558
+   114  set_loc_uninitialized 7: h
+   117  set_loc_uninitialized 6: n
+   120  set_loc_uninitialized 5: e
+   123  get_loc_check 0: i
+   126  get_field2 tryConsumeBlankLine
+   159  call_method #args=0
+   162  if_true8 -> 0045
+   164  get_var_ref2 2: m
+   165  get_loc_check 0: i
+   168  call1 #args=1
+   169  if_false -> 027d
+   174  set_loc_uninitialized 4: n
+   177  set_loc_uninitialized 3: t
+   180  set_loc_uninitialized 2: e
+   183  get_loc_check 0: i
+   186  get_field2 consumeLine
+   219  call_method #args=0
+   222  get_field2 trim
+   255  call_method #args=0
+   258  get_field2 replace
+   291  push_const8 0: <string None>
+   293  push_const8 1: <string None>
+   295  regexp
+   296  push_empty_string
+   297  call_method #args=2
+   300  get_field2 trim
+   333  call_method #args=0
+   336  get_field2 split
+   369  push_const8 2: <string None>
+   371  push_const8 3: <string None>
+   373  regexp
+   374  push_1 1
+   375  call_method #args=2
+   378  push_0 0
+   379  get_array_el
+   380  put_loc2 2: e
+   381  get_var_ref3 3: f
+   382  get_loc_check 0: i
+   385  call1 #args=1
+   386  put_loc3 3: t
+   387  get_var_ref 4: c
+   390  push_atom_value code
+   395  get_loc_check 3: t
+   398  get_field text
+   431  push_0 0
+   432  call3 #args=3
+   433  put_loc8 4: n
+   435  get_loc_check 1: s
+   438  get_field2 push
+   471  object
+   472  get_loc_check 4: n
+   475  null
+   476  copy_data_properties 6
+   478  drop
+   479  drop
+   480  get_loc_check 2: e
+   483  get_length
+   484  push_0 0
+   485  gt
+   486  if_false8 -> 01f3
+   488  object
+   489  get_loc_check 2: e
+   492  define_field language
+   497  goto8 -> 01f4
+L  499  object
+L  500  null
+   501  copy_data_properties 6
+   503  drop
+   504  drop
+   505  get_loc_check 3: t
+   508  get_field source
+   541  get_loc_check 3: t
+   544  get_field text
+   577  strict_neq
+   578  if_false8 -> 0270
+   580  object
+   581  get_loc_check 3: t
+   584  get_field source
+   617  define_field codeSource
+   622  goto8 -> 0271
+L  624  object
+L  625  null
+   626  copy_data_properties 6
+   628  drop
+   629  drop
+   630  call_method #args=1
+   633  drop
+   634  goto16 -> 0045
+L  637  get_arg1 1: r
+   638  get_var_ref 5: o
+   641  get_field Rich
+   674  strict_eq
+   675  if_false8 -> 02ae
+   677  get_var_ref 6: D
+   680  get_loc_check 0: i
+   683  call1 #args=1
+   684  goto8 -> 02af
+L  686  undefined
+L  687  put_loc8 5: e
+   689  undefined
+   690  get_loc_check 5: e
+   693  strict_neq
+   694  if_false8 -> 02f0
+   696  get_loc_check 1: s
+   699  get_field2 push
+   732  get_var_ref 4: c
+   735  push_atom_value math
+   740  get_loc_check 5: e
+   743  push_0 0
+   744  call3 #args=3
+   745  call_method #args=1
+   748  drop
+   749  goto16 -> 0045
+L  752  get_var_ref 7: C
+   755  get_loc_check 0: i
+   758  call1 #args=1
+   759  put_loc8 6: n
+   761  get_loc_check 6: n
+   764  get_field level
+   797  put_loc8 7: h
+   799  get_loc_check 7: h
+   802  push_0 0
+   803  gt
+   804  if_false -> 03af
+   809  get_loc_check 0: i
+   812  get_field2 consumeLine
+   845  call_method #args=0
+   848  drop
+   849  get_loc_check 1: s
+   852  get_field2 push
+   885  get_var_ref 8: u
+   888  push_atom_value heading
+   893  get_loc_check 6: n
+   896  get_field text
+   929  get_loc_check 7: h
+   932  get_arg1 1: r
+   933  call #args=4
+   936  call_method #args=1
+   939  drop
+   940  goto16 -> 0045
+L  943  get_var_ref 9: k
+   946  get_loc_check 0: i
+   949  call1 #args=1
+   950  if_false8 -> 0416
+   952  get_loc_check 1: s
+   955  get_field2 push
+   988  get_var_ref 4: c
+   991  push_atom_value rule
+   996  push_empty_string
+   997  push_0 0
+   998  call3 #args=3
+   999  call_method #args=1
+  1002  drop
+  1003  get_loc_check 0: i
+  1006  get_field2 consumeLine
+  1039  call_method #args=0
+  1042  drop
+  1043  goto16 -> 0045
+L 1046  undefined
+  1047  get_var_ref 10: g
+  1050  get_loc_check 0: i
+  1053  call1 #args=1
+  1054  strict_neq
+  1055  if_false8 -> 0489
+  1057  set_loc_uninitialized 8: e
+  1060  get_var_ref 11: a
+  1063  get_loc_check 0: i
+  1066  call1 #args=1
+  1067  put_loc8 8: e
+  1069  get_loc_check 1: s
+  1072  get_field2 push
+  1105  get_var_ref 8: u
+  1108  push_atom_value quote
+  1113  get_loc_check 8: e
+  1116  get_field text
+  1149  push_0 0
+  1150  get_arg1 1: r
+  1151  call #args=4
+  1154  call_method #args=1
+  1157  drop
+  1158  goto16 -> 0045
+L 1161  undefined
+  1162  get_var_ref 12: p
+  1165  get_loc_check 0: i
+  1168  push_4 4
+  1169  call2 #args=2
+  1170  strict_neq
+  1171  if_false -> 0518
+  1176  set_loc_uninitialized 9: e
+  1179  get_var_ref 13: l
+  1182  get_loc_check 0: i
+  1185  get_arg1 1: r
+  1186  call2 #args=2
+  1187  put_loc8 9: e
+  1189  get_loc_check 1: s
+  1192  get_field2 push
+  1225  object
+  1226  push_atom_value list
+  1231  define_field kind
+  1236  push_empty_string
+  1237  define_field text
+  1242  push_0 0
+  1243  define_field level
+  1248  get_var_ref_check 14: t
+  1251  define_field inlines
+  1256  get_loc_check 9: e
+  1259  get_field items
+  1292  define_field items
+  1297  call_method #args=1
+  1300  drop
+  1301  goto16 -> 0045
+L 1304  get_loc_check 1: s
+  1307  get_field2 push
+  1340  get_var_ref 8: u
+  1343  push_atom_value paragraph
+  1348  get_var_ref 15: d
+  1351  get_loc_check 0: i
+  1354  get_arg1 1: r
+  1355  call2 #args=2
+  1356  push_0 0
+  1357  get_arg1 1: r
+  1358  call #args=4
+  1361  call_method #args=1
+  1364  drop
+  1365  goto16 -> 0045
+L 1368  get_var_ref_check 0: Markdown
+  1371  dup
+  1372  get_loc_check 1: s
+  1375  call_constructor #args=1
+  1378  return
+
+-- fn name=c args=3 vars=0 closure=1 cpool=0 bc=34B file=markdown/src/Markdown
+   locals: e, n, r
+   closure: t
+     0  object
+     1  get_arg0 0: e
+     2  define_field kind
+     7  get_arg1 1: n
+     8  define_field text
+    13  get_arg2 2: r
+    14  define_field level
+    19  get_var_ref_check 0: t
+    22  define_field inlines
+    27  undefined
+    28  define_field items
+    33  return
+
+-- fn name=u args=4 vars=0 closure=1 cpool=0 bc=42B file=markdown/src/Markdown
+   locals: e, t, n, r
+   closure: L
+     0  object
+     1  get_arg0 0: e
+     2  define_field kind
+     7  get_arg1 1: t
+     8  define_field text
+    13  get_arg2 2: n
+    14  define_field level
+    19  get_var_ref0 0: L
+    20  get_arg1 1: t
+    21  get_arg3 3: r
+    22  push_atom_value paragraph
+    27  get_arg0 0: e
+    28  strict_eq
+    29  call3 #args=3
+    30  define_field inlines
+    35  undefined
+    36  define_field items
+    41  return
+
+-- fn name=d args=2 vars=3 closure=2 cpool=0 bc=308B file=markdown/src/Markdown
+   locals: e, t, n, r, t
+   closure: v, h
+     0  set_loc_uninitialized 1: r
+     3  set_loc_uninitialized 0: n
+     6  push_empty_string
+     7  put_loc0 0: n
+     8  push_atom_value  
+    13  put_loc1 1: r
+L   14  get_arg0 0: e
+    15  get_field2 isAtEnd  ;+28B
+    48  call_method #args=0
+    51  lnot
+    52  if_false -> 0130
+    57  get_var_ref0 0: v
+    58  get_arg0 0: e
+    59  call1 #args=1
+    60  lnot
+    61  if_false -> 0130
+    66  get_var_ref1 1: h
+    67  get_arg0 0: e
+    68  get_arg1 1: t
+    69  call2 #args=2
+    70  lnot
+    71  if_false -> 0130
+    76  set_loc_uninitialized 2: t
+    79  get_loc_check 0: n
+    82  get_length
+    83  push_0 0
+    84  gt
+    85  dup
+    86  if_false8 -> 0064
+    88  drop
+    89  get_loc_check 0: n
+    92  get_loc_check 1: r
+    95  add
+    96  dup
+    97  put_loc_check 0: n
+L  100  drop
+   101  get_arg0 0: e
+   102  get_field2 peekLine
+   135  call_method #args=0
+   138  put_loc2 2: t
+   139  get_loc_check 2: t
+   142  get_field2 endsWith
+   175  push_atom_value   
+   180  call_method #args=1
+   183  if_false8 -> 00c0
+   185  push_atom_value   
+
+   190  goto8 -> 00fa
+L  192  get_loc_check 2: t
+   195  get_field2 endsWith
+   228  push_atom_value \
+   233  call_method #args=1
+   236  if_false8 -> 00f5
+   238  push_atom_value 
+
+   243  goto8 -> 00fa
+L  245  push_atom_value  
+L  250  dup
+   251  put_loc_check 1: r
+   254  drop
+   255  get_loc_check 0: n
+   258  get_arg0 0: e
+   259  get_field2 consumeLineTrimmed
+   292  call_method #args=0
+   295  add
+   296  dup
+   297  put_loc_check 0: n
+   300  drop
+   301  goto16 -> 000e
+L  304  get_loc_check 0: n
+   307  return
+
+-- fn name=a args=1 vars=2 closure=1 cpool=0 bc=146B file=markdown/src/Markdown
+   locals: e, t, n
+   closure: g
+     0  set_loc_uninitialized 0: t
+     3  push_empty_string
+     4  put_loc0 0: t
+L    5  get_arg0 0: e
+     6  get_field2 isAtEnd  ;+28B
+    39  call_method #args=0
+    42  lnot
+    43  if_false8 -> 0088
+    45  set_loc_uninitialized 1: n
+    48  get_var_ref0 0: g
+    49  get_arg0 0: e
+    50  call1 #args=1
+    51  put_loc1 1: n
+    52  undefined
+    53  get_loc_check 1: n
+    56  strict_eq
+    57  if_true8 -> 0088
+    59  get_arg0 0: e
+    60  get_field2 consumeLine
+    93  call_method #args=0
+    96  drop
+    97  get_loc_check 0: t
+   100  get_length
+   101  push_0 0
+   102  gt
+   103  dup
+   104  if_false8 -> 0078
+   106  drop
+   107  get_loc_check 0: t
+   110  push_atom_value 
+
+   115  add
+   116  dup
+   117  put_loc_check 0: t
+L  120  drop
+   121  get_loc_check 0: t
+   124  get_loc_check 1: n
+   127  add
+   128  dup
+   129  put_loc_check 0: t
+   132  drop
+   133  goto16 -> 0005
+L  136  object
+   137  get_loc_check 0: t
+   140  define_field text
+   145  return
+
+-- fn name=l args=2 vars=4 closure=3 cpool=0 bc=796B file=markdown/src/Markdown
+   locals: e, t, n, r, i, s
+   closure: p, o, L
+     0  set_loc_uninitialized 1: r
+     3  set_loc_uninitialized 0: n
+     6  array_from #args=0
+     9  put_loc0 0: n
+    10  array_from #args=0
+    13  put_loc1 1: r
+L   14  get_arg0 0: e
+    15  get_field2 isAtEnd  ;+28B
+    48  call_method #args=0
+    51  lnot
+    52  if_false -> 0312
+    57  set_loc_uninitialized 3: s
+    60  set_loc_uninitialized 2: i
+    63  get_var_ref0 0: p
+    64  get_arg0 0: e
+    65  get_arg1 1: t
+    66  get_var_ref1 1: o
+    67  get_field Rich
+   100  strict_eq
+   101  if_false8 -> 008f
+   103  get_var Number
+   108  get_field POSITIVE_INFINITY
+   141  goto8 -> 0090
+L  143  push_4 4
+L  144  call2 #args=2
+   145  put_loc2 2: i
+   146  undefined
+   147  get_loc_check 2: i
+   150  strict_eq
+   151  if_true -> 0312
+   156  get_arg0 0: e
+   157  get_field2 consumeLine
+   190  call_method #args=0
+   193  drop
+L  194  get_arg1 1: t
+   195  get_var_ref1 1: o
+   196  get_field Rich
+   229  strict_eq
+   230  if_false8 -> 014c
+   232  get_loc_check 1: r
+   235  get_length
+   236  push_0 0
+   237  gt
+   238  if_false8 -> 014c
+   240  get_loc_check 2: i
+   243  get_field indentation
+   276  get_loc_check 1: r
+   279  get_loc_check 1: r
+   282  get_length
+   283  push_1 1
+   284  sub
+   285  get_array_el
+   286  lt
+   287  if_false8 -> 014c
+   289  get_loc_check 1: r
+   292  get_field2 pop
+   325  call_method #args=0
+   328  drop
+   329  goto16 -> 00c2
+L  332  get_loc_check 1: r
+   335  get_length
+   336  put_loc3 3: s
+   337  get_arg1 1: t
+   338  get_var_ref1 1: o
+   339  get_field Rich
+   372  strict_eq
+   373  dup
+   374  if_false8 -> 01c4
+   376  drop
+   377  get_loc_check 1: r
+   380  get_field2 push
+   413  get_loc_check 2: i
+   416  get_field contentIndentation
+   449  call_method #args=1
+L  452  drop
+   453  get_loc_check 0: n
+   456  get_field2 push
+   489  object
+   490  push_0 0
+   491  get_loc_check 3: s
+   494  strict_eq
+   495  if_false8 -> 01f4
+   497  object
+   498  goto8 -> 01fd
+L  500  object
+   501  get_loc_check 3: s
+   504  define_field depth
+L  509  null
+   510  copy_data_properties 6
+   512  drop
+   513  drop
+   514  get_loc_check 2: i
+   517  get_field text
+   550  define_field text
+   555  push_0 0
+   556  lnot
+   557  get_loc_check 2: i
+   560  get_field checked
+   593  strict_eq
+   594  if_false8 -> 025b
+   596  push_atom_value [x]
+   601  goto8 -> 02af
+L  603  push_1 1
+   604  lnot
+   605  get_loc_check 2: i
+   608  get_field checked
+   641  strict_eq
+   642  if_false8 -> 028b
+   644  push_atom_value [ ]
+   649  goto8 -> 02af
+L  651  get_loc_check 2: i
+   654  get_field marker
+L  687  define_field marker
+   692  get_loc_check 2: i
+   695  get_field checked
+   728  define_field checked
+   733  get_var_ref2 2: L
+   734  get_loc_check 2: i
+   737  get_field text
+   770  get_arg1 1: t
+   771  push_1 1
+   772  lnot
+   773  call3 #args=3
+   774  define_field inlines
+   779  call_method #args=1
+   782  drop
+   783  goto16 -> 000e
+L  786  object
+   787  get_loc_check 0: n
+   790  define_field items
+   795  return
+
+-- fn name=h args=2 vars=0 closure=7 cpool=0 bc=125B file=markdown/src/Markdown
+   locals: e, t
+   closure: m, o, F, C, k, g, p
+     0  get_var_ref0 0: m
+     1  get_arg0 0: e
+     2  call1 #args=1
+     3  dup
+     4  if_true8 -> 007c
+     6  drop
+     7  get_arg1 1: t
+     8  get_var_ref1 1: o
+     9  get_field Rich  ;+28B
+    42  strict_eq
+    43  dup
+    44  if_false8 -> 0032
+    46  drop
+    47  get_var_ref2 2: F
+    48  get_arg0 0: e
+    49  call1 #args=1
+L   50  dup
+    51  if_true8 -> 007c
+    53  drop
+    54  get_var_ref3 3: C
+    55  get_arg0 0: e
+    56  call1 #args=1
+    57  get_field level
+    90  push_0 0
+    91  gt
+    92  dup
+    93  if_true8 -> 007c
+    95  drop
+    96  get_var_ref 4: k
+    99  get_arg0 0: e
+   100  call1 #args=1
+   101  dup
+   102  if_true8 -> 007c
+   104  drop
+   105  undefined
+   106  get_var_ref 5: g
+   109  get_arg0 0: e
+   110  call1 #args=1
+   111  strict_neq
+   112  dup
+   113  if_true8 -> 007c
+   115  drop
+   116  undefined
+   117  get_var_ref 6: p
+   120  get_arg0 0: e
+   121  push_4 4
+   122  call2 #args=2
+   123  strict_neq
+L  124  return
+
+-- fn name=f args=1 vars=3 closure=1 cpool=0 bc=404B file=markdown/src/Markdown
+   locals: e, t, n, r
+   closure: m
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: e
+     7  get_field2 mark  ;+28B
+    40  call_method #args=0
+    43  put_loc0 0: t
+    44  push_empty_string
+    45  put_loc1 1: n
+L   46  get_arg0 0: e
+    47  get_field2 isAtEnd
+    80  call_method #args=0
+    83  lnot
+    84  if_false -> 013c
+    89  get_var_ref0 0: m
+    90  get_arg0 0: e
+    91  call1 #args=1
+    92  if_false -> 010b
+    97  set_loc_uninitialized 2: r
+   100  get_arg0 0: e
+   101  get_field text
+   134  get_field2 slice
+   167  get_loc_check 0: t
+   170  get_arg0 0: e
+   171  get_field2 mark
+   204  call_method #args=0
+   207  call_method #args=2
+   210  put_loc2 2: r
+   211  get_arg0 0: e
+   212  get_field2 consumeLine
+   245  call_method #args=0
+   248  drop
+   249  object
+   250  get_loc_check 1: n
+   253  define_field text
+   258  get_loc_check 2: r
+   261  define_field source
+   266  return
+L  267  get_loc_check 1: n
+   270  get_arg0 0: e
+   271  get_field2 consumeLineWithNormalizedBreak
+   304  call_method #args=0
+   307  add
+   308  dup
+   309  put_loc_check 1: n
+   312  drop
+   313  goto16 -> 002e
+L  316  object
+   317  get_loc_check 1: n
+   320  define_field text
+   325  get_arg0 0: e
+   326  get_field text
+   359  get_field2 slice
+   392  get_loc_check 0: t
+   395  call_method #args=1
+   398  define_field source
+   403  return
+
+-- fn name=m args=1 vars=2 closure=0 cpool=0 bc=398B file=markdown/src/Markdown
+   locals: e, t, n
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: e
+     7  get_field2 mark  ;+28B
+    40  call_method #args=0
+    43  put_loc0 0: t
+    44  get_arg0 0: e
+    45  get_field2 consumeLeadingSpaces
+    78  push_4 4
+    79  call_method #args=1
+    82  drop
+    83  get_arg0 0: e
+    84  get_field2 peekCharCode
+   117  call_method #args=0
+   120  put_loc1 1: n
+   121  push_i8 96
+   123  get_loc_check 1: n
+   126  strict_neq
+   127  if_false8 -> 00b5
+   129  push_i8 126
+   131  get_loc_check 1: n
+   134  strict_neq
+   135  if_false8 -> 00b5
+   137  get_arg0 0: e
+   138  get_field2 restore
+   171  get_loc_check 0: t
+   174  call_method #args=1
+   177  drop
+   178  push_1 1
+   179  lnot
+   180  return
+L  181  get_arg0 0: e
+   182  get_field2 tryConsumeCharCode
+   215  get_loc_check 1: n
+   218  call_method #args=1
+   221  if_false -> 0162
+   226  get_arg0 0: e
+   227  get_field2 tryConsumeCharCode
+   260  get_loc_check 1: n
+   263  call_method #args=1
+   266  if_false8 -> 0162
+   268  get_arg0 0: e
+   269  get_field2 tryConsumeCharCode
+   302  get_loc_check 1: n
+   305  call_method #args=1
+   308  if_false8 -> 0162
+   310  get_arg0 0: e
+   311  get_field2 restore
+   344  get_loc_check 0: t
+   347  call_method #args=1
+   350  drop
+   351  push_0 0
+   352  lnot
+   353  return
+L  354  get_arg0 0: e
+   355  get_field2 restore
+   388  get_loc_check 0: t
+   391  call_method #args=1
+   394  drop
+   395  push_1 1
+   396  lnot
+   397  return
+
+-- fn name=C args=1 vars=3 closure=0 cpool=0 bc=389B file=markdown/src/Markdown
+   locals: e, t, n, r
+     0  set_loc_uninitialized 2: r
+     3  set_loc_uninitialized 1: n
+     6  set_loc_uninitialized 0: t
+     9  get_arg0 0: e
+    10  get_field2 mark  ;+28B
+    43  call_method #args=0
+    46  put_loc0 0: t
+    47  get_arg0 0: e
+    48  get_field2 consumeLeadingSpaces
+    81  push_4 4
+    82  call_method #args=1
+    85  drop
+    86  push_0 0
+    87  put_loc1 1: n
+L   88  get_arg0 0: e
+    89  get_field2 isAtLineEnd
+   122  call_method #args=0
+   125  lnot
+   126  if_false8 -> 00ba
+   128  get_loc_check 1: n
+   131  push_6 6
+   132  lt
+   133  if_false8 -> 00ba
+   135  get_arg0 0: e
+   136  get_field2 tryConsumeCharCode
+   169  push_i8 35
+   171  call_method #args=1
+   174  if_false8 -> 00ba
+   176  get_loc_check 1: n
+   179  post_inc
+   180  put_loc_check 1: n
+   183  drop
+   184  goto8 -> 0058
+L  186  push_0 0
+   187  get_loc_check 1: n
+   190  strict_eq
+   191  dup
+   192  if_true8 -> 00eb
+   194  drop
+   195  get_arg0 0: e
+   196  get_field2 tryConsumeCharCode
+   229  push_i8 32
+   231  call_method #args=1
+   234  lnot
+L  235  if_false8 -> 0124
+   237  get_arg0 0: e
+   238  get_field2 restore
+   271  get_loc_check 0: t
+   274  call_method #args=1
+   277  drop
+   278  object
+   279  push_0 0
+   280  define_field level
+   285  push_empty_string
+   286  define_field text
+   291  return
+L  292  get_arg0 0: e
+   293  get_field2 consumeRestOfLineTrimmed
+   326  call_method #args=0
+   329  put_loc2 2: r
+   330  get_arg0 0: e
+   331  get_field2 restore
+   364  get_loc_check 0: t
+   367  call_method #args=1
+   370  drop
+   371  object
+   372  get_loc_check 1: n
+   375  define_field level
+   380  get_loc_check 2: r
+   383  define_field text
+   388  return
+
+-- fn name=k args=1 vars=4 closure=0 cpool=0 bc=477B file=markdown/src/Markdown
+   locals: e, t, n, r, i
+     0  set_loc_uninitialized 2: r
+     3  set_loc_uninitialized 1: n
+     6  set_loc_uninitialized 0: t
+     9  get_arg0 0: e
+    10  get_field2 mark  ;+28B
+    43  call_method #args=0
+    46  put_loc0 0: t
+    47  get_arg0 0: e
+    48  get_field2 consumeLeadingSpaces
+    81  push_4 4
+    82  call_method #args=1
+    85  drop
+    86  push_0 0
+    87  put_loc1 1: n
+    88  push_0 0
+    89  put_loc2 2: r
+L   90  get_arg0 0: e
+    91  get_field2 isAtLineEnd
+   124  call_method #args=0
+   127  lnot
+   128  if_false -> 01ae
+   133  set_loc_uninitialized 3: i
+   136  get_arg0 0: e
+   137  get_field2 peekCharCode
+   170  call_method #args=0
+   173  put_loc3 3: i
+   174  push_i8 32
+   176  get_loc_check 3: i
+   179  strict_neq
+   180  if_false -> 0182
+   185  push_i8 9
+   187  get_loc_check 3: i
+   190  strict_neq
+   191  if_false -> 0182
+   196  push_i8 45
+   198  get_loc_check 3: i
+   201  strict_neq
+   202  if_false8 -> 0108
+   204  push_i8 42
+   206  get_loc_check 3: i
+   209  strict_neq
+   210  if_false8 -> 0108
+   212  push_i8 95
+   214  get_loc_check 3: i
+   217  strict_neq
+   218  if_false8 -> 0108
+   220  get_arg0 0: e
+   221  get_field2 restore
+   254  get_loc_check 0: t
+   257  call_method #args=1
+   260  drop
+   261  push_1 1
+   262  lnot
+   263  return
+L  264  push_0 0
+   265  get_loc_check 2: r
+   268  strict_eq
+   269  if_false8 -> 0119
+   271  get_loc_check 3: i
+   274  dup
+   275  put_loc_check 2: r
+   278  drop
+   279  goto8 -> 014e
+L  281  get_loc_check 2: r
+   284  get_loc_check 3: i
+   287  strict_neq
+   288  if_false8 -> 014e
+   290  get_arg0 0: e
+   291  get_field2 restore
+   324  get_loc_check 0: t
+   327  call_method #args=1
+   330  drop
+   331  push_1 1
+   332  lnot
+   333  return
+L  334  get_loc_check 1: n
+   337  post_inc
+   338  put_loc_check 1: n
+   341  drop
+   342  get_arg0 0: e
+   343  get_field2 tryConsumeCharCode
+   376  get_loc_check 3: i
+   379  call_method #args=1
+   382  drop
+   383  goto16 -> 005a
+L  386  get_arg0 0: e
+   387  get_field2 tryConsumeCharCode
+   420  get_loc_check 3: i
+   423  call_method #args=1
+   426  drop
+   427  goto16 -> 005a
+L  430  get_arg0 0: e
+   431  get_field2 restore
+   464  get_loc_check 0: t
+   467  call_method #args=1
+   470  drop
+   471  get_loc_check 1: n
+   474  push_3 3
+   475  gte
+   476  return
+
+-- fn name=g args=1 vars=2 closure=0 cpool=0 bc=290B file=markdown/src/Markdown
+   locals: e, t, n
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: e
+     7  get_field2 mark  ;+28B
+    40  call_method #args=0
+    43  put_loc0 0: t
+    44  get_arg0 0: e
+    45  get_field2 consumeLeadingSpaces
+    78  push_4 4
+    79  call_method #args=1
+    82  drop
+    83  get_arg0 0: e
+    84  get_field2 tryConsumeCharCode
+   117  push_i8 62
+   119  call_method #args=1
+   122  lnot
+   123  if_false8 -> 00a7
+   125  get_arg0 0: e
+   126  get_field2 restore
+   159  get_loc_check 0: t
+   162  call_method #args=1
+   165  drop
+   166  return_undef
+L  167  get_arg0 0: e
+   168  get_field2 tryConsumeCharCode
+   201  push_i8 32
+   203  call_method #args=1
+   206  drop
+   207  get_arg0 0: e
+   208  get_field2 consumeRestOfLineTrimmed
+   241  call_method #args=0
+   244  put_loc1 1: n
+   245  get_arg0 0: e
+   246  get_field2 restore
+   279  get_loc_check 0: t
+   282  call_method #args=1
+   285  drop
+   286  get_loc_check 1: n
+   289  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=55B file=markdown/src/Markdown
+   locals: t
+   closure: e
+     0  get_arg0 0: t
+     1  push_i8 48
+     3  gte
+     4  dup
+     5  if_false8 -> 0036
+     7  drop
+     8  get_arg0 0: t
+     9  push_i8 57
+    11  lte
+    12  dup
+    13  if_false8 -> 0036
+    15  drop
+    16  get_var_ref0 0: e
+    17  get_field2 isAtLineEnd  ;+28B
+    50  call_method #args=0
+    53  lnot
+L   54  return
+
+-- fn name=p args=2 vars=7 closure=1 cpool=1 bc=982B file=markdown/src/Markdown
+   locals: e, t, n, r, i, t, o, s, c
+   closure: x
+     0  set_loc_uninitialized 6: c
+     3  set_loc_uninitialized 5: s
+     6  set_loc_uninitialized 4: o
+     9  set_loc_uninitialized 2: i
+    12  set_loc_uninitialized 1: r
+    15  set_loc_uninitialized 0: n
+    18  get_arg0 0: e
+    19  get_field2 mark  ;+28B
+    52  call_method #args=0
+    55  put_loc0 0: n
+    56  get_arg0 0: e
+    57  get_field2 consumeLeadingSpaces
+    90  get_arg1 1: t
+    91  call_method #args=1
+    94  put_loc1 1: r
+    95  get_arg0 0: e
+    96  get_field2 isAtLineEnd
+   129  call_method #args=0
+   132  if_false8 -> 00b0
+   134  get_arg0 0: e
+   135  get_field2 restore
+   168  get_loc_check 0: n
+   171  call_method #args=1
+   174  drop
+   175  return_undef
+L  176  get_arg0 0: e
+   177  get_field2 peekCharCode
+   210  call_method #args=0
+   213  put_loc2 2: i
+   214  push_i8 45
+   216  get_loc_check 2: i
+   219  strict_eq
+   220  dup
+   221  if_true8 -> 00f0
+   223  drop
+   224  push_i8 42
+   226  get_loc_check 2: i
+   229  strict_eq
+   230  dup
+   231  if_true8 -> 00f0
+   233  drop
+   234  push_i8 43
+   236  get_loc_check 2: i
+   239  strict_eq
+L  240  if_false -> 01f7
+   245  set_loc_uninitialized 3: t
+   248  get_arg0 0: e
+   249  get_field2 tryConsumeCharCode
+   282  get_loc_check 2: i
+   285  call_method #args=1
+   288  drop
+   289  get_arg0 0: e
+   290  get_field2 tryConsumeCharCode
+   323  push_i8 32
+   325  call_method #args=1
+   328  lnot
+   329  if_false8 -> 0175
+   331  get_arg0 0: e
+   332  get_field2 restore
+   365  get_loc_check 0: n
+   368  call_method #args=1
+   371  drop
+   372  return_undef
+L  373  get_var_ref0 0: x
+   374  get_arg0 0: e
+   375  push_i8 45
+   377  get_loc_check 2: i
+   380  strict_eq
+   381  if_false8 -> 0186
+   383  push_atom_value -
+   388  goto8 -> 019a
+L  390  push_i8 42
+   392  get_loc_check 2: i
+   395  strict_eq
+   396  if_false8 -> 0195
+   398  push_atom_value *
+   403  goto8 -> 019a
+L  405  push_atom_value +
+L  410  get_loc_check 1: r
+   413  get_arg0 0: e
+   414  get_field2 mark
+   447  call_method #args=0
+   450  get_loc_check 0: n
+   453  sub
+   454  call #args=4
+   457  put_loc3 3: t
+   458  get_arg0 0: e
+   459  get_field2 restore
+   492  get_loc_check 0: n
+   495  call_method #args=1
+   498  drop
+   499  get_loc_check 3: t
+   502  return
+L  503  get_loc_check 2: i
+   506  push_i8 48
+   508  lt
+   509  dup
+   510  if_true8 -> 0207
+   512  drop
+   513  get_loc_check 2: i
+   516  push_i8 57
+   518  gt
+L  519  if_false8 -> 0233
+   521  get_arg0 0: e
+   522  get_field2 restore
+   555  get_loc_check 0: n
+   558  call_method #args=1
+   561  drop
+   562  return_undef
+L  563  get_arg0 0: e
+   564  get_field2 consumeWhile
+   597  fclosure8 0: <function <atom:0>>
+   599  call_method #args=1
+   602  put_loc8 4: o
+   604  get_arg0 0: e
+   605  get_field2 peekCharCode
+   638  call_method #args=0
+   641  put_loc8 5: s
+   643  push_i8 46
+   645  get_loc_check 5: s
+   648  strict_neq
+   649  if_false8 -> 02bd
+   651  push_i8 41
+   653  get_loc_check 5: s
+   656  strict_neq
+   657  if_false8 -> 02bd
+   659  get_arg0 0: e
+   660  get_field2 restore
+   693  get_loc_check 0: n
+   696  call_method #args=1
+   699  drop
+   700  return_undef
+L  701  get_arg0 0: e
+   702  get_field2 tryConsumeCharCode
+   735  get_loc_check 5: s
+   738  call_method #args=1
+   741  drop
+   742  get_arg0 0: e
+   743  get_field2 tryConsumeCharCode
+   776  push_i8 32
+   778  call_method #args=1
+   781  lnot
+   782  if_false8 -> 033a
+   784  get_arg0 0: e
+   785  get_field2 restore
+   818  get_loc_check 0: n
+   821  call_method #args=1
+   824  drop
+   825  return_undef
+L  826  get_var_ref0 0: x
+   827  get_arg0 0: e
+   828  push_empty_string
+   829  get_field2 concat
+   862  get_loc_check 4: o
+   865  push_i8 46
+   867  get_loc_check 5: s
+   870  strict_eq
+   871  if_false8 -> 0370
+   873  push_atom_value .
+   878  goto8 -> 0375
+L  880  push_atom_value )
+L  885  call_method #args=2
+   888  get_loc_check 1: r
+   891  get_arg0 0: e
+   892  get_field2 mark
+   925  call_method #args=0
+   928  get_loc_check 0: n
+   931  sub
+   932  call #args=4
+   935  put_loc8 6: c
+   937  get_arg0 0: e
+   938  get_field2 restore
+   971  get_loc_check 0: n
+   974  call_method #args=1
+   977  drop
+   978  get_loc_check 6: c
+   981  return
+
+-- fn name=x args=4 vars=2 closure=0 cpool=0 bc=518B file=markdown/src/Markdown
+   locals: e, t, n, r, i, o
+     0  get_arg0 0: e
+     1  get_field2 peek  ;+28B
+    34  push_atom_value [
+    39  call_method #args=1
+    42  if_false -> 01c2
+    47  set_loc_uninitialized 1: o
+    50  set_loc_uninitialized 0: i
+    53  get_arg0 0: e
+    54  get_field2 mark
+    87  call_method #args=0
+    90  put_loc0 0: i
+    91  get_arg0 0: e
+    92  get_field2 tryConsumeCharCode
+   125  push_i8 91
+   127  call_method #args=1
+   130  drop
+   131  get_arg0 0: e
+   132  get_field2 peekCharCode
+   165  call_method #args=0
+   168  put_loc1 1: o
+   169  get_arg0 0: e
+   170  get_field2 tryConsumeCharCode
+   203  get_loc_check 1: o
+   206  call_method #args=1
+   209  drop
+   210  push_i8 32
+   212  get_loc_check 1: o
+   215  strict_eq
+   216  dup
+   217  if_true8 -> 00ec
+   219  drop
+   220  push_i8 120
+   222  get_loc_check 1: o
+   225  strict_eq
+   226  dup
+   227  if_true8 -> 00ec
+   229  drop
+   230  push_i8 88
+   232  get_loc_check 1: o
+   235  strict_eq
+L  236  if_false -> 0199
+   241  get_arg0 0: e
+   242  get_field2 tryConsumeCharCode
+   275  push_i8 93
+   277  call_method #args=1
+   280  if_false -> 0199
+   285  get_arg0 0: e
+   286  get_field2 tryConsumeCharCode
+   319  push_i8 32
+   321  call_method #args=1
+   324  if_false8 -> 0199
+   326  object
+   327  get_arg1 1: t
+   328  define_field marker
+   333  get_arg2 2: n
+   334  define_field indentation
+   339  get_arg3 3: r
+   340  define_field contentIndentation
+   345  push_i8 120
+   347  get_loc_check 1: o
+   350  strict_eq
+   351  dup
+   352  if_true8 -> 0169
+   354  drop
+   355  push_i8 88
+   357  get_loc_check 1: o
+   360  strict_eq
+L  361  define_field checked
+   366  get_arg0 0: e
+   367  get_field2 consumeRestOfLineTrimmed
+   400  call_method #args=0
+   403  define_field text
+   408  return
+L  409  get_arg0 0: e
+   410  get_field2 restore
+   443  get_loc_check 0: i
+   446  call_method #args=1
+   449  drop
+L  450  object
+   451  get_arg1 1: t
+   452  define_field marker
+   457  get_arg2 2: n
+   458  define_field indentation
+   463  get_arg3 3: r
+   464  define_field contentIndentation
+   469  undefined
+   470  define_field checked
+   475  get_arg0 0: e
+   476  get_field2 consumeRestOfLineTrimmed
+   509  call_method #args=0
+   512  define_field text
+   517  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=13B file=markdown/src/Markdown
+   locals: e
+     0  push_i8 32
+     2  get_arg0 0: e
+     3  strict_eq
+     4  dup
+     5  if_true8 -> 000c
+     7  drop
+     8  push_i8 9
+    10  get_arg0 0: e
+    11  strict_eq
+L   12  return
+
+-- fn name=v args=1 vars=2 closure=0 cpool=1 bc=167B file=markdown/src/Markdown
+   locals: e, t, n
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: e
+     7  get_field2 mark  ;+28B
+    40  call_method #args=0
+    43  put_loc0 0: t
+    44  get_arg0 0: e
+    45  get_field2 consumeWhile
+    78  fclosure8 0: <function <atom:0>>
+    80  call_method #args=1
+    83  drop
+    84  get_arg0 0: e
+    85  get_field2 isAtLineEnd
+   118  call_method #args=0
+   121  put_loc1 1: n
+   122  get_arg0 0: e
+   123  get_field2 restore
+   156  get_loc_check 0: t
+   159  call_method #args=1
+   162  drop
+   163  get_loc_check 1: n
+   166  return
+
+-- fn name=<atom:0> args=2 vars=0 closure=1 cpool=0 bc=46B file=markdown/src/Markdown
+   locals: e, t
+   closure: E
+     0  get_var_ref0 0: E
+     1  get_arg1 1: t
+     2  get_field2 charCodeAt  ;+28B
+    35  push_0 0
+    36  call_method #args=1
+    39  call1 #args=1
+    40  if_false8 -> 002c
+    42  get_arg1 1: t
+    43  return
+L   44  get_arg0 0: e
+    45  return
+
+-- fn name=<atom:0> args=2 vars=0 closure=4 cpool=0 bc=312B file=markdown/src/Markdown
+   locals: e, t
+   closure: s, d, r, n
+     0  get_var_ref_check 0: s
+     3  get_field2 push  ;+28B
+    36  object
+    37  get_arg0 0: e
+    38  null
+    39  copy_data_properties 6
+    41  drop
+    42  drop
+    43  get_var_ref_check 1: d
+    46  get_field bold
+    79  dup
+    80  if_true8 -> 0075
+    82  drop
+    83  get_arg0 0: e
+    84  get_field bold
+L  117  define_field bold
+   122  get_var_ref_check 1: d
+   125  get_field italic
+   158  dup
+   159  if_true8 -> 00c4
+   161  drop
+   162  get_arg0 0: e
+   163  get_field italic
+L  196  define_field italic
+   201  get_var_ref_check 1: d
+   204  get_field strikethrough
+   237  dup
+   238  if_true8 -> 0113
+   240  drop
+   241  get_arg0 0: e
+   242  get_field strikethrough
+L  275  define_field strikethrough
+   280  push_0 0
+   281  lnot
+   282  define_field link
+   287  get_var_ref_check 2: r
+   290  define_field href
+   295  get_arg1 1: t
+   296  get_var_ref_check 3: n
+   299  get_length
+   300  push_1 1
+   301  sub
+   302  strict_eq
+   303  define_field linkEnd
+   308  call_method #args=1
+   311  return_undef
+
+-- fn name=L args=3 vars=28 closure=17 cpool=4 bc=4175B file=markdown/src/Markdown
+   locals: e, r, i, s, c, u, d, a, l, h, f, m, C, k, g, p, t, n, x, t, v, A, t, t, t, t, n, n, r, n, n
+   closure: E, t, o, M, A, n, S, I, q, N, R, b, $, _, T, W, L
+     0  set_loc_uninitialized 12: p
+     3  set_loc_uninitialized 11: g
+     6  set_loc_uninitialized 10: k
+     9  set_loc_uninitialized 9: C
+    12  set_loc_uninitialized 8: m
+    15  set_loc_uninitialized 7: f
+    18  set_loc_uninitialized 6: h
+    21  set_loc_uninitialized 5: l
+    24  set_loc_uninitialized 4: a
+    27  set_loc_uninitialized 3: d
+    30  set_loc_uninitialized 2: u
+    33  set_loc_uninitialized 1: c
+    36  set_loc_uninitialized 0: s
+    39  push_0 0
+    40  get_arg0 0: e
+    41  get_length
+    42  strict_eq
+    43  if_false8 -> 0031
+    45  get_var_ref_check 1: t
+    48  return
+L   49  array_from #args=0
+    52  put_loc0 0: s
+    53  get_arg1 1: r
+    54  get_var_ref2 2: o
+    55  get_field TextOnly
+    88  strict_eq
+    89  put_loc1 1: c
+    90  get_arg1 1: r
+    91  get_var_ref2 2: o
+    92  get_field Rich
+   125  strict_eq
+   126  dup
+   127  if_true8 -> 00a6
+   129  drop
+   130  get_arg1 1: r
+   131  get_var_ref2 2: o
+   132  get_field RichLinkLabel
+   165  strict_eq
+L  166  put_loc2 2: u
+   167  object
+   168  get_arg2 2: i
+   169  define_field foldParagraphLineBreaks
+   174  push_1 1
+   175  lnot
+   176  define_field bold
+   181  push_1 1
+   182  lnot
+   183  define_field italic
+   188  push_1 1
+   189  lnot
+   190  define_field code
+   195  push_1 1
+   196  lnot
+   197  define_field link
+   202  undefined
+   203  define_field href
+   208  put_loc3 3: d
+   209  get_loc_check 1: c
+   212  dup
+   213  if_true8 -> 00db
+   215  drop
+   216  get_loc_check 2: u
+L  219  if_false8 -> 00e2
+   221  get_var_ref3 3: M
+   222  get_arg0 0: e
+   223  call1 #args=1
+   224  goto8 -> 00e3
+L  226  undefined
+L  227  put_loc8 4: a
+   229  get_var Map
+   234  dup
+   235  call_constructor #args=0
+   238  put_loc8 5: l
+   240  get_arg0 0: e
+   241  get_field2 lastIndexOf
+   274  push_atom_value `
+   279  call_method #args=1
+   282  put_loc8 6: h
+   284  get_arg0 0: e
+   285  get_field2 lastIndexOf
+   318  push_atom_value **
+   323  call_method #args=1
+   326  put_loc8 7: f
+   328  get_arg0 0: e
+   329  get_field2 lastIndexOf
+   362  push_atom_value *
+   367  call_method #args=1
+   370  put_loc8 8: m
+   372  get_arg0 0: e
+   373  get_field2 lastIndexOf
+   406  push_atom_value _
+   411  call_method #args=1
+   414  put_loc8 9: C
+   416  get_loc_check 2: u
+   419  if_false8 -> 01af
+   421  get_var_ref 4: A
+   424  get_arg0 0: e
+   425  get_loc_check 4: a
+   428  call2 #args=2
+   429  goto8 -> 01b2
+L  431  get_var_ref_check 5: n
+L  434  put_loc8 10: k
+   436  push_0 0
+   437  put_loc8 11: g
+   439  push_0 0
+   440  put_loc8 12: p
+L  442  get_loc_check 11: g
+   445  get_arg0 0: e
+   446  get_length
+   447  lt
+   448  if_false -> 1038
+   453  set_loc_uninitialized 18: A
+   456  set_loc_uninitialized 17: v
+   459  set_loc_uninitialized 15: x
+   462  set_loc_uninitialized 14: n
+   465  set_loc_uninitialized 13: t
+   468  get_loc_check 5: l
+   471  get_field2 get
+   504  get_loc_check 11: g
+   507  call_method #args=1
+   510  put_loc8 13: t
+   512  undefined
+   513  get_loc_check 13: t
+   516  strict_neq
+   517  if_false8 -> 022d
+   519  get_var_ref 6: S
+   522  get_loc_check 0: s
+   525  get_arg0 0: e
+   526  get_loc_check 12: p
+   529  get_loc_check 11: g
+   532  get_loc_check 3: d
+   535  call #args=5
+   538  drop
+   539  get_loc_check 13: t
+   542  dup
+   543  put_loc_check 11: g
+   546  drop
+   547  get_loc_check 11: g
+   550  dup
+   551  put_loc_check 12: p
+   554  drop
+   555  goto8 -> 01ba
+L  557  get_arg0 0: e
+   558  get_field2 charCodeAt
+   591  get_loc_check 11: g
+   594  call_method #args=1
+   597  put_loc8 14: n
+   599  get_arg2 2: i
+   600  if_false8 -> 028b
+   602  get_loc_check 3: d
+   605  get_field code
+   638  lnot
+   639  if_false8 -> 028b
+   641  get_var_ref 7: I
+   644  get_arg0 0: e
+   645  get_loc_check 11: g
+   648  call2 #args=2
+   649  goto8 -> 028c
+L  651  push_0 0
+L  652  put_loc8 15: x
+   654  get_loc_check 15: x
+   657  push_0 0
+   658  gt
+   659  if_false8 -> 02eb
+   661  set_loc_uninitialized 16: t
+   664  get_var_ref 6: S
+   667  get_loc_check 0: s
+   670  get_arg0 0: e
+   671  get_loc_check 12: p
+   674  get_loc_check 11: g
+   677  get_loc_check 3: d
+   680  call #args=5
+   683  drop
+   684  get_loc_check 11: g
+   687  get_loc_check 15: x
+   690  add
+   691  put_loc8 16: t
+   693  get_var_ref 6: S
+   696  get_loc_check 0: s
+   699  get_arg0 0: e
+   700  get_loc_check 16: t
+   703  push_1 1
+   704  sub
+   705  get_loc_check 16: t
+   708  object
+   709  get_loc_check 3: d
+   712  null
+   713  copy_data_properties 6
+   715  drop
+   716  drop
+   717  push_1 1
+   718  lnot
+   719  define_field foldParagraphLineBreaks
+   724  call #args=5
+   727  drop
+   728  get_loc_check 16: t
+   731  dup
+   732  put_loc_check 11: g
+   735  drop
+   736  get_loc_check 11: g
+   739  dup
+   740  put_loc_check 12: p
+   743  drop
+   744  goto16 -> 01ba
+L  747  get_loc_check 2: u
+   750  if_false8 -> 0321
+   752  get_loc_check 3: d
+   755  get_field code
+   788  lnot
+   789  if_false8 -> 0321
+   791  get_var_ref 8: q
+   794  get_arg0 0: e
+   795  get_loc_check 11: g
+   798  call2 #args=2
+   799  goto8 -> 0322
+L  801  undefined
+L  802  put_loc8 17: v
+   804  undefined
+   805  get_loc_check 17: v
+   808  strict_neq
+   809  if_false -> 03fe
+   814  get_var_ref 6: S
+   817  get_loc_check 0: s
+   820  get_arg0 0: e
+   821  get_loc_check 12: p
+   824  get_loc_check 11: g
+   827  get_loc_check 3: d
+   830  call #args=5
+   833  drop
+   834  get_loc_check 0: s
+   837  get_field2 push
+   870  object
+   871  get_loc_check 3: d
+   874  null
+   875  copy_data_properties 6
+   877  drop
+   878  drop
+   879  get_loc_check 17: v
+   882  get_field source
+   915  define_field text
+   920  get_loc_check 17: v
+   923  get_field latex
+   956  define_field latex
+   961  call_method #args=1
+   964  drop
+   965  get_loc_check 11: g
+   968  get_loc_check 17: v
+   971  get_field source
+  1004  get_length
+  1005  add
+  1006  dup
+  1007  put_loc_check 11: g
+  1010  drop
+  1011  get_loc_check 11: g
+  1014  dup
+  1015  put_loc_check 12: p
+  1018  drop
+  1019  goto16 -> 01ba
+L 1022  get_loc_check 3: d
+  1025  get_field code
+  1058  lnot
+  1059  if_false -> 04a4
+  1064  push_atom_value \
+  1069  get_arg0 0: e
+  1070  get_loc_check 11: g
+  1073  get_array_el
+  1074  strict_eq
+  1075  if_false8 -> 04a4
+  1077  get_var_ref0 0: E
+  1078  get_arg0 0: e
+  1079  get_field2 charCodeAt
+  1112  get_loc_check 11: g
+  1115  push_1 1
+  1116  add
+  1117  call_method #args=1
+  1120  call1 #args=1
+  1121  if_false8 -> 04a4
+  1123  get_var_ref 6: S
+  1126  get_loc_check 0: s
+  1129  get_arg0 0: e
+  1130  get_loc_check 12: p
+  1133  get_loc_check 11: g
+  1136  get_loc_check 3: d
+  1139  call #args=5
+  1142  drop
+  1143  get_var_ref 6: S
+  1146  get_loc_check 0: s
+  1149  get_arg0 0: e
+  1150  get_loc_check 11: g
+  1153  push_1 1
+  1154  add
+  1155  get_loc_check 11: g
+  1158  push_2 2
+  1159  add
+  1160  get_loc_check 3: d
+  1163  call #args=5
+  1166  drop
+  1167  get_loc_check 11: g
+  1170  push_2 2
+  1171  add
+  1172  dup
+  1173  put_loc_check 11: g
+  1176  drop
+  1177  get_loc_check 11: g
+  1180  dup
+  1181  put_loc_check 12: p
+  1184  drop
+  1185  goto16 -> 01ba
+L 1188  push_i8 96
+  1190  get_loc_check 14: n
+  1193  strict_eq
+  1194  if_false -> 0538
+  1199  get_loc_check 3: d
+  1202  get_field code
+  1235  dup
+  1236  if_true8 -> 04de
+  1238  drop
+  1239  get_loc_check 11: g
+  1242  get_loc_check 6: h
+  1245  lt
+L 1246  if_false8 -> 0538
+  1248  get_var_ref 6: S
+  1251  get_loc_check 0: s
+  1254  get_arg0 0: e
+  1255  get_loc_check 12: p
+  1258  get_loc_check 11: g
+  1261  get_loc_check 3: d
+  1264  call #args=5
+  1267  drop
+  1268  get_loc_check 3: d
+  1271  get_loc_check 3: d
+  1274  get_field code
+  1307  lnot
+  1308  put_field code
+  1317  get_loc_check 11: g
+  1320  post_inc
+  1321  put_loc_check 11: g
+  1324  drop
+  1325  get_loc_check 11: g
+  1328  dup
+  1329  put_loc_check 12: p
+  1332  drop
+  1333  goto16 -> 01ba
+L 1336  get_arg1 1: r
+  1337  get_var_ref2 2: o
+  1338  get_field Rich
+  1371  strict_neq
+  1372  dup
+  1373  if_true8 -> 0584
+  1375  drop
+  1376  get_loc_check 3: d
+  1379  get_field code
+L 1412  if_false8 -> 0589
+  1414  undefined
+  1415  goto8 -> 0591
+L 1417  get_var_ref 9: N
+  1420  get_arg0 0: e
+  1421  get_loc_check 11: g
+  1424  call2 #args=2
+L 1425  put_loc8 18: A
+  1427  undefined
+  1428  get_loc_check 18: A
+  1431  strict_eq
+  1432  if_false -> 0f5f
+  1437  get_loc_check 2: u
+  1440  if_false -> 067b
+  1445  get_loc_check 3: d
+  1448  get_field code
+  1481  lnot
+  1482  if_false -> 067b
+  1487  push_atom_value <
+  1492  get_arg0 0: e
+  1493  get_loc_check 11: g
+  1496  get_array_el
+  1497  strict_eq
+  1498  if_false -> 067b
+  1503  set_loc_uninitialized 19: t
+  1506  get_arg0 0: e
+  1507  get_field2 startsWith
+  1540  push_atom_value <sub>
+  1545  get_loc_check 11: g
+  1548  call_method #args=2
+  1551  if_false8 -> 0614
+  1553  push_5 5
+  1554  goto8 -> 0647
+L 1556  get_arg0 0: e
+  1557  get_field2 startsWith
+  1590  push_atom_value </sub>
+  1595  get_loc_check 11: g
+  1598  call_method #args=2
+  1601  if_false8 -> 0646
+  1603  push_6 6
+  1604  goto8 -> 0647
+L 1606  push_0 0
+L 1607  put_loc8 19: t
+  1609  get_loc_check 19: t
+  1612  push_0 0
+  1613  gt
+  1614  if_false8 -> 067b
+  1616  get_var_ref 6: S
+  1619  get_loc_check 0: s
+  1622  get_arg0 0: e
+  1623  get_loc_check 12: p
+  1626  get_loc_check 11: g
+  1629  get_loc_check 3: d
+  1632  call #args=5
+  1635  drop
+  1636  get_loc_check 11: g
+  1639  get_loc_check 19: t
+  1642  add
+  1643  dup
+  1644  put_loc_check 11: g
+  1647  drop
+  1648  get_loc_check 11: g
+  1651  dup
+  1652  put_loc_check 12: p
+  1655  drop
+  1656  goto16 -> 01ba
+L 1659  get_loc_check 3: d
+  1662  get_field code
+  1695  dup
+  1696  if_true8 -> 06ce
+  1698  drop
+  1699  get_loc_check 10: k
+  1702  get_field2 has
+  1735  get_loc_check 11: g
+  1738  call_method #args=1
+  1741  lnot
+L 1742  if_false -> 0efe
+  1747  get_loc_check 3: d
+  1750  get_field code
+  1783  lnot
+  1784  if_false8 -> 075b
+  1786  push_i8 95
+  1788  get_loc_check 14: n
+  1791  strict_eq
+  1792  if_false8 -> 075b
+  1794  push_0 0
+  1795  get_loc_check 11: g
+  1798  strict_eq
+  1799  dup
+  1800  if_true8 -> 0738
+  1802  drop
+  1803  push_i8 95
+  1805  get_arg0 0: e
+  1806  get_field2 charCodeAt
+  1839  get_loc_check 11: g
+  1842  push_1 1
+  1843  sub
+  1844  call_method #args=1
+  1847  strict_neq
+L 1848  if_false8 -> 075b
+  1850  set_loc_uninitialized 20: t
+  1853  get_var_ref 10: R
+  1856  get_arg0 0: e
+  1857  get_loc_check 11: g
+  1860  call2 #args=2
+  1861  put_loc8 20: t
+  1863  get_loc_check 20: t
+  1866  get_loc_check 11: g
+  1869  strict_neq
+  1870  if_false8 -> 075b
+  1872  get_loc_check 20: t
+  1875  dup
+  1876  put_loc_check 11: g
+  1879  drop
+  1880  goto16 -> 01ba
+L 1883  get_loc_check 3: d
+  1886  get_field code
+  1919  lnot
+  1920  if_false -> 085a
+  1925  get_loc_check 11: g
+  1928  push_1 1
+  1929  add
+  1930  get_arg0 0: e
+  1931  get_length
+  1932  lt
+  1933  if_false -> 085a
+  1938  push_i8 42
+  1940  get_loc_check 14: n
+  1943  strict_eq
+  1944  if_false -> 085a
+  1949  push_i8 42
+  1951  get_arg0 0: e
+  1952  get_field2 charCodeAt
+  1985  get_loc_check 11: g
+  1988  push_1 1
+  1989  add
+  1990  call_method #args=1
+  1993  strict_eq
+  1994  if_false -> 085a
+  1999  get_loc_check 3: d
+  2002  get_field bold
+  2035  dup
+  2036  if_true8 -> 07fe
+  2038  drop
+  2039  get_loc_check 11: g
+  2042  get_loc_check 7: f
+  2045  lt
+L 2046  if_false8 -> 085a
+  2048  get_var_ref 6: S
+  2051  get_loc_check 0: s
+  2054  get_arg0 0: e
+  2055  get_loc_check 12: p
+  2058  get_loc_check 11: g
+  2061  get_loc_check 3: d
+  2064  call #args=5
+  2067  drop
+  2068  get_loc_check 3: d
+  2071  get_loc_check 3: d
+  2074  get_field bold
+  2107  lnot
+  2108  put_field bold
+  2117  get_loc_check 11: g
+  2120  push_2 2
+  2121  add
+  2122  dup
+  2123  put_loc_check 11: g
+  2126  drop
+  2127  get_loc_check 11: g
+  2130  dup
+  2131  put_loc_check 12: p
+  2134  drop
+  2135  goto16 -> 01ba
+L 2138  get_loc_check 3: d
+  2141  get_field code
+  2174  lnot
+  2175  if_false -> 098a
+  2180  push_i8 42
+  2182  get_loc_check 14: n
+  2185  strict_eq
+  2186  dup
+  2187  if_true8 -> 0894
+  2189  drop
+  2190  push_i8 95
+  2192  get_loc_check 14: n
+  2195  strict_eq
+L 2196  if_false -> 098a
+  2201  set_loc_uninitialized 21: t
+  2204  push_atom_value *
+  2209  push_i8 42
+  2211  get_loc_check 14: n
+  2214  strict_eq
+  2215  if_false8 -> 08b0
+  2217  push_atom_value *
+  2222  goto8 -> 08b5
+L 2224  push_atom_value _
+L 2229  strict_eq
+  2230  if_false8 -> 08bd
+  2232  get_loc_check 8: m
+  2235  goto8 -> 08c0
+L 2237  get_loc_check 9: C
+L 2240  put_loc8 21: t
+  2242  get_loc_check 3: d
+  2245  get_field italic
+  2278  dup
+  2279  if_true8 -> 08f1
+  2281  drop
+  2282  get_loc_check 11: g
+  2285  get_loc_check 21: t
+  2288  lt
+L 2289  if_false -> 098a
+  2294  get_loc_check 3: d
+  2297  get_field italic
+  2330  dup
+  2331  if_true8 -> 0930
+  2333  drop
+  2334  push_i8 42
+  2336  get_loc_check 14: n
+  2339  strict_neq
+  2340  dup
+  2341  if_true8 -> 0930
+  2343  drop
+  2344  get_var_ref 11: b
+  2347  get_arg0 0: e
+  2348  get_loc_check 11: g
+  2351  call2 #args=2
+L 2352  if_false8 -> 098a
+  2354  get_var_ref 6: S
+  2357  get_loc_check 0: s
+  2360  get_arg0 0: e
+  2361  get_loc_check 12: p
+  2364  get_loc_check 11: g
+  2367  get_loc_check 3: d
+  2370  call #args=5
+  2373  drop
+  2374  get_loc_check 3: d
+  2377  get_loc_check 3: d
+  2380  get_field italic
+  2413  lnot
+  2414  put_field italic
+  2423  get_loc_check 11: g
+  2426  post_inc
+  2427  put_loc_check 11: g
+  2430  drop
+  2431  get_loc_check 11: g
+  2434  dup
+  2435  put_loc_check 12: p
+  2438  drop
+  2439  goto16 -> 01ba
+L 2442  get_loc_check 3: d
+  2445  get_field code
+  2478  dup
+  2479  if_true8 -> 09f3
+  2481  drop
+  2482  get_arg1 1: r
+  2483  get_var_ref2 2: o
+  2484  get_field RichLinkLabel
+  2517  strict_eq
+  2518  dup
+  2519  if_true8 -> 09f3
+  2521  drop
+  2522  push_i8 91
+  2524  get_loc_check 14: n
+  2527  strict_neq
+  2528  dup
+  2529  if_true8 -> 09f3
+  2531  drop
+  2532  get_loc_check 1: c
+  2535  dup
+  2536  if_false8 -> 09f3
+  2538  drop
+  2539  get_var_ref 12: $
+  2542  get_arg0 0: e
+  2543  get_loc_check 11: g
+  2546  call2 #args=2
+L 2547  lnot
+  2548  if_false -> 0ef3
+  2553  set_loc_uninitialized 22: t
+  2556  get_var_ref 13: _
+  2559  get_arg0 0: e
+  2560  get_loc_check 11: g
+  2563  get_loc_check 4: a
+  2566  call3 #args=3
+  2567  put_loc8 22: t
+  2569  undefined
+  2570  get_loc_check 22: t
+  2573  strict_neq
+  2574  if_false -> 0ef3
+  2579  set_loc_uninitialized 25: r
+  2582  set_loc_uninitialized 23: n
+  2585  get_loc_check 1: c
+  2588  dup
+  2589  if_true8 -> 0a23
+  2591  drop
+  2592  get_loc_check 2: u
+L 2595  dup
+  2596  if_false8 -> 0a4c
+  2598  drop
+  2599  get_loc_check 11: g
+  2602  push_0 0
+  2603  gt
+  2604  dup
+  2605  if_false8 -> 0a4c
+  2607  drop
+  2608  push_atom_value !
+  2613  get_arg0 0: e
+  2614  get_loc_check 11: g
+  2617  push_1 1
+  2618  sub
+  2619  get_array_el
+  2620  strict_eq
+  2621  dup
+  2622  if_false8 -> 0a4c
+  2624  drop
+  2625  get_var_ref 12: $
+  2628  get_arg0 0: e
+  2629  get_loc_check 11: g
+  2632  push_1 1
+  2633  sub
+  2634  call2 #args=2
+  2635  lnot
+L 2636  put_loc8 23: n
+  2638  get_var_ref 6: S
+  2641  get_loc_check 0: s
+  2644  get_arg0 0: e
+  2645  get_loc_check 12: p
+  2648  get_loc_check 23: n
+  2651  if_false8 -> 0a64
+  2653  get_loc_check 11: g
+  2656  push_1 1
+  2657  sub
+  2658  goto8 -> 0a67
+L 2660  get_loc_check 11: g
+L 2663  get_loc_check 3: d
+  2666  call #args=5
+  2669  drop
+  2670  get_loc_check 23: n
+  2673  if_false -> 0c09
+  2678  get_loc_check 1: c
+  2681  lnot
+  2682  if_false -> 0c09
+  2687  set_loc_uninitialized 24: n
+  2690  get_var_ref 14: T
+  2693  get_arg0 0: e
+  2694  get_field2 slice
+  2727  get_loc_check 11: g
+  2730  push_1 1
+  2731  add
+  2732  get_loc_check 22: t
+  2735  get_field labelEnd
+  2768  call_method #args=2
+  2771  get_field2 replace
+  2804  push_const8 0: <string None>
+  2806  push_const8 1: <string None>
+  2808  regexp
+  2809  fclosure8 2: <function <atom:0>>
+  2811  call_method #args=2
+  2814  push_1 1
+  2815  lnot
+  2816  call2 #args=2
+  2817  put_loc8 24: n
+  2819  get_loc_check 0: s
+  2822  get_field2 push
+  2855  object
+  2856  get_loc_check 3: d
+  2859  null
+  2860  copy_data_properties 6
+  2862  drop
+  2863  drop
+  2864  get_loc_check 24: n
+  2867  dup
+  2868  if_true8 -> 0b3c
+  2870  drop
+  2871  push_atom_value Image
+L 2876  define_field text
+  2881  push_1 1
+  2882  lnot
+  2883  define_field link
+  2888  undefined
+  2889  define_field href
+  2894  object
+  2895  get_arg0 0: e
+  2896  get_field2 slice
+  2929  get_loc_check 22: t
+  2932  get_field hrefStart
+  2965  get_loc_check 22: t
+  2968  get_field hrefEnd
+  3001  call_method #args=2
+  3004  define_field source
+  3009  get_loc_check 24: n
+  3012  define_field alt
+  3017  define_field image
+  3022  call_method #args=1
+  3025  drop
+  3026  get_loc_check 22: t
+  3029  get_field nextPosition
+  3062  dup
+  3063  put_loc_check 11: g
+  3066  drop
+  3067  get_loc_check 11: g
+  3070  dup
+  3071  put_loc_check 12: p
+  3074  drop
+  3075  close_loc 25: r
+  3078  goto16 -> 01ba
+L 3081  get_loc_check 1: c
+  3084  if_false -> 0ca0
+  3089  get_loc_check 23: n
+  3092  lnot
+  3093  if_false -> 0ca0
+  3098  get_loc_check 5: l
+  3101  get_field2 set
+  3134  get_loc_check 22: t
+  3137  get_field labelEnd
+  3170  get_loc_check 22: t
+  3173  get_field nextPosition
+  3206  call_method #args=2
+  3209  drop
+  3210  get_loc_check 11: g
+  3213  post_inc
+  3214  put_loc_check 11: g
+  3217  drop
+  3218  get_loc_check 11: g
+  3221  dup
+  3222  put_loc_check 12: p
+  3225  drop
+  3226  close_loc 25: r
+  3229  goto16 -> 01ba
+L 3232  get_loc_check 1: c
+  3235  if_false8 -> 0ca8
+  3237  undefined
+  3238  goto8 -> 0d15
+L 3240  get_arg0 0: e
+  3241  get_field2 slice
+  3274  get_loc_check 22: t
+  3277  get_field hrefStart
+  3310  get_loc_check 22: t
+  3313  get_field hrefEnd
+  3346  call_method #args=2
+L 3349  put_loc8 25: r
+  3351  get_arg2 2: i
+  3352  dup
+  3353  if_false8 -> 0d30
+  3355  drop
+  3356  undefined
+  3357  get_loc_check 25: r
+  3360  strict_neq
+  3361  dup
+  3362  if_false8 -> 0d30
+  3364  drop
+  3365  get_var_ref 15: W
+  3368  get_loc_check 25: r
+  3371  call1 #args=1
+  3372  dup
+  3373  put_loc_check 25: r
+L 3376  drop
+  3377  get_loc_check 3: d
+  3380  get_loc_check 1: c
+  3383  lnot
+  3384  put_field link
+  3393  get_loc_check 3: d
+  3396  get_loc_check 25: r
+  3399  put_field href
+  3408  get_loc_check 23: n
+  3411  lnot
+  3412  if_false -> 0ea1
+  3417  get_loc_check 2: u
+  3420  if_false -> 0e0b
+  3425  set_loc_uninitialized 26: n
+  3428  get_var_ref 16: L
+  3431  get_arg0 0: e
+  3432  get_field2 slice
+  3465  get_loc_check 11: g
+  3468  push_1 1
+  3469  add
+  3470  get_loc_check 22: t
+  3473  get_field labelEnd
+  3506  call_method #args=2
+  3509  get_var_ref2 2: o
+  3510  get_field RichLinkLabel
+  3543  get_arg2 2: i
+  3544  call3 #args=3
+  3545  put_loc8 26: n
+  3547  get_loc_check 26: n
+  3550  get_field2 forEach
+  3583  fclosure8 3: <function <atom:0>>
+  3585  call_method #args=1
+  3588  drop
+  3589  close_loc 26: n
+  3592  goto16 -> 0ea1
+L 3595  set_loc_uninitialized 27: n
+  3598  get_loc_check 0: s
+  3601  get_length
+  3602  put_loc8 27: n
+  3604  get_var_ref 6: S
+  3607  get_loc_check 0: s
+  3610  get_arg0 0: e
+  3611  get_loc_check 11: g
+  3614  push_1 1
+  3615  add
+  3616  get_loc_check 22: t
+  3619  get_field labelEnd
+  3652  get_loc_check 3: d
+  3655  call #args=5
+  3658  drop
+  3659  get_loc_check 0: s
+  3662  get_length
+  3663  get_loc_check 27: n
+  3666  gt
+  3667  dup
+  3668  if_false8 -> 0ea0
+  3670  drop
+  3671  get_loc_check 0: s
+  3674  get_loc_check 27: n
+  3677  get_array_el
+  3678  get_field link
+  3711  dup
+  3712  if_false8 -> 0ea0
+  3714  drop
+  3715  get_loc_check 0: s
+  3718  get_loc_check 27: n
+  3721  to_propkey2
+  3722  object
+  3723  get_loc_check 0: s
+  3726  get_loc_check 27: n
+  3729  get_array_el
+  3730  null
+  3731  copy_data_properties 6
+  3733  drop
+  3734  drop
+  3735  push_0 0
+  3736  lnot
+  3737  define_field linkEnd
+  3742  insert3
+  3743  put_array_el
+L 3744  drop
+L 3745  get_loc_check 3: d
+  3748  push_1 1
+  3749  lnot
+  3750  put_field link
+  3759  get_loc_check 3: d
+  3762  undefined
+  3763  put_field href
+  3772  get_loc_check 22: t
+  3775  get_field nextPosition
+  3808  dup
+  3809  put_loc_check 11: g
+  3812  drop
+  3813  get_loc_check 11: g
+  3816  dup
+  3817  put_loc_check 12: p
+  3820  drop
+  3821  close_loc 25: r
+  3824  goto16 -> 01ba
+L 3827  get_loc_check 11: g
+  3830  post_inc
+  3831  put_loc_check 11: g
+  3834  drop
+  3835  goto16 -> 01ba
+L 3838  get_var_ref 6: S
+  3841  get_loc_check 0: s
+  3844  get_arg0 0: e
+  3845  get_loc_check 12: p
+  3848  get_loc_check 11: g
+  3851  get_loc_check 3: d
+  3854  call #args=5
+  3857  drop
+  3858  get_loc_check 3: d
+  3861  push_0 0
+  3862  lnot
+  3863  get_loc_check 3: d
+  3866  get_field strikethrough
+  3899  strict_neq
+  3900  dup
+  3901  if_true8 -> 0f41
+  3903  drop
+  3904  undefined
+L 3905  put_field strikethrough
+  3914  get_loc_check 11: g
+  3917  push_2 2
+  3918  add
+  3919  dup
+  3920  put_loc_check 11: g
+  3923  drop
+  3924  get_loc_check 11: g
+  3927  dup
+  3928  put_loc_check 12: p
+  3931  drop
+  3932  goto16 -> 01ba
+L 3935  get_var_ref 6: S
+  3938  get_loc_check 0: s
+  3941  get_arg0 0: e
+  3942  get_loc_check 12: p
+  3945  get_loc_check 11: g
+  3948  get_loc_check 3: d
+  3951  call #args=5
+  3954  drop
+  3955  get_loc_check 0: s
+  3958  get_field2 push
+  3991  object
+  3992  get_loc_check 3: d
+  3995  null
+  3996  copy_data_properties 6
+  3998  drop
+  3999  drop
+  4000  get_loc_check 18: A
+  4003  get_field href
+  4036  define_field text
+  4041  get_loc_check 18: A
+  4044  get_field href
+  4077  define_field href
+  4082  push_0 0
+  4083  lnot
+  4084  define_field link
+  4089  push_0 0
+  4090  lnot
+  4091  define_field linkEnd
+  4096  call_method #args=1
+  4099  drop
+  4100  get_loc_check 18: A
+  4103  get_field end
+  4136  dup
+  4137  put_loc_check 11: g
+  4140  drop
+  4141  get_loc_check 11: g
+  4144  dup
+  4145  put_loc_check 12: p
+  4148  drop
+  4149  goto16 -> 01ba
+L 4152  get_var_ref 6: S
+  4155  get_loc_check 0: s
+  4158  get_arg0 0: e
+  4159  get_loc_check 12: p
+  4162  get_arg0 0: e
+  4163  get_length
+  4164  get_loc_check 3: d
+  4167  call #args=5
+  4170  drop
+  4171  get_loc_check 0: s
+  4174  return
+
+-- fn name=A args=2 vars=7 closure=4 cpool=0 bc=716B file=markdown/src/Markdown
+   locals: e, t, r, i, o, s, n, c, r
+   closure: n, q, _, y
+     0  set_loc_uninitialized 3: s
+     3  set_loc_uninitialized 2: o
+     6  set_loc_uninitialized 1: i
+     9  set_loc_uninitialized 0: r
+    12  get_arg0 0: e
+    13  get_field2 includes  ;+28B
+    46  push_atom_value ~~
+    51  call_method #args=1
+    54  lnot
+    55  if_false8 -> 003d
+    57  get_var_ref_check 0: n
+    60  return
+L   61  get_var Set
+    66  dup
+    67  call_constructor #args=0
+    70  put_loc0 0: r
+    71  get_arg0 0: e
+    72  get_field2 lastIndexOf
+   105  push_atom_value `
+   110  call_method #args=1
+   113  put_loc1 1: i
+   114  undefined
+   115  put_loc2 2: o
+   116  push_1 1
+   117  lnot
+   118  put_loc3 3: s
+   119  set_loc_uninitialized 4: n
+   122  push_0 0
+   123  put_loc8 4: n
+L  125  get_loc_check 4: n
+   128  get_arg0 0: e
+   129  get_length
+   130  lt
+   131  if_false -> 02c8
+   136  set_loc_uninitialized 5: c
+   139  get_loc_check 3: s
+   142  if_false8 -> 0093
+   144  undefined
+   145  goto8 -> 0099
+L  147  get_var_ref1 1: q
+   148  get_arg0 0: e
+   149  get_loc_check 4: n
+   152  call2 #args=2
+L  153  put_loc8 5: c
+   155  undefined
+   156  get_loc_check 5: c
+   159  strict_eq
+   160  if_false -> 028d
+   165  get_loc_check 3: s
+   168  dup
+   169  if_true8 -> 00b7
+   171  drop
+   172  push_atom_value \
+   177  get_arg0 0: e
+   178  get_loc_check 4: n
+   181  get_array_el
+   182  strict_neq
+L  183  if_false -> 0283
+   188  push_atom_value `
+   193  get_arg0 0: e
+   194  get_loc_check 4: n
+   197  get_array_el
+   198  strict_eq
+   199  if_false8 -> 00e5
+   201  get_loc_check 3: s
+   204  dup
+   205  if_true8 -> 00d7
+   207  drop
+   208  get_loc_check 4: n
+   211  get_loc_check 1: i
+   214  lt
+L  215  if_false8 -> 00e5
+   217  get_loc_check 3: s
+   220  lnot
+   221  dup
+   222  put_loc_check 3: s
+   225  drop
+   226  goto16 -> 02bd
+L  229  get_loc_check 3: s
+   232  lnot
+   233  if_false8 -> 0139
+   235  push_atom_value [
+   240  get_arg0 0: e
+   241  get_loc_check 4: n
+   244  get_array_el
+   245  strict_eq
+   246  if_false8 -> 0139
+   248  set_loc_uninitialized 6: r
+   251  get_var_ref2 2: _
+   252  get_arg0 0: e
+   253  get_loc_check 4: n
+   256  get_arg1 1: t
+   257  call3 #args=3
+   258  put_loc8 6: r
+   260  undefined
+   261  get_loc_check 6: r
+   264  strict_neq
+   265  if_false8 -> 0139
+   267  get_loc_check 6: r
+   270  get_field nextPosition
+   303  push_1 1
+   304  sub
+   305  dup
+   306  put_loc_check 4: n
+   309  drop
+   310  goto16 -> 02bd
+L  313  get_loc_check 3: s
+   316  dup
+   317  if_true -> 0280
+   322  drop
+   323  push_atom_value ~
+   328  get_arg0 0: e
+   329  get_loc_check 4: n
+   332  get_array_el
+   333  strict_neq
+   334  dup
+   335  if_true -> 0280
+   340  drop
+   341  push_atom_value ~
+   346  get_arg0 0: e
+   347  get_loc_check 4: n
+   350  push_1 1
+   351  add
+   352  get_array_el
+   353  strict_neq
+   354  dup
+   355  if_true -> 0280
+   360  drop
+   361  push_atom_value ~
+   366  get_arg0 0: e
+   367  get_loc_check 4: n
+   370  push_1 1
+   371  sub
+   372  get_array_el
+   373  strict_eq
+   374  dup
+   375  if_true -> 0280
+   380  drop
+   381  push_atom_value ~
+   386  get_arg0 0: e
+   387  get_loc_check 4: n
+   390  push_2 2
+   391  add
+   392  get_array_el
+   393  strict_eq
+   394  dup
+   395  if_true -> 0280
+   400  drop
+   401  undefined
+   402  get_loc_check 2: o
+   405  strict_eq
+   406  dup
+   407  if_true8 -> 01c6
+   409  drop
+   410  get_var_ref3 3: y
+   411  get_arg0 0: e
+   412  get_field2 charCodeAt
+   445  get_loc_check 4: n
+   448  push_1 1
+   449  sub
+   450  call_method #args=1
+   453  call1 #args=1
+L  454  if_false8 -> 021d
+   456  undefined
+   457  get_loc_check 2: o
+   460  strict_eq
+   461  dup
+   462  if_false -> 0278
+   467  drop
+   468  get_loc_check 4: n
+   471  push_2 2
+   472  add
+   473  get_arg0 0: e
+   474  get_length
+   475  lt
+   476  dup
+   477  if_false -> 0278
+   482  drop
+   483  get_var_ref3 3: y
+   484  get_arg0 0: e
+   485  get_field2 charCodeAt
+   518  get_loc_check 4: n
+   521  push_2 2
+   522  add
+   523  call_method #args=1
+   526  call1 #args=1
+   527  lnot
+   528  dup
+   529  if_false8 -> 0278
+   531  drop
+   532  get_loc_check 4: n
+   535  dup
+   536  put_loc_check 2: o
+   539  goto8 -> 0278
+L  541  get_loc_check 0: r
+   544  get_field2 add
+   577  get_loc_check 2: o
+   580  call_method #args=1
+   583  drop
+   584  get_loc_check 0: r
+   587  get_field2 add
+   620  get_loc_check 4: n
+   623  call_method #args=1
+   626  drop
+   627  undefined
+   628  dup
+   629  put_loc_check 2: o
+L  632  drop
+   633  get_loc_check 4: n
+   636  post_inc
+   637  put_loc_check 4: n
+L  640  drop
+   641  goto8 -> 02bd
+L  643  get_loc_check 4: n
+   646  post_inc
+   647  put_loc_check 4: n
+   650  drop
+   651  goto8 -> 02bd
+L  653  get_loc_check 4: n
+   656  get_loc_check 5: c
+   659  get_field source
+   692  get_length
+   693  push_1 1
+   694  sub
+   695  add
+   696  dup
+   697  put_loc_check 4: n
+   700  drop
+L  701  get_loc_check 4: n
+   704  post_inc
+   705  put_loc_check 4: n
+   708  drop
+   709  goto16 -> 007d
+L  712  get_loc_check 0: r
+   715  return
+
+-- fn name=b args=2 vars=2 closure=2 cpool=0 bc=188B file=markdown/src/Markdown
+   locals: e, t, n, r
+   closure: y, E
+     0  set_loc_uninitialized 1: r
+     3  set_loc_uninitialized 0: n
+     6  get_arg1 1: t
+     7  push_1 1
+     8  add
+     9  put_loc0 0: n
+    10  get_loc_check 0: n
+    13  get_arg0 0: e
+    14  get_length
+    15  gte
+    16  dup
+    17  if_true8 -> 003e
+    19  drop
+    20  get_var_ref0 0: y
+    21  get_arg0 0: e
+    22  get_field2 charCodeAt  ;+28B
+    55  get_loc_check 0: n
+    58  call_method #args=1
+    61  call1 #args=1
+L   62  if_false8 -> 0043
+    64  push_1 1
+    65  lnot
+    66  return
+L   67  get_var_ref1 1: E
+    68  get_arg0 0: e
+    69  get_field2 charCodeAt
+   102  get_loc_check 0: n
+   105  call_method #args=1
+   108  call1 #args=1
+   109  lnot
+   110  dup
+   111  if_true8 -> 0075
+   113  drop
+   114  push_0 0
+   115  get_arg1 1: t
+   116  strict_eq
+L  117  if_false8 -> 007a
+   119  push_0 0
+   120  lnot
+   121  return
+L  122  get_arg0 0: e
+   123  get_field2 charCodeAt
+   156  get_arg1 1: t
+   157  push_1 1
+   158  sub
+   159  call_method #args=1
+   162  put_loc1 1: r
+   163  get_loc_check 1: r
+   166  push_i8 127
+   168  gt
+   169  dup
+   170  if_true8 -> 00bb
+   172  drop
+   173  get_var_ref0 0: y
+   174  get_loc_check 1: r
+   177  call1 #args=1
+   178  dup
+   179  if_true8 -> 00bb
+   181  drop
+   182  get_var_ref1 1: E
+   183  get_loc_check 1: r
+   186  call1 #args=1
+L  187  return
+
+-- fn name=y args=1 vars=0 closure=2 cpool=0 bc=183B file=markdown/src/Markdown
+   locals: t
+   closure: e, i
+     0  get_var_ref_check 0: e
+     3  get_field TextParser  ;+28B
+    36  get_field2 isWhitespace
+    69  get_arg0 0: t
+    70  call_method #args=1
+    73  dup
+    74  if_true8 -> 00b6
+    76  drop
+    77  push_i8 11
+    79  get_arg0 0: t
+    80  strict_eq
+    81  dup
+    82  if_true8 -> 00b6
+    84  drop
+    85  push_i8 12
+    87  get_arg0 0: t
+    88  strict_eq
+    89  dup
+    90  if_true8 -> 00b6
+    92  drop
+    93  get_arg0 0: t
+    94  push_i8 127
+    96  gt
+    97  dup
+    98  if_false8 -> 00b6
+   100  drop
+   101  get_var_ref_check 1: i
+   104  get_field2 test
+   137  get_var String
+   142  get_field2 fromCharCode
+   175  get_arg0 0: t
+   176  call_method #args=1
+   179  call_method #args=1
+L  182  return
+
+-- fn name=E args=1 vars=0 closure=0 cpool=0 bc=61B file=markdown/src/Markdown
+   locals: e
+     0  get_arg0 0: e
+     1  push_i8 33
+     3  gte
+     4  dup
+     5  if_false8 -> 000c
+     7  drop
+     8  get_arg0 0: e
+     9  push_i8 47
+    11  lte
+L   12  dup
+    13  if_true8 -> 003c
+    15  drop
+    16  get_arg0 0: e
+    17  push_i8 58
+    19  gte
+    20  dup
+    21  if_false8 -> 001c
+    23  drop
+    24  get_arg0 0: e
+    25  push_i8 64
+    27  lte
+L   28  dup
+    29  if_true8 -> 003c
+    31  drop
+    32  get_arg0 0: e
+    33  push_i8 91
+    35  gte
+    36  dup
+    37  if_false8 -> 002c
+    39  drop
+    40  get_arg0 0: e
+    41  push_i8 96
+    43  lte
+L   44  dup
+    45  if_true8 -> 003c
+    47  drop
+    48  get_arg0 0: e
+    49  push_i8 123
+    51  gte
+    52  dup
+    53  if_false8 -> 003c
+    55  drop
+    56  get_arg0 0: e
+    57  push_i8 126
+    59  lte
+L   60  return
+
+-- fn name=R args=2 vars=1 closure=1 cpool=0 bc=249B file=markdown/src/Markdown
+   locals: e, t, n
+   closure: O
+     0  set_loc_uninitialized 0: n
+     3  get_arg1 1: t
+     4  push_3 3
+     5  add
+     6  get_arg0 0: e
+     7  get_length
+     8  gte
+     9  dup
+    10  if_true -> 00a4
+    15  drop
+    16  push_i8 95
+    18  get_arg0 0: e
+    19  get_field2 charCodeAt  ;+28B
+    52  get_arg1 1: t
+    53  push_1 1
+    54  add
+    55  call_method #args=1
+    58  strict_neq
+    59  dup
+    60  if_true8 -> 00a4
+    62  drop
+    63  push_i8 95
+    65  get_arg0 0: e
+    66  get_field2 charCodeAt
+    99  get_arg1 1: t
+   100  push_2 2
+   101  add
+   102  call_method #args=1
+   105  strict_neq
+   106  dup
+   107  if_true8 -> 00a4
+   109  drop
+   110  push_i8 95
+   112  get_arg0 0: e
+   113  get_field2 charCodeAt
+   146  get_arg1 1: t
+   147  push_3 3
+   148  add
+   149  call_method #args=1
+   152  strict_neq
+   153  dup
+   154  if_true8 -> 00a4
+   156  drop
+   157  get_var_ref0 0: O
+   158  get_arg0 0: e
+   159  get_arg1 1: t
+   160  push_1 1
+   161  sub
+   162  call2 #args=2
+   163  lnot
+L  164  if_false8 -> 00a8
+   166  get_arg1 1: t
+   167  return
+L  168  get_arg1 1: t
+   169  push_4 4
+   170  add
+   171  put_loc0 0: n
+L  172  get_loc_check 0: n
+   175  get_arg0 0: e
+   176  get_length
+   177  lt
+   178  if_false8 -> 00eb
+   180  push_i8 95
+   182  get_arg0 0: e
+   183  get_field2 charCodeAt
+   216  get_loc_check 0: n
+   219  call_method #args=1
+   222  strict_eq
+   223  if_false8 -> 00eb
+   225  get_loc_check 0: n
+   228  post_inc
+   229  put_loc_check 0: n
+   232  drop
+   233  goto8 -> 00ac
+L  235  get_var_ref0 0: O
+   236  get_arg0 0: e
+   237  get_loc_check 0: n
+   240  call2 #args=2
+   241  if_false8 -> 00f7
+   243  get_loc_check 0: n
+   246  return
+L  247  get_arg1 1: t
+   248  return
+
+-- fn name=O args=2 vars=1 closure=1 cpool=0 bc=227B file=markdown/src/Markdown
+   locals: t, n, r
+   closure: e
+     0  set_loc_uninitialized 0: r
+     3  get_arg1 1: n
+     4  push_0 0
+     5  lt
+     6  dup
+     7  if_true8 -> 000e
+     9  drop
+    10  get_arg1 1: n
+    11  get_arg0 0: t
+    12  get_length
+    13  gte
+L   14  if_false8 -> 0013
+    16  push_0 0
+    17  lnot
+    18  return
+L   19  get_arg0 0: t
+    20  get_field2 charCodeAt  ;+28B
+    53  get_arg1 1: n
+    54  call_method #args=1
+    57  put_loc0 0: r
+    58  get_loc_check 0: r
+    61  push_i8 127
+    63  gt
+    64  dup
+    65  if_true -> 00e2
+    70  drop
+    71  get_var_ref_check 0: e
+    74  get_field TextParser
+   107  get_field2 isWhitespace
+   140  get_loc_check 0: r
+   143  call_method #args=1
+   146  dup
+   147  if_true8 -> 00e2
+   149  drop
+   150  get_loc_check 0: r
+   153  push_i8 33
+   155  gte
+   156  dup
+   157  if_false8 -> 00a6
+   159  drop
+   160  get_loc_check 0: r
+   163  push_i8 47
+   165  lte
+L  166  dup
+   167  if_true8 -> 00e2
+   169  drop
+   170  get_loc_check 0: r
+   173  push_i8 58
+   175  gte
+   176  dup
+   177  if_false8 -> 00ba
+   179  drop
+   180  get_loc_check 0: r
+   183  push_i8 64
+   185  lte
+L  186  dup
+   187  if_true8 -> 00e2
+   189  drop
+   190  get_loc_check 0: r
+   193  push_i8 91
+   195  gte
+   196  dup
+   197  if_false8 -> 00ce
+   199  drop
+   200  get_loc_check 0: r
+   203  push_i8 96
+   205  lte
+L  206  dup
+   207  if_true8 -> 00e2
+   209  drop
+   210  get_loc_check 0: r
+   213  push_i8 123
+   215  gte
+   216  dup
+   217  if_false8 -> 00e2
+   219  drop
+   220  get_loc_check 0: r
+   223  push_i8 126
+   225  lte
+L  226  return
+
+-- fn name=I args=2 vars=0 closure=0 cpool=0 bc=96B file=markdown/src/Markdown
+   locals: e, t
+     0  get_arg0 0: e
+     1  get_field2 startsWith  ;+28B
+    34  push_atom_value \
+
+    39  get_arg1 1: t
+    40  call_method #args=2
+    43  if_false8 -> 002f
+    45  push_2 2
+    46  return
+L   47  get_arg0 0: e
+    48  get_field2 startsWith
+    81  push_atom_value   
+
+    86  get_arg1 1: t
+    87  call_method #args=2
+    90  if_false8 -> 005e
+    92  push_3 3
+    93  return
+L   94  push_0 0
+    95  return
+
+-- fn name=W args=1 vars=0 closure=0 cpool=2 bc=94B file=markdown/src/Markdown
+   locals: e
+     0  get_arg0 0: e
+     1  get_field2 includes  ;+28B
+    34  push_atom_value 
+
+    39  call_method #args=1
+    42  if_false8 -> 005c
+    44  get_arg0 0: e
+    45  get_field2 replace
+    78  push_const8 0: <string None>
+    80  push_const8 1: <string None>
+    82  regexp
+    83  push_atom_value  
+    88  call_method #args=2
+    91  return
+L   92  get_arg0 0: e
+    93  return
+
+-- fn name=S args=5 vars=2 closure=2 cpool=0 bc=459B file=markdown/src/Markdown
+   locals: e, t, n, r, i, o, s
+   closure: W, T
+     0  set_loc_uninitialized 1: s
+     3  set_loc_uninitialized 0: o
+     6  get_arg2 2: n
+     7  get_arg3 3: r
+     8  gte
+     9  if_false8 -> 000c
+    11  return_undef
+L   12  get_arg1 1: t
+    13  get_field2 slice  ;+28B
+    46  get_arg2 2: n
+    47  get_arg3 3: r
+    48  call_method #args=2
+    51  put_loc0 0: o
+    52  get_arg 4: i
+    55  get_field foldParagraphLineBreaks
+    88  if_false8 -> 0061
+    90  get_var_ref0 0: W
+    91  get_loc_check 0: o
+    94  call1 #args=1
+    95  goto8 -> 0064
+L   97  get_loc_check 0: o
+L  100  put_loc1 1: s
+   101  get_arg0 0: e
+   102  get_field2 push
+   135  object
+   136  get_arg 4: i
+   139  get_field code
+   172  if_false8 -> 00b3
+   174  get_loc_check 1: s
+   177  goto8 -> 00bc
+L  179  get_var_ref1 1: T
+   180  get_loc_check 1: s
+   183  get_arg3 3: r
+   184  get_arg1 1: t
+   185  get_length
+   186  strict_eq
+   187  call2 #args=2
+L  188  define_field text
+   193  get_arg 4: i
+   196  get_field bold
+   229  define_field bold
+   234  get_arg 4: i
+   237  get_field italic
+   270  define_field italic
+   275  push_0 0
+   276  lnot
+   277  get_arg 4: i
+   280  get_field strikethrough
+   313  strict_eq
+   314  if_false8 -> 0146
+   316  object
+   317  push_0 0
+   318  lnot
+   319  define_field strikethrough
+   324  goto8 -> 0147
+L  326  object
+L  327  null
+   328  copy_data_properties 6
+   330  drop
+   331  drop
+   332  get_arg 4: i
+   335  get_field code
+   368  define_field code
+   373  get_arg 4: i
+   376  get_field link
+   409  define_field link
+   414  get_arg 4: i
+   417  get_field href
+   450  define_field href
+   455  call_method #args=1
+   458  return_undef
+
+-- fn name=<atom:0> args=3 vars=3 closure=3 cpool=0 bc=100B file=markdown/src/Markdown
+   locals: n, r, i, o, s, c
+   closure: t, e, P
+     0  set_loc_uninitialized 2: c
+     3  set_loc_uninitialized 1: s
+     6  set_loc_uninitialized 0: o
+     9  undefined
+    10  get_arg1 1: r
+    11  strict_eq
+    12  if_false8 -> 0010
+    14  get_arg0 0: n
+    15  return
+L   16  get_arg0 0: n
+    17  get_field2 endsWith  ;+28B
+    50  push_atom_value ;
+    55  call_method #args=1
+    58  put_loc0 0: o
+    59  get_arg2 2: i
+    60  get_arg0 0: n
+    61  get_length
+    62  add
+    63  put_loc1 1: s
+    64  get_var_ref0 0: t
+    65  dup
+    66  if_false8 -> 004b
+    68  drop
+    69  get_loc_check 1: s
+    72  get_var_ref1 1: e
+    73  get_length
+    74  strict_eq
+L   75  put_loc2 2: c
+    76  get_loc_check 0: o
+    79  dup
+    80  if_true8 -> 0056
+    82  drop
+    83  get_loc_check 2: c
+L   86  if_false8 -> 0062
+    88  get_var_ref2 2: P
+    89  get_arg1 1: r
+    90  call1 #args=1
+    91  dup
+    92  is_undefined_or_null
+    93  if_false8 -> 0063
+    95  drop
+    96  get_arg0 0: n
+    97  return
+L   98  get_arg0 0: n
+L   99  return
+
+-- fn name=T args=2 vars=0 closure=2 cpool=1 bc=91B file=markdown/src/Markdown
+   locals: e, t
+   closure: P, r
+     0  get_arg0 0: e
+     1  get_field2 indexOf  ;+28B
+    34  push_atom_value &
+    39  call_method #args=1
+    42  push_0 0
+    43  lt
+    44  if_false8 -> 0030
+    46  get_arg0 0: e
+    47  return
+L   48  get_arg0 0: e
+    49  get_field2 replace
+    82  get_var_ref_check 1: r
+    85  fclosure8 0: <function <atom:0>>
+    87  call_method #args=2
+    90  return
+
+-- fn name=P args=1 vars=0 closure=1 cpool=0 bc=124B file=markdown/src/Markdown
+   locals: e
+   closure: w
+     0  push_atom_value amp
+     5  get_arg0 0: e
+     6  strict_eq
+     7  if_false8 -> 000f
+     9  push_atom_value &
+    14  return
+L   15  push_atom_value apos
+    20  get_arg0 0: e
+    21  strict_eq
+    22  if_false8 -> 001e
+    24  push_atom_value '
+    29  return
+L   30  push_atom_value gt
+    35  get_arg0 0: e
+    36  strict_eq
+    37  if_false8 -> 002d
+    39  push_atom_value >
+    44  return
+L   45  push_atom_value lt
+    50  get_arg0 0: e
+    51  strict_eq
+    52  if_false8 -> 003c
+    54  push_atom_value <
+    59  return
+L   60  push_atom_value quot
+    65  get_arg0 0: e
+    66  strict_eq
+    67  if_false8 -> 004b
+    69  push_atom_value "
+    74  return
+L   75  push_i8 35
+    77  get_arg0 0: e
+    78  get_field2 charCodeAt
+   111  push_0 0
+   112  call_method #args=1
+   115  strict_eq
+   116  if_false8 -> 007a
+   118  get_var_ref0 0: w
+   119  get_arg0 0: e
+   120  call1 #args=1
+   121  return
+L  122  undefined
+   123  return
+
+-- fn name=w args=1 vars=3 closure=0 cpool=0 bc=306B file=markdown/src/Markdown
+   locals: e, t, n, r
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: t
+     6  push_atom_value x
+    11  get_arg0 0: e
+    12  get_field2 charAt  ;+28B
+    45  push_1 1
+    46  call_method #args=1
+    49  strict_eq
+    50  dup
+    51  if_true8 -> 0062
+    53  drop
+    54  push_atom_value X
+    59  get_arg0 0: e
+    60  get_field2 charAt
+    93  push_1 1
+    94  call_method #args=1
+    97  strict_eq
+L   98  put_loc0 0: t
+    99  get_var Number
+   104  get_field2 parseInt
+   137  get_arg0 0: e
+   138  get_field2 slice
+   171  get_loc_check 0: t
+   174  if_false8 -> 00b3
+   176  push_2 2
+   177  goto8 -> 00b4
+L  179  push_1 1
+L  180  call_method #args=1
+   183  get_loc_check 0: t
+   186  if_false8 -> 00c0
+   188  push_i8 16
+   190  goto8 -> 00c2
+L  192  push_i8 10
+L  194  call_method #args=2
+   197  put_loc1 1: n
+   198  get_var Number
+   203  get_field2 isFinite
+   236  get_loc_check 1: n
+   239  call_method #args=1
+   242  if_false8 -> 0131
+   244  catch -> 0127
+   249  get_var String
+   254  get_field2 fromCodePoint
+   287  get_loc_check 1: n
+   290  call_method #args=1
+   293  nip_catch
+   294  return
+L  295  put_loc2 2: r
+   296  catch -> 0130
+   301  undefined
+   302  nip_catch
+   303  return
+L  304  throw
+L  305  return_undef
+
+-- fn name=$ args=2 vars=1 closure=0 cpool=0 bc=41B file=markdown/src/Markdown
+   locals: e, t, n
+     0  set_loc_uninitialized 0: n
+     3  push_0 0
+     4  put_loc0 0: n
+L    5  get_arg1 1: t
+     6  push_0 0
+     7  gt
+     8  if_false8 -> 0021
+    10  push_atom_value \
+    15  get_arg0 0: e
+    16  get_arg1 1: t
+    17  dec
+    18  set_arg1 1: t
+    19  get_array_el
+    20  strict_eq
+    21  if_false8 -> 0021
+    23  get_loc_check 0: n
+    26  post_inc
+    27  put_loc_check 0: n
+    30  drop
+    31  goto8 -> 0005
+L   33  get_loc_check 0: n
+    36  push_2 2
+    37  mod
+    38  push_1 1
+    39  eq
+    40  return
+
+-- fn name=M args=1 vars=10 closure=1 cpool=0 bc=506B file=markdown/src/Markdown
+   locals: e, t, n, r, i, o, s, c, u, d, e
+   closure: $
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: t
+     6  get_var Map
+    11  dup
+    12  call_constructor #args=0
+    15  put_loc0 0: t
+    16  get_arg0 0: e
+    17  get_field2 lastIndexOf  ;+28B
+    50  push_atom_value `
+    55  call_method #args=1
+    58  put_loc1 1: n
+    59  set_loc_uninitialized 2: r
+    62  push_i8 41
+    64  push_i8 93
+    66  array_from #args=2
+    69  for_of_start
+    70  goto16 -> 01ed
+    73  put_loc2 2: r
+    74  set_loc_uninitialized 5: s
+    77  set_loc_uninitialized 4: o
+    80  set_loc_uninitialized 3: i
+    83  push_i8 41
+    85  get_loc_check 2: r
+    88  strict_eq
+    89  if_false8 -> 005f
+    91  push_i8 40
+    93  goto8 -> 0061
+L   95  push_i8 91
+L   97  put_loc3 3: i
+    98  array_from #args=0
+   101  put_loc8 4: o
+   103  push_1 1
+   104  lnot
+   105  put_loc8 5: s
+   107  set_loc_uninitialized 6: c
+   110  push_0 0
+   111  put_loc8 6: c
+L  113  get_loc_check 6: c
+   116  get_arg0 0: e
+   117  get_length
+   118  lt
+   119  if_false -> 01ed
+   124  set_loc_uninitialized 8: d
+   127  set_loc_uninitialized 7: u
+   130  get_arg0 0: e
+   131  get_field2 charCodeAt
+   164  get_loc_check 6: c
+   167  call_method #args=1
+   170  put_loc8 7: u
+   172  push_i8 93
+   174  get_loc_check 2: r
+   177  strict_eq
+   178  dup
+   179  if_false8 -> 00da
+   181  drop
+   182  push_i8 96
+   184  get_loc_check 7: u
+   187  strict_eq
+   188  dup
+   189  if_false8 -> 00da
+   191  drop
+   192  get_loc_check 5: s
+   195  dup
+   196  if_true8 -> 00ce
+   198  drop
+   199  get_loc_check 6: c
+   202  get_loc_check 1: n
+   205  lt
+L  206  dup
+   207  if_false8 -> 00da
+   209  drop
+   210  get_loc_check 5: s
+   213  lnot
+   214  dup
+   215  put_loc_check 5: s
+L  218  drop
+   219  get_loc_check 5: s
+   222  dup
+   223  if_true8 -> 00fe
+   225  drop
+   226  get_loc_check 7: u
+   229  get_loc_check 3: i
+   232  strict_neq
+   233  dup
+   234  if_false8 -> 00f4
+   236  drop
+   237  get_loc_check 7: u
+   240  get_loc_check 2: r
+   243  strict_neq
+L  244  dup
+   245  if_true8 -> 00fe
+   247  drop
+   248  get_var_ref0 0: $
+   249  get_arg0 0: e
+   250  get_loc_check 6: c
+   253  call2 #args=2
+L  254  if_true -> 01e2
+   259  get_loc_check 7: u
+   262  get_loc_check 3: i
+   265  strict_eq
+   266  if_false8 -> 013a
+   268  get_loc_check 4: o
+   271  get_field2 push
+   304  get_loc_check 6: c
+   307  call_method #args=1
+   310  drop
+   311  goto16 -> 01e2
+L  314  get_loc_check 4: o
+   317  get_field2 pop
+   350  call_method #args=0
+   353  put_loc8 8: d
+   355  undefined
+   356  get_loc_check 8: d
+   359  strict_neq
+   360  if_false8 -> 01e2
+   362  get_loc_check 0: t
+   365  get_field2 set
+   398  get_loc_check 8: d
+   401  get_loc_check 6: c
+   404  call_method #args=2
+   407  drop
+   408  push_i8 93
+   410  get_loc_check 2: r
+   413  strict_eq
+   414  if_false8 -> 01e2
+   416  set_loc_uninitialized 9: e
+   419  get_loc_check 0: t
+   422  get_field2 get
+   455  get_loc_check 6: c
+   458  push_1 1
+   459  add
+   460  call_method #args=1
+   463  put_loc8 9: e
+   465  undefined
+   466  get_loc_check 9: e
+   469  strict_neq
+   470  dup
+   471  if_false8 -> 01e1
+   473  drop
+   474  get_loc_check 9: e
+   477  dup
+   478  put_loc_check 6: c
+L  481  drop
+L  482  get_loc_check 6: c
+   485  post_inc
+   486  put_loc_check 6: c
+   489  drop
+   490  goto16 -> 0071
+L  493  for_of_next 0
+   495  if_false -> 0049
+   500  drop
+   501  iterator_close
+   502  get_loc_check 0: t
+   505  return
+
+-- fn name=N args=2 vars=5 closure=0 cpool=8 bc=538B file=markdown/src/Markdown
+   locals: e, t, n, r, i, o, s
+     0  set_loc_uninitialized 4: s
+     3  set_loc_uninitialized 3: o
+     6  set_loc_uninitialized 2: i
+     9  set_loc_uninitialized 1: r
+    12  set_loc_uninitialized 0: n
+    15  push_atom_value <
+    20  get_arg0 0: e
+    21  get_arg1 1: t
+    22  get_array_el
+    23  strict_eq
+    24  put_loc0 0: n
+    25  get_loc_check 0: n
+    28  if_false8 -> 0023
+    30  get_arg1 1: t
+    31  push_1 1
+    32  add
+    33  goto8 -> 0024
+L   35  get_arg1 1: t
+L   36  put_loc1 1: r
+    37  get_arg0 0: e
+    38  get_field2 startsWith
+    71  push_atom_value https://
+    76  get_loc_check 1: r
+    79  call_method #args=2
+    82  lnot
+    83  dup
+    84  if_false8 -> 0085
+    86  drop
+    87  get_arg0 0: e
+    88  get_field2 startsWith
+   121  push_atom_value http://
+   126  get_loc_check 1: r
+   129  call_method #args=2
+   132  lnot
+L  133  dup
+   134  if_true8 -> 00c2
+   136  drop
+   137  get_loc_check 0: n
+   140  lnot
+   141  if_false8 -> 00c5
+   143  get_arg1 1: t
+   144  push_0 0
+   145  gt
+   146  if_false8 -> 00c5
+   148  push_const8 0: <string None>
+   150  push_const8 1: <string None>
+   152  regexp
+   153  get_field2 test
+   186  get_arg0 0: e
+   187  get_arg1 1: t
+   188  push_1 1
+   189  sub
+   190  get_array_el
+   191  call_method #args=1
+L  194  if_false8 -> 00c5
+   196  return_undef
+L  197  get_loc_check 1: r
+   200  put_loc2 2: i
+   201  push_0 0
+   202  put_loc3 3: o
+L  203  get_loc_check 2: i
+   206  get_arg0 0: e
+   207  get_length
+   208  lt
+   209  if_false8 -> 0141
+   211  push_const8 2: <string None>
+   213  push_const8 3: <string None>
+   215  regexp
+   216  get_field2 test
+   249  get_arg0 0: e
+   250  get_loc_check 2: i
+   253  get_array_el
+   254  call_method #args=1
+   257  lnot
+   258  if_false8 -> 0141
+   260  push_atom_value (
+   265  get_arg0 0: e
+   266  get_loc_check 2: i
+   269  get_array_el
+   270  strict_eq
+   271  if_false8 -> 011b
+   273  get_loc_check 3: o
+   276  post_inc
+   277  put_loc_check 3: o
+   280  drop
+   281  goto8 -> 0137
+L  283  push_atom_value )
+   288  get_arg0 0: e
+   289  get_loc_check 2: i
+   292  get_array_el
+   293  strict_eq
+   294  if_false8 -> 0137
+   296  push_0 0
+   297  get_loc_check 3: o
+   300  strict_eq
+   301  if_true8 -> 0141
+   303  get_loc_check 3: o
+   306  post_dec
+   307  put_loc_check 3: o
+   310  drop
+L  311  get_loc_check 2: i
+   314  post_inc
+   315  put_loc_check 2: i
+   318  drop
+   319  goto8 -> 00cb
+L  321  get_loc_check 0: n
+   324  if_false8 -> 0154
+   326  push_atom_value >
+   331  get_arg0 0: e
+   332  get_loc_check 2: i
+   335  get_array_el
+   336  strict_neq
+   337  if_false8 -> 0154
+   339  return_undef
+L  340  get_loc_check 0: n
+   343  lnot
+   344  if_false8 -> 019f
+L  346  get_loc_check 2: i
+   349  get_loc_check 1: r
+   352  gt
+   353  if_false8 -> 019f
+   355  push_const8 4: <string None>
+   357  push_const8 5: <string None>
+   359  regexp
+   360  get_field2 test
+   393  get_arg0 0: e
+   394  get_loc_check 2: i
+   397  push_1 1
+   398  sub
+   399  get_array_el
+   400  call_method #args=1
+   403  if_false8 -> 019f
+   405  get_loc_check 2: i
+   408  post_dec
+   409  put_loc_check 2: i
+   412  drop
+   413  goto8 -> 015a
+L  415  get_arg0 0: e
+   416  get_field2 slice
+   449  get_loc_check 1: r
+   452  get_loc_check 2: i
+   455  call_method #args=2
+   458  put_loc8 4: s
+   460  push_const8 6: <string None>
+   462  push_const8 7: <string None>
+   464  regexp
+   465  get_field2 test
+   498  get_loc_check 4: s
+   501  call_method #args=1
+   504  if_false8 -> 0218
+   506  object
+   507  get_loc_check 4: s
+   510  define_field href
+   515  get_loc_check 0: n
+   518  if_false8 -> 020f
+   520  get_loc_check 2: i
+   523  push_1 1
+   524  add
+   525  goto8 -> 0212
+L  527  get_loc_check 2: i
+L  530  define_field end
+   535  return
+L  536  undefined
+   537  return
+
+-- fn name=_ args=3 vars=4 closure=1 cpool=0 bc=307B file=markdown/src/Markdown
+   locals: e, t, n, r, i, o, s
+   closure: B
+     0  set_loc_uninitialized 3: s
+     3  set_loc_uninitialized 2: o
+     6  set_loc_uninitialized 1: i
+     9  set_loc_uninitialized 0: r
+    12  undefined
+    13  get_arg2 2: n
+    14  strict_eq
+    15  if_false8 -> 001b
+    17  get_var_ref0 0: B
+    18  get_arg0 0: e
+    19  push_i8 93
+    21  get_arg1 1: t
+    22  push_1 1
+    23  add
+    24  call3 #args=3
+    25  goto8 -> 0047
+L   27  get_arg2 2: n
+    28  get_field2 get
+    61  get_arg1 1: t
+    62  call_method #args=1
+    65  dup
+    66  is_undefined_or_null
+    67  if_false8 -> 0047
+    69  drop
+    70  push_minus1 -1
+L   71  put_loc0 0: r
+    72  get_loc_check 0: r
+    75  push_0 0
+    76  lt
+    77  dup
+    78  if_true8 -> 008a
+    80  drop
+    81  get_loc_check 0: r
+    84  push_1 1
+    85  add
+    86  get_arg0 0: e
+    87  get_length
+    88  gte
+    89  dup
+    90  if_true8 -> 008a
+    92  drop
+    93  push_i8 40
+    95  get_arg0 0: e
+    96  get_field2 charCodeAt
+   129  get_loc_check 0: r
+   132  push_1 1
+   133  add
+   134  call_method #args=1
+   137  strict_neq
+L  138  if_false8 -> 008d
+   140  return_undef
+L  141  get_loc_check 0: r
+   144  push_2 2
+   145  add
+   146  put_loc1 1: i
+   147  undefined
+   148  get_arg2 2: n
+   149  strict_eq
+   150  if_false8 -> 00a2
+   152  get_var_ref0 0: B
+   153  get_arg0 0: e
+   154  push_i8 41
+   156  get_loc_check 1: i
+   159  call3 #args=3
+   160  goto8 -> 00d2
+L  162  get_arg2 2: n
+   163  get_field2 get
+   196  get_loc_check 0: r
+   199  push_1 1
+   200  add
+   201  call_method #args=1
+   204  dup
+   205  is_undefined_or_null
+   206  if_false8 -> 00d2
+   208  drop
+   209  push_minus1 -1
+L  210  put_loc2 2: o
+   211  get_loc_check 2: o
+   214  push_0 0
+   215  lt
+   216  if_false8 -> 00db
+   218  return_undef
+L  219  get_loc_check 2: o
+   222  push_1 1
+   223  add
+   224  put_loc3 3: s
+   225  push_atom_value <
+   230  get_arg0 0: e
+   231  get_loc_check 1: i
+   234  get_array_el
+   235  strict_eq
+   236  dup
+   237  if_false8 -> 0110
+   239  drop
+   240  push_atom_value >
+   245  get_arg0 0: e
+   246  get_loc_check 2: o
+   249  push_1 1
+   250  sub
+   251  get_array_el
+   252  strict_eq
+   253  dup
+   254  if_false8 -> 0110
+   256  drop
+   257  get_loc_check 1: i
+   260  post_inc
+   261  put_loc_check 1: i
+   264  drop
+   265  get_loc_check 2: o
+   268  post_dec
+   269  put_loc_check 2: o
+L  272  drop
+   273  object
+   274  get_loc_check 0: r
+   277  define_field labelEnd
+   282  get_loc_check 1: i
+   285  define_field hrefStart
+   290  get_loc_check 2: o
+   293  define_field hrefEnd
+   298  get_loc_check 3: s
+   301  define_field nextPosition
+   306  return
+
+-- fn name=B args=3 vars=1 closure=0 cpool=0 bc=73B file=markdown/src/Markdown
+   locals: e, t, n, r
+     0  set_loc_uninitialized 0: r
+     3  get_arg2 2: n
+     4  put_loc0 0: r
+L    5  get_loc_check 0: r
+     8  get_arg0 0: e
+     9  get_length
+    10  lt
+    11  if_false8 -> 0047
+    13  get_arg0 0: e
+    14  get_field2 charCodeAt  ;+28B
+    47  get_loc_check 0: r
+    50  call_method #args=1
+    53  get_arg1 1: t
+    54  strict_eq
+    55  if_false8 -> 003d
+    57  get_loc_check 0: r
+    60  return
+L   61  get_loc_check 0: r
+    64  post_inc
+    65  put_loc_check 0: r
+    68  drop
+    69  goto8 -> 0005
+L   71  push_minus1 -1
+    72  return
+
+-- fn name=q args=2 vars=6 closure=1 cpool=6 bc=679B file=markdown/src/Markdown
+   locals: e, t, n, r, i, o, s, c
+   closure: $
+     0  set_loc_uninitialized 5: c
+     3  set_loc_uninitialized 4: s
+     6  set_loc_uninitialized 3: o
+     9  set_loc_uninitialized 2: i
+    12  set_loc_uninitialized 1: r
+    15  set_loc_uninitialized 0: n
+    18  get_arg0 0: e
+    19  get_field2 startsWith  ;+28B
+    52  push_atom_value \(
+    57  get_arg1 1: t
+    58  call_method #args=2
+    61  put_loc0 0: n
+    62  push_atom_value $
+    67  get_arg0 0: e
+    68  get_arg1 1: t
+    69  get_array_el
+    70  strict_eq
+    71  dup
+    72  if_false8 -> 0065
+    74  drop
+    75  push_atom_value $
+    80  get_arg0 0: e
+    81  get_arg1 1: t
+    82  push_1 1
+    83  add
+    84  get_array_el
+    85  strict_neq
+    86  dup
+    87  if_false8 -> 0065
+    89  drop
+    90  push_atom_value $
+    95  get_arg0 0: e
+    96  get_arg1 1: t
+    97  push_1 1
+    98  sub
+    99  get_array_el
+   100  strict_neq
+L  101  put_loc1 1: r
+   102  get_loc_check 0: n
+   105  lnot
+   106  dup
+   107  if_false8 -> 0072
+   109  drop
+   110  get_loc_check 1: r
+   113  lnot
+L  114  dup
+   115  if_true8 -> 007a
+   117  drop
+   118  get_var_ref0 0: $
+   119  get_arg0 0: e
+   120  get_arg1 1: t
+   121  call2 #args=2
+L  122  if_false8 -> 007d
+   124  return_undef
+L  125  get_loc_check 0: n
+   128  if_false8 -> 0085
+   130  push_2 2
+   131  goto8 -> 0086
+L  133  push_1 1
+L  134  put_loc2 2: i
+   135  get_loc_check 0: n
+   138  if_false8 -> 0093
+   140  push_atom_value \)
+   145  goto8 -> 0098
+L  147  push_atom_value $
+L  152  put_loc3 3: o
+   153  get_arg0 0: e
+   154  get_field2 indexOf
+   187  get_loc_check 3: o
+   190  get_arg1 1: t
+   191  get_loc_check 2: i
+   194  add
+   195  call_method #args=2
+   198  put_loc8 4: s
+L  200  get_loc_check 4: s
+   203  push_0 0
+   204  gte
+   205  if_false8 -> 010d
+   207  get_var_ref0 0: $
+   208  get_arg0 0: e
+   209  get_loc_check 4: s
+   212  call2 #args=2
+   213  if_false8 -> 010d
+   215  get_arg0 0: e
+   216  get_field2 indexOf
+   249  get_loc_check 3: o
+   252  get_loc_check 4: s
+   255  get_loc_check 2: i
+   258  add
+   259  call_method #args=2
+   262  dup
+   263  put_loc_check 4: s
+   266  drop
+   267  goto8 -> 00c8
+L  269  get_loc_check 4: s
+   272  push_0 0
+   273  lt
+   274  if_false8 -> 0115
+   276  return_undef
+L  277  get_arg0 0: e
+   278  get_field2 slice
+   311  get_arg1 1: t
+   312  get_loc_check 2: i
+   315  add
+   316  get_loc_check 4: s
+   319  call_method #args=2
+   322  put_loc8 5: c
+   324  push_0 0
+   325  get_loc_check 5: c
+   328  get_length
+   329  strict_eq
+   330  dup
+   331  if_true -> 0267
+   336  drop
+   337  get_loc_check 5: c
+   340  get_length
+   341  push_2 2
+   342  get_loc_check 2: i
+   345  mul
+   346  add
+   347  push_i16 2048
+   350  gt
+   351  dup
+   352  if_true -> 0267
+   357  drop
+   358  get_loc_check 5: c
+   361  get_field2 includes
+   394  push_atom_value 
+
+   399  call_method #args=1
+   402  dup
+   403  if_true -> 0267
+   408  drop
+   409  get_loc_check 5: c
+   412  get_field2 includes
+   445  push_atom_value `
+   450  call_method #args=1
+   453  dup
+   454  if_true -> 0267
+   459  drop
+   460  push_const8 0: <string None>
+   462  push_const8 1: <string None>
+   464  regexp
+   465  get_field2 test
+   498  get_loc_check 5: c
+   501  call_method #args=1
+   504  dup
+   505  if_true8 -> 0267
+   507  drop
+   508  get_loc_check 1: r
+   511  if_false8 -> 026b
+   513  push_const8 2: <string None>
+   515  push_const8 3: <string None>
+   517  regexp
+   518  get_field2 test
+   551  get_loc_check 5: c
+   554  call_method #args=1
+   557  dup
+   558  if_true8 -> 0267
+   560  drop
+   561  push_const8 4: <string None>
+   563  push_const8 5: <string None>
+   565  regexp
+   566  get_field2 test
+   599  get_arg0 0: e
+   600  get_loc_check 4: s
+   603  push_1 1
+   604  add
+   605  get_array_el
+   606  dup
+   607  is_undefined_or_null
+   608  if_false8 -> 0264
+   610  drop
+   611  push_empty_string
+L  612  call_method #args=1
+L  615  if_false8 -> 026b
+   617  undefined
+   618  return
+L  619  object
+   620  get_arg0 0: e
+   621  get_field2 slice
+   654  get_arg1 1: t
+   655  get_loc_check 4: s
+   658  get_loc_check 2: i
+   661  add
+   662  call_method #args=2
+   665  define_field source
+   670  get_loc_check 5: c
+   673  define_field latex
+   678  return
+
+-- fn name=D args=1 vars=7 closure=0 cpool=2 bc=796B file=markdown/src/Markdown
+   locals: e, t, n, r, i, o, s, c
+     0  set_loc_uninitialized 6: c
+     3  set_loc_uninitialized 5: s
+     6  set_loc_uninitialized 4: o
+     9  set_loc_uninitialized 3: i
+    12  set_loc_uninitialized 2: r
+    15  set_loc_uninitialized 1: n
+    18  set_loc_uninitialized 0: t
+    21  get_arg0 0: e
+    22  get_field2 mark  ;+28B
+    55  call_method #args=0
+    58  put_loc0 0: t
+    59  get_arg0 0: e
+    60  get_field2 peekLine
+    93  call_method #args=0
+    96  get_field2 trim
+   129  call_method #args=0
+   132  put_loc1 1: n
+   133  get_loc_check 1: n
+   136  get_field2 startsWith
+   169  push_atom_value $$
+   174  call_method #args=1
+   177  if_false8 -> 00ba
+   179  push_atom_value $$
+   184  goto8 -> 00f0
+L  186  get_loc_check 1: n
+   189  get_field2 startsWith
+   222  push_atom_value \[
+   227  call_method #args=1
+   230  if_false8 -> 00ef
+   232  push_atom_value \]
+   237  goto8 -> 00f0
+L  239  undefined
+L  240  put_loc2 2: r
+   241  undefined
+   242  get_loc_check 2: r
+   245  strict_eq
+   246  if_false8 -> 00f9
+   248  return_undef
+L  249  get_arg0 0: e
+   250  get_field text
+   283  get_field2 slice
+   316  get_loc_check 0: t
+   319  call_method #args=1
+   322  get_field2 trimStart
+   355  call_method #args=0
+   358  put_loc3 3: i
+   359  get_loc_check 3: i
+   362  get_field2 indexOf
+   395  get_loc_check 2: r
+   398  push_2 2
+   399  call_method #args=2
+   402  put_loc8 4: o
+   404  get_loc_check 4: o
+   407  push_0 0
+   408  lt
+   409  dup
+   410  if_true -> 022d
+   415  drop
+   416  get_loc_check 4: o
+   419  push_i16 2048
+   422  gt
+   423  dup
+   424  if_true -> 022d
+   429  drop
+   430  get_loc_check 3: i
+   433  get_field2 slice
+   466  get_loc_check 4: o
+   469  push_2 2
+   470  add
+   471  call_method #args=1
+   474  get_field2 split
+   507  push_const8 0: <string None>
+   509  push_const8 1: <string None>
+   511  regexp
+   512  push_1 1
+   513  call_method #args=2
+   516  push_0 0
+   517  get_array_el
+   518  get_field2 trim
+   551  call_method #args=0
+   554  get_length
+   555  push_0 0
+   556  gt
+L  557  if_false8 -> 0230
+   559  return_undef
+L  560  get_loc_check 3: i
+   563  get_field2 slice
+   596  push_2 2
+   597  get_loc_check 4: o
+   600  call_method #args=2
+   603  get_field2 trim
+   636  call_method #args=0
+   639  put_loc8 5: s
+   641  push_0 0
+   642  get_loc_check 5: s
+   645  get_length
+   646  strict_eq
+   647  if_false8 -> 028a
+   649  return_undef
+L  650  get_arg0 0: e
+   651  get_field text
+   684  get_field2 slice
+   717  get_loc_check 0: t
+   720  call_method #args=1
+   723  get_length
+   724  get_loc_check 3: i
+   727  get_length
+   728  sub
+   729  put_loc8 6: c
+   731  get_arg0 0: e
+   732  get_loc_check 0: t
+   735  get_loc_check 6: c
+   738  add
+   739  get_loc_check 4: o
+   742  add
+   743  push_2 2
+   744  add
+   745  put_field position
+   754  get_arg0 0: e
+   755  get_field2 finishLine
+   788  call_method #args=0
+   791  drop
+   792  get_loc_check 5: s
+   795  return
+
+-- fn name=F args=1 vars=2 closure=1 cpool=0 bc=95B file=markdown/src/Markdown
+   locals: e, t, n
+   closure: D
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: e
+     7  get_field2 mark  ;+28B
+    40  call_method #args=0
+    43  put_loc0 0: t
+    44  get_var_ref0 0: D
+    45  get_arg0 0: e
+    46  call1 #args=1
+    47  put_loc1 1: n
+    48  get_arg0 0: e
+    49  get_field2 restore
+    82  get_loc_check 0: t
+    85  call_method #args=1
+    88  drop
+    89  undefined
+    90  get_loc_check 1: n
+    93  strict_neq
+    94  return
+
+-- fn name=<atom:0> args=3 vars=45 closure=0 cpool=47 bc=368B file=markdown/src/Markdown
+   locals: require, module, exports, e, t, n, r, i, o, Markdown, <class_fields_init>, Markdown, s, c, u, d, a, l, h, f, m, C, k, g, p, x, v, L, A, b, y, E, R, O, I, W, S, T, P, w, $, M, N, _, B, q, D, F
+     0  fclosure8 11: <function s>
+     2  put_loc8 9: s
+     4  fclosure8 12: <function c>
+     6  put_loc8 10: c
+     8  fclosure8 13: <function u>
+    10  put_loc8 11: u
+    12  fclosure8 14: <function d>
+    14  put_loc8 12: d
+    16  fclosure8 15: <function a>
+    18  put_loc8 13: a
+    20  fclosure8 16: <function l>
+    22  put_loc8 14: l
+    24  fclosure8 17: <function h>
+    26  put_loc8 15: h
+    28  fclosure8 18: <function f>
+    30  put_loc8 16: f
+    32  fclosure8 19: <function m>
+    34  put_loc8 17: m
+    36  fclosure8 20: <function C>
+    38  put_loc8 18: C
+    40  fclosure8 21: <function k>
+    42  put_loc8 19: k
+    44  fclosure8 22: <function g>
+    46  put_loc8 20: g
+    48  fclosure8 23: <function p>
+    50  put_loc8 21: p
+    52  fclosure8 24: <function x>
+    54  put_loc8 22: x
+    56  fclosure8 25: <function v>
+    58  put_loc8 23: v
+    60  fclosure8 26: <function L>
+    62  put_loc8 24: L
+    64  fclosure8 27: <function A>
+    66  put_loc8 25: A
+    68  fclosure8 28: <function b>
+    70  put_loc8 26: b
+    72  fclosure8 29: <function y>
+    74  put_loc8 27: y
+    76  fclosure8 30: <function E>
+    78  put_loc8 28: E
+    80  fclosure8 31: <function R>
+    82  put_loc8 29: R
+    84  fclosure8 32: <function O>
+    86  put_loc8 30: O
+    88  fclosure8 33: <function I>
+    90  put_loc8 31: I
+    92  fclosure8 34: <function W>
+    94  put_loc8 32: W
+    96  fclosure8 35: <function S>
+    98  put_loc8 33: S
+   100  fclosure8 36: <function T>
+   102  put_loc8 34: T
+   104  fclosure8 37: <function P>
+   106  put_loc8 35: P
+   108  fclosure8 38: <function w>
+   110  put_loc8 36: w
+   112  fclosure8 39: <function $>
+   114  put_loc8 37: $
+   116  fclosure8 40: <function M>
+   118  put_loc8 38: M
+   120  fclosure8 41: <function N>
+   122  put_loc8 39: N
+   124  fclosure8 42: <function _>
+   126  put_loc8 40: _
+   128  fclosure8 43: <function B>
+   130  put_loc8 41: B
+   132  fclosure8 44: <function q>
+   134  put_loc8 42: q
+   136  fclosure8 45: <function D>
+   138  put_loc8 43: D
+   140  fclosure8 46: <function F>
+   142  put_loc8 44: F
+   144  set_loc_uninitialized 8: Markdown
+   147  set_loc_uninitialized 4: i
+   150  set_loc_uninitialized 3: r
+   153  set_loc_uninitialized 2: n
+   156  set_loc_uninitialized 1: t
+   159  set_loc_uninitialized 0: e
+   162  get_var Object
+   167  get_field2 defineProperty
+   200  get_arg2 2: exports
+   201  push_atom_value __esModule
+   206  object
+   207  push_0 0
+   208  lnot
+   209  define_field value
+   214  call_method #args=3
+   217  drop
+   218  get_arg2 2: exports
+   219  undefined
+   220  put_field Markdown
+   229  get_arg0 0: require
+   230  push_atom_value ./TextParser
+   235  call1 #args=1
+   236  put_loc0 0: e
+   237  array_from #args=0
+   240  put_loc1 1: t
+   241  get_var Set
+   246  dup
+   247  call_constructor #args=0
+   250  put_loc2 2: n
+   251  push_const8 0: <string None>
+   253  push_const8 1: <string None>
+   255  regexp
+   256  put_loc3 3: r
+   257  push_const8 2: <string None>
+   259  push_const8 3: <string None>
+   261  regexp
+   262  put_loc8 4: i
+   264  fclosure8 4: <function <atom:0>>
+   266  get_loc8 5: o
+   268  dup
+   269  if_true8 -> 0113
+   271  drop
+   272  object
+   273  set_loc8 5: o
+L  275  call1 #args=1
+   276  lnot
+   277  drop
+   278  set_loc_uninitialized 6: Markdown
+   281  undefined
+   282  set_loc_uninitialized 7: <class_fields_init>
+   285  push_const8 5: <function <atom:0>>
+   287  define_class Markdown,0
+   293  swap
+   294  fclosure8 6: <function <atom:0>>
+   296  define_method parse,0
+   302  swap
+   303  swap
+   304  fclosure8 7: <function <atom:0>>
+   306  define_method parseTextOnly,0
+   312  swap
+   313  swap
+   314  fclosure8 8: <function <atom:0>>
+   316  define_method parseInlines,0
+   322  swap
+   323  swap
+   324  fclosure8 9: <function <atom:0>>
+   326  define_method parseRich,0
+   332  swap
+   333  swap
+   334  fclosure8 10: <function <atom:0>>
+   336  define_method parseRichInlines,0
+   342  swap
+   343  undefined
+   344  put_loc8 7: <class_fields_init>
+   346  drop
+   347  set_loc8 6: Markdown
+   349  close_loc 7: <class_fields_init>
+   352  put_loc8 8: Markdown
+   354  get_arg2 2: exports
+   355  get_loc_check 8: Markdown
+   358  put_field Markdown
+   367  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=markdown/src/Markdown
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/MarkdownCodeBlock.js  (201 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]markdown/src/MarkdownCodeBlock | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=markdown/src/MarkdownCodeBlock
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=markdown/src/MarkdownCodeBlock
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/MarkdownCodeToken.js  (501 B)
+# 原子基准=215 原子表 12 条
+-- 原子表 --
+   [0]markdown/src/MarkdownCodeToken | [1]require | [2]module | [3]exports | [4]o | [5]__esModule | [6]MarkdownCodeTokenKind | [7]Console | [8]Punctuation | [9]Comment | [10]Keyword | [11]Property
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=153B file=markdown/src/MarkdownCodeToken
+   locals: o
+     0  get_arg0 0: o
+     1  get_arg0 0: o
+     2  push_0 0
+     3  insert2
+     4  put_field Console
+    13  push_atom_value Console
+    18  put_array_el
+    19  get_arg0 0: o
+    20  get_arg0 0: o
+    21  push_1 1
+    22  insert2
+    23  put_field Punctuation
+    32  push_atom_value Punctuation
+    37  put_array_el
+    38  get_arg0 0: o
+    39  get_arg0 0: o
+    40  push_2 2
+    41  insert2
+    42  put_field Comment
+    51  push_atom_value Comment
+    56  put_array_el
+    57  get_arg0 0: o
+    58  get_arg0 0: o
+    59  push_3 3
+    60  insert2
+    61  put_field String
+    70  push_atom_value String
+    75  put_array_el
+    76  get_arg0 0: o
+    77  get_arg0 0: o
+    78  push_4 4
+    79  insert2
+    80  put_field Keyword
+    89  push_atom_value Keyword
+    94  put_array_el
+    95  get_arg0 0: o
+    96  get_arg0 0: o
+    97  push_5 5
+    98  insert2
+    99  put_field Function
+   108  push_atom_value Function
+   113  put_array_el
+   114  get_arg0 0: o
+   115  get_arg0 0: o
+   116  push_6 6
+   117  insert2
+   118  put_field Number
+   127  push_atom_value Number
+   132  put_array_el
+   133  get_arg0 0: o
+   134  get_arg0 0: o
+   135  push_7 7
+   136  insert2
+   137  put_field Property
+   146  push_atom_value Property
+   151  put_array_el
+   152  return_undef
+
+-- fn name=<atom:0> args=3 vars=1 closure=0 cpool=1 bc=89B file=markdown/src/MarkdownCodeToken
+   locals: require, module, exports, o
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  drop
+    56  get_arg2 2: exports
+    57  undefined
+    58  put_field MarkdownCodeTokenKind
+    67  fclosure8 0: <function <atom:0>>
+    69  get_loc0 0: o
+    70  dup
+    71  if_true8 -> 0057
+    73  drop
+    74  get_arg2 2: exports
+    75  object
+    76  set_loc0 0: o
+    77  insert2
+    78  put_field MarkdownCodeTokenKind
+L   87  call1 #args=1
+    88  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=markdown/src/MarkdownCodeToken
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/TextParser.js  (5595 B)
+# 原子基准=215 原子表 39 条
+-- 原子表 --
+   [0]markdown/src/TextParser | [1]require | [2]module | [3]exports | [4]TextParser | [5]__esModule | [6]isAtEnd | [7]mark | [8]restore | [9]peek | [10]tryConsume | [11]peekCharCode | [12]tryConsumeCharCode | [13]consumeLeadingSpaces | [14]consumeWhile | [15]consumeRest | [16]peekLine | [17]isAtLineEnd | [18]consumeLine | [19]consumeLineWithNormalizedBreak | [20]consumeLineTrimmed | [21]consumeRestOfLine | [22]consumeRestOfLineTrimmed | [23]finishLine | [24]tryConsumeBlankLine | [25]isWhitespace | [26]findLineEnd | [27]nextLinePosition | [28]sliceTrimmed | [29]t | [30]text | [31]position | [32]i | [33]s | [34]charCodeAt | [35]slice | [36]
+ | [37]indexOf | [38]e
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=38B file=markdown/src/TextParser
+   locals: t, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: t
+    17  put_field text
+    26  get_loc0 0: this
+    27  push_0 0
+    28  put_field position
+    37  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=73B file=markdown/src/TextParser
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field position  ;+28B
+    36  get_loc0 0: this
+    37  get_field text
+    70  get_length
+    71  gte
+    72  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=37B file=markdown/src/TextParser
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field position  ;+28B
+    36  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=14B file=markdown/src/TextParser
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_arg0 0: t
+     4  put_field position
+    13  return_undef
+
+-- fn name=<atom:0> args=1 vars=3 closure=0 cpool=0 bc=130B file=markdown/src/TextParser
+   locals: t, i, s, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: s
+     5  set_loc_uninitialized 0: i
+     8  get_loc2 2: this
+     9  get_field2 mark  ;+28B
+    42  call_method #args=0
+    45  put_loc0 0: i
+    46  get_loc2 2: this
+    47  get_field2 tryConsume
+    80  get_arg0 0: t
+    81  call_method #args=1
+    84  put_loc1 1: s
+    85  get_loc2 2: this
+    86  get_field2 restore
+   119  get_loc_check 0: i
+   122  call_method #args=1
+   125  drop
+   126  get_loc_check 1: s
+   129  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=232B file=markdown/src/TextParser
+   locals: t, i, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: i
+     5  push_0 0
+     6  put_loc0 0: i
+L    7  get_loc_check 0: i
+    10  get_arg0 0: t
+    11  get_length
+    12  lt
+    13  if_false -> 00b7
+    18  get_loc1 1: this
+    19  get_field text  ;+28B
+    52  get_field2 charCodeAt
+    85  get_loc1 1: this
+    86  get_field position
+   119  get_loc_check 0: i
+   122  add
+   123  call_method #args=1
+   126  get_arg0 0: t
+   127  get_field2 charCodeAt
+   160  get_loc_check 0: i
+   163  call_method #args=1
+   166  strict_neq
+   167  if_false8 -> 00ac
+   169  push_1 1
+   170  lnot
+   171  return
+L  172  get_loc_check 0: i
+   175  post_inc
+   176  put_loc_check 0: i
+   179  drop
+   180  goto16 -> 0007
+L  183  get_loc1 1: this
+   184  get_field2 position
+   217  get_arg0 0: t
+   218  get_length
+   219  add
+   220  put_field position
+   229  push_0 0
+   230  lnot
+   231  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=106B file=markdown/src/TextParser
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field text  ;+28B
+    36  get_field2 charCodeAt
+    69  get_loc0 0: this
+    70  get_field position
+   103  tail_call_method #args=1
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=92B file=markdown/src/TextParser
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 peekCharCode  ;+28B
+    36  call_method #args=0
+    39  get_arg0 0: t
+    40  strict_eq
+    41  dup
+    42  if_false8 -> 005b
+    44  drop
+    45  get_loc0 0: this
+    46  get_field2 position
+    79  inc
+    80  put_field position
+    89  push_0 0
+    90  lnot
+L   91  return
+
+-- fn name=<atom:0> args=1 vars=3 closure=0 cpool=0 bc=170B file=markdown/src/TextParser
+   locals: t, i, t, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 0: i
+     5  push_0 0
+     6  put_loc0 0: i
+L    7  get_loc2 2: this
+     8  get_field2 isAtEnd  ;+28B
+    41  call_method #args=0
+    44  lnot
+    45  if_false8 -> 00a6
+    47  get_loc_check 0: i
+    50  get_arg0 0: t
+    51  lt
+    52  if_false8 -> 00a6
+    54  set_loc_uninitialized 1: t
+    57  get_loc2 2: this
+    58  get_field2 peekCharCode
+    91  call_method #args=0
+    94  put_loc1 1: t
+    95  push_i8 32
+    97  get_loc_check 1: t
+   100  strict_neq
+   101  if_false8 -> 006f
+   103  push_i8 9
+   105  get_loc_check 1: t
+   108  strict_neq
+   109  if_true8 -> 00a6
+L  111  get_loc2 2: this
+   112  get_field2 position
+   145  inc
+   146  put_field position
+   155  get_loc_check 0: i
+   158  post_inc
+   159  put_loc_check 0: i
+   162  drop
+   163  goto16 -> 0007
+L  166  get_loc_check 0: i
+   169  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=274B file=markdown/src/TextParser
+   locals: t, i, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: i
+     5  get_loc1 1: this
+     6  get_field position  ;+28B
+    39  put_loc0 0: i
+L   40  get_loc1 1: this
+    41  get_field2 isAtEnd
+    74  call_method #args=0
+    77  lnot
+    78  if_false8 -> 00a7
+    80  get_arg0 0: t
+    81  get_loc1 1: this
+    82  get_field2 peekCharCode
+   115  call_method #args=0
+   118  call1 #args=1
+   119  if_false8 -> 00a7
+   121  get_loc1 1: this
+   122  get_field2 position
+   155  inc
+   156  put_field position
+   165  goto8 -> 0028
+L  167  get_loc1 1: this
+   168  get_field text
+   201  get_field2 slice
+   234  get_loc_check 0: i
+   237  get_loc1 1: this
+   238  get_field position
+   271  tail_call_method #args=2
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=0 bc=159B file=markdown/src/TextParser
+   locals: t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field text  ;+28B
+    39  get_field2 slice
+    72  get_loc1 1: this
+    73  get_field position
+   106  call_method #args=1
+   109  put_loc0 0: t
+   110  get_loc1 1: this
+   111  get_loc1 1: this
+   112  get_field text
+   145  get_length
+   146  put_field position
+   155  get_loc_check 0: t
+   158  return
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=0 bc=150B file=markdown/src/TextParser
+   locals: t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field2 findLineEnd  ;+28B
+    39  call_method #args=0
+    42  put_loc0 0: t
+    43  get_loc1 1: this
+    44  get_field text
+    77  get_field2 slice
+   110  get_loc1 1: this
+   111  get_field position
+   144  get_loc_check 0: t
+   147  tail_call_method #args=2
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=75B file=markdown/src/TextParser
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field position  ;+28B
+    36  get_loc0 0: this
+    37  get_field2 findLineEnd
+    70  call_method #args=0
+    73  gte
+    74  return
+
+-- fn name=<atom:0> args=0 vars=3 closure=0 cpool=0 bc=208B file=markdown/src/TextParser
+   locals: t, i, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: i
+     5  set_loc_uninitialized 0: t
+     8  get_loc2 2: this
+     9  get_field2 findLineEnd  ;+28B
+    42  call_method #args=0
+    45  put_loc0 0: t
+    46  get_loc2 2: this
+    47  get_field text
+    80  get_field2 slice
+   113  get_loc2 2: this
+   114  get_field position
+   147  get_loc_check 0: t
+   150  call_method #args=2
+   153  put_loc1 1: i
+   154  get_loc2 2: this
+   155  get_loc2 2: this
+   156  get_field2 nextLinePosition
+   189  get_loc_check 0: t
+   192  call_method #args=1
+   195  put_field position
+   204  get_loc_check 1: i
+   207  return
+
+-- fn name=<atom:0> args=0 vars=3 closure=0 cpool=0 bc=294B file=markdown/src/TextParser
+   locals: t, i, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: i
+     5  set_loc_uninitialized 0: t
+     8  get_loc2 2: this
+     9  get_field2 findLineEnd  ;+28B
+    42  call_method #args=0
+    45  put_loc0 0: t
+    46  get_loc2 2: this
+    47  get_field text
+    80  get_field2 slice
+   113  get_loc2 2: this
+   114  get_field position
+   147  get_loc_check 0: t
+   150  call_method #args=2
+   153  put_loc1 1: i
+   154  get_loc2 2: this
+   155  get_loc2 2: this
+   156  get_field2 nextLinePosition
+   189  get_loc_check 0: t
+   192  call_method #args=1
+   195  put_field position
+   204  get_loc2 2: this
+   205  get_field position
+   238  get_loc_check 0: t
+   241  gt
+   242  if_false8 -> 0122
+   244  push_empty_string
+   245  get_field2 concat
+   278  get_loc_check 1: i
+   281  push_atom_value 
+
+   286  call_method #args=2
+   289  return
+L  290  get_loc_check 1: i
+   293  return
+
+-- fn name=<atom:0> args=0 vars=3 closure=0 cpool=0 bc=174B file=markdown/src/TextParser
+   locals: t, i, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: i
+     5  set_loc_uninitialized 0: t
+     8  get_loc2 2: this
+     9  get_field2 findLineEnd  ;+28B
+    42  call_method #args=0
+    45  put_loc0 0: t
+    46  get_loc2 2: this
+    47  get_field position
+    80  put_loc1 1: i
+    81  get_loc2 2: this
+    82  get_loc2 2: this
+    83  get_field2 nextLinePosition
+   116  get_loc_check 0: t
+   119  call_method #args=1
+   122  put_field position
+   131  get_loc2 2: this
+   132  get_field2 sliceTrimmed
+   165  get_loc_check 1: i
+   168  get_loc_check 0: t
+   171  tail_call_method #args=2
+
+-- fn name=<atom:0> args=0 vars=3 closure=0 cpool=0 bc=171B file=markdown/src/TextParser
+   locals: t, i, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: i
+     5  set_loc_uninitialized 0: t
+     8  get_loc2 2: this
+     9  get_field2 findLineEnd  ;+28B
+    42  call_method #args=0
+    45  put_loc0 0: t
+    46  get_loc2 2: this
+    47  get_field text
+    80  get_field2 slice
+   113  get_loc2 2: this
+   114  get_field position
+   147  get_loc_check 0: t
+   150  call_method #args=2
+   153  put_loc1 1: i
+   154  get_loc2 2: this
+   155  get_loc_check 0: t
+   158  put_field position
+   167  get_loc_check 1: i
+   170  return
+
+-- fn name=<atom:0> args=0 vars=3 closure=0 cpool=0 bc=137B file=markdown/src/TextParser
+   locals: t, i, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: i
+     5  set_loc_uninitialized 0: t
+     8  get_loc2 2: this
+     9  get_field2 findLineEnd  ;+28B
+    42  call_method #args=0
+    45  put_loc0 0: t
+    46  get_loc2 2: this
+    47  get_field position
+    80  put_loc1 1: i
+    81  get_loc2 2: this
+    82  get_loc_check 0: t
+    85  put_field position
+    94  get_loc2 2: this
+    95  get_field2 sliceTrimmed
+   128  get_loc_check 1: i
+   131  get_loc_check 0: t
+   134  tail_call_method #args=2
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=87B file=markdown/src/TextParser
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_loc0 0: this
+     4  get_field2 nextLinePosition  ;+28B
+    37  get_loc0 0: this
+    38  get_field2 findLineEnd
+    71  call_method #args=0
+    74  call_method #args=1
+    77  put_field position
+    86  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=13B file=markdown/src/TextParser
+   locals: t
+     0  push_i8 32
+     2  get_arg0 0: t
+     3  strict_eq
+     4  dup
+     5  if_true8 -> 000c
+     7  drop
+     8  push_i8 9
+    10  get_arg0 0: t
+    11  strict_eq
+L   12  return
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=1 bc=207B file=markdown/src/TextParser
+   locals: t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field2 mark  ;+28B
+    39  call_method #args=0
+    42  put_loc0 0: t
+    43  get_loc1 1: this
+    44  get_field2 consumeWhile
+    77  fclosure8 0: <function <atom:0>>
+    79  call_method #args=1
+    82  drop
+    83  get_loc1 1: this
+    84  get_field2 isAtLineEnd
+   117  call_method #args=0
+   120  if_false8 -> 00a3
+   122  get_loc1 1: this
+   123  get_field2 finishLine
+   156  call_method #args=0
+   159  drop
+   160  push_0 0
+   161  lnot
+   162  return
+L  163  get_loc1 1: this
+   164  get_field2 restore
+   197  get_loc_check 0: t
+   200  call_method #args=1
+   203  drop
+   204  push_1 1
+   205  lnot
+   206  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=29B file=markdown/src/TextParser
+   locals: t
+     0  push_i8 32
+     2  get_arg0 0: t
+     3  strict_eq
+     4  dup
+     5  if_true8 -> 001c
+     7  drop
+     8  push_i8 9
+    10  get_arg0 0: t
+    11  strict_eq
+    12  dup
+    13  if_true8 -> 001c
+    15  drop
+    16  push_i8 10
+    18  get_arg0 0: t
+    19  strict_eq
+    20  dup
+    21  if_true8 -> 001c
+    23  drop
+    24  push_i8 13
+    26  get_arg0 0: t
+    27  strict_eq
+L   28  return
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=0 bc=288B file=markdown/src/TextParser
+   locals: t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_field text  ;+28B
+    39  get_field2 indexOf
+    72  push_atom_value 
+
+    77  get_loc1 1: this
+    78  get_field position
+   111  call_method #args=2
+   114  put_loc0 0: t
+   115  get_loc_check 0: t
+   118  push_0 0
+   119  lt
+   120  if_false8 -> 009e
+   122  get_loc1 1: this
+   123  get_field text
+   156  get_length
+   157  return
+L  158  get_loc_check 0: t
+   161  get_loc1 1: this
+   162  get_field position
+   195  gt
+   196  if_false8 -> 011c
+   198  push_i8 13
+   200  get_loc1 1: this
+   201  get_field text
+   234  get_field2 charCodeAt
+   267  get_loc_check 0: t
+   270  push_1 1
+   271  sub
+   272  call_method #args=1
+   275  strict_eq
+   276  if_false8 -> 011c
+   278  get_loc_check 0: t
+   281  push_1 1
+   282  sub
+   283  return
+L  284  get_loc_check 0: t
+   287  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=273B file=markdown/src/TextParser
+   locals: t, i, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: i
+     5  get_arg0 0: t
+     6  put_loc0 0: i
+     7  get_loc_check 0: i
+    10  get_loc1 1: this
+    11  get_field text  ;+28B
+    44  get_length
+    45  lt
+    46  dup
+    47  if_false8 -> 0089
+    49  drop
+    50  push_i8 13
+    52  get_loc1 1: this
+    53  get_field text
+    86  get_field2 charCodeAt
+   119  get_loc_check 0: i
+   122  call_method #args=1
+   125  strict_eq
+   126  dup
+   127  if_false8 -> 0089
+   129  drop
+   130  get_loc_check 0: i
+   133  post_inc
+   134  put_loc_check 0: i
+L  137  drop
+   138  get_loc_check 0: i
+   141  get_loc1 1: this
+   142  get_field text
+   175  get_length
+   176  lt
+   177  dup
+   178  if_false8 -> 010c
+   180  drop
+   181  push_i8 10
+   183  get_loc1 1: this
+   184  get_field text
+   217  get_field2 charCodeAt
+   250  get_loc_check 0: i
+   253  call_method #args=1
+   256  strict_eq
+   257  dup
+   258  if_false8 -> 010c
+   260  drop
+   261  get_loc_check 0: i
+   264  post_inc
+   265  put_loc_check 0: i
+L  268  drop
+   269  get_loc_check 0: i
+   272  return
+
+-- fn name=<atom:0> args=2 vars=3 closure=1 cpool=0 bc=361B file=markdown/src/TextParser
+   locals: t, i, s, e, this
+   closure: TextParser
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: e
+     5  set_loc_uninitialized 0: s
+     8  get_arg0 0: t
+     9  put_loc0 0: s
+    10  get_arg1 1: i
+    11  put_loc1 1: e
+L   12  get_loc_check 0: s
+    15  get_loc_check 1: e
+    18  lt
+    19  if_false8 -> 0092
+    21  get_var_ref_check 0: TextParser
+    24  get_field2 isWhitespace  ;+28B
+    57  get_loc2 2: this
+    58  get_field text
+    91  get_field2 charCodeAt
+   124  get_loc_check 0: s
+   127  call_method #args=1
+   130  call_method #args=1
+   133  if_false8 -> 0092
+   135  get_loc_check 0: s
+   138  post_inc
+   139  put_loc_check 0: s
+   142  drop
+   143  goto16 -> 000c
+L  146  get_loc_check 1: e
+   149  get_loc_check 0: s
+   152  gt
+   153  if_false -> 011d
+   158  get_var_ref_check 0: TextParser
+   161  get_field2 isWhitespace
+   194  get_loc2 2: this
+   195  get_field text
+   228  get_field2 charCodeAt
+   261  get_loc_check 1: e
+   264  push_1 1
+   265  sub
+   266  call_method #args=1
+   269  call_method #args=1
+   272  if_false8 -> 011d
+   274  get_loc_check 1: e
+   277  post_dec
+   278  put_loc_check 1: e
+   281  drop
+   282  goto16 -> 0092
+L  285  get_loc2 2: this
+   286  get_field text
+   319  get_field2 slice
+   352  get_loc_check 0: s
+   355  get_loc_check 1: e
+   358  tail_call_method #args=2
+
+-- fn name=<atom:0> args=3 vars=3 closure=0 cpool=24 bc=296B file=markdown/src/TextParser
+   locals: require, module, exports, TextParser, <class_fields_init>, TextParser
+     0  set_loc_uninitialized 2: TextParser
+     3  get_var Object
+     8  get_field2 defineProperty  ;+28B
+    41  get_arg2 2: exports
+    42  push_atom_value __esModule
+    47  object
+    48  push_0 0
+    49  lnot
+    50  define_field value
+    55  call_method #args=3
+    58  drop
+    59  get_arg2 2: exports
+    60  undefined
+    61  put_field TextParser
+    70  set_loc_uninitialized 0: TextParser
+    73  undefined
+    74  set_loc_uninitialized 1: <class_fields_init>
+    77  push_const8 0: <function <atom:0>>
+    79  define_class TextParser,0
+    85  fclosure8 1: <function <atom:0>>
+    87  define_method isAtEnd,0
+    93  fclosure8 2: <function <atom:0>>
+    95  define_method mark,0
+   101  fclosure8 3: <function <atom:0>>
+   103  define_method restore,0
+   109  fclosure8 4: <function <atom:0>>
+   111  define_method peek,0
+   117  fclosure8 5: <function <atom:0>>
+   119  define_method tryConsume,0
+   125  fclosure8 6: <function <atom:0>>
+   127  define_method peekCharCode,0
+   133  fclosure8 7: <function <atom:0>>
+   135  define_method tryConsumeCharCode,0
+   141  fclosure8 8: <function <atom:0>>
+   143  define_method consumeLeadingSpaces,0
+   149  fclosure8 9: <function <atom:0>>
+   151  define_method consumeWhile,0
+   157  fclosure8 10: <function <atom:0>>
+   159  define_method consumeRest,0
+   165  fclosure8 11: <function <atom:0>>
+   167  define_method peekLine,0
+   173  fclosure8 12: <function <atom:0>>
+   175  define_method isAtLineEnd,0
+   181  fclosure8 13: <function <atom:0>>
+   183  define_method consumeLine,0
+   189  fclosure8 14: <function <atom:0>>
+   191  define_method consumeLineWithNormalizedBreak,0
+   197  fclosure8 15: <function <atom:0>>
+   199  define_method consumeLineTrimmed,0
+   205  fclosure8 16: <function <atom:0>>
+   207  define_method consumeRestOfLine,0
+   213  fclosure8 17: <function <atom:0>>
+   215  define_method consumeRestOfLineTrimmed,0
+   221  fclosure8 18: <function <atom:0>>
+   223  define_method finishLine,0
+   229  fclosure8 19: <function <atom:0>>
+   231  define_method tryConsumeBlankLine,0
+   237  swap
+   238  fclosure8 20: <function <atom:0>>
+   240  define_method isWhitespace,0
+   246  swap
+   247  fclosure8 21: <function <atom:0>>
+   249  define_method findLineEnd,0
+   255  fclosure8 22: <function <atom:0>>
+   257  define_method nextLinePosition,0
+   263  fclosure8 23: <function <atom:0>>
+   265  define_method sliceTrimmed,0
+   271  undefined
+   272  put_loc1 1: <class_fields_init>
+   273  drop
+   274  set_loc0 0: TextParser
+   275  close_loc 1: <class_fields_init>
+   278  close_loc 0: TextParser
+   281  put_loc2 2: TextParser
+   282  get_arg2 2: exports
+   283  get_loc_check 2: TextParser
+   286  put_field TextParser
+   295  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=markdown/src/TextParser
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

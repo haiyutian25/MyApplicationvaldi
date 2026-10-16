@@ -1,0 +1,37 @@
+package com.openai.valdi.chatgpt.wallet.approval;
+
+import com.snap.valdi.callable.ValdiFunctionNative;
+import defpackage.bqz0;
+import defpackage.cqz0;
+import kotlin.Metadata;
+
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* JADX WARN: Unknown enum class pattern. Please report as an issue! */
+/* JADX INFO: compiled from: r8-map-id-72a12c6898df0e99328f207cf99369ef3312489e373d42257924f5cad5a4d749 */
+/* JADX INFO: loaded from: D:\valdi\com.openai.chatgpt\dil_engine\_dex\classes6.dex */
+@bqz0(propertyReplacements = "", schema = "'None':0,'Face':1,'Fingerprint':2", type = cqz0.a)
+@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0004\b\u0087\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001j\u0002\b\u0002j\u0002\b\u0003j\u0002\b\u0004¨\u0006\u0005"}, d2 = {"Lcom/openai/valdi/chatgpt/wallet/approval/WalletApprovalAuthentication;", "", "None", "Face", "Fingerprint", "modules_chatgpt_wallet_approval-chatgpt_wallet_approval_api_kt_kt"}, k = 1, mv = {1, 8, ValdiFunctionNative.FLAGS_NONE}, xi = 48)
+public final class WalletApprovalAuthentication {
+    public static final WalletApprovalAuthentication Face;
+    public static final WalletApprovalAuthentication Fingerprint;
+    public static final WalletApprovalAuthentication None;
+    public static final /* synthetic */ WalletApprovalAuthentication[] a;
+
+    static {
+        WalletApprovalAuthentication walletApprovalAuthentication = new WalletApprovalAuthentication("None", 0);
+        None = walletApprovalAuthentication;
+        WalletApprovalAuthentication walletApprovalAuthentication2 = new WalletApprovalAuthentication("Face", 1);
+        Face = walletApprovalAuthentication2;
+        WalletApprovalAuthentication walletApprovalAuthentication3 = new WalletApprovalAuthentication("Fingerprint", 2);
+        Fingerprint = walletApprovalAuthentication3;
+        a = new WalletApprovalAuthentication[]{walletApprovalAuthentication, walletApprovalAuthentication2, walletApprovalAuthentication3};
+    }
+
+    public static WalletApprovalAuthentication valueOf(String str) {
+        return (WalletApprovalAuthentication) Enum.valueOf(WalletApprovalAuthentication.class, str);
+    }
+
+    public static WalletApprovalAuthentication[] values() {
+        return (WalletApprovalAuthentication[]) a.clone();
+    }
+}

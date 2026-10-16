@@ -1,0 +1,4358 @@
+# valdi_navigation — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/INavigator.js  (202 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]valdi_navigation/src/INavigator | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=valdi_navigation/src/INavigator
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/INavigator
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NavigationComponent.js  (675 B)
+# 原子基准=215 原子表 15 条
+-- 原子表 --
+   [0]valdi_navigation/src/NavigationComponent | [1]require | [2]module | [3]exports | [4]o | [5]t | [6]__esModule | [7]getNavigationController | [8]getNavigationComponent | [9]navigationController | [10]e | [11]n | [12]renderer | [13]getComponentParent | [14]Could not resolve navigator
+
+-- fn name=o args=1 vars=0 closure=1 cpool=0 bc=37B file=valdi_navigation/src/NavigationComponent
+   locals: o
+   closure: t
+     0  get_var_ref0 0: t
+     1  get_arg0 0: o
+     2  call1 #args=1
+     3  get_field navigationController  ;+28B
+    36  return
+
+-- fn name=t args=1 vars=2 closure=1 cpool=0 bc=150B file=valdi_navigation/src/NavigationComponent
+   locals: o, e, n
+   closure: t
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: e
+     6  get_arg0 0: o
+     7  put_loc0 0: e
+     8  get_loc_check 0: e
+    11  get_field navigationController  ;+28B
+    44  if_false8 -> 0032
+    46  get_loc_check 0: e
+    49  return
+L   50  get_arg0 0: o
+    51  get_field renderer
+    84  get_field2 getComponentParent
+   117  get_arg0 0: o
+   118  call_method #args=1
+   121  put_loc1 1: n
+   122  get_loc_check 1: n
+   125  lnot
+   126  if_false8 -> 008f
+   128  get_var Error
+   133  dup
+   134  push_atom_value Could not resolve navigator
+   139  call_constructor #args=1
+   142  throw
+L  143  get_var_ref0 0: t
+   144  get_loc_check 1: n
+   147  tail_call #args=1
+
+-- fn name=<atom:0> args=3 vars=2 closure=0 cpool=2 bc=107B file=valdi_navigation/src/NavigationComponent
+   locals: require, module, exports, o, t
+     0  fclosure8 0: <function o>
+     2  put_loc0 0: o
+     3  fclosure8 1: <function t>
+     5  put_loc1 1: t
+     6  get_var Object
+    11  get_field2 defineProperty  ;+28B
+    44  get_arg2 2: exports
+    45  push_atom_value __esModule
+    50  object
+    51  push_0 0
+    52  lnot
+    53  define_field value
+    58  call_method #args=3
+    61  drop
+    62  get_arg2 2: exports
+    63  get_arg2 2: exports
+    64  undefined
+    65  insert2
+    66  put_field getNavigationController
+    75  put_field getNavigationComponent
+    84  get_arg2 2: exports
+    85  get_loc0 0: o
+    86  put_field getNavigationController
+    95  get_arg2 2: exports
+    96  get_loc1 1: t
+    97  put_field getNavigationComponent
+   106  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/NavigationComponent
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NavigationController.js  (8846 B)
+# 原子基准=215 原子表 86 条
+-- 原子表 --
+   [0]valdi_navigation/src/NavigationController | [1]require | [2]module | [3]exports | [4]t | [5]e | [6]i | [7]a | [8]s | [9]NavigationController | [10]__esModule | [11]valdi_core/src/CompilerIntrinsics | [12]foundation/src/makePropertiesOpaque | [13]./PlatformNavigation | [14]push | [15]pop | [16]popToSelf | [17]popToRoot | [18]present | [19]createPresentationPage | [20]dismiss | [21]setPlatformNavigationBar | [22]clearPlatformNavigationBar | [23]supportsPlatformNavigationSearch | [24]setPlatformNavigationSearchObserver | [25]makePage | [26]disableDismissalGesture | [27]updateNavigatorBackButtonObserverIfNeeded | [28]registerBackButtonObserver | [29]addPageVisibilityObserver | [30]removePageVisibilityObserver | [31]updateOnPausePopAfterDelay | [32]registerOnPausePopAfterDelay | [33]presentationStyle | [34]bottomSheetOptions | [35]bottomSheetOptions requires presentationStyle BottomSheet or AdaptiveSheet | [36]detents | [37]bottomSheetOptions.detents must not be empty | [38]size | [39]bottomSheetOptions.detents must not contain duplicates | [40]includes | [41]bottomSheetOptions.detents must not combine Content with other detents | [42]initialDetent | [43]bottomSheetOptions.initialDetent must be included in detents | [44]componentPath | [45]Attempting to navigate with a Component that has not been decorated with @NavigationPage | [46]navigator | [47]disableDismissalCount | [48]backButtonObservers | [49]registeredNavigatorBackButtonObserver | [50]onBackButtonPressed | [51]onPageVisibilityChange | [52]addedVisibilityObserver | [53]onPausePopAfterDelay | [54]pageVisibilityObservers | [55]Attempting to create a NavigationController with a missing navigator | [56]latestVisibility | [57]animated | [58]pushComponent | [59]presentComponent | [60]o | [61]wrapInPlatformNavigationController | [62]isVersionAtLeast | [63]validatePlatformNavigationBar | [64]setPlatformNavigationActionObserver | [65]supportsNavigationSearch | [66]searchObserverOwner | [67]r | [68]n | [69]h | [70]__shouldDisableMakeOpaque | [71]pageNavigationOptions | [72]makePropertiesOpaque | [73]componentViewModel | [74]componentContext | [75]showPlatformNavigationBar | [76]platformNavigationTitle | [77]isPartiallyHiding | [78]forceDisableDismissalGesture | [79]setBackButtonObserver | [80]indexOf | [81]splice | [82]setPageVisibilityObserver | [83]delayMs | [84]currentOnPausePopAfterDelay | [85]setOnPausePopAfterDelay
+
+-- fn name=a args=1 vars=2 closure=0 cpool=0 bc=585B file=valdi_navigation/src/NavigationController
+   locals: t, e, i
+     0  set_loc_uninitialized 1: i
+     3  set_loc_uninitialized 0: e
+     6  push_1 1
+     7  get_arg0 0: t
+     8  get_field presentationStyle  ;+28B
+    41  strict_neq
+    42  if_false8 -> 0088
+    44  push_2 2
+    45  get_arg0 0: t
+    46  get_field presentationStyle
+    79  strict_neq
+    80  if_false8 -> 0088
+    82  undefined
+    83  get_arg0 0: t
+    84  get_field bottomSheetOptions
+   117  strict_neq
+   118  if_false8 -> 0087
+   120  get_var Error
+   125  dup
+   126  push_atom_value bottomSheetOptions requires presentationStyle BottomSheet or AdaptiveSheet
+   131  call_constructor #args=1
+   134  throw
+L  135  return_undef
+L  136  get_arg0 0: t
+   137  get_field bottomSheetOptions
+   170  dup
+   171  is_undefined_or_null
+   172  if_false8 -> 00b2
+   174  drop
+   175  undefined
+   176  goto8 -> 00d3
+L  178  get_field detents
+L  211  dup
+   212  is_undefined_or_null
+   213  if_false8 -> 00dc
+   215  drop
+   216  push_0 0
+   217  array_from #args=1
+L  220  put_loc0 0: e
+   221  push_0 0
+   222  get_loc_check 0: e
+   225  get_length
+   226  strict_eq
+   227  if_false8 -> 00f4
+   229  get_var Error
+   234  dup
+   235  push_atom_value bottomSheetOptions.detents must not be empty
+   240  call_constructor #args=1
+   243  throw
+L  244  get_var Set
+   249  dup
+   250  get_loc_check 0: e
+   253  call_constructor #args=1
+   256  get_field size
+   289  get_loc_check 0: e
+   292  get_length
+   293  strict_neq
+   294  if_false8 -> 0137
+   296  get_var Error
+   301  dup
+   302  push_atom_value bottomSheetOptions.detents must not contain duplicates
+   307  call_constructor #args=1
+   310  throw
+L  311  get_loc_check 0: e
+   314  get_length
+   315  push_1 1
+   316  gt
+   317  if_false8 -> 0178
+   319  get_loc_check 0: e
+   322  get_field2 includes
+   355  push_0 0
+   356  call_method #args=1
+   359  if_false8 -> 0178
+   361  get_var Error
+   366  dup
+   367  push_atom_value bottomSheetOptions.detents must not combine Content with other detents
+   372  call_constructor #args=1
+   375  throw
+L  376  get_arg0 0: t
+   377  get_field bottomSheetOptions
+   410  dup
+   411  is_undefined_or_null
+   412  if_false8 -> 01a2
+   414  drop
+   415  undefined
+   416  goto8 -> 01c3
+L  418  get_field initialDetent
+L  451  dup
+   452  is_undefined_or_null
+   453  if_false8 -> 01cd
+   455  drop
+   456  get_loc_check 0: e
+   459  push_0 0
+   460  get_array_el
+L  461  put_loc1 1: i
+   462  get_loc_check 0: e
+   465  get_field2 includes
+   498  get_loc_check 1: i
+   501  call_method #args=1
+   504  lnot
+   505  if_false8 -> 020a
+   507  get_var Error
+   512  dup
+   513  push_atom_value bottomSheetOptions.initialDetent must be included in detents
+   518  call_constructor #args=1
+   521  throw
+L  522  object
+   523  get_arg0 0: t
+   524  get_field bottomSheetOptions
+   557  null
+   558  copy_data_properties 6
+   560  drop
+   561  drop
+   562  array_from #args=0
+   565  push_0 0
+   566  get_loc_check 0: e
+   569  append
+   570  drop
+   571  define_field detents
+   576  get_loc_check 1: i
+   579  define_field initialDetent
+   584  return
+
+-- fn name=s args=1 vars=0 closure=0 cpool=0 bc=53B file=valdi_navigation/src/NavigationController
+   locals: t
+     0  get_arg0 0: t
+     1  get_field componentPath  ;+28B
+    34  lnot
+    35  if_false8 -> 0034
+    37  get_var Error
+    42  dup
+    43  push_atom_value Attempting to navigate with a Component that has not been decorated with @NavigationPage
+    48  call_constructor #args=1
+    51  throw
+L   52  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=53B file=valdi_navigation/src/NavigationController
+   locals: t
+   closure: this
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref0 0: this
+     4  get_field backButtonObservers  ;+28B
+    37  for_of_start
+    38  goto8 -> 002e
+L   40  put_loc0 0: t
+    41  get_loc_check 0: t
+    44  call0 #args=0
+    45  drop
+L   46  for_of_next 0
+    48  if_false8 -> 0028
+    50  drop
+    51  iterator_close
+    52  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=65B file=valdi_navigation/src/NavigationController
+   locals: t, e
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_arg0 0: t
+     2  put_field latestVisibility  ;+4B
+    11  set_loc_uninitialized 0: e
+    14  get_var_ref0 0: this
+    15  get_field pageVisibilityObservers  ;+28B
+    48  for_of_start
+    49  goto8 -> 003a
+L   51  put_loc0 0: e
+    52  get_loc_check 0: e
+    55  get_arg0 0: t
+    56  call1 #args=1
+    57  drop
+L   58  for_of_next 0
+    60  if_false8 -> 0033
+    62  drop
+    63  iterator_close
+    64  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=2 bc=150B file=valdi_navigation/src/NavigationController
+   locals: t, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: t
+    17  put_field navigator
+    26  get_loc0 0: this
+    27  push_0 0
+    28  put_field disableDismissalCount
+    37  get_loc0 0: this
+    38  array_from #args=0
+    41  put_field backButtonObservers
+    50  get_loc0 0: this
+    51  push_1 1
+    52  lnot
+    53  put_field registeredNavigatorBackButtonObserver
+    62  get_loc0 0: this
+    63  fclosure8 0: <function <atom:0>>
+    65  put_field onBackButtonPressed
+    74  get_loc0 0: this
+    75  fclosure8 1: <function <atom:0>>
+    77  put_field onPageVisibilityChange
+    86  get_loc0 0: this
+    87  push_1 1
+    88  lnot
+    89  put_field addedVisibilityObserver
+    98  get_loc0 0: this
+    99  array_from #args=0
+   102  put_field onPausePopAfterDelay
+   111  get_loc0 0: this
+   112  get_var Set
+   117  dup
+   118  call_constructor #args=0
+   121  put_field pageVisibilityObservers
+   130  get_arg0 0: t
+   131  lnot
+   132  if_false8 -> 0095
+   134  get_var Error
+   139  dup
+   140  push_atom_value Attempting to create a NavigationController with a missing navigator
+   145  call_constructor #args=1
+   148  throw
+L  149  return_undef
+
+-- fn name=<atom:0> args=4 vars=6 closure=0 cpool=0 bc=200B file=valdi_navigation/src/NavigationController
+   locals: t, e, i, a, t, e, i, a, s, this
+     0  push_this
+     1  put_loc8 5: this
+     3  set_loc_uninitialized 3: a
+     6  set_loc_uninitialized 2: i
+     9  set_loc_uninitialized 1: e
+    12  set_loc_uninitialized 0: t
+    15  get_arg0 0: t
+    16  put_loc0 0: t
+    17  get_arg1 1: e
+    18  put_loc1 1: e
+    19  get_arg2 2: i
+    20  put_loc2 2: i
+    21  get_arg3 3: a
+    22  dup
+    23  is_undefined
+    24  if_false8 -> 0024
+    26  drop
+    27  object
+    28  push_0 0
+    29  lnot
+    30  define_field animated
+    35  set_arg3 3: a
+L   36  put_loc3 3: a
+    37  set_loc_uninitialized 4: s
+    40  get_loc8 5: this
+    42  get_field2 makePage
+    75  get_arg0 0: t
+    76  get_arg1 1: e
+    77  get_arg2 2: i
+    78  get_arg3 3: a
+    79  call_method #args=4
+    82  put_loc8 4: s
+    84  get_loc8 5: this
+    86  get_field navigator
+   119  get_field2 pushComponent
+   152  get_loc_check 4: s
+   155  get_arg3 3: a
+   156  get_field animated
+   189  dup
+   190  is_undefined_or_null
+   191  if_false8 -> 00c4
+   193  drop
+   194  push_0 0
+   195  lnot
+L  196  call_method #args=2
+   199  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=87B file=valdi_navigation/src/NavigationController
+   locals: t, t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_arg0 0: t
+     6  dup
+     7  is_undefined
+     8  if_false8 -> 000e
+    10  drop
+    11  push_0 0
+    12  lnot
+    13  set_arg0 0: t
+L   14  put_loc0 0: t
+    15  get_loc1 1: this
+    16  get_field navigator  ;+28B
+    49  get_field2 pop
+    82  get_arg0 0: t
+    83  call_method #args=1
+    86  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=87B file=valdi_navigation/src/NavigationController
+   locals: t, t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_arg0 0: t
+     6  dup
+     7  is_undefined
+     8  if_false8 -> 000e
+    10  drop
+    11  push_0 0
+    12  lnot
+    13  set_arg0 0: t
+L   14  put_loc0 0: t
+    15  get_loc1 1: this
+    16  get_field navigator  ;+28B
+    49  get_field2 popToSelf
+    82  get_arg0 0: t
+    83  call_method #args=1
+    86  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=87B file=valdi_navigation/src/NavigationController
+   locals: t, t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  get_arg0 0: t
+     6  dup
+     7  is_undefined
+     8  if_false8 -> 000e
+    10  drop
+    11  push_0 0
+    12  lnot
+    13  set_arg0 0: t
+L   14  put_loc0 0: t
+    15  get_loc1 1: this
+    16  get_field navigator  ;+28B
+    49  get_field2 popToRoot
+    82  get_arg0 0: t
+    83  call_method #args=1
+    86  return_undef
+
+-- fn name=<atom:0> args=4 vars=6 closure=0 cpool=0 bc=200B file=valdi_navigation/src/NavigationController
+   locals: t, e, i, a, t, e, i, a, s, this
+     0  push_this
+     1  put_loc8 5: this
+     3  set_loc_uninitialized 3: a
+     6  set_loc_uninitialized 2: i
+     9  set_loc_uninitialized 1: e
+    12  set_loc_uninitialized 0: t
+    15  get_arg0 0: t
+    16  put_loc0 0: t
+    17  get_arg1 1: e
+    18  put_loc1 1: e
+    19  get_arg2 2: i
+    20  put_loc2 2: i
+    21  get_arg3 3: a
+    22  dup
+    23  is_undefined
+    24  if_false8 -> 0024
+    26  drop
+    27  object
+    28  push_0 0
+    29  lnot
+    30  define_field animated
+    35  set_arg3 3: a
+L   36  put_loc3 3: a
+    37  set_loc_uninitialized 4: s
+    40  get_loc8 5: this
+    42  get_field2 createPresentationPage
+    75  get_arg0 0: t
+    76  get_arg1 1: e
+    77  get_arg2 2: i
+    78  get_arg3 3: a
+    79  call_method #args=4
+    82  put_loc8 4: s
+    84  get_loc8 5: this
+    86  get_field navigator
+   119  get_field2 presentComponent
+   152  get_loc_check 4: s
+   155  get_arg3 3: a
+   156  get_field animated
+   189  dup
+   190  is_undefined_or_null
+   191  if_false8 -> 00c4
+   193  drop
+   194  push_0 0
+   195  lnot
+L  196  call_method #args=2
+   199  return_undef
+
+-- fn name=<atom:0> args=4 vars=2 closure=1 cpool=0 bc=165B file=valdi_navigation/src/NavigationController
+   locals: t, e, i, s, o, this
+   closure: a
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: o
+     5  get_loc1 1: this
+     6  get_field2 makePage  ;+28B
+    39  get_arg0 0: t
+    40  get_arg1 1: e
+    41  get_arg2 2: i
+    42  get_arg3 3: s
+    43  call_method #args=4
+    46  put_loc0 0: o
+    47  get_loc_check 0: o
+    50  get_arg3 3: s
+    51  get_field wrapInPlatformNavigationController
+    84  dup
+    85  is_undefined_or_null
+    86  if_false8 -> 005b
+    88  drop
+    89  push_0 0
+    90  lnot
+L   91  put_field wrapInPlatformNavigationController
+   100  get_loc_check 0: o
+   103  get_arg3 3: s
+   104  get_field presentationStyle
+   137  put_field presentationStyle
+   146  get_loc_check 0: o
+   149  get_var_ref0 0: a
+   150  get_arg3 3: s
+   151  call1 #args=1
+   152  put_field bottomSheetOptions
+   161  get_loc_check 0: o
+   164  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=74B file=valdi_navigation/src/NavigationController
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field navigator  ;+28B
+    36  get_field2 dismiss
+    69  get_arg0 0: t
+    70  call_method #args=1
+    73  return_undef
+
+-- fn name=<atom:0> args=2 vars=2 closure=2 cpool=0 bc=277B file=valdi_navigation/src/NavigationController
+   locals: e, a, t, this
+   closure: t, i
+     0  push_this
+     1  put_loc1 1: this
+     2  get_var_ref_check 0: t
+     5  get_field isVersionAtLeast  ;+28B
+    38  push_i8 19
+    40  call1 #args=1
+    41  if_false -> 0114
+    46  set_loc_uninitialized 0: t
+    49  get_var_ref_check 1: i
+    52  get_field validatePlatformNavigationBar
+    85  get_arg0 0: e
+    86  call1 #args=1
+    87  put_loc0 0: t
+    88  undefined
+    89  get_loc_check 0: t
+    92  strict_neq
+    93  if_false8 -> 006c
+    95  get_var Error
+   100  dup
+   101  get_loc_check 0: t
+   104  call_constructor #args=1
+   107  throw
+L  108  get_loc1 1: this
+   109  get_field navigator
+   142  get_field2 setPlatformNavigationActionObserver
+   175  dup
+   176  is_undefined_or_null
+   177  if_false8 -> 00b8
+   179  drop
+   180  drop
+   181  undefined
+   182  goto8 -> 00bc
+L  184  get_arg1 1: a
+   185  call_method #args=1
+L  188  drop
+   189  get_loc1 1: this
+   190  get_field navigator
+   223  get_field2 setPlatformNavigationBar
+   256  dup
+   257  is_undefined_or_null
+   258  if_false8 -> 0109
+   260  drop
+   261  drop
+   262  undefined
+   263  goto8 -> 0113
+L  265  object
+   266  get_arg0 0: e
+   267  null
+   268  copy_data_properties 6
+   270  drop
+   271  drop
+   272  call_method #args=1
+L  275  drop
+L  276  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=249B file=valdi_navigation/src/NavigationController
+   locals: this
+   closure: t
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 setPlatformNavigationSearchObserver  ;+28B
+    36  undefined
+    37  call_method #args=1
+    40  drop
+    41  get_var_ref_check 0: t
+    44  get_field isVersionAtLeast
+    77  push_i8 19
+    79  call1 #args=1
+    80  dup
+    81  if_false -> 00f8
+    86  drop
+    87  get_loc0 0: this
+    88  get_field navigator
+   121  get_field2 setPlatformNavigationBar
+   154  dup
+   155  is_undefined_or_null
+   156  if_false8 -> 00a3
+   158  drop
+   159  drop
+   160  undefined
+   161  goto8 -> 00a7
+L  163  undefined
+   164  call_method #args=1
+L  167  drop
+   168  get_loc0 0: this
+   169  get_field navigator
+   202  get_field2 setPlatformNavigationActionObserver
+   235  dup
+   236  is_undefined_or_null
+   237  if_false8 -> 00f4
+   239  drop
+   240  drop
+   241  undefined
+   242  goto8 -> 00f8
+L  244  undefined
+   245  call_method #args=1
+L  248  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=75B file=valdi_navigation/src/NavigationController
+   locals: this
+   closure: i
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: i
+     5  get_field supportsNavigationSearch  ;+28B
+    38  get_loc0 0: this
+    39  get_field navigator
+    72  tail_call #args=1
+
+-- fn name=<atom:0> args=2 vars=0 closure=3 cpool=0 bc=47B file=valdi_navigation/src/NavigationController
+   locals: t, a
+   closure: this, i, e
+     0  get_var_ref0 0: this
+     1  get_field searchObserverOwner  ;+28B
+    34  get_var_ref_check 1: i
+    37  strict_eq
+    38  dup
+    39  if_false8 -> 002e
+    41  drop
+    42  get_var_ref2 2: e
+    43  get_arg0 0: t
+    44  get_arg1 1: a
+    45  call2 #args=2
+L   46  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=1 bc=162B file=valdi_navigation/src/NavigationController
+   locals: e, i, this
+   closure: t
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: i
+     5  undefined
+     6  get_arg0 0: e
+     7  strict_eq
+     8  if_false8 -> 000d
+    10  undefined
+    11  goto8 -> 000e
+L   13  object
+L   14  put_loc0 0: i
+    15  get_loc1 1: this
+    16  get_loc_check 0: i
+    19  put_field searchObserverOwner
+    28  get_var_ref_check 0: t
+    31  get_field isVersionAtLeast
+    64  push_i16 172
+    67  call1 #args=1
+    68  dup
+    69  if_false8 -> 00a1
+    71  drop
+    72  get_loc1 1: this
+    73  get_field navigator
+   106  get_field2 setPlatformNavigationSearchObserver
+   139  dup
+   140  is_undefined_or_null
+   141  if_false8 -> 0094
+   143  drop
+   144  drop
+   145  undefined
+   146  goto8 -> 00a1
+L  148  undefined
+   149  get_arg0 0: e
+   150  strict_eq
+   151  if_false8 -> 009c
+   153  undefined
+   154  goto8 -> 009e
+L  156  fclosure8 0: <function <atom:0>>
+L  158  call_method #args=1
+L  161  return_undef
+
+-- fn name=<atom:0> args=4 vars=5 closure=2 cpool=0 bc=415B file=valdi_navigation/src/NavigationController
+   locals: t, i, a, o, r, n, h, t, this
+   closure: e, s
+     0  push_this
+     1  put_loc8 4: this
+     3  set_loc_uninitialized 2: h
+     6  set_loc_uninitialized 1: n
+     9  set_loc_uninitialized 0: r
+    12  get_arg0 0: t
+    13  put_loc0 0: r
+    14  undefined
+    15  put_loc1 1: n
+    16  undefined
+    17  put_loc2 2: h
+    18  get_loc8 4: this
+    20  get_field navigator  ;+28B
+    53  dup
+    54  is_undefined_or_null
+    55  if_false8 -> 003d
+    57  drop
+    58  undefined
+    59  goto8 -> 005e
+L   61  get_field __shouldDisableMakeOpaque
+L   94  if_false8 -> 0080
+    96  get_arg1 1: i
+    97  dup
+    98  put_loc_check 1: n
+   101  drop
+   102  object
+   103  get_arg2 2: a
+   104  dup
+   105  is_undefined_or_null
+   106  if_false8 -> 006e
+   108  drop
+   109  object
+L  110  null
+   111  copy_data_properties 6
+   113  drop
+   114  drop
+   115  get_arg3 3: o
+   116  define_field pageNavigationOptions
+   121  dup
+   122  put_loc_check 2: h
+   125  drop
+   126  goto8 -> 00e9
+L  128  set_loc_uninitialized 3: t
+   131  get_var_ref_check 0: e
+   134  get_field makePropertiesOpaque
+   167  get_arg1 1: i
+   168  call1 #args=1
+   169  dup
+   170  put_loc_check 1: n
+   173  drop
+   174  object
+   175  get_arg2 2: a
+   176  null
+   177  copy_data_properties 6
+   179  drop
+   180  drop
+   181  get_arg3 3: o
+   182  define_field pageNavigationOptions
+   187  put_loc3 3: t
+   188  get_var_ref_check 0: e
+   191  get_field makePropertiesOpaque
+   224  get_loc_check 3: t
+   227  call1 #args=1
+   228  dup
+   229  put_loc_check 2: h
+   232  drop
+L  233  get_var_ref1 1: s
+   234  get_loc_check 0: r
+   237  call1 #args=1
+   238  drop
+   239  object
+   240  get_loc_check 0: r
+   243  get_field componentPath
+   276  define_field componentPath
+   281  get_loc_check 1: n
+   284  define_field componentViewModel
+   289  get_loc_check 2: h
+   292  define_field componentContext
+   297  get_arg3 3: o
+   298  get_field showPlatformNavigationBar
+   331  define_field showPlatformNavigationBar
+   336  get_arg3 3: o
+   337  get_field platformNavigationTitle
+   370  define_field platformNavigationTitle
+   375  get_arg3 3: o
+   376  get_field isPartiallyHiding
+   409  define_field isPartiallyHiding
+   414  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=160B file=valdi_navigation/src/NavigationController
+   locals: t
+   closure: this
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref0 0: this
+     4  get_field2 disableDismissalCount  ;+28B
+    37  push_1 1
+    38  sub
+    39  put_field disableDismissalCount
+    48  push_0 0
+    49  get_var_ref0 0: this
+    50  get_field disableDismissalCount
+    83  strict_eq
+    84  put_loc0 0: t
+    85  get_var_ref0 0: this
+    86  get_field navigator
+   119  get_field2 forceDisableDismissalGesture
+   152  get_loc_check 0: t
+   155  lnot
+   156  call_method #args=1
+   159  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=1 bc=123B file=valdi_navigation/src/NavigationController
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 disableDismissalCount  ;+28B
+    36  push_1 1
+    37  add
+    38  put_field disableDismissalCount
+    47  get_loc0 0: this
+    48  get_field navigator
+    81  get_field2 forceDisableDismissalGesture
+   114  push_0 0
+   115  lnot
+   116  call_method #args=1
+   119  drop
+   120  fclosure8 0: <function <atom:0>>
+   122  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=472B file=valdi_navigation/src/NavigationController
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field backButtonObservers  ;+28B
+    36  get_length
+    37  if_false -> 0114
+    42  get_loc0 0: this
+    43  get_field registeredNavigatorBackButtonObserver
+    76  dup
+    77  if_true -> 01d7
+    82  drop
+    83  get_loc0 0: this
+    84  push_0 0
+    85  lnot
+    86  put_field registeredNavigatorBackButtonObserver
+    95  get_loc0 0: this
+    96  get_field navigator
+   129  get_field setBackButtonObserver
+   162  dup
+   163  if_false -> 01d7
+   168  drop
+   169  get_loc0 0: this
+   170  get_field navigator
+   203  get_field2 setBackButtonObserver
+   236  get_loc0 0: this
+   237  get_field onBackButtonPressed
+   270  call_method #args=1
+   273  goto16 -> 01d7
+L  276  get_loc0 0: this
+   277  get_field registeredNavigatorBackButtonObserver
+   310  dup
+   311  if_false -> 01d7
+   316  drop
+   317  get_loc0 0: this
+   318  push_1 1
+   319  lnot
+   320  put_field registeredNavigatorBackButtonObserver
+   329  get_loc0 0: this
+   330  get_field navigator
+   363  get_field setBackButtonObserver
+   396  dup
+   397  if_false8 -> 01d7
+   399  drop
+   400  get_loc0 0: this
+   401  get_field navigator
+   434  get_field2 setBackButtonObserver
+   467  undefined
+   468  call_method #args=1
+L  471  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=2 cpool=0 bc=197B file=valdi_navigation/src/NavigationController
+   locals: e
+   closure: this, t
+     0  set_loc_uninitialized 0: e
+     3  get_var_ref0 0: this
+     4  get_field backButtonObservers  ;+28B
+    37  get_field2 indexOf
+    70  get_var_ref1 1: t
+    71  call_method #args=1
+    74  put_loc0 0: e
+    75  get_loc_check 0: e
+    78  push_0 0
+    79  gte
+    80  dup
+    81  if_false8 -> 00c4
+    83  drop
+    84  get_var_ref0 0: this
+    85  get_field backButtonObservers
+   118  get_field2 splice
+   151  get_loc_check 0: e
+   154  push_1 1
+   155  call_method #args=2
+   158  drop
+   159  get_var_ref0 0: this
+   160  get_field2 updateNavigatorBackButtonObserverIfNeeded
+   193  call_method #args=0
+L  196  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=1 bc=115B file=valdi_navigation/src/NavigationController
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field backButtonObservers  ;+28B
+    36  get_field2 push
+    69  get_arg0 0: t
+    70  call_method #args=1
+    73  drop
+    74  get_loc0 0: this
+    75  get_field2 updateNavigatorBackButtonObserverIfNeeded
+   108  call_method #args=0
+   111  drop
+   112  fclosure8 0: <function <atom:0>>
+   114  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=305B file=valdi_navigation/src/NavigationController
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field pageVisibilityObservers  ;+28B
+    36  get_field2 add
+    69  get_arg0 0: t
+    70  call_method #args=1
+    73  drop
+    74  get_loc0 0: this
+    75  get_field addedVisibilityObserver
+   108  if_false8 -> 00bf
+   110  undefined
+   111  get_loc0 0: this
+   112  get_field latestVisibility
+   145  strict_neq
+   146  dup
+   147  if_false -> 0130
+   152  drop
+   153  get_arg0 0: t
+   154  get_loc0 0: this
+   155  get_field latestVisibility
+   188  call1 #args=1
+   189  goto8 -> 0130
+L  191  get_loc0 0: this
+   192  get_field navigator
+   225  get_field2 setPageVisibilityObserver
+   258  dup
+   259  is_undefined_or_null
+   260  if_false8 -> 010b
+   262  drop
+   263  drop
+   264  undefined
+   265  goto8 -> 0130
+L  267  get_loc0 0: this
+   268  get_field onPageVisibilityChange
+   301  call_method #args=1
+L  304  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=74B file=valdi_navigation/src/NavigationController
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field pageVisibilityObservers  ;+28B
+    36  get_field2 delete
+    69  get_arg0 0: t
+    70  call_method #args=1
+    73  return_undef
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=0 bc=359B file=valdi_navigation/src/NavigationController
+   locals: t, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: t
+     5  undefined
+     6  put_loc0 0: t
+     7  get_loc1 1: this
+     8  get_field onPausePopAfterDelay  ;+28B
+    41  get_length
+    42  dup
+    43  if_false8 -> 009b
+    45  drop
+    46  get_loc1 1: this
+    47  get_field onPausePopAfterDelay
+    80  get_loc1 1: this
+    81  get_field onPausePopAfterDelay
+   114  get_length
+   115  push_1 1
+   116  sub
+   117  get_array_el
+   118  get_field delayMs
+   151  dup
+   152  put_loc_check 0: t
+L  155  drop
+   156  get_loc_check 0: t
+   159  get_loc1 1: this
+   160  get_field currentOnPausePopAfterDelay
+   193  strict_neq
+   194  dup
+   195  if_false -> 0166
+   200  drop
+   201  get_loc1 1: this
+   202  get_loc_check 0: t
+   205  put_field currentOnPausePopAfterDelay
+   214  get_loc1 1: this
+   215  get_field navigator
+   248  get_field setOnPausePopAfterDelay
+   281  dup
+   282  if_false8 -> 0166
+   284  drop
+   285  get_loc1 1: this
+   286  get_field navigator
+   319  get_field2 setOnPausePopAfterDelay
+   352  get_loc_check 0: t
+   355  call_method #args=1
+L  358  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=2 cpool=0 bc=199B file=valdi_navigation/src/NavigationController
+   locals: t
+   closure: this, e
+     0  set_loc_uninitialized 0: t
+     3  get_var_ref0 0: this
+     4  get_field onPausePopAfterDelay  ;+28B
+    37  get_field2 indexOf
+    70  get_var_ref_check 1: e
+    73  call_method #args=1
+    76  put_loc0 0: t
+    77  get_loc_check 0: t
+    80  push_0 0
+    81  gte
+    82  dup
+    83  if_false8 -> 00c6
+    85  drop
+    86  get_var_ref0 0: this
+    87  get_field onPausePopAfterDelay
+   120  get_field2 splice
+   153  get_loc_check 0: t
+   156  push_1 1
+   157  call_method #args=2
+   160  drop
+   161  get_var_ref0 0: this
+   162  get_field2 updateOnPausePopAfterDelay
+   195  call_method #args=0
+L  198  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=1 bc=128B file=valdi_navigation/src/NavigationController
+   locals: t, e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  object
+     6  get_arg0 0: t
+     7  define_field delayMs
+    12  put_loc0 0: e
+    13  get_loc1 1: this
+    14  get_field onPausePopAfterDelay  ;+28B
+    47  get_field2 push
+    80  get_loc_check 0: e
+    83  call_method #args=1
+    86  drop
+    87  get_loc1 1: this
+    88  get_field2 updateOnPausePopAfterDelay
+   121  call_method #args=0
+   124  drop
+   125  fclosure8 0: <function <atom:0>>
+   127  return
+
+-- fn name=<atom:0> args=3 vars=8 closure=0 cpool=22 bc=302B file=valdi_navigation/src/NavigationController
+   locals: require, module, exports, t, e, i, a, s, NavigationController, <class_fields_init>, NavigationController
+     0  fclosure8 0: <function a>
+     2  put_loc3 3: a
+     3  fclosure8 1: <function s>
+     5  put_loc8 4: s
+     7  set_loc_uninitialized 7: NavigationController
+    10  set_loc_uninitialized 2: i
+    13  set_loc_uninitialized 1: e
+    16  set_loc_uninitialized 0: t
+    19  get_var Object
+    24  get_field2 defineProperty  ;+28B
+    57  get_arg2 2: exports
+    58  push_atom_value __esModule
+    63  object
+    64  push_0 0
+    65  lnot
+    66  define_field value
+    71  call_method #args=3
+    74  drop
+    75  get_arg2 2: exports
+    76  undefined
+    77  put_field NavigationController
+    86  get_arg0 0: require
+    87  push_atom_value valdi_core/src/CompilerIntrinsics
+    92  call1 #args=1
+    93  put_loc0 0: t
+    94  get_arg0 0: require
+    95  push_atom_value foundation/src/makePropertiesOpaque
+   100  call1 #args=1
+   101  put_loc1 1: e
+   102  get_arg0 0: require
+   103  push_atom_value ./PlatformNavigation
+   108  call1 #args=1
+   109  put_loc2 2: i
+   110  set_loc_uninitialized 5: NavigationController
+   113  undefined
+   114  set_loc_uninitialized 6: <class_fields_init>
+   117  push_const8 2: <function <atom:0>>
+   119  define_class NavigationController,0
+   125  fclosure8 3: <function <atom:0>>
+   127  define_method push,0
+   133  fclosure8 4: <function <atom:0>>
+   135  define_method pop,0
+   141  fclosure8 5: <function <atom:0>>
+   143  define_method popToSelf,0
+   149  fclosure8 6: <function <atom:0>>
+   151  define_method popToRoot,0
+   157  fclosure8 7: <function <atom:0>>
+   159  define_method present,0
+   165  fclosure8 8: <function <atom:0>>
+   167  define_method createPresentationPage,0
+   173  fclosure8 9: <function <atom:0>>
+   175  define_method dismiss,0
+   181  fclosure8 10: <function <atom:0>>
+   183  define_method setPlatformNavigationBar,0
+   189  fclosure8 11: <function <atom:0>>
+   191  define_method clearPlatformNavigationBar,0
+   197  fclosure8 12: <function <atom:0>>
+   199  define_method supportsPlatformNavigationSearch,1
+   205  fclosure8 13: <function <atom:0>>
+   207  define_method setPlatformNavigationSearchObserver,0
+   213  fclosure8 14: <function <atom:0>>
+   215  define_method makePage,0
+   221  fclosure8 15: <function <atom:0>>
+   223  define_method disableDismissalGesture,0
+   229  fclosure8 16: <function <atom:0>>
+   231  define_method updateNavigatorBackButtonObserverIfNeeded,0
+   237  fclosure8 17: <function <atom:0>>
+   239  define_method registerBackButtonObserver,0
+   245  fclosure8 18: <function <atom:0>>
+   247  define_method addPageVisibilityObserver,0
+   253  fclosure8 19: <function <atom:0>>
+   255  define_method removePageVisibilityObserver,0
+   261  fclosure8 20: <function <atom:0>>
+   263  define_method updateOnPausePopAfterDelay,0
+   269  fclosure8 21: <function <atom:0>>
+   271  define_method registerOnPausePopAfterDelay,0
+   277  undefined
+   278  put_loc8 6: <class_fields_init>
+   280  drop
+   281  set_loc8 5: NavigationController
+   283  close_loc 6: <class_fields_init>
+   286  put_loc8 7: NavigationController
+   288  get_arg2 2: exports
+   289  get_loc_check 7: NavigationController
+   292  put_field NavigationController
+   301  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/NavigationController
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NavigationPage.js  (1140 B)
+# 原子基准=215 原子表 18 条
+-- 原子表 --
+   [0]valdi_navigation/src/NavigationPage | [1]require | [2]module | [3]exports | [4]e | [5]__esModule | [6]NavigationPage | [7]t | [8]o | [9]componentPath | [10]r | [11]n | [12]isPrototypeOf | [13]call | [14]@ | [15]path | [16]Could not resolve componentPath of ctor ' | [17]'
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=0 bc=49B file=valdi_navigation/src/NavigationPage
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  return
+
+-- fn name=<atom:0> args=0 vars=3 closure=3 cpool=0 bc=363B file=valdi_navigation/src/NavigationPage
+   locals: r, t, n
+   closure: e, o, t
+     0  set_loc_uninitialized 0: r
+     3  get_var_ref0 0: e
+     4  get_field exports  ;+28B
+    37  put_loc0 0: r
+    38  set_loc_uninitialized 1: t
+    41  get_loc_check 0: r
+    44  for_in_start
+    45  goto16 -> 0109
+    48  put_loc1 1: t
+    49  set_loc_uninitialized 2: n
+    52  get_loc_check 0: r
+    55  get_loc_check 1: t
+    58  get_array_el
+    59  put_loc2 2: n
+    60  get_var_ref_check 1: o
+    63  get_loc_check 2: n
+    66  strict_eq
+    67  dup
+    68  if_true8 -> 00b8
+    70  drop
+    71  get_var Object
+    76  get_field prototype
+   109  get_field isPrototypeOf
+   142  get_field2 call
+   175  get_var_ref_check 1: o
+   178  get_loc_check 2: n
+   181  call_method #args=2
+L  184  if_false8 -> 0109
+   186  push_empty_string
+   187  get_field2 concat
+   220  get_loc_check 1: t
+   223  push_atom_value @
+   228  get_var_ref0 0: e
+   229  get_field path
+   262  tail_call_method #args=3
+L  265  for_in_next
+   266  if_false -> 0030
+   271  drop
+   272  drop
+   273  get_var Error
+   278  dup
+   279  push_atom_value Could not resolve componentPath of ctor '
+   284  get_field2 concat
+   317  get_var_ref2 2: t
+   318  get_field name
+   351  push_atom_value '
+   356  call_method #args=2
+   359  call_constructor #args=1
+   362  throw
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=2 bc=182B file=valdi_navigation/src/NavigationPage
+   locals: t, o, <class_fields_init>
+   closure: e
+     0  set_loc_uninitialized 0: o
+     3  get_arg0 0: t
+     4  set_loc_uninitialized 1: <class_fields_init>
+     7  push_const8 0: <function <atom:0>>
+     9  define_class o,1
+    15  undefined
+    16  put_loc1 1: <class_fields_init>
+    17  drop
+    18  close_loc 1: <class_fields_init>
+    21  put_loc0 0: o
+    22  get_var Object
+    27  get_field2 defineProperty  ;+28B
+    60  get_loc_check 0: o
+    63  push_atom_value componentPath
+    68  object
+    69  push_1 1
+    70  lnot
+    71  define_field enumerable
+    76  fclosure8 1: <function <atom:0>>
+    78  define_method get,4
+    84  call_method #args=3
+    87  drop
+    88  get_var Object
+    93  get_field2 defineProperty
+   126  get_loc_check 0: o
+   129  push_atom_value name
+   134  object
+   135  get_arg0 0: t
+   136  get_field name
+   169  define_field value
+   174  call_method #args=3
+   177  drop
+   178  get_loc_check 0: o
+   181  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=1 bc=3B file=valdi_navigation/src/NavigationPage
+   locals: e
+     0  fclosure8 0: <function <atom:0>>
+     2  return
+
+-- fn name=<atom:0> args=3 vars=1 closure=0 cpool=1 bc=92B file=valdi_navigation/src/NavigationPage
+   locals: require, module, exports, e
+     0  set_loc_uninitialized 0: e
+     3  get_var Object
+     8  get_field2 defineProperty  ;+28B
+    41  get_arg2 2: exports
+    42  push_atom_value __esModule
+    47  object
+    48  push_0 0
+    49  lnot
+    50  define_field value
+    55  call_method #args=3
+    58  drop
+    59  get_arg2 2: exports
+    60  undefined
+    61  put_field NavigationPage
+    70  fclosure8 0: <function <atom:0>>
+    72  set_name e
+    77  put_loc0 0: e
+    78  get_arg2 2: exports
+    79  get_loc_check 0: e
+    82  put_field NavigationPage
+    91  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/NavigationPage
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NavigationPageComponent.js  (1108 B)
+# 原子基准=215 原子表 17 条
+-- 原子表 --
+   [0]valdi_navigation/src/NavigationPageComponent | [1]require | [2]module | [3]exports | [4]t | [5]o | [6]NavigationPageComponent | [7]NavigationPageStatefulComponent | [8]__esModule | [9]valdi_core/src/Component | [10]./NavigationController | [11]Component | [12]StatefulComponent | [13]NavigationController | [14]context | [15]navigator | [16]navigationController
+
+-- fn name=<atom:0> args=0 vars=4 closure=2 cpool=0 bc=170B file=valdi_navigation/src/NavigationPageComponent
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>, o
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  get_var_ref_check 1: o
+    51  get_field NavigationController
+    84  dup
+    85  get_loc_check 3: this
+    88  get_field context
+   121  get_field navigator
+   154  call_constructor #args=1
+   157  put_field navigationController
+   166  get_loc_check 3: this
+   169  return
+
+-- fn name=<atom:0> args=0 vars=4 closure=2 cpool=0 bc=170B file=valdi_navigation/src/NavigationPageComponent
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>, o
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  get_var_ref_check 1: o
+    51  get_field NavigationController
+    84  dup
+    85  get_loc_check 3: this
+    88  get_field context
+   121  get_field navigator
+   154  call_constructor #args=1
+   157  put_field navigationController
+   166  get_loc_check 3: this
+   169  return
+
+-- fn name=<atom:0> args=3 vars=8 closure=0 cpool=2 bc=253B file=valdi_navigation/src/NavigationPageComponent
+   locals: require, module, exports, t, o, NavigationPageComponent, <class_fields_init>, NavigationPageComponent, NavigationPageStatefulComponent, <class_fields_init>, NavigationPageStatefulComponent
+     0  set_loc_uninitialized 7: NavigationPageStatefulComponent
+     3  set_loc_uninitialized 4: NavigationPageComponent
+     6  set_loc_uninitialized 1: o
+     9  set_loc_uninitialized 0: t
+    12  get_var Object
+    17  get_field2 defineProperty  ;+28B
+    50  get_arg2 2: exports
+    51  push_atom_value __esModule
+    56  object
+    57  push_0 0
+    58  lnot
+    59  define_field value
+    64  call_method #args=3
+    67  drop
+    68  get_arg2 2: exports
+    69  get_arg2 2: exports
+    70  undefined
+    71  insert2
+    72  put_field NavigationPageComponent
+    81  put_field NavigationPageStatefulComponent
+    90  get_arg0 0: require
+    91  push_atom_value valdi_core/src/Component
+    96  call1 #args=1
+    97  put_loc0 0: t
+    98  get_arg0 0: require
+    99  push_atom_value ./NavigationController
+   104  call1 #args=1
+   105  put_loc1 1: o
+   106  set_loc_uninitialized 2: NavigationPageComponent
+   109  get_loc_check 0: t
+   112  get_field Component
+   145  set_loc_uninitialized 3: <class_fields_init>
+   148  push_const8 0: <function <atom:0>>
+   150  define_class NavigationPageComponent,1
+   156  undefined
+   157  put_loc3 3: <class_fields_init>
+   158  drop
+   159  set_loc2 2: NavigationPageComponent
+   160  close_loc 3: <class_fields_init>
+   163  put_loc8 4: NavigationPageComponent
+   165  get_arg2 2: exports
+   166  get_loc_check 4: NavigationPageComponent
+   169  put_field NavigationPageComponent
+   178  set_loc_uninitialized 5: NavigationPageStatefulComponent
+   181  get_loc_check 0: t
+   184  get_field StatefulComponent
+   217  set_loc_uninitialized 6: <class_fields_init>
+   220  push_const8 1: <function <atom:0>>
+   222  define_class NavigationPageStatefulComponent,1
+   228  undefined
+   229  put_loc8 6: <class_fields_init>
+   231  drop
+   232  set_loc8 5: NavigationPageStatefulComponent
+   234  close_loc 6: <class_fields_init>
+   237  put_loc8 7: NavigationPageStatefulComponent
+   239  get_arg2 2: exports
+   240  get_loc_check 7: NavigationPageStatefulComponent
+   243  put_field NavigationPageStatefulComponent
+   252  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/NavigationPageComponent
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NavigationRoot.js  (1715 B)
+# 原子基准=215 原子表 33 条
+-- 原子表 --
+   [0]valdi_navigation/src/NavigationRoot | [1]require | [2]module | [3]exports | [4]i | [5]o | [6]e | [7]t | [8]n | [9]r | [10]NavigationRoot | [11]__esModule | [12]valdi_core/src/JSX | [13]jsx | [14]makeComponentPrototype | [15]TbzWI1j0_iDWSoIP | [16]valdi_core/src/Component | [17]valdi_navigation/src/NavigationController | [18]./NavigationView | [19]valdi_core/src/CompilerIntrinsics | [20]Component | [21]renderChildrenWithNavigator | [22]onRender | [23]_navigationController | [24]NavigationController | [25]viewModel | [26]children | [27]context | [28]navigator | [29]beginComponent | [30]NavigationView | [31]setUnnamedSlot | [32]endComponent
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=215B file=valdi_navigation/src/NavigationRoot
+   locals: i, this
+   closure: t
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field _navigationController  ;+28B
+    36  dup
+    37  if_true8 -> 005c
+    39  drop
+    40  get_loc0 0: this
+    41  get_var_ref_check 0: t
+    44  get_field NavigationController
+    77  dup
+    78  get_arg0 0: i
+    79  call_constructor #args=1
+    82  insert2
+    83  put_field _navigationController
+L   92  drop
+    93  get_loc0 0: this
+    94  get_field viewModel
+   127  dup
+   128  is_undefined_or_null
+   129  if_false8 -> 0087
+   131  drop
+   132  undefined
+   133  goto8 -> 00d6
+L  135  get_field2 children
+   168  dup
+   169  is_undefined_or_null
+   170  if_false8 -> 00b1
+   172  drop
+   173  drop
+   174  undefined
+   175  goto8 -> 00d6
+L  177  get_loc0 0: this
+   178  get_field _navigationController
+   211  call_method #args=1
+L  214  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=39B file=valdi_navigation/src/NavigationRoot
+   locals: i
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field2 renderChildrenWithNavigator  ;+28B
+    34  get_arg0 0: i
+    35  call_method #args=1
+    38  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=3 cpool=1 bc=349B file=valdi_navigation/src/NavigationRoot
+   locals: this
+   closure: i, n, o
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field context  ;+28B
+    36  dup
+    37  is_undefined_or_null
+    38  if_false8 -> 002c
+    40  drop
+    41  undefined
+    42  goto8 -> 004d
+L   44  get_field navigator
+L   77  if_false8 -> 00ba
+    79  get_loc0 0: this
+    80  get_field2 renderChildrenWithNavigator
+   113  get_loc0 0: this
+   114  get_field context
+   147  get_field navigator
+   180  call_method #args=1
+   183  goto16 -> 015c
+L  186  get_var_ref_check 0: i
+   189  get_field2 beginComponent
+   222  get_var_ref_check 1: n
+   225  get_field NavigationView
+   258  get_var_ref_check 2: o
+   261  undefined
+   262  undefined
+   263  call_method #args=4
+   266  drop
+   267  get_var_ref_check 0: i
+   270  get_field2 setUnnamedSlot
+   303  fclosure8 0: <function <atom:0>>
+   305  call_method #args=1
+   308  drop
+   309  get_var_ref_check 0: i
+   312  get_field2 endComponent
+   345  call_method #args=0
+L  348  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=1 cpool=0 bc=49B file=valdi_navigation/src/NavigationRoot
+   locals: this.active_func, new.target, arguments, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 3: this
+     9  special_object 0
+    11  put_loc2 2: arguments
+    12  check_ctor
+    13  get_loc0 0: this.active_func
+    14  get_super
+    15  get_loc1 1: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc2 2: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 3: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 3: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 3: this
+    48  return
+
+-- fn name=<atom:0> args=3 vars=9 closure=0 cpool=3 bc=300B file=valdi_navigation/src/NavigationRoot
+   locals: require, module, exports, i, o, e, t, n, r, NavigationRoot, <class_fields_init>, NavigationRoot
+     0  set_loc_uninitialized 8: NavigationRoot
+     3  set_loc_uninitialized 5: r
+     6  set_loc_uninitialized 4: n
+     9  set_loc_uninitialized 3: t
+    12  set_loc_uninitialized 2: e
+    15  set_loc_uninitialized 1: o
+    18  set_loc_uninitialized 0: i
+    21  get_var Object
+    26  get_field2 defineProperty  ;+28B
+    59  get_arg2 2: exports
+    60  push_atom_value __esModule
+    65  object
+    66  push_0 0
+    67  lnot
+    68  define_field value
+    73  call_method #args=3
+    76  drop
+    77  get_arg2 2: exports
+    78  undefined
+    79  put_field NavigationRoot
+    88  get_arg0 0: require
+    89  push_atom_value valdi_core/src/JSX
+    94  call1 #args=1
+    95  get_field jsx
+   128  put_loc0 0: i
+   129  get_loc_check 0: i
+   132  get_field2 makeComponentPrototype
+   165  undefined
+   166  push_atom_value TbzWI1j0_iDWSoIP
+   171  call_method #args=2
+   174  put_loc1 1: o
+   175  get_arg0 0: require
+   176  push_atom_value valdi_core/src/Component
+   181  call1 #args=1
+   182  put_loc2 2: e
+   183  get_arg0 0: require
+   184  push_atom_value valdi_navigation/src/NavigationController
+   189  call1 #args=1
+   190  put_loc3 3: t
+   191  get_arg0 0: require
+   192  push_atom_value ./NavigationView
+   197  call1 #args=1
+   198  put_loc8 4: n
+   200  get_arg0 0: require
+   201  push_atom_value valdi_core/src/CompilerIntrinsics
+   206  call1 #args=1
+   207  put_loc8 5: r
+   209  set_loc_uninitialized 6: NavigationRoot
+   212  get_loc_check 2: e
+   215  get_field Component
+   248  set_loc_uninitialized 7: <class_fields_init>
+   251  push_const8 2: <function <atom:0>>
+   253  define_class NavigationRoot,1
+   259  fclosure8 0: <function <atom:0>>
+   261  define_method renderChildrenWithNavigator,0
+   267  fclosure8 1: <function <atom:0>>
+   269  define_method onRender,0
+   275  undefined
+   276  put_loc8 7: <class_fields_init>
+   278  drop
+   279  set_loc8 6: NavigationRoot
+   281  close_loc 7: <class_fields_init>
+   284  put_loc8 8: NavigationRoot
+   286  get_arg2 2: exports
+   287  get_loc_check 8: NavigationRoot
+   290  put_field NavigationRoot
+   299  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/NavigationRoot
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/NavigationView.js  (17592 B)
+# 原子基准=215 原子表 178 条
+-- 原子表 --
+   [0]valdi_navigation/src/NavigationView | [1]require | [2]module | [3]exports | [4]t | [5]e | [6]i | [7]o | [8]n | [9]a | [10]s | [11]r | [12]d | [13]c | [14]l | [15]h | [16]u | [17]p | [18]v | [19]m | [20]f | [21]k | [22]g | [23]w | [24]b | [25]NavigationView | [26]R | [27]NavigationViewNavigator | [28]__esModule | [29]valdi_core/src/ValdiRuntimeProvider | [30]getValdiRuntime | [31]valdi_core/src/JSX | [32]jsx | [33]makeNodePrototype | [34]view | [35]backgroundColor | [36]white | [37]width | [38]100% | [39]height | [40]mPv8OIGZ0Epeok2u | [41]layout | [42]dHD109xvWbHvkEi7 | [43]7djNXuA6SUO5q_of | [44]makeComponentPrototype | [45]BeFvKE0yvizlMIOh | [46]pOiyyJnPEt3Nd9EW | [47]dtESOJLmk9VndpK1 | [48]valdi_core/src/Component | [49]valdi_core/src/ComponentPath | [50]valdi_core/src/ComponentRef | [51]valdi_core/src/ElementRef | [52]valdi_core/src/ModuleLoaderGlobal | [53]valdi_core/src/Style | [54]valdi_core/src/debugging/DefaultErrorBoundary | [55]valdi_core/src/utils/OnIdle | [56]valdi_core/src/utils/When | [57]coreutils/src/SerialTaskQueue | [58]foundation/src/Lazy | [59]valdi_core/src/Device | [60]StatefulComponent | [61]onCreate | [62]onDestroy | [63]onRender | [64]renderNavigationStack | [65]setupItem | [66]getCurrentItem | [67]pushComponent | [68]appendEntry | [69]applyTransitionFromState | [70]applyTransitionToState | [71]makeEntry | [72]indexOfNavigator | [73]popToNavigator | [74]dismissNavigator | [75]pop | [76]doPop | [77]teardownStackEntry | [78]rebuildStack | [79]updateStackNonAnimated | [80]Style | [81]flexGrow | [82]itemContainer | [83]absolute | [84]position | [85]item | [86]rgba(0, 0, 0, 0.2) | [87]occlusionOverlay | [88]hasTransparentBackground | [89]popToRoot | [90]popToSelf | [91]presentComponent | [92]dismiss | [93]forceDisableDismissalGesture | [94]setBackButtonObserver | [95]setOnPausePopAfterDelay | [96]state | [97]keySequence | [98]scheduledRebuild | [99]hotReloadedComponents | [100]ElementRef | [101]containerRef | [102]SerialTaskQueue | [103]taskQueue | [104]onBackButtonPressed | [105]key | [106]reloadableData | [107]renderFn | [108]title | [109]isModal | [110]hotReloadObserver | [111]navigator | [112]ComponentRef | [113]ref | [114]viewContainerRef | [115]occlusionViewRef | [116]isTransparent | [117]Device | [118]viewModel | [119]children | [120]beginRender | [121]setAttributeRef | [122]setAttributeStyle | [123]style | [124]endRender | [125]beginComponent | [126]DefaultErrorBoundary | [127]setUnnamedSlot | [128]endComponent | [129]when | [130]single | [131]renderer | [132]getComponentRootElements | [133]setAttribute | [134]$width | [135]$height | [136]enqueueTask | [137]batchUpdates | [138]animatePromise | [139]duration | [140]setState | [141]frame | [142]opacity | [143]translationY | [144]translationX | [145]y | [146]parseComponentPath | [147]getModuleLoader | [148]load | [149]bind | [150]Lazy | [151]onHotReload | [152]filePath | [153]componentPath | [154]context | [155]resolveComponentConstructor | [156]onIdleInterruptible | [157]isDestroyed | [158]hasContext | [159]setContext | [160]setViewModelProperties | [161]indexOf | [162]push | [163]slice | [164]navigationView | [165]__shouldDisableMakeOpaque | [166]componentContext | [167]transparent | [168]pageNavigationOptions | [169]pageBackgroundColor | [170]componentViewModel | [171]platformNavigationTitle | [172]popToRoot is not currently implemented in the desktop app navigation | [173]popToSelf is not currently implemented in the desktop app navigation | [174]isLoggingEnabled | [175]console | [176]error | [177]forceDisableDismissalGesture is not implemented in the desktop app navigation
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=45B file=valdi_navigation/src/NavigationView
+   closure: this
+     0  get_var_ref_check 0: this
+     3  get_field2 pop  ;+28B
+    36  push_0 0
+    37  lnot
+    38  call_method #args=1
+    41  drop
+    42  push_0 0
+    43  lnot
+    44  return
+
+-- fn name=<atom:0> args=0 vars=4 closure=3 cpool=1 bc=228B file=valdi_navigation/src/NavigationView
+   locals: this, this.active_func, new.target, arguments
+   closure: <class_fields_init>, h, k
+     0  special_object 2
+     2  put_loc1 1: this.active_func
+     3  special_object 3
+     5  put_loc2 2: new.target
+     6  set_loc_uninitialized 0: this
+     9  special_object 0
+    11  put_loc3 3: arguments
+    12  check_ctor
+    13  get_loc1 1: this.active_func
+    14  get_super
+    15  get_loc2 2: new.target
+    16  array_from #args=0
+    19  push_0 0
+    20  get_loc3 3: arguments
+    21  append
+    22  drop
+    23  apply 1
+    26  dup
+    27  put_loc_check_init 0: this
+    30  get_var_ref_check 0: <class_fields_init>
+    33  dup
+    34  if_false8 -> 002b
+    36  get_loc_check 0: this
+    39  swap
+    40  call_method #args=0
+L   43  drop
+    44  drop
+    45  get_loc_check 0: this
+    48  object
+    49  array_from #args=0
+    52  define_field stack
+    57  put_field state
+    66  get_loc_check 0: this
+    69  push_0 0
+    70  put_field keySequence
+    79  get_loc_check 0: this
+    82  push_1 1
+    83  lnot
+    84  put_field scheduledRebuild
+    93  get_loc_check 0: this
+    96  object
+    97  put_field hotReloadedComponents
+   106  get_loc_check 0: this
+   109  get_var_ref_check 1: h
+   112  get_field ElementRef
+   145  dup
+   146  call_constructor #args=0
+   149  put_field containerRef
+   158  get_loc_check 0: this
+   161  get_var_ref_check 2: k
+   164  get_field SerialTaskQueue
+   197  dup
+   198  call_constructor #args=0
+   201  put_field taskQueue
+   210  get_loc_check 0: this
+   213  fclosure8 0: <function <atom:0>>
+   215  put_field onBackButtonPressed
+   224  get_loc_check 0: this
+   227  return
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=83B file=valdi_navigation/src/NavigationView
+   closure: this, e
+     0  get_var_ref0 0: this
+     1  get_field viewModel  ;+28B
+    34  get_field2 children
+    67  dup
+    68  is_undefined_or_null
+    69  if_false8 -> 004c
+    71  drop
+    72  drop
+    73  undefined
+    74  goto8 -> 0052
+L   76  get_var_ref_check 1: e
+    79  call_method #args=1
+L   82  return_undef
+
+-- fn name=<atom:0> args=0 vars=4 closure=4 cpool=1 bc=449B file=valdi_navigation/src/NavigationView
+   locals: t, e, i, this
+   closure: NavigationViewNavigator, l, h, w
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 2: i
+     5  set_loc_uninitialized 1: e
+     8  set_loc_uninitialized 0: t
+    11  get_loc3 3: this
+    12  get_field2 keySequence  ;+28B
+    45  inc
+    46  insert2
+    47  put_field keySequence
+    56  get_field2 toString
+    89  call_method #args=0
+    92  put_loc0 0: t
+    93  get_var_ref_check 0: NavigationViewNavigator
+    96  dup
+    97  get_loc3 3: this
+    98  call_constructor #args=1
+   101  put_loc1 1: e
+   102  object
+   103  get_loc_check 0: t
+   106  define_field key
+   111  undefined
+   112  define_field reloadableData
+   117  fclosure8 0: <function <atom:0>>
+   119  set_name renderFn
+   124  define_field renderFn
+   129  push_empty_string
+   130  define_field title
+   135  push_1 1
+   136  lnot
+   137  define_field isModal
+   142  undefined
+   143  define_field hotReloadObserver
+   148  get_loc_check 1: e
+   151  define_field navigator
+   156  get_var_ref_check 1: l
+   159  get_field ComponentRef
+   192  dup
+   193  call_constructor #args=0
+   196  define_field ref
+   201  get_var_ref_check 2: h
+   204  get_field ElementRef
+   237  dup
+   238  call_constructor #args=0
+   241  define_field viewContainerRef
+   246  get_var_ref_check 2: h
+   249  get_field ElementRef
+   282  dup
+   283  call_constructor #args=0
+   286  define_field occlusionViewRef
+   291  push_1 1
+   292  lnot
+   293  define_field isTransparent
+   298  put_loc2 2: i
+   299  get_loc3 3: this
+   300  get_field2 appendEntry
+   333  get_loc_check 2: i
+   336  push_1 1
+   337  lnot
+   338  call_method #args=2
+   341  drop
+   342  get_var_ref_check 3: w
+   345  get_field Device
+   378  get_field2 setBackButtonObserver
+   411  get_loc3 3: this
+   412  get_field onBackButtonPressed
+   445  call_method #args=1
+   448  return_undef
+
+-- fn name=<atom:0> args=0 vars=2 closure=1 cpool=0 bc=198B file=valdi_navigation/src/NavigationView
+   locals: t, this
+   closure: w
+     0  push_this
+     1  put_loc1 1: this
+     2  get_var_ref_check 0: w
+     5  get_field Device  ;+28B
+    38  get_field2 setBackButtonObserver
+    71  undefined
+    72  call_method #args=1
+    75  drop
+    76  set_loc_uninitialized 0: t
+    79  get_loc1 1: this
+    80  get_field state
+   113  get_field stack
+   146  for_of_start
+   147  goto8 -> 00bf
+L  149  put_loc0 0: t
+   150  get_loc1 1: this
+   151  get_field2 teardownStackEntry
+   184  get_loc_check 0: t
+   187  call_method #args=1
+   190  drop
+L  191  for_of_next 0
+   193  if_false8 -> 0095
+   195  drop
+   196  iterator_close
+   197  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=4 cpool=0 bc=363B file=valdi_navigation/src/NavigationView
+   locals: this
+   closure: e, i, o, R
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: e
+     5  get_field2 beginRender  ;+28B
+    38  get_var_ref_check 1: i
+    41  undefined
+    42  call_method #args=2
+    45  drop
+    46  get_var_ref_check 0: e
+    49  get_field2 beginRender
+    82  get_var_ref_check 2: o
+    85  undefined
+    86  call_method #args=2
+    89  drop
+    90  get_var_ref_check 0: e
+    93  get_field2 setAttributeRef
+   126  get_loc0 0: this
+   127  get_field containerRef
+   160  call_method #args=1
+   163  drop
+   164  get_var_ref_check 0: e
+   167  get_field2 setAttributeStyle
+   200  push_atom_value style
+   205  get_var_ref_check 3: R
+   208  get_field itemContainer
+   241  call_method #args=2
+   244  drop
+   245  get_loc0 0: this
+   246  get_field2 renderNavigationStack
+   279  call_method #args=0
+   282  drop
+   283  get_var_ref_check 0: e
+   286  get_field2 endRender
+   319  call_method #args=0
+   322  drop
+   323  get_var_ref_check 0: e
+   326  get_field2 endRender
+   359  call_method #args=0
+   362  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=114B file=valdi_navigation/src/NavigationView
+   closure: i, this
+     0  get_var_ref_check 0: i
+     3  get_field2 renderFn  ;+28B
+    36  call_method #args=0
+    39  drop
+    40  get_var_ref1 1: this
+    41  get_field2 setupItem
+    74  get_var_ref_check 0: i
+    77  get_field ref
+   110  call_method #args=1
+   113  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=4 cpool=0 bc=241B file=valdi_navigation/src/NavigationView
+   closure: e, s, i, R
+     0  get_var_ref_check 0: e
+     3  get_field2 beginRender  ;+28B
+    36  get_var_ref_check 1: s
+    39  undefined
+    40  call_method #args=2
+    43  drop
+    44  get_var_ref_check 0: e
+    47  get_field2 setAttributeRef
+    80  get_var_ref_check 2: i
+    83  get_field occlusionViewRef
+   116  call_method #args=1
+   119  drop
+   120  get_var_ref_check 0: e
+   123  get_field2 setAttributeStyle
+   156  push_atom_value style
+   161  get_var_ref_check 3: R
+   164  get_field occlusionOverlay
+   197  call_method #args=2
+   200  drop
+   201  get_var_ref_check 0: e
+   204  get_field2 endRender
+   237  call_method #args=0
+   240  return_undef
+
+-- fn name=<atom:0> args=0 vars=3 closure=7 cpool=2 bc=623B file=valdi_navigation/src/NavigationView
+   locals: t, i, this
+   closure: e, s, R, n, v, a, f
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 0: t
+     5  get_loc2 2: this
+     6  get_field2 getCurrentItem  ;+28B
+    39  call_method #args=0
+    42  put_loc0 0: t
+    43  set_loc_uninitialized 1: i
+    46  get_loc2 2: this
+    47  get_field state
+    80  get_field stack
+   113  close_loc 1: i
+   116  for_of_start
+   117  goto16 -> 0262
+   120  put_loc1 1: i
+   121  get_var_ref_check 0: e
+   124  get_field2 beginRender
+   157  get_var_ref_check 3: n
+   160  get_loc_check 1: i
+   163  get_field key
+   196  call_method #args=2
+   199  drop
+   200  get_var_ref_check 0: e
+   203  get_field2 setAttributeRef
+   236  get_loc_check 1: i
+   239  get_field viewContainerRef
+   272  call_method #args=1
+   275  drop
+   276  get_var_ref_check 0: e
+   279  get_field2 setAttributeStyle
+   312  push_atom_value style
+   317  get_var_ref_check 2: R
+   320  get_field item
+   353  call_method #args=2
+   356  drop
+   357  get_var_ref_check 0: e
+   360  get_field2 beginComponent
+   393  get_var_ref_check 4: v
+   396  get_field DefaultErrorBoundary
+   429  get_var_ref_check 5: a
+   432  undefined
+   433  undefined
+   434  call_method #args=4
+   437  drop
+   438  get_var_ref_check 0: e
+   441  get_field2 setUnnamedSlot
+   474  fclosure8 0: <function <atom:0>>
+   476  call_method #args=1
+   479  drop
+   480  get_var_ref_check 0: e
+   483  get_field2 endComponent
+   516  call_method #args=0
+   519  drop
+   520  get_var_ref_check 6: f
+   523  get_field when
+   556  get_loc_check 1: i
+   559  get_loc_check 0: t
+   562  strict_neq
+   563  fclosure8 1: <function <atom:0>>
+   565  call2 #args=2
+   566  drop
+   567  get_var_ref_check 0: e
+   570  get_field2 endRender
+   603  call_method #args=0
+   606  drop
+   607  close_loc 1: i
+L  610  for_of_next 0
+   612  if_false -> 0078
+   617  drop
+   618  iterator_close
+   619  close_loc 1: i
+   622  return_undef
+
+-- fn name=<atom:0> args=1 vars=4 closure=0 cpool=0 bc=246B file=valdi_navigation/src/NavigationView
+   locals: t, e, i, o, this
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 1: i
+     5  set_loc_uninitialized 0: e
+     8  get_arg0 0: t
+     9  get_field2 single  ;+28B
+    42  call_method #args=0
+    45  put_loc0 0: e
+    46  get_loc_check 0: e
+    49  lnot
+    50  if_false8 -> 0035
+    52  return_undef
+L   53  get_loc3 3: this
+    54  get_field renderer
+    87  get_field2 getComponentRootElements
+   120  get_loc_check 0: e
+   123  push_1 1
+   124  lnot
+   125  call_method #args=2
+   128  put_loc1 1: i
+   129  set_loc_uninitialized 2: o
+   132  get_loc_check 1: i
+   135  for_of_start
+   136  goto8 -> 00ef
+L  138  put_loc2 2: o
+   139  get_loc_check 2: o
+   142  get_field2 setAttribute
+   175  push_atom_value $width
+   180  push_atom_value 100%
+   185  call_method #args=2
+   188  drop
+   189  get_loc_check 2: o
+   192  get_field2 setAttribute
+   225  push_atom_value $height
+   230  push_atom_value 100%
+   235  call_method #args=2
+   238  drop
+L  239  for_of_next 0
+   241  if_false8 -> 008a
+   243  drop
+   244  iterator_close
+   245  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=141B file=valdi_navigation/src/NavigationView
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field state  ;+28B
+    36  get_field stack
+    69  get_loc0 0: this
+    70  get_field state
+   103  get_field stack
+   136  get_length
+   137  push_1 1
+   138  sub
+   139  get_array_el
+   140  return
+
+-- fn name=<atom:0> args=7 vars=2 closure=0 cpool=0 bc=97B file=valdi_navigation/src/NavigationView
+   locals: t, e, i, o, n, a, s, r, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: r
+     5  get_loc1 1: this
+     6  get_field2 makeEntry  ;+28B
+    39  get_arg0 0: t
+    40  get_arg1 1: e
+    41  get_arg2 2: i
+    42  get_arg3 3: o
+    43  get_arg 4: n
+    46  get_arg 5: a
+    49  call_method #args=6
+    52  put_loc0 0: r
+    53  get_loc1 1: this
+    54  get_field2 appendEntry
+    87  get_loc_check 0: r
+    90  get_arg 6: s
+    93  call_method #args=2
+    96  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=3 cpool=0 bc=166B file=valdi_navigation/src/NavigationView
+   closure: this, t, e
+     0  get_var_ref0 0: this
+     1  get_field2 setState  ;+28B
+    34  object
+    35  array_from #args=0
+    38  push_0 0
+    39  get_var_ref0 0: this
+    40  get_field state
+    73  get_field stack
+   106  append
+   107  get_var_ref1 1: t
+   108  define_array_el
+   109  inc
+   110  drop
+   111  define_field stack
+   116  call_method #args=1
+   119  drop
+   120  get_var_ref0 0: this
+   121  get_field2 applyTransitionFromState
+   154  get_var_ref_check 2: e
+   157  push_1 1
+   158  get_var_ref1 1: t
+   159  array_from #args=1
+   162  call_method #args=3
+   165  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=3 cpool=0 bc=45B file=valdi_navigation/src/NavigationView
+   closure: this, e, t
+     0  get_var_ref0 0: this
+     1  get_field2 applyTransitionToState  ;+28B
+    34  get_var_ref_check 1: e
+    37  get_var_ref2 2: t
+    38  array_from #args=1
+    41  call_method #args=2
+    44  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=108B file=valdi_navigation/src/NavigationView
+   closure: this, i
+     0  get_var_ref0 0: this
+     1  get_field2 updateStackNonAnimated  ;+28B
+    34  get_var_ref0 0: this
+    35  get_field state
+    68  get_field stack
+   101  call_method #args=1
+   104  drop
+   105  get_var_ref1 1: i
+   106  call0 #args=0
+   107  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=4 cpool=3 bc=404B file=valdi_navigation/src/NavigationView
+   locals: i, e
+   closure: this, t, e, b
+     0  get_var_ref2 2: e
+     1  if_false -> 011e
+     6  get_var_ref0 0: this
+     7  get_field state  ;+28B
+    40  get_field stack
+    73  get_length
+    74  push_0 0
+    75  gt
+    76  if_false -> 011e
+    81  set_loc_uninitialized 0: e
+    84  get_var_ref0 0: this
+    85  get_field2 getCurrentItem
+   118  call_method #args=0
+   121  put_loc0 0: e
+   122  get_var_ref0 0: this
+   123  get_field renderer
+   156  get_field2 batchUpdates
+   189  fclosure8 0: <function <atom:0>>
+   191  call_method #args=1
+   194  drop
+   195  get_var_ref0 0: this
+   196  get_field2 animatePromise
+   229  object
+   230  get_var_ref_check 3: b
+   233  define_field duration
+   238  fclosure8 1: <function <atom:0>>
+   240  call_method #args=2
+   243  get_field2 then
+   276  fclosure8 2: <function <atom:0>>
+   278  call_method #args=1
+   281  drop
+   282  close_loc 0: e
+   285  return_undef
+L  286  get_var_ref0 0: this
+   287  get_field2 updateStackNonAnimated
+   320  array_from #args=0
+   323  push_0 0
+   324  get_var_ref0 0: this
+   325  get_field state
+   358  get_field stack
+   391  append
+   392  get_var_ref1 1: t
+   393  define_array_el
+   394  inc
+   395  drop
+   396  call_method #args=1
+   399  drop
+   400  get_arg0 0: i
+   401  call0 #args=0
+   402  drop
+   403  return_undef
+
+-- fn name=<atom:0> args=2 vars=1 closure=1 cpool=1 bc=75B file=valdi_navigation/src/NavigationView
+   locals: t, e, this
+   closure: b
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field taskQueue  ;+28B
+    36  get_field2 enqueueTask
+    69  fclosure8 0: <function <atom:0>>
+    71  call_method #args=1
+    74  return_undef
+
+-- fn name=<atom:0> args=3 vars=3 closure=0 cpool=0 bc=835B file=valdi_navigation/src/NavigationView
+   locals: t, e, i, o, n, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 0: o
+     5  get_loc2 2: this
+     6  get_field containerRef  ;+28B
+    39  get_field2 single
+    72  call_method #args=0
+    75  get_field frame
+   108  put_loc0 0: o
+   109  set_loc_uninitialized 1: n
+   112  get_arg2 2: i
+   113  for_of_start
+   114  goto16 -> 0253
+   117  put_loc1 1: n
+   118  get_loc_check 1: n
+   121  get_field viewContainerRef
+   154  get_field2 setAttribute
+   187  push_atom_value opacity
+   192  push_1 1
+   193  call_method #args=2
+   196  drop
+   197  get_arg1 1: e
+   198  dup
+   199  push_1 1
+   200  strict_eq
+   201  if_false -> 01db
+   206  get_loc_check 1: n
+   209  get_field isModal
+   242  if_false8 -> 0167
+   244  get_loc_check 1: n
+   247  get_field viewContainerRef
+   280  get_field2 setAttribute
+   313  push_atom_value translationY
+   318  get_loc_check 0: o
+   321  get_field height
+   354  call_method #args=2
+   357  goto8 -> 01d8
+L  359  get_loc_check 1: n
+   362  get_field viewContainerRef
+   395  get_field2 setAttribute
+   428  push_atom_value translationX
+   433  get_loc_check 0: o
+   436  get_field width
+   469  call_method #args=2
+L  472  drop
+   473  goto8 -> 0252
+L  475  dup
+   476  push_0 0
+   477  strict_eq
+   478  if_false8 -> 0252
+   480  get_loc_check 1: n
+   483  get_field viewContainerRef
+   516  get_field2 setAttribute
+   549  push_atom_value translationY
+   554  get_loc_check 0: o
+   557  get_field height
+   590  call_method #args=2
+   593  drop
+L  594  drop
+L  595  for_of_next 0
+   597  if_false -> 0075
+   602  drop
+   603  iterator_close
+   604  get_arg0 0: t
+   605  get_field viewContainerRef
+   638  get_field2 setAttribute
+   671  push_atom_value opacity
+   676  push_1 1
+   677  call_method #args=2
+   680  drop
+   681  get_arg0 0: t
+   682  get_field viewContainerRef
+   715  get_field2 setAttribute
+   748  push_atom_value translationX
+   753  push_0 0
+   754  call_method #args=2
+   757  drop
+   758  get_arg0 0: t
+   759  get_field occlusionViewRef
+   792  get_field2 setAttribute
+   825  push_atom_value opacity
+   830  push_0 0
+   831  call_method #args=2
+   834  return_undef
+
+-- fn name=<atom:0> args=2 vars=4 closure=0 cpool=0 bc=768B file=valdi_navigation/src/NavigationView
+   locals: t, e, i, o, n, this
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 1: o
+     5  set_loc_uninitialized 0: i
+     8  get_loc3 3: this
+     9  get_field containerRef  ;+28B
+    42  get_field2 single
+    75  call_method #args=0
+    78  get_field frame
+   111  put_loc0 0: i
+   112  push_1 1
+   113  lnot
+   114  put_loc1 1: o
+   115  set_loc_uninitialized 2: n
+   118  get_arg1 1: e
+   119  for_of_start
+   120  goto16 -> 0197
+   123  put_loc2 2: n
+   124  get_loc_check 2: n
+   127  get_field viewContainerRef
+   160  get_field2 setAttribute
+   193  push_atom_value opacity
+   198  push_1 1
+   199  call_method #args=2
+   202  drop
+   203  get_loc_check 2: n
+   206  get_field isModal
+   239  if_false8 -> 0148
+   241  push_0 0
+   242  lnot
+   243  dup
+   244  put_loc_check 1: o
+   247  drop
+   248  get_loc_check 2: n
+   251  get_field viewContainerRef
+   284  get_field2 setAttribute
+   317  push_atom_value translationY
+   322  push_0 0
+   323  call_method #args=2
+   326  goto8 -> 0196
+L  328  get_loc_check 2: n
+   331  get_field viewContainerRef
+   364  get_field2 setAttribute
+   397  push_atom_value translationX
+   402  push_0 0
+   403  call_method #args=2
+L  406  drop
+L  407  for_of_next 0
+   409  if_false -> 007b
+   414  drop
+   415  iterator_close
+   416  get_arg0 0: t
+   417  get_field viewContainerRef
+   450  get_field2 setAttribute
+   483  push_atom_value opacity
+   488  push_1 1
+   489  call_method #args=2
+   492  drop
+   493  get_loc_check 1: o
+   496  if_false8 -> 0240
+   498  get_arg0 0: t
+   499  get_field viewContainerRef
+   532  get_field2 setAttribute
+   565  push_atom_value translationX
+   570  push_0 0
+   571  call_method #args=2
+   574  goto8 -> 02b2
+L  576  get_arg0 0: t
+   577  get_field viewContainerRef
+   610  get_field2 setAttribute
+   643  push_atom_value translationX
+   648  get_loc_check 0: i
+   651  get_field width
+   684  neg
+   685  push_6 6
+   686  div
+   687  call_method #args=2
+L  690  drop
+   691  get_arg0 0: t
+   692  get_field occlusionViewRef
+   725  get_field2 setAttribute
+   758  push_atom_value opacity
+   763  push_1 1
+   764  call_method #args=2
+   767  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=3 cpool=0 bc=45B file=valdi_navigation/src/NavigationView
+   closure: c, v, d
+     0  get_var_ref_check 0: c
+     3  get_field resolveComponentConstructor  ;+28B
+    36  get_var_ref_check 1: v
+    39  get_var_ref_check 2: d
+    42  tail_call #args=2
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=91B file=valdi_navigation/src/NavigationView
+   closure: this
+     0  get_var_ref0 0: this
+     1  get_field2 isDestroyed  ;+28B
+    34  call_method #args=0
+    37  dup
+    38  if_true8 -> 005a
+    40  drop
+    41  get_var_ref0 0: this
+    42  push_1 1
+    43  lnot
+    44  put_field scheduledRebuild
+    53  get_var_ref0 0: this
+    54  get_field2 rebuildStack
+    87  call_method #args=0
+L   90  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=3 cpool=1 bc=129B file=valdi_navigation/src/NavigationView
+   closure: this, t, m
+     0  get_var_ref0 0: this
+     1  get_field hotReloadedComponents  ;+28B
+    34  get_var_ref1 1: t
+    35  to_propkey2
+    36  push_0 0
+    37  lnot
+    38  put_array_el
+    39  get_var_ref0 0: this
+    40  get_field scheduledRebuild
+    73  dup
+    74  if_true8 -> 0080
+    76  drop
+    77  get_var_ref0 0: this
+    78  push_0 0
+    79  lnot
+    80  put_field scheduledRebuild
+    89  get_var_ref_check 2: m
+    92  get_field onIdleInterruptible
+   125  fclosure8 0: <function <atom:0>>
+   127  call1 #args=1
+L  128  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=6 cpool=0 bc=252B file=valdi_navigation/src/NavigationView
+   closure: e, f, r, y, R, i
+     0  get_var_ref_check 0: e
+     3  get_field2 beginComponent  ;+28B
+    36  get_var_ref_check 1: f
+    39  get_field target
+    72  get_var_ref_check 2: r
+    75  undefined
+    76  get_var_ref_check 3: y
+    79  call_method #args=4
+    82  drop
+    83  get_var_ref_check 0: e
+    86  get_field2 hasContext
+   119  call_method #args=0
+   122  dup
+   123  if_true8 -> 00a8
+   125  drop
+   126  get_var_ref_check 0: e
+   129  get_field2 setContext
+   162  get_var_ref_check 4: R
+   165  call_method #args=1
+L  168  drop
+   169  get_var_ref_check 0: e
+   172  get_field2 setViewModelProperties
+   205  get_var_ref 5: i
+   208  call_method #args=1
+   211  drop
+   212  get_var_ref_check 0: e
+   215  get_field2 endComponent
+   248  call_method #args=0
+   251  return_undef
+
+-- fn name=<atom:0> args=6 vars=10 closure=10 cpool=3 bc=649B file=valdi_navigation/src/NavigationView
+   locals: t, i, o, n, a, s, d, p, v, f, k, w, b, R, y, this
+   closure: c, m, e, r, u, module, g, NavigationViewNavigator, l, h
+     0  push_this
+     1  put_loc8 9: this
+     3  set_loc_uninitialized 8: y
+     6  set_loc_uninitialized 7: R
+     9  set_loc_uninitialized 6: b
+    12  set_loc_uninitialized 5: w
+    15  set_loc_uninitialized 4: k
+    18  set_loc_uninitialized 3: f
+    21  set_loc_uninitialized 2: v
+    24  set_loc_uninitialized 1: p
+    27  set_loc_uninitialized 0: d
+    30  get_var_ref_check 0: c
+    33  get_field parseComponentPath
+    66  get_arg0 0: t
+    67  call1 #args=1
+    68  put_loc0 0: d
+    69  get_var_ref_check 4: u
+    72  get_field getModuleLoader
+   105  get_var_ref 5: module
+   108  call1 #args=1
+   109  put_loc1 1: p
+   110  get_loc_check 1: p
+   113  get_field load
+   146  get_field2 bind
+   179  get_loc_check 1: p
+   182  call_method #args=1
+   185  put_loc2 2: v
+   186  get_var_ref_check 6: g
+   189  get_field Lazy
+   222  dup
+   223  fclosure8 0: <function <atom:0>>
+   225  call_constructor #args=1
+   228  put_loc3 3: f
+   229  get_loc_check 1: p
+   232  get_field2 onHotReload
+   265  get_var_ref 5: module
+   268  get_loc_check 0: d
+   271  get_field filePath
+   304  fclosure8 1: <function <atom:0>>
+   306  call_method #args=3
+   309  put_loc8 4: k
+   311  get_loc8 9: this
+   313  get_field2 keySequence
+   346  inc
+   347  insert2
+   348  put_field keySequence
+   357  get_field2 toString
+   390  call_method #args=0
+   393  put_loc8 5: w
+   395  get_var_ref_check 7: NavigationViewNavigator
+   398  dup
+   399  get_loc8 9: this
+   401  call_constructor #args=1
+   404  put_loc8 6: b
+   406  object
+   407  get_arg2 2: o
+   408  null
+   409  copy_data_properties 6
+   411  drop
+   412  drop
+   413  get_loc_check 6: b
+   416  define_field navigator
+   421  put_loc8 7: R
+   423  get_var_ref_check 8: l
+   426  get_field ComponentRef
+   459  dup
+   460  call_constructor #args=0
+   463  put_loc8 8: y
+   465  object
+   466  get_loc_check 5: w
+   469  define_field key
+   474  object
+   475  get_arg0 0: t
+   476  define_field componentPath
+   481  get_arg1 1: i
+   482  define_field viewModel
+   487  get_loc_check 7: R
+   490  define_field context
+   495  define_field reloadableData
+   500  fclosure8 2: <function <atom:0>>
+   502  set_name renderFn
+   507  define_field renderFn
+   512  get_arg3 3: n
+   513  define_field title
+   518  get_arg 4: a
+   521  define_field isModal
+   526  get_loc_check 4: k
+   529  define_field hotReloadObserver
+   534  get_loc_check 6: b
+   537  define_field navigator
+   542  get_loc_check 8: y
+   545  define_field ref
+   550  get_var_ref_check 9: h
+   553  get_field ElementRef
+   586  dup
+   587  call_constructor #args=0
+   590  define_field viewContainerRef
+   595  get_var_ref_check 9: h
+   598  get_field ElementRef
+   631  dup
+   632  call_constructor #args=0
+   635  define_field occlusionViewRef
+   640  get_arg 5: s
+   643  define_field isTransparent
+   648  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=206B file=valdi_navigation/src/NavigationView
+   locals: t, e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  push_0 0
+     6  put_loc0 0: e
+L    7  get_loc_check 0: e
+    10  get_loc1 1: this
+    11  get_field state  ;+28B
+    44  get_field stack
+    77  get_length
+    78  lt
+    79  if_false8 -> 00cc
+    81  get_loc1 1: this
+    82  get_field state
+   115  get_field stack
+   148  get_loc_check 0: e
+   151  get_array_el
+   152  get_field navigator
+   185  get_arg0 0: t
+   186  strict_eq
+   187  if_false8 -> 00c1
+   189  get_loc_check 0: e
+   192  return
+L  193  get_loc_check 0: e
+   196  post_inc
+   197  put_loc_check 0: e
+   200  drop
+   201  goto16 -> 0007
+L  204  push_minus1 -1
+   205  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=3 cpool=0 bc=165B file=valdi_navigation/src/NavigationView
+   locals: i, o
+   closure: this, t, e
+     0  set_loc_uninitialized 0: o
+     3  get_var_ref0 0: this
+     4  get_field2 indexOfNavigator  ;+28B
+    37  get_var_ref1 1: t
+    38  call_method #args=1
+    41  put_loc0 0: o
+    42  get_loc_check 0: o
+    45  push_0 0
+    46  gt
+    47  if_false8 -> 00a2
+    49  get_var_ref0 0: this
+    50  get_field2 doPop
+    83  get_var_ref0 0: this
+    84  get_field state
+   117  get_field stack
+   150  get_loc_check 0: o
+   153  get_array_el
+   154  push_1 1
+   155  get_var_ref2 2: e
+   156  get_arg0 0: i
+   157  call_method #args=4
+   160  goto8 -> 00a4
+L  162  get_arg0 0: i
+   163  call0 #args=0
+L  164  return_undef
+
+-- fn name=<atom:0> args=2 vars=1 closure=0 cpool=1 bc=75B file=valdi_navigation/src/NavigationView
+   locals: t, e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field taskQueue  ;+28B
+    36  get_field2 enqueueTask
+    69  fclosure8 0: <function <atom:0>>
+    71  call_method #args=1
+    74  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=3 cpool=0 bc=290B file=valdi_navigation/src/NavigationView
+   locals: i, o
+   closure: this, t, e
+     0  set_loc_uninitialized 0: o
+     3  get_var_ref0 0: this
+     4  get_field2 indexOfNavigator  ;+28B
+    37  get_var_ref1 1: t
+    38  call_method #args=1
+    41  put_loc0 0: o
+    42  get_loc_check 0: o
+    45  push_0 0
+    46  lt
+    47  if_false8 -> 0035
+    49  get_arg0 0: i
+    50  call0 #args=0
+    51  drop
+    52  return_undef
+L   53  get_loc_check 0: o
+    56  push_0 0
+    57  gt
+    58  if_false8 -> 00b1
+    60  get_var_ref0 0: this
+    61  get_field state
+    94  get_field stack
+   127  get_loc_check 0: o
+   130  get_array_el
+   131  get_field isModal
+   164  lnot
+   165  if_false8 -> 00b1
+   167  get_loc_check 0: o
+   170  post_dec
+   171  put_loc_check 0: o
+   174  drop
+   175  goto8 -> 0035
+L  177  get_var_ref0 0: this
+   178  get_field2 doPop
+   211  get_var_ref0 0: this
+   212  get_field state
+   245  get_field stack
+   278  get_loc_check 0: o
+   281  get_array_el
+   282  push_0 0
+   283  get_var_ref2 2: e
+   284  get_arg0 0: i
+   285  call_method #args=4
+   288  drop
+   289  return_undef
+
+-- fn name=<atom:0> args=2 vars=1 closure=0 cpool=1 bc=75B file=valdi_navigation/src/NavigationView
+   locals: t, e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field taskQueue  ;+28B
+    36  get_field2 enqueueTask
+    69  fclosure8 0: <function <atom:0>>
+    71  call_method #args=1
+    74  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=2 cpool=0 bc=158B file=valdi_navigation/src/NavigationView
+   locals: e, i
+   closure: this, t
+     0  get_var_ref0 0: this
+     1  get_field state  ;+28B
+    34  get_field stack
+    67  get_length
+    68  push_1 1
+    69  gt
+    70  if_false8 -> 009d
+    72  set_loc_uninitialized 0: i
+    75  get_var_ref0 0: this
+    76  get_field2 getCurrentItem
+   109  call_method #args=0
+   112  put_loc0 0: i
+   113  get_var_ref0 0: this
+   114  get_field2 doPop
+   147  get_loc_check 0: i
+   150  push_1 1
+   151  get_var_ref1 1: t
+   152  get_arg0 0: e
+   153  call_method #args=4
+   156  drop
+L  157  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=1 bc=75B file=valdi_navigation/src/NavigationView
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field taskQueue  ;+28B
+    36  get_field2 enqueueTask
+    69  fclosure8 0: <function <atom:0>>
+    71  call_method #args=1
+    74  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=3 cpool=0 bc=44B file=valdi_navigation/src/NavigationView
+   closure: this, s, n
+     0  get_var_ref0 0: this
+     1  get_field2 applyTransitionToState  ;+28B
+    34  get_var_ref_check 1: s
+    37  get_var_ref_check 2: n
+    40  call_method #args=2
+    43  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=4 cpool=0 bc=45B file=valdi_navigation/src/NavigationView
+   closure: this, s, e, n
+     0  get_var_ref0 0: this
+     1  get_field2 applyTransitionFromState  ;+28B
+    34  get_var_ref_check 1: s
+    37  get_var_ref2 2: e
+    38  get_var_ref_check 3: n
+    41  call_method #args=3
+    44  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=4 cpool=0 bc=266B file=valdi_navigation/src/NavigationView
+   locals: t
+   closure: this, t, a, o
+     0  get_var_ref0 0: this
+     1  get_field state  ;+28B
+    34  get_field stack
+    67  get_field2 indexOf
+   100  get_var_ref1 1: t
+   101  call_method #args=1
+   104  push_0 0
+   105  gte
+   106  if_false -> 0107
+   111  set_loc_uninitialized 0: t
+   114  get_var_ref0 0: this
+   115  get_field state
+   148  get_field stack
+   181  get_field2 slice
+   214  push_0 0
+   215  get_var_ref_check 2: a
+   218  call_method #args=2
+   221  put_loc0 0: t
+   222  get_var_ref0 0: this
+   223  get_field2 updateStackNonAnimated
+   256  get_loc_check 0: t
+   259  call_method #args=1
+   262  drop
+L  263  get_var_ref3 3: o
+   264  call0 #args=0
+   265  return_undef
+
+-- fn name=<atom:0> args=4 vars=6 closure=1 cpool=3 bc=781B file=valdi_navigation/src/NavigationView
+   locals: t, e, i, o, n, a, s, r, r, this
+   closure: b
+     0  push_this
+     1  put_loc8 5: this
+     3  set_loc_uninitialized 2: s
+     6  set_loc_uninitialized 1: a
+     9  set_loc_uninitialized 0: n
+    12  array_from #args=0
+    15  put_loc0 0: n
+    16  get_loc8 5: this
+    18  get_field state  ;+28B
+    51  get_field stack
+    84  get_field2 indexOf
+   117  get_arg0 0: t
+   118  call_method #args=1
+   121  put_loc1 1: a
+   122  get_loc8 5: this
+   124  get_field state
+   157  get_field stack
+   190  get_loc_check 1: a
+   193  push_1 1
+   194  sub
+   195  get_array_el
+   196  put_loc2 2: s
+   197  set_loc_uninitialized 3: r
+   200  get_loc_check 1: a
+   203  put_loc3 3: r
+L  204  get_loc_check 3: r
+   207  get_loc8 5: this
+   209  get_field state
+   242  get_field stack
+   275  get_length
+   276  lt
+   277  if_false8 -> 0192
+   279  get_loc_check 0: n
+   282  get_field2 push
+   315  get_loc8 5: this
+   317  get_field state
+   350  get_field stack
+   383  get_loc_check 3: r
+   386  get_array_el
+   387  call_method #args=1
+   390  drop
+   391  get_loc_check 3: r
+   394  post_inc
+   395  put_loc_check 3: r
+   398  drop
+   399  goto16 -> 00cc
+L  402  set_loc_uninitialized 4: r
+   405  get_loc_check 0: n
+   408  for_of_start
+   409  goto8 -> 01c7
+L  411  put_loc8 4: r
+   413  get_loc8 5: this
+   415  get_field2 teardownStackEntry
+   448  get_loc_check 4: r
+   451  call_method #args=1
+   454  drop
+L  455  for_of_next 0
+   457  if_false8 -> 019b
+   459  drop
+   460  iterator_close
+   461  get_arg2 2: i
+   462  if_false -> 0277
+   467  get_loc8 5: this
+   469  get_field renderer
+   502  get_field2 batchUpdates
+   535  fclosure8 0: <function <atom:0>>
+   537  call_method #args=1
+   540  drop
+   541  get_loc8 5: this
+   543  get_field2 animatePromise
+   576  object
+   577  get_var_ref_check 0: b
+   580  define_field duration
+   585  fclosure8 1: <function <atom:0>>
+   587  call_method #args=2
+   590  get_field2 then
+   623  fclosure8 2: <function <atom:0>>
+   625  call_method #args=1
+   628  goto16 -> 030c
+L  631  get_loc8 5: this
+   633  get_field2 updateStackNonAnimated
+   666  get_loc8 5: this
+   668  get_field state
+   701  get_field stack
+   734  get_field2 slice
+   767  push_0 0
+   768  get_loc_check 1: a
+   771  call_method #args=2
+   774  call_method #args=1
+   777  drop
+   778  get_arg3 3: o
+   779  call0 #args=0
+L  780  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=47B file=valdi_navigation/src/NavigationView
+   locals: t
+     0  get_arg0 0: t
+     1  get_field2 hotReloadObserver  ;+28B
+    34  dup
+    35  is_undefined_or_null
+    36  if_false8 -> 002b
+    38  drop
+    39  drop
+    40  undefined
+    41  goto8 -> 002e
+L   43  call_method #args=0
+L   46  return_undef
+
+-- fn name=<atom:0> args=0 vars=3 closure=0 cpool=0 bc=772B file=valdi_navigation/src/NavigationView
+   locals: t, e, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 0: t
+     5  array_from #args=0
+     8  put_loc0 0: t
+     9  set_loc_uninitialized 1: e
+    12  get_loc2 2: this
+    13  get_field state  ;+28B
+    46  get_field stack
+    79  for_of_start
+    80  goto16 -> 02c7
+    83  put_loc1 1: e
+    84  get_loc_check 1: e
+    87  get_field reloadableData
+   120  if_false -> 029c
+   125  get_loc2 2: this
+   126  get_field hotReloadedComponents
+   159  get_loc_check 1: e
+   162  get_field reloadableData
+   195  get_field componentPath
+   228  get_array_el
+   229  if_false -> 029c
+   234  get_loc2 2: this
+   235  get_field2 teardownStackEntry
+   268  get_loc_check 1: e
+   271  call_method #args=1
+   274  drop
+   275  get_loc_check 0: t
+   278  get_field2 push
+   311  get_loc2 2: this
+   312  get_field2 makeEntry
+   345  get_loc_check 1: e
+   348  get_field reloadableData
+   381  get_field componentPath
+   414  get_loc_check 1: e
+   417  get_field reloadableData
+   450  get_field viewModel
+   483  get_loc_check 1: e
+   486  get_field reloadableData
+   519  get_field context
+   552  get_loc_check 1: e
+   555  get_field title
+   588  get_loc_check 1: e
+   591  get_field isModal
+   624  get_loc_check 1: e
+   627  get_field isTransparent
+   660  call_method #args=6
+   663  call_method #args=1
+   666  goto8 -> 02c6
+L  668  get_loc_check 0: t
+   671  get_field2 push
+   704  get_loc_check 1: e
+   707  call_method #args=1
+L  710  drop
+L  711  for_of_next 0
+   713  if_false -> 0053
+   718  drop
+   719  iterator_close
+   720  get_loc2 2: this
+   721  object
+   722  put_field hotReloadedComponents
+   731  get_loc2 2: this
+   732  get_field2 updateStackNonAnimated
+   765  get_loc_check 0: t
+   768  call_method #args=1
+   771  return_undef
+
+-- fn name=<atom:0> args=0 vars=6 closure=2 cpool=0 bc=738B file=valdi_navigation/src/NavigationView
+   locals: e, i, o, n, t, e
+   closure: this, t
+     0  set_loc_uninitialized 3: n
+     3  set_loc_uninitialized 2: o
+     6  set_loc_uninitialized 1: i
+     9  set_loc_uninitialized 0: e
+    12  get_var_ref0 0: this
+    13  get_field2 setState  ;+28B
+    46  object
+    47  get_var_ref1 1: t
+    48  define_field stack
+    53  call_method #args=1
+    56  drop
+    57  get_var_ref0 0: this
+    58  get_field2 getCurrentItem
+    91  call_method #args=0
+    94  put_loc0 0: e
+    95  get_var_ref0 0: this
+    96  get_field state
+   129  get_field stack
+   162  put_loc1 1: i
+   163  get_loc_check 1: i
+   166  get_length
+   167  put_loc2 2: o
+   168  push_1 1
+   169  lnot
+   170  put_loc3 3: n
+L  171  get_loc_check 2: o
+   174  push_0 0
+   175  gt
+   176  if_false -> 02e1
+   181  set_loc_uninitialized 4: t
+   184  get_loc_check 2: o
+   187  post_dec
+   188  put_loc_check 2: o
+   191  drop
+   192  get_loc_check 1: i
+   195  get_loc_check 2: o
+   198  get_array_el
+   199  put_loc8 4: t
+   201  get_loc_check 4: t
+   204  get_loc_check 0: e
+   207  strict_eq
+   208  dup
+   209  if_true8 -> 00d7
+   211  drop
+   212  get_loc_check 3: n
+L  215  if_false -> 01a6
+   220  get_loc_check 4: t
+   223  get_field viewContainerRef
+   256  get_field2 setAttribute
+   289  push_atom_value translationX
+   294  push_0 0
+   295  call_method #args=2
+   298  drop
+   299  get_loc_check 4: t
+   302  get_field viewContainerRef
+   335  get_field2 setAttribute
+   368  push_atom_value opacity
+   373  push_1 1
+   374  call_method #args=2
+   377  drop
+   378  get_loc_check 4: t
+   381  get_field isTransparent
+   414  dup
+   415  put_loc_check 3: n
+   418  drop
+   419  goto16 -> 00ab
+L  422  set_loc_uninitialized 5: e
+   425  get_var_ref0 0: this
+   426  get_field containerRef
+   459  get_field2 single
+   492  call_method #args=0
+   495  get_field frame
+   528  get_field width
+   561  put_loc8 5: e
+   563  get_loc_check 4: t
+   566  get_field viewContainerRef
+   599  get_field2 setAttribute
+   632  push_atom_value translationX
+   637  push_i16 10000
+   640  get_loc_check 5: e
+   643  mul
+   644  call_method #args=2
+   647  drop
+   648  get_loc_check 4: t
+   651  get_field viewContainerRef
+   684  get_field2 setAttribute
+   717  push_atom_value opacity
+   722  push_0 0
+   723  call_method #args=2
+   726  drop
+   727  push_1 1
+   728  lnot
+   729  dup
+   730  put_loc_check 3: n
+   733  drop
+   734  goto16 -> 00ab
+L  737  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=1 bc=75B file=valdi_navigation/src/NavigationView
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field renderer  ;+28B
+    36  get_field2 batchUpdates
+    69  fclosure8 0: <function <atom:0>>
+    71  call_method #args=1
+    74  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=39B file=valdi_navigation/src/NavigationView
+   locals: t, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: t
+    17  put_field navigationView
+    26  get_loc0 0: this
+    27  push_0 0
+    28  lnot
+    29  put_field __shouldDisableMakeOpaque
+    38  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=131B file=valdi_navigation/src/NavigationView
+   locals: t, e
+     0  set_loc_uninitialized 0: e
+     3  get_arg0 0: t
+     4  get_field componentContext  ;+28B
+    37  put_loc0 0: e
+    38  get_loc_check 0: e
+    41  lnot
+    42  lnot
+    43  dup
+    44  if_false8 -> 0082
+    46  drop
+    47  push_atom_value transparent
+    52  get_loc_check 0: e
+    55  get_field pageNavigationOptions
+    88  dup
+    89  is_undefined_or_null
+    90  if_false8 -> 0060
+    92  drop
+    93  undefined
+    94  goto8 -> 0081
+L   96  get_field pageBackgroundColor
+L  129  strict_eq
+L  130  return
+
+-- fn name=<atom:0> args=2 vars=1 closure=0 cpool=0 bc=256B file=valdi_navigation/src/NavigationView
+   locals: t, e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field navigationView  ;+28B
+    36  get_field2 pushComponent
+    69  get_arg0 0: t
+    70  get_field componentPath
+   103  get_arg0 0: t
+   104  get_field componentViewModel
+   137  get_arg0 0: t
+   138  get_field componentContext
+   171  get_arg0 0: t
+   172  get_field platformNavigationTitle
+   205  dup
+   206  is_undefined_or_null
+   207  if_false8 -> 00d3
+   209  drop
+   210  push_empty_string
+L  211  push_1 1
+   212  lnot
+   213  get_loc0 0: this
+   214  get_field2 hasTransparentBackground
+   247  get_arg0 0: t
+   248  call_method #args=1
+   251  get_arg1 1: e
+   252  call_method #args=7
+   255  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=75B file=valdi_navigation/src/NavigationView
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field navigationView  ;+28B
+    36  get_field2 popToNavigator
+    69  get_loc0 0: this
+    70  get_arg0 0: t
+    71  call_method #args=2
+    74  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=15B file=valdi_navigation/src/NavigationView
+   locals: t
+     0  get_var Error
+     5  dup
+     6  push_atom_value popToRoot is not currently implemented in the desktop app navigation
+    11  call_constructor #args=1
+    14  throw
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=15B file=valdi_navigation/src/NavigationView
+   locals: t
+     0  get_var Error
+     5  dup
+     6  push_atom_value popToSelf is not currently implemented in the desktop app navigation
+    11  call_constructor #args=1
+    14  throw
+
+-- fn name=<atom:0> args=2 vars=1 closure=0 cpool=0 bc=256B file=valdi_navigation/src/NavigationView
+   locals: t, e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field navigationView  ;+28B
+    36  get_field2 pushComponent
+    69  get_arg0 0: t
+    70  get_field componentPath
+   103  get_arg0 0: t
+   104  get_field componentViewModel
+   137  get_arg0 0: t
+   138  get_field componentContext
+   171  get_arg0 0: t
+   172  get_field platformNavigationTitle
+   205  dup
+   206  is_undefined_or_null
+   207  if_false8 -> 00d3
+   209  drop
+   210  push_empty_string
+L  211  push_0 0
+   212  lnot
+   213  get_loc0 0: this
+   214  get_field2 hasTransparentBackground
+   247  get_arg0 0: t
+   248  call_method #args=1
+   251  get_arg1 1: e
+   252  call_method #args=7
+   255  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=75B file=valdi_navigation/src/NavigationView
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field navigationView  ;+28B
+    36  get_field2 dismissNavigator
+    69  get_loc0 0: this
+    70  get_arg0 0: t
+    71  call_method #args=2
+    74  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=87B file=valdi_navigation/src/NavigationView
+   locals: e
+   closure: t
+     0  get_var_ref_check 0: t
+     3  get_field isLoggingEnabled  ;+28B
+    36  dup
+    37  if_false8 -> 0056
+    39  drop
+    40  get_var console
+    45  get_field2 error
+    78  push_atom_value forceDisableDismissalGesture is not implemented in the desktop app navigation
+    83  call_method #args=1
+L   86  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=1B file=valdi_navigation/src/NavigationView
+   locals: t
+     0  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=1B file=valdi_navigation/src/NavigationView
+   locals: t
+     0  return_undef
+
+-- fn name=<atom:0> args=3 vars=28 closure=0 cpool=32 bc=1228B file=valdi_navigation/src/NavigationView
+   locals: require, module, exports, t, e, i, o, n, a, s, r, d, c, l, h, u, p, v, m, f, k, g, w, b, NavigationView, <class_fields_init>, NavigationView, R, NavigationViewNavigator, <class_fields_init>, NavigationViewNavigator
+     0  set_loc_uninitialized 27: NavigationViewNavigator
+     3  set_loc_uninitialized 24: R
+     6  set_loc_uninitialized 23: NavigationView
+     9  set_loc_uninitialized 20: b
+    12  set_loc_uninitialized 19: w
+    15  set_loc_uninitialized 18: g
+    18  set_loc_uninitialized 17: k
+    21  set_loc_uninitialized 16: f
+    24  set_loc_uninitialized 15: m
+    27  set_loc_uninitialized 14: v
+    30  set_loc_uninitialized 13: p
+    33  set_loc_uninitialized 12: u
+    36  set_loc_uninitialized 11: h
+    39  set_loc_uninitialized 10: l
+    42  set_loc_uninitialized 9: c
+    45  set_loc_uninitialized 8: d
+    48  set_loc_uninitialized 7: r
+    51  set_loc_uninitialized 6: s
+    54  set_loc_uninitialized 5: a
+    57  set_loc_uninitialized 4: n
+    60  set_loc_uninitialized 3: o
+    63  set_loc_uninitialized 2: i
+    66  set_loc_uninitialized 1: e
+    69  set_loc_uninitialized 0: t
+    72  get_var Object
+    77  get_field2 defineProperty
+   110  get_arg2 2: exports
+   111  push_atom_value __esModule
+   116  object
+   117  push_0 0
+   118  lnot
+   119  define_field value
+   124  call_method #args=3
+   127  drop
+   128  get_arg2 2: exports
+   129  undefined
+   130  put_field NavigationView
+   139  get_arg0 0: require
+   140  push_atom_value valdi_core/src/ValdiRuntimeProvider
+   145  call1 #args=1
+   146  get_field2 getValdiRuntime
+   179  call_method #args=0
+   182  put_loc0 0: t
+   183  get_arg0 0: require
+   184  push_atom_value valdi_core/src/JSX
+   189  call1 #args=1
+   190  get_field jsx
+   223  put_loc1 1: e
+   224  get_loc_check 1: e
+   227  get_field2 makeNodePrototype
+   260  push_atom_value view
+   265  push_atom_value backgroundColor
+   270  push_atom_value white
+   275  push_atom_value width
+   280  push_atom_value 100%
+   285  push_atom_value height
+   290  push_atom_value 100%
+   295  array_from #args=6
+   298  push_atom_value mPv8OIGZ0Epeok2u
+   303  call_method #args=3
+   306  put_loc2 2: i
+   307  get_loc_check 1: e
+   310  get_field2 makeNodePrototype
+   343  push_atom_value layout
+   348  undefined
+   349  push_atom_value dHD109xvWbHvkEi7
+   354  call_method #args=3
+   357  put_loc3 3: o
+   358  get_loc_check 1: e
+   361  get_field2 makeNodePrototype
+   394  push_atom_value view
+   399  undefined
+   400  push_atom_value 7djNXuA6SUO5q_of
+   405  call_method #args=3
+   408  put_loc8 4: n
+   410  get_loc_check 1: e
+   413  get_field2 makeComponentPrototype
+   446  undefined
+   447  push_atom_value BeFvKE0yvizlMIOh
+   452  call_method #args=2
+   455  put_loc8 5: a
+   457  get_loc_check 1: e
+   460  get_field2 makeNodePrototype
+   493  push_atom_value view
+   498  undefined
+   499  push_atom_value pOiyyJnPEt3Nd9EW
+   504  call_method #args=3
+   507  put_loc8 6: s
+   509  get_loc_check 1: e
+   512  get_field2 makeComponentPrototype
+   545  undefined
+   546  push_atom_value dtESOJLmk9VndpK1
+   551  call_method #args=2
+   554  put_loc8 7: r
+   556  get_arg0 0: require
+   557  push_atom_value valdi_core/src/Component
+   562  call1 #args=1
+   563  put_loc8 8: d
+   565  get_arg0 0: require
+   566  push_atom_value valdi_core/src/ComponentPath
+   571  call1 #args=1
+   572  put_loc8 9: c
+   574  get_arg0 0: require
+   575  push_atom_value valdi_core/src/ComponentRef
+   580  call1 #args=1
+   581  put_loc8 10: l
+   583  get_arg0 0: require
+   584  push_atom_value valdi_core/src/ElementRef
+   589  call1 #args=1
+   590  put_loc8 11: h
+   592  get_arg0 0: require
+   593  push_atom_value valdi_core/src/ModuleLoaderGlobal
+   598  call1 #args=1
+   599  put_loc8 12: u
+   601  get_arg0 0: require
+   602  push_atom_value valdi_core/src/Style
+   607  call1 #args=1
+   608  put_loc8 13: p
+   610  get_arg0 0: require
+   611  push_atom_value valdi_core/src/debugging/DefaultErrorBoundary
+   616  call1 #args=1
+   617  put_loc8 14: v
+   619  get_arg0 0: require
+   620  push_atom_value valdi_core/src/utils/OnIdle
+   625  call1 #args=1
+   626  put_loc8 15: m
+   628  get_arg0 0: require
+   629  push_atom_value valdi_core/src/utils/When
+   634  call1 #args=1
+   635  put_loc8 16: f
+   637  get_arg0 0: require
+   638  push_atom_value coreutils/src/SerialTaskQueue
+   643  call1 #args=1
+   644  put_loc8 17: k
+   646  get_arg0 0: require
+   647  push_atom_value foundation/src/Lazy
+   652  call1 #args=1
+   653  put_loc8 18: g
+   655  get_arg0 0: require
+   656  push_atom_value valdi_core/src/Device
+   661  call1 #args=1
+   662  put_loc8 19: w
+   664  push_const8 0: <float64 None>
+   666  put_loc8 20: b
+   668  set_loc_uninitialized 21: NavigationView
+   671  get_loc_check 8: d
+   674  get_field StatefulComponent
+   707  set_loc_uninitialized 22: <class_fields_init>
+   710  push_const8 1: <function <atom:0>>
+   712  define_class NavigationView,1
+   718  fclosure8 2: <function <atom:0>>
+   720  define_method onCreate,0
+   726  fclosure8 3: <function <atom:0>>
+   728  define_method onDestroy,0
+   734  fclosure8 4: <function <atom:0>>
+   736  define_method onRender,0
+   742  fclosure8 5: <function <atom:0>>
+   744  define_method renderNavigationStack,0
+   750  fclosure8 6: <function <atom:0>>
+   752  define_method setupItem,0
+   758  fclosure8 7: <function <atom:0>>
+   760  define_method getCurrentItem,0
+   766  fclosure8 8: <function <atom:0>>
+   768  define_method pushComponent,0
+   774  fclosure8 9: <function <atom:0>>
+   776  define_method appendEntry,0
+   782  fclosure8 10: <function <atom:0>>
+   784  define_method applyTransitionFromState,0
+   790  fclosure8 11: <function <atom:0>>
+   792  define_method applyTransitionToState,0
+   798  fclosure8 12: <function <atom:0>>
+   800  define_method makeEntry,0
+   806  fclosure8 13: <function <atom:0>>
+   808  define_method indexOfNavigator,0
+   814  fclosure8 14: <function <atom:0>>
+   816  define_method popToNavigator,0
+   822  fclosure8 15: <function <atom:0>>
+   824  define_method dismissNavigator,0
+   830  fclosure8 16: <function <atom:0>>
+   832  define_method pop,0
+   838  fclosure8 17: <function <atom:0>>
+   840  define_method doPop,0
+   846  fclosure8 18: <function <atom:0>>
+   848  define_method teardownStackEntry,0
+   854  fclosure8 19: <function <atom:0>>
+   856  define_method rebuildStack,0
+   862  fclosure8 20: <function <atom:0>>
+   864  define_method updateStackNonAnimated,0
+   870  undefined
+   871  put_loc8 22: <class_fields_init>
+   873  drop
+   874  set_loc8 21: NavigationView
+   876  close_loc 22: <class_fields_init>
+   879  put_loc8 23: NavigationView
+   881  get_arg2 2: exports
+   882  get_loc_check 23: NavigationView
+   885  put_field NavigationView
+   894  object
+   895  get_loc_check 13: p
+   898  get_field Style
+   931  dup
+   932  object
+   933  push_atom_value 100%
+   938  define_field width
+   943  push_1 1
+   944  define_field flexGrow
+   949  call_constructor #args=1
+   952  define_field itemContainer
+   957  get_loc_check 13: p
+   960  get_field Style
+   993  dup
+   994  object
+   995  push_atom_value absolute
+  1000  define_field position
+  1005  push_atom_value 100%
+  1010  define_field width
+  1015  push_atom_value 100%
+  1020  define_field height
+  1025  call_constructor #args=1
+  1028  define_field item
+  1033  get_loc_check 13: p
+  1036  get_field Style
+  1069  dup
+  1070  object
+  1071  push_atom_value rgba(0, 0, 0, 0.2)
+  1076  define_field backgroundColor
+  1081  push_atom_value absolute
+  1086  define_field position
+  1091  push_atom_value 100%
+  1096  define_field width
+  1101  push_atom_value 100%
+  1106  define_field height
+  1111  call_constructor #args=1
+  1114  define_field occlusionOverlay
+  1119  put_loc8 24: R
+  1121  set_loc_uninitialized 25: NavigationViewNavigator
+  1124  undefined
+  1125  set_loc_uninitialized 26: <class_fields_init>
+  1128  push_const8 21: <function <atom:0>>
+  1130  define_class NavigationViewNavigator,0
+  1136  fclosure8 22: <function <atom:0>>
+  1138  define_method hasTransparentBackground,0
+  1144  fclosure8 23: <function <atom:0>>
+  1146  define_method pushComponent,0
+  1152  fclosure8 24: <function <atom:0>>
+  1154  define_method pop,0
+  1160  fclosure8 25: <function <atom:0>>
+  1162  define_method popToRoot,0
+  1168  fclosure8 26: <function <atom:0>>
+  1170  define_method popToSelf,0
+  1176  fclosure8 27: <function <atom:0>>
+  1178  define_method presentComponent,0
+  1184  fclosure8 28: <function <atom:0>>
+  1186  define_method dismiss,0
+  1192  fclosure8 29: <function <atom:0>>
+  1194  define_method forceDisableDismissalGesture,0
+  1200  fclosure8 30: <function <atom:0>>
+  1202  define_method setBackButtonObserver,0
+  1208  fclosure8 31: <function <atom:0>>
+  1210  define_method setOnPausePopAfterDelay,0
+  1216  undefined
+  1217  put_loc8 26: <class_fields_init>
+  1219  drop
+  1220  set_loc8 25: NavigationViewNavigator
+  1222  close_loc 26: <class_fields_init>
+  1225  put_loc8 27: NavigationViewNavigator
+  1227  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/NavigationView
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/PlatformNavigation.js  (4340 B)
+# 原子基准=215 原子表 42 条
+-- 原子表 --
+   [0]valdi_navigation/src/PlatformNavigation | [1]require | [2]module | [3]exports | [4]i | [5]n | [6]o | [7]t | [8]a | [9]e | [10]r | [11]s | [12]__esModule | [13]supportsNavigationSearch | [14]supportsNavigationConfirmationDialog | [15]navigationMenuActionWithConfirmation | [16]navigationActionStateForHost | [17]validatePlatformNavigationBar | [18]valdi_core/src/CompilerIntrinsics | [19]isVersionAtLeast | [20]supportsPlatformNavigationSearch | [21]supportsPlatformNavigationConfirmationDialog | [22]id | [23]confirmationDialog | [24]leadingActions | [25]trailingActions | [26]titleMenu | [27]some | [28]Title menu actions do not support confirmation dialogs | [29]Navigation action IDs must be unique within one navigation bar | [30]menuActions | [31]menuGroups | [32]A navigation action cannot present both a menu and a confirmation dialog | [33]A navigation action cannot present both flat and grouped menus | [34]Menu action IDs must be unique within one navigation action | [35]actions | [36]Menu group IDs must be unique within one menu | [37]presentation | [38]title | [39]trim | [40]Navigation submenus must have a nonempty title | [41]Confirmation action IDs must be unique within one navigation action
+
+-- fn name=n args=1 vars=0 closure=1 cpool=0 bc=94B file=valdi_navigation/src/PlatformNavigation
+   locals: n
+   closure: i
+     0  get_var_ref_check 0: i
+     3  get_field isVersionAtLeast  ;+28B
+    36  push_i16 172
+    39  call1 #args=1
+    40  dup
+    41  if_false8 -> 005d
+    43  drop
+    44  push_0 0
+    45  lnot
+    46  get_arg0 0: n
+    47  get_field2 supportsPlatformNavigationSearch
+    80  dup
+    81  is_undefined_or_null
+    82  if_false8 -> 0059
+    84  drop
+    85  drop
+    86  undefined
+    87  goto8 -> 005c
+L   89  call_method #args=0
+L   92  strict_eq
+L   93  return
+
+-- fn name=o args=1 vars=0 closure=1 cpool=0 bc=93B file=valdi_navigation/src/PlatformNavigation
+   locals: n
+   closure: i
+     0  get_var_ref_check 0: i
+     3  get_field isVersionAtLeast  ;+28B
+    36  push_i8 93
+    38  call1 #args=1
+    39  dup
+    40  if_false8 -> 005c
+    42  drop
+    43  push_0 0
+    44  lnot
+    45  get_arg0 0: n
+    46  get_field2 supportsPlatformNavigationConfirmationDialog
+    79  dup
+    80  is_undefined_or_null
+    81  if_false8 -> 0058
+    83  drop
+    84  drop
+    85  undefined
+    86  goto8 -> 005b
+L   88  call_method #args=0
+L   91  strict_eq
+L   92  return
+
+-- fn name=t args=3 vars=0 closure=1 cpool=0 bc=64B file=valdi_navigation/src/PlatformNavigation
+   locals: n, o, t
+   closure: i
+     0  get_var_ref_check 0: i
+     3  get_field isVersionAtLeast  ;+28B
+    36  push_i16 267
+    39  call1 #args=1
+    40  if_false8 -> 003e
+    42  object
+    43  get_arg0 0: n
+    44  null
+    45  copy_data_properties 6
+    47  drop
+    48  drop
+    49  get_arg2 2: t
+    50  define_field id
+    55  get_arg1 1: o
+    56  define_field confirmationDialog
+    61  return
+L   62  get_arg0 0: n
+    63  return
+
+-- fn name=a args=1 vars=0 closure=1 cpool=0 bc=45B file=valdi_navigation/src/PlatformNavigation
+   locals: n
+   closure: i
+     0  get_var_ref_check 0: i
+     3  get_field isVersionAtLeast  ;+28B
+    36  push_i16 138
+    39  call1 #args=1
+    40  if_false8 -> 002c
+    42  get_arg0 0: n
+    43  return
+L   44  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=37B file=valdi_navigation/src/PlatformNavigation
+   locals: i
+     0  undefined
+     1  get_arg0 0: i
+     2  get_field confirmationDialog  ;+28B
+    35  strict_neq
+    36  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=1 bc=72B file=valdi_navigation/src/PlatformNavigation
+   locals: i
+     0  get_arg0 0: i
+     1  get_field actions  ;+28B
+    34  get_field2 some
+    67  fclosure8 0: <function <atom:0>>
+    69  tail_call_method #args=1
+
+-- fn name=e args=1 vars=9 closure=2 cpool=1 bc=1318B file=valdi_navigation/src/PlatformNavigation
+   locals: i, n, o, n, t, i, i, n, o, i
+   closure: r, s
+     0  set_loc_uninitialized 1: o
+     3  set_loc_uninitialized 0: n
+     6  array_from #args=0
+     9  push_0 0
+    10  get_arg0 0: i
+    11  get_field leadingActions  ;+28B
+    44  dup
+    45  is_undefined_or_null
+    46  if_false8 -> 0034
+    48  drop
+    49  array_from #args=0
+L   52  append
+    53  get_arg0 0: i
+    54  get_field trailingActions
+    87  dup
+    88  is_undefined_or_null
+    89  if_false8 -> 005f
+    91  drop
+    92  array_from #args=0
+L   95  append
+    96  drop
+    97  put_loc0 0: n
+    98  get_var Set
+   103  dup
+   104  call_constructor #args=0
+   107  put_loc1 1: o
+   108  undefined
+   109  get_arg0 0: i
+   110  get_field titleMenu
+   143  strict_neq
+   144  if_false -> 01c5
+   149  set_loc_uninitialized 2: n
+   152  get_arg0 0: i
+   153  get_field titleMenu
+   186  get_field groups
+   219  get_field2 some
+   252  fclosure8 0: <function <atom:0>>
+   254  call_method #args=1
+   257  if_false8 -> 0109
+   259  push_atom_value Title menu actions do not support confirmation dialogs
+   264  return
+L  265  get_loc_check 1: o
+   268  get_field2 add
+   301  get_arg0 0: i
+   302  get_field titleMenu
+   335  get_field id
+   368  call_method #args=1
+   371  drop
+   372  get_var_ref0 0: r
+   373  get_arg0 0: i
+   374  get_field titleMenu
+   407  get_field groups
+   440  call1 #args=1
+   441  put_loc2 2: n
+   442  undefined
+   443  get_loc_check 2: n
+   446  strict_neq
+   447  if_false8 -> 01c5
+   449  get_loc_check 2: n
+   452  return
+L  453  set_loc_uninitialized 3: t
+   456  get_loc_check 0: n
+   459  for_of_start
+   460  goto16 -> 051c
+   463  put_loc3 3: t
+   464  get_loc_check 1: o
+   467  get_field2 has
+   500  get_loc_check 3: t
+   503  get_field id
+   536  call_method #args=1
+   539  if_false8 -> 0227
+   541  push_atom_value Navigation action IDs must be unique within one navigation bar
+   546  nip_catch
+   547  rot3r
+   548  undefined
+   549  iterator_close
+   550  return
+L  551  get_loc_check 1: o
+   554  get_field2 add
+   587  get_loc_check 3: t
+   590  get_field id
+   623  call_method #args=1
+   626  drop
+   627  undefined
+   628  get_loc_check 3: t
+   631  get_field confirmationDialog
+   664  strict_neq
+   665  if_false -> 0334
+   670  set_loc_uninitialized 4: i
+   673  undefined
+   674  get_loc_check 3: t
+   677  get_field menuActions
+   710  strict_neq
+   711  dup
+   712  if_true8 -> 02f1
+   714  drop
+   715  undefined
+   716  get_loc_check 3: t
+   719  get_field menuGroups
+   752  strict_neq
+L  753  if_false8 -> 02fd
+   755  push_atom_value A navigation action cannot present both a menu and a confirmation dialog
+   760  nip_catch
+   761  rot3r
+   762  undefined
+   763  iterator_close
+   764  return
+L  765  get_var_ref1 1: s
+   766  get_loc_check 3: t
+   769  get_field confirmationDialog
+   802  call1 #args=1
+   803  put_loc8 4: i
+   805  undefined
+   806  get_loc_check 4: i
+   809  strict_neq
+   810  if_false8 -> 0334
+   812  get_loc_check 4: i
+   815  nip_catch
+   816  rot3r
+   817  undefined
+   818  iterator_close
+   819  return
+L  820  undefined
+   821  get_loc_check 3: t
+   824  get_field menuActions
+   857  strict_neq
+   858  if_false -> 04ba
+   863  set_loc_uninitialized 5: i
+   866  undefined
+   867  get_loc_check 3: t
+   870  get_field menuGroups
+   903  strict_neq
+   904  if_false8 -> 0394
+   906  push_atom_value A navigation action cannot present both flat and grouped menus
+   911  nip_catch
+   912  rot3r
+   913  undefined
+   914  iterator_close
+   915  return
+L  916  get_var Set
+   921  dup
+   922  call_constructor #args=0
+   925  put_loc8 5: i
+   927  set_loc_uninitialized 6: n
+   930  get_loc_check 3: t
+   933  get_field menuActions
+   966  for_of_start
+   967  goto16 -> 04b1
+   970  put_loc8 6: n
+   972  set_loc_uninitialized 7: o
+   975  get_loc_check 5: i
+   978  get_field2 has
+  1011  get_loc_check 6: n
+  1014  get_field id
+  1047  call_method #args=1
+  1050  if_false8 -> 042a
+  1052  push_atom_value Menu action IDs must be unique within one navigation action
+  1057  nip_catch
+  1058  rot3r
+  1059  undefined
+  1060  iterator_close
+  1061  nip_catch
+  1062  rot3r
+  1063  undefined
+  1064  iterator_close
+  1065  return
+L 1066  get_loc_check 5: i
+  1069  get_field2 add
+  1102  get_loc_check 6: n
+  1105  get_field id
+  1138  call_method #args=1
+  1141  drop
+  1142  get_var_ref1 1: s
+  1143  get_loc_check 6: n
+  1146  get_field confirmationDialog
+  1179  call1 #args=1
+  1180  put_loc8 7: o
+  1182  undefined
+  1183  get_loc_check 7: o
+  1186  strict_neq
+  1187  if_false8 -> 04b1
+  1189  get_loc_check 7: o
+  1192  nip_catch
+  1193  rot3r
+  1194  undefined
+  1195  iterator_close
+  1196  nip_catch
+  1197  rot3r
+  1198  undefined
+  1199  iterator_close
+  1200  return
+L 1201  for_of_next 0
+  1203  if_false -> 03ca
+  1208  drop
+  1209  iterator_close
+L 1210  undefined
+  1211  get_loc_check 3: t
+  1214  get_field menuGroups
+  1247  strict_neq
+  1248  if_false8 -> 051c
+  1250  set_loc_uninitialized 8: i
+  1253  get_var_ref0 0: r
+  1254  get_loc_check 3: t
+  1257  get_field menuGroups
+  1290  call1 #args=1
+  1291  put_loc8 8: i
+  1293  undefined
+  1294  get_loc_check 8: i
+  1297  strict_neq
+  1298  if_false8 -> 051c
+  1300  get_loc_check 8: i
+  1303  nip_catch
+  1304  rot3r
+  1305  undefined
+  1306  iterator_close
+  1307  return
+L 1308  for_of_next 0
+  1310  if_false -> 01cf
+  1315  drop
+  1316  iterator_close
+  1317  return_undef
+
+-- fn name=r args=1 vars=5 closure=1 cpool=0 bc=623B file=valdi_navigation/src/PlatformNavigation
+   locals: i, n, o, t, i, n
+   closure: s
+     0  set_loc_uninitialized 1: o
+     3  set_loc_uninitialized 0: n
+     6  get_var Set
+    11  dup
+    12  call_constructor #args=0
+    15  put_loc0 0: n
+    16  get_var Set
+    21  dup
+    22  call_constructor #args=0
+    25  put_loc1 1: o
+    26  set_loc_uninitialized 2: t
+    29  get_arg0 0: i
+    30  for_of_start
+    31  goto16 -> 0265
+    34  put_loc2 2: t
+    35  get_loc_check 0: n
+    38  get_field2 has
+    71  get_loc_check 2: t
+    74  get_field id
+   107  call_method #args=1
+   110  if_false8 -> 007a
+   112  push_atom_value Menu group IDs must be unique within one menu
+   117  nip_catch
+   118  rot3r
+   119  undefined
+   120  iterator_close
+   121  return
+L  122  get_loc_check 0: n
+   125  get_field2 add
+   158  get_loc_check 2: t
+   161  get_field id
+   194  call_method #args=1
+   197  drop
+   198  push_1 1
+   199  get_loc_check 2: t
+   202  get_field presentation
+   235  strict_eq
+   236  if_false8 -> 014b
+   238  get_loc_check 2: t
+   241  get_field title
+   274  dup
+   275  is_undefined_or_null
+   276  if_false8 -> 011a
+   278  drop
+   279  undefined
+   280  goto8 -> 013e
+L  282  get_field2 trim
+   315  call_method #args=0
+L  318  lnot
+   319  if_false8 -> 014b
+   321  push_atom_value Navigation submenus must have a nonempty title
+   326  nip_catch
+   327  rot3r
+   328  undefined
+   329  iterator_close
+   330  return
+L  331  set_loc_uninitialized 3: i
+   334  get_loc_check 2: t
+   337  get_field actions
+   370  for_of_start
+   371  goto16 -> 025c
+   374  put_loc3 3: i
+   375  set_loc_uninitialized 4: n
+   378  get_loc_check 1: o
+   381  get_field2 has
+   414  get_loc_check 3: i
+   417  get_field id
+   450  call_method #args=1
+   453  if_false8 -> 01d5
+   455  push_atom_value Menu action IDs must be unique within one navigation action
+   460  nip_catch
+   461  rot3r
+   462  undefined
+   463  iterator_close
+   464  nip_catch
+   465  rot3r
+   466  undefined
+   467  iterator_close
+   468  return
+L  469  get_loc_check 1: o
+   472  get_field2 add
+   505  get_loc_check 3: i
+   508  get_field id
+   541  call_method #args=1
+   544  drop
+   545  get_var_ref0 0: s
+   546  get_loc_check 3: i
+   549  get_field confirmationDialog
+   582  call1 #args=1
+   583  put_loc8 4: n
+   585  undefined
+   586  get_loc_check 4: n
+   589  strict_neq
+   590  if_false8 -> 025c
+   592  get_loc_check 4: n
+   595  nip_catch
+   596  rot3r
+   597  undefined
+   598  iterator_close
+   599  nip_catch
+   600  rot3r
+   601  undefined
+   602  iterator_close
+   603  return
+L  604  for_of_next 0
+   606  if_false -> 0176
+   611  drop
+   612  iterator_close
+L  613  for_of_next 0
+   615  if_false -> 0022
+   620  drop
+   621  iterator_close
+   622  return_undef
+
+-- fn name=s args=1 vars=2 closure=0 cpool=0 bc=234B file=valdi_navigation/src/PlatformNavigation
+   locals: i, n, o
+     0  set_loc_uninitialized 0: n
+     3  undefined
+     4  get_arg0 0: i
+     5  strict_eq
+     6  if_false8 -> 0009
+     8  return_undef
+L    9  get_var Set
+    14  dup
+    15  call_constructor #args=0
+    18  put_loc0 0: n
+    19  set_loc_uninitialized 1: o
+    22  get_arg0 0: i
+    23  get_field actions  ;+28B
+    56  for_of_start
+    57  goto16 -> 00e0
+    60  put_loc1 1: o
+    61  get_loc_check 0: n
+    64  get_field2 has
+    97  get_loc_check 1: o
+   100  get_field id
+   133  call_method #args=1
+   136  if_false8 -> 0094
+   138  push_atom_value Confirmation action IDs must be unique within one navigation action
+   143  nip_catch
+   144  rot3r
+   145  undefined
+   146  iterator_close
+   147  return
+L  148  get_loc_check 0: n
+   151  get_field2 add
+   184  get_loc_check 1: o
+   187  get_field id
+   220  call_method #args=1
+   223  drop
+L  224  for_of_next 0
+   226  if_false -> 003c
+   231  drop
+   232  iterator_close
+   233  return_undef
+
+-- fn name=<atom:0> args=3 vars=8 closure=0 cpool=7 bc=205B file=valdi_navigation/src/PlatformNavigation
+   locals: require, module, exports, i, n, o, t, a, e, r, s
+     0  fclosure8 0: <function n>
+     2  put_loc1 1: n
+     3  fclosure8 1: <function o>
+     5  put_loc2 2: o
+     6  fclosure8 2: <function t>
+     8  put_loc3 3: t
+     9  fclosure8 3: <function a>
+    11  put_loc8 4: a
+    13  fclosure8 4: <function e>
+    15  put_loc8 5: e
+    17  fclosure8 5: <function r>
+    19  put_loc8 6: r
+    21  fclosure8 6: <function s>
+    23  put_loc8 7: s
+    25  set_loc_uninitialized 0: i
+    28  get_var Object
+    33  get_field2 defineProperty
+    66  get_arg2 2: exports
+    67  push_atom_value __esModule
+    72  object
+    73  push_0 0
+    74  lnot
+    75  define_field value
+    80  call_method #args=3
+    83  drop
+    84  get_arg2 2: exports
+    85  get_arg2 2: exports
+    86  get_arg2 2: exports
+    87  get_arg2 2: exports
+    88  get_arg2 2: exports
+    89  undefined
+    90  insert2
+    91  put_field supportsNavigationSearch
+   100  insert2
+   101  put_field supportsNavigationConfirmationDialog
+   110  insert2
+   111  put_field navigationMenuActionWithConfirmation
+   120  insert2
+   121  put_field navigationActionStateForHost
+   130  put_field validatePlatformNavigationBar
+   139  get_arg0 0: require
+   140  push_atom_value valdi_core/src/CompilerIntrinsics
+   145  call1 #args=1
+   146  put_loc0 0: i
+   147  get_arg2 2: exports
+   148  get_loc1 1: n
+   149  put_field supportsNavigationSearch
+   158  get_arg2 2: exports
+   159  get_loc2 2: o
+   160  put_field supportsNavigationConfirmationDialog
+   169  get_arg2 2: exports
+   170  get_loc3 3: t
+   171  put_field navigationMenuActionWithConfirmation
+   180  get_arg2 2: exports
+   181  get_loc8 4: a
+   183  put_field navigationActionStateForHost
+   192  get_arg2 2: exports
+   193  get_loc8 5: e
+   195  put_field validatePlatformNavigationBar
+   204  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/PlatformNavigation
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/PlatformNavigationNative.js  (216 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]valdi_navigation/src/PlatformNavigationNative | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=valdi_navigation/src/PlatformNavigationNative
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/PlatformNavigationNative
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/ToolbarMetadata.js  (1444 B)
+# 原子基准=215 原子表 25 条
+-- 原子表 --
+   [0]valdi_navigation/src/ToolbarMetadata | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]__esModule | [7]resolveToolbarMetadata | [8]i | [9]schemaVersion | [10]Unsupported toolbar metadata schema version | [11]titleKey | [12]title | [13]titleDisplayMode | [14]backgroundVisibility | [15]trailingActions | [16]map | [17]disabled | [18]Initial toolbar actions must be disabled | [19]id | [20]style | [21]resolveUnparsedLocalizableString | [22]test | [23]Toolbar metadata requires a fixed localized string for ' | [24]'
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=262B file=valdi_navigation/src/ToolbarMetadata
+   locals: e
+   closure: t, i
+     0  push_0 0
+     1  lnot
+     2  get_arg0 0: e
+     3  get_field disabled  ;+28B
+    36  strict_neq
+    37  if_false8 -> 0036
+    39  get_var Error
+    44  dup
+    45  push_atom_value Initial toolbar actions must be disabled
+    50  call_constructor #args=1
+    53  throw
+L   54  object
+    55  get_arg0 0: e
+    56  get_field id
+    89  define_field id
+    94  get_var_ref0 0: t
+    95  get_arg0 0: e
+    96  get_field titleKey
+   129  get_var_ref1 1: i
+   130  call2 #args=2
+   131  define_field title
+   136  get_arg0 0: e
+   137  get_field disabled
+   170  define_field disabled
+   175  undefined
+   176  get_arg0 0: e
+   177  get_field style
+   210  strict_eq
+   211  if_false8 -> 00d8
+   213  object
+   214  goto8 -> 0100
+L  216  object
+   217  get_arg0 0: e
+   218  get_field style
+   251  define_field style
+L  256  null
+   257  copy_data_properties 6
+   259  drop
+   260  drop
+   261  return
+
+-- fn name=e args=2 vars=0 closure=1 cpool=1 bc=252B file=valdi_navigation/src/ToolbarMetadata
+   locals: e, i
+   closure: t
+     0  push_1 1
+     1  get_arg0 0: e
+     2  get_field schemaVersion  ;+28B
+    35  strict_neq
+    36  if_false8 -> 0035
+    38  get_var Error
+    43  dup
+    44  push_atom_value Unsupported toolbar metadata schema version
+    49  call_constructor #args=1
+    52  throw
+L   53  object
+    54  get_var_ref0 0: t
+    55  get_arg0 0: e
+    56  get_field titleKey
+    89  get_arg1 1: i
+    90  call2 #args=2
+    91  define_field title
+    96  get_arg0 0: e
+    97  get_field titleDisplayMode
+   130  define_field titleDisplayMode
+   135  get_arg0 0: e
+   136  get_field backgroundVisibility
+   169  define_field backgroundVisibility
+   174  get_arg0 0: e
+   175  get_field trailingActions
+   208  get_field2 map
+   241  fclosure8 0: <function <atom:0>>
+   243  call_method #args=1
+   246  define_field trailingActions
+   251  return
+
+-- fn name=t args=2 vars=1 closure=0 cpool=2 bc=168B file=valdi_navigation/src/ToolbarMetadata
+   locals: e, t, i
+     0  set_loc_uninitialized 0: i
+     3  get_arg1 1: t
+     4  get_field2 resolveUnparsedLocalizableString  ;+28B
+    37  get_arg0 0: e
+    38  call_method #args=1
+    41  put_loc0 0: i
+    42  undefined
+    43  get_loc_check 0: i
+    46  strict_eq
+    47  dup
+    48  if_true8 -> 0069
+    50  drop
+    51  push_0 0
+    52  get_loc_check 0: i
+    55  get_length
+    56  strict_eq
+    57  dup
+    58  if_true8 -> 0069
+    60  drop
+    61  push_const8 0: <string None>
+    63  push_const8 1: <string None>
+    65  regexp
+    66  get_field2 test
+    99  get_loc_check 0: i
+   102  call_method #args=1
+L  105  if_false8 -> 00a4
+   107  get_var Error
+   112  dup
+   113  push_atom_value Toolbar metadata requires a fixed localized string for '
+   118  get_field2 concat
+   151  get_arg0 0: e
+   152  push_atom_value '
+   157  call_method #args=2
+   160  call_constructor #args=1
+   163  throw
+L  164  get_loc_check 0: i
+   167  return
+
+-- fn name=<atom:0> args=3 vars=2 closure=0 cpool=2 bc=85B file=valdi_navigation/src/ToolbarMetadata
+   locals: require, module, exports, e, t
+     0  fclosure8 0: <function e>
+     2  put_loc0 0: e
+     3  fclosure8 1: <function t>
+     5  put_loc1 1: t
+     6  get_var Object
+    11  get_field2 defineProperty  ;+28B
+    44  get_arg2 2: exports
+    45  push_atom_value __esModule
+    50  object
+    51  push_0 0
+    52  lnot
+    53  define_field value
+    58  call_method #args=3
+    61  drop
+    62  get_arg2 2: exports
+    63  undefined
+    64  put_field resolveToolbarMetadata
+    73  get_arg2 2: exports
+    74  get_loc0 0: e
+    75  put_field resolveToolbarMetadata
+    84  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/ToolbarMetadata
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/ToolbarMetadataNative.js  (213 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]valdi_navigation/src/ToolbarMetadataNative | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=valdi_navigation/src/ToolbarMetadataNative
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=valdi_navigation/src/ToolbarMetadataNative
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

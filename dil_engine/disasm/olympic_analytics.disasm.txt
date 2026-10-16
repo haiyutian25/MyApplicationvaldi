@@ -1,0 +1,93 @@
+# olympic_analytics — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/OlympicNavigationAnalytics.js  (957 B)
+# 原子基准=215 原子表 27 条
+-- 原子表 --
+   [0]olympic_analytics/src/OlympicNavigationAnalytics | [1]require | [2]module | [3]exports | [4]e | [5]i | [6]t | [7]s | [8]o | [9]__esModule | [10]createOlympicViewSessionId | [11]trackOlympicNavigationPageViewed | [12]ecosystem_instrumentation/src/EcosystemInstrumentation | [13]olympic.navigation.page_viewed | [14]olympic | [15]olympic-view- | [16]now | [17]- | [18]random | [19]slice | [20]n | [21]c | [22]sendEcosystemEvent | [23]view_session_id | [24]surface | [25]page | [26]ecosystem_view_slug
+
+-- fn name=s args=0 vars=0 closure=0 cpool=0 bc=203B file=olympic_analytics/src/OlympicNavigationAnalytics
+     0  push_atom_value olympic-view-
+     5  get_field2 concat  ;+28B
+    38  get_var Date
+    43  get_field2 now
+    76  call_method #args=0
+    79  push_atom_value -
+    84  get_var Math
+    89  get_field2 random
+   122  call_method #args=0
+   125  get_field2 toString
+   158  push_i8 36
+   160  call_method #args=1
+   163  get_field2 slice
+   196  push_2 2
+   197  call_method #args=1
+   200  tail_call_method #args=3
+
+-- fn name=o args=4 vars=0 closure=3 cpool=0 bc=69B file=olympic_analytics/src/OlympicNavigationAnalytics
+   locals: s, o, n, c
+   closure: e, i, t
+     0  get_var_ref_check 0: e
+     3  get_field sendEcosystemEvent  ;+28B
+    36  get_arg0 0: s
+    37  get_var_ref_check 1: i
+    40  object
+    41  get_arg3 3: c
+    42  define_field view_session_id
+    47  get_var_ref_check 2: t
+    50  define_field surface
+    55  get_arg1 1: o
+    56  define_field page
+    61  get_arg2 2: n
+    62  define_field ecosystem_view_slug
+    67  call3 #args=3
+    68  return_undef
+
+-- fn name=<atom:0> args=3 vars=5 closure=0 cpool=2 bc=138B file=olympic_analytics/src/OlympicNavigationAnalytics
+   locals: require, module, exports, e, i, t, s, o
+     0  fclosure8 0: <function s>
+     2  put_loc3 3: s
+     3  fclosure8 1: <function o>
+     5  put_loc8 4: o
+     7  set_loc_uninitialized 2: t
+    10  set_loc_uninitialized 1: i
+    13  set_loc_uninitialized 0: e
+    16  get_var Object
+    21  get_field2 defineProperty  ;+28B
+    54  get_arg2 2: exports
+    55  push_atom_value __esModule
+    60  object
+    61  push_0 0
+    62  lnot
+    63  define_field value
+    68  call_method #args=3
+    71  drop
+    72  get_arg2 2: exports
+    73  get_arg2 2: exports
+    74  undefined
+    75  insert2
+    76  put_field createOlympicViewSessionId
+    85  put_field trackOlympicNavigationPageViewed
+    94  get_arg0 0: require
+    95  push_atom_value ecosystem_instrumentation/src/EcosystemInstrumentation
+   100  call1 #args=1
+   101  put_loc0 0: e
+   102  push_atom_value olympic.navigation.page_viewed
+   107  put_loc1 1: i
+   108  push_atom_value olympic
+   113  put_loc2 2: t
+   114  get_arg2 2: exports
+   115  get_loc3 3: s
+   116  put_field createOlympicViewSessionId
+   125  get_arg2 2: exports
+   126  get_loc8 4: o
+   128  put_field trackOlympicNavigationPageViewed
+   137  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=olympic_analytics/src/OlympicNavigationAnalytics
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

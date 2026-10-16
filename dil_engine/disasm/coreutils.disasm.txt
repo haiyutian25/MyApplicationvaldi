@@ -1,0 +1,4963 @@
+# coreutils — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/ArrayUtils.js  (2467 B)
+# 原子基准=215 原子表 28 条
+-- 原子表 --
+   [0]coreutils/src/ArrayUtils | [1]require | [2]module | [3]exports | [4]t | [5]r | [6]e | [7]n | [8]o | [9]a | [10]i | [11]s | [12]__esModule | [13]arrayEquals | [14]lazyMap | [15]binarySearch | [16]binarySearchRange | [17]exponentialSearch | [18]groupBy | [19]remove | [20]min | [21]max | [22]slice | [23]c | [24]floor | [25]push | [26]indexOf | [27]splice
+
+-- fn name=t args=2 vars=2 closure=0 cpool=0 bc=60B file=coreutils/src/ArrayUtils
+   locals: t, r, e, n
+     0  set_loc_uninitialized 0: e
+     3  get_arg0 0: t
+     4  get_length
+     5  put_loc0 0: e
+     6  get_loc_check 0: e
+     9  get_arg1 1: r
+    10  get_length
+    11  strict_neq
+    12  if_false8 -> 0011
+    14  push_1 1
+    15  lnot
+    16  return
+L   17  set_loc_uninitialized 1: n
+    20  push_0 0
+    21  put_loc1 1: n
+L   22  get_loc_check 1: n
+    25  get_loc_check 0: e
+    28  lt
+    29  if_false8 -> 0039
+    31  get_arg0 0: t
+    32  get_loc_check 1: n
+    35  get_array_el
+    36  get_arg1 1: r
+    37  get_loc_check 1: n
+    40  get_array_el
+    41  strict_neq
+    42  if_false8 -> 002f
+    44  push_1 1
+    45  lnot
+    46  return
+L   47  get_loc_check 1: n
+    50  post_inc
+    51  put_loc_check 1: n
+    54  drop
+    55  goto8 -> 0016
+L   57  push_0 0
+    58  lnot
+    59  return
+
+-- fn name=r args=2 vars=4 closure=0 cpool=0 bc=131B file=coreutils/src/ArrayUtils
+   locals: t, r, e, n, o, a
+     0  set_loc_uninitialized 1: n
+     3  set_loc_uninitialized 0: e
+     6  get_arg0 0: t
+     7  lnot
+     8  if_false8 -> 000e
+    10  array_from #args=0
+    13  return
+L   14  get_arg0 0: t
+    15  put_loc0 0: e
+    16  push_0 0
+    17  put_loc1 1: n
+    18  set_loc_uninitialized 2: o
+    21  get_arg0 0: t
+    22  for_of_start
+    23  goto8 -> 0079
+L   25  put_loc2 2: o
+    26  set_loc_uninitialized 3: a
+    29  get_arg1 1: r
+    30  get_loc_check 2: o
+    33  call1 #args=1
+    34  put_loc3 3: a
+    35  get_loc_check 3: a
+    38  get_loc_check 2: o
+    41  strict_neq
+    42  dup
+    43  if_false8 -> 0070
+    45  drop
+    46  get_loc_check 0: e
+    49  get_arg0 0: t
+    50  strict_eq
+    51  dup
+    52  if_false8 -> 0063
+    54  drop
+    55  get_arg0 0: t
+    56  get_field2 slice
+    89  push_0 0
+    90  get_arg0 0: t
+    91  get_length
+    92  call_method #args=2
+    95  dup
+    96  put_loc_check 0: e
+L   99  drop
+   100  get_loc_check 0: e
+   103  get_loc_check 1: n
+   106  to_propkey2
+   107  get_loc_check 3: a
+   110  insert3
+   111  put_array_el
+L  112  drop
+   113  get_loc_check 1: n
+   116  post_inc
+   117  put_loc_check 1: n
+   120  drop
+L  121  for_of_next 0
+   123  if_false8 -> 0019
+   125  drop
+   126  iterator_close
+   127  get_loc_check 0: e
+   130  return
+
+-- fn name=n args=4 vars=1 closure=2 cpool=0 bc=129B file=coreutils/src/ArrayUtils
+   locals: t, r, n, a, i
+   closure: o, e
+     0  set_loc_uninitialized 0: i
+     3  get_var_ref0 0: o
+     4  get_arg0 0: t
+     5  get_arg1 1: r
+     6  get_var_ref_check 1: e
+     9  get_arg2 2: n
+    10  get_arg3 3: a
+    11  call #args=5
+    14  put_loc0 0: i
+    15  get_loc_check 0: i
+    18  get_field min  ;+28B
+    51  get_loc_check 0: i
+    54  get_field max
+    87  strict_eq
+    88  if_false8 -> 007f
+    90  get_loc_check 0: i
+    93  get_field min
+   126  return
+L  127  push_minus1 -1
+   128  return
+
+-- fn name=o args=5 vars=6 closure=0 cpool=0 bc=309B file=coreutils/src/ArrayUtils
+   locals: t, r, e, n, o, a, i, e, n, s, c
+     0  set_loc_uninitialized 5: c
+     3  set_loc_uninitialized 4: s
+     6  set_loc_uninitialized 1: i
+     9  set_loc_uninitialized 0: a
+    12  get_arg3 3: n
+    13  dup
+    14  is_undefined_or_null
+    15  if_false8 -> 0013
+    17  drop
+    18  push_0 0
+L   19  put_loc0 0: a
+    20  get_arg 4: o
+    23  dup
+    24  is_undefined_or_null
+    25  if_false8 -> 0020
+    27  drop
+    28  get_arg0 0: t
+    29  get_length
+    30  push_1 1
+    31  sub
+L   32  put_loc1 1: i
+L   33  get_loc_check 0: a
+    36  get_loc_check 1: i
+    39  lte
+    40  if_false8 -> 00a2
+    42  set_loc_uninitialized 3: n
+    45  set_loc_uninitialized 2: e
+    48  get_var Math
+    53  get_field2 floor
+    86  get_loc_check 0: a
+    89  get_loc_check 1: i
+    92  add
+    93  push_2 2
+    94  div
+    95  call_method #args=1
+    98  put_loc2 2: e
+    99  get_arg1 1: r
+   100  get_arg0 0: t
+   101  get_loc_check 2: e
+   104  get_array_el
+   105  call1 #args=1
+   106  put_loc3 3: n
+   107  push_0 0
+   108  get_loc_check 3: n
+   111  strict_eq
+   112  if_false8 -> 0084
+   114  object
+   115  get_loc_check 2: e
+   118  define_field min
+   123  get_loc_check 2: e
+   126  define_field max
+   131  return
+L  132  get_loc_check 3: n
+   135  push_0 0
+   136  gt
+   137  if_false8 -> 0096
+   139  get_loc_check 2: e
+   142  push_1 1
+   143  sub
+   144  dup
+   145  put_loc_check 1: i
+   148  goto8 -> 009f
+L  150  get_loc_check 2: e
+   153  push_1 1
+   154  add
+   155  dup
+   156  put_loc_check 0: a
+L  159  drop
+   160  goto8 -> 0021
+L  162  get_var Math
+   167  get_field2 min
+   200  get_loc_check 0: a
+   203  get_loc_check 1: i
+   206  call_method #args=2
+   209  put_loc8 4: s
+   211  get_var Math
+   216  get_field2 max
+   249  get_loc_check 0: a
+   252  get_loc_check 1: i
+   255  call_method #args=2
+   258  put_loc8 5: c
+   260  get_arg2 2: e
+   261  if_false8 -> 0123
+   263  get_arg2 2: e
+   264  get_loc_check 4: s
+   267  put_field min
+   276  get_arg2 2: e
+   277  get_loc_check 5: c
+   280  put_field max
+   289  get_arg2 2: e
+   290  return
+L  291  object
+   292  get_loc_check 4: s
+   295  define_field min
+   300  get_loc_check 5: c
+   303  define_field max
+   308  return
+
+-- fn name=a args=3 vars=11 closure=1 cpool=0 bc=540B file=coreutils/src/ArrayUtils
+   locals: t, r, e, t, r, e, o, a, i, s, n, o, n, o
+   closure: n
+     0  set_loc_uninitialized 2: e
+     3  set_loc_uninitialized 1: r
+     6  set_loc_uninitialized 0: t
+     9  get_arg0 0: t
+    10  put_loc0 0: t
+    11  get_arg1 1: r
+    12  put_loc1 1: r
+    13  get_arg2 2: e
+    14  dup
+    15  is_undefined
+    16  if_false8 -> 0015
+    18  drop
+    19  push_0 0
+    20  set_arg2 2: e
+L   21  put_loc2 2: e
+    22  set_loc_uninitialized 6: s
+    25  set_loc_uninitialized 5: i
+    28  set_loc_uninitialized 4: a
+    31  set_loc_uninitialized 3: o
+    34  get_arg0 0: t
+    35  get_length
+    36  put_loc3 3: o
+    37  push_0 0
+    38  get_loc_check 3: o
+    41  strict_eq
+    42  if_false8 -> 002e
+    44  push_minus1 -1
+    45  return
+L   46  get_arg1 1: r
+    47  get_arg0 0: t
+    48  get_var Math
+    53  get_field2 max
+    86  push_0 0
+    87  get_var Math
+    92  get_field2 min
+   125  get_arg2 2: e
+   126  get_loc_check 3: o
+   129  push_1 1
+   130  sub
+   131  call_method #args=2
+   134  call_method #args=2
+   137  set_arg2 2: e
+   138  get_array_el
+   139  call1 #args=1
+   140  put_loc8 4: a
+   142  push_0 0
+   143  get_loc_check 4: a
+   146  strict_eq
+   147  if_false8 -> 0097
+   149  get_arg2 2: e
+   150  return
+L  151  undefined
+   152  put_loc8 5: i
+   154  undefined
+   155  put_loc8 6: s
+   157  get_loc_check 4: a
+   160  push_0 0
+   161  lt
+   162  if_false -> 015a
+   167  set_loc_uninitialized 7: n
+   170  push_1 1
+   171  put_loc8 7: n
+L  173  get_arg2 2: e
+   174  get_loc_check 7: n
+   177  add
+   178  get_loc_check 3: o
+   181  lt
+   182  if_false8 -> 00e6
+   184  set_loc_uninitialized 8: o
+   187  get_arg1 1: r
+   188  get_arg0 0: t
+   189  get_arg2 2: e
+   190  get_loc_check 7: n
+   193  add
+   194  get_array_el
+   195  call1 #args=1
+   196  put_loc8 8: o
+   198  push_0 0
+   199  get_loc_check 8: o
+   202  strict_eq
+   203  if_false8 -> 00d3
+   205  get_arg2 2: e
+   206  get_loc_check 7: n
+   209  add
+   210  return
+L  211  get_loc_check 8: o
+   214  push_0 0
+   215  gt
+   216  if_true8 -> 00e6
+   218  get_loc_check 7: n
+   221  push_2 2
+   222  mul
+   223  dup
+   224  put_loc_check 7: n
+   227  drop
+   228  goto8 -> 00ad
+L  230  get_arg2 2: e
+   231  get_var Math
+   236  get_field2 floor
+   269  get_loc_check 7: n
+   272  push_2 2
+   273  div
+   274  call_method #args=1
+   277  add
+   278  push_1 1
+   279  add
+   280  dup
+   281  put_loc_check 5: i
+   284  drop
+   285  get_var Math
+   290  get_field2 min
+   323  get_arg2 2: e
+   324  get_loc_check 7: n
+   327  add
+   328  push_1 1
+   329  sub
+   330  get_loc_check 3: o
+   333  push_1 1
+   334  sub
+   335  call_method #args=2
+   338  dup
+   339  put_loc_check 6: s
+   342  drop
+   343  goto16 -> 0204
+L  346  set_loc_uninitialized 9: n
+   349  push_1 1
+   350  put_loc8 9: n
+L  352  get_arg2 2: e
+   353  get_loc_check 9: n
+   356  sub
+   357  push_0 0
+   358  gte
+   359  if_false8 -> 0197
+   361  set_loc_uninitialized 10: o
+   364  get_arg1 1: r
+   365  get_arg0 0: t
+   366  get_arg2 2: e
+   367  get_loc_check 9: n
+   370  sub
+   371  get_array_el
+   372  call1 #args=1
+   373  put_loc8 10: o
+   375  push_0 0
+   376  get_loc_check 10: o
+   379  strict_eq
+   380  if_false8 -> 0184
+   382  get_arg2 2: e
+   383  get_loc_check 9: n
+   386  sub
+   387  return
+L  388  get_loc_check 10: o
+   391  push_0 0
+   392  lt
+   393  if_true8 -> 0197
+   395  get_loc_check 9: n
+   398  push_2 2
+   399  mul
+   400  dup
+   401  put_loc_check 9: n
+   404  drop
+   405  goto8 -> 0160
+L  407  get_var Math
+   412  get_field2 max
+   445  get_arg2 2: e
+   446  get_loc_check 9: n
+   449  sub
+   450  push_1 1
+   451  add
+   452  push_0 0
+   453  call_method #args=2
+   456  dup
+   457  put_loc_check 5: i
+   460  drop
+   461  get_arg2 2: e
+   462  get_var Math
+   467  get_field2 floor
+   500  get_loc_check 9: n
+   503  push_2 2
+   504  div
+   505  call_method #args=1
+   508  sub
+   509  push_1 1
+   510  sub
+   511  dup
+   512  put_loc_check 6: s
+   515  drop
+L  516  get_loc_check 5: i
+   519  get_loc_check 6: s
+   522  lte
+   523  if_false8 -> 021a
+   525  get_var_ref0 0: n
+   526  get_arg0 0: t
+   527  get_arg1 1: r
+   528  get_loc_check 5: i
+   531  get_loc_check 6: s
+   534  call #args=4
+   537  return
+L  538  push_minus1 -1
+   539  return
+
+-- fn name=i args=2 vars=4 closure=0 cpool=0 bc=114B file=coreutils/src/ArrayUtils
+   locals: t, r, e, n, t, o
+     0  set_loc_uninitialized 0: e
+     3  object
+     4  put_loc0 0: e
+     5  set_loc_uninitialized 1: n
+     8  get_arg0 0: t
+     9  for_of_start
+    10  goto8 -> 0068
+L   12  put_loc1 1: n
+    13  set_loc_uninitialized 3: o
+    16  set_loc_uninitialized 2: t
+    19  get_arg1 1: r
+    20  get_loc_check 1: n
+    23  call1 #args=1
+    24  put_loc2 2: t
+    25  get_loc_check 0: e
+    28  get_loc_check 2: t
+    31  get_array_el
+    32  put_loc3 3: o
+    33  get_loc_check 3: o
+    36  dup
+    37  if_true8 -> 003c
+    39  drop
+    40  array_from #args=0
+    43  dup
+    44  put_loc_check 3: o
+    47  drop
+    48  get_loc_check 0: e
+    51  get_loc_check 2: t
+    54  to_propkey2
+    55  get_loc_check 3: o
+    58  insert3
+    59  put_array_el
+L   60  drop
+    61  get_loc_check 3: o
+    64  get_field2 push
+    97  get_loc_check 1: n
+   100  call_method #args=1
+   103  drop
+L  104  for_of_next 0
+   106  if_false8 -> 000c
+   108  drop
+   109  iterator_close
+   110  get_loc_check 0: e
+   113  return
+
+-- fn name=s args=2 vars=1 closure=0 cpool=0 bc=97B file=coreutils/src/ArrayUtils
+   locals: t, r, e
+     0  set_loc_uninitialized 0: e
+     3  get_arg0 0: t
+     4  get_field2 indexOf  ;+28B
+    37  get_arg1 1: r
+    38  call_method #args=1
+    41  put_loc0 0: e
+    42  get_loc_check 0: e
+    45  push_0 0
+    46  lt
+    47  lnot
+    48  dup
+    49  if_false8 -> 0060
+    51  drop
+    52  get_arg0 0: t
+    53  get_field2 splice
+    86  get_loc_check 0: e
+    89  push_1 1
+    90  call_method #args=2
+    93  drop
+    94  push_0 0
+    95  lnot
+L   96  return
+
+-- fn name=<atom:0> args=3 vars=8 closure=0 cpool=7 bc=257B file=coreutils/src/ArrayUtils
+   locals: require, module, exports, t, r, e, n, o, a, i, s
+     0  fclosure8 0: <function t>
+     2  put_loc0 0: t
+     3  fclosure8 1: <function r>
+     5  put_loc1 1: r
+     6  fclosure8 2: <function n>
+     8  put_loc3 3: n
+     9  fclosure8 3: <function o>
+    11  put_loc8 4: o
+    13  fclosure8 4: <function a>
+    15  put_loc8 5: a
+    17  fclosure8 5: <function i>
+    19  put_loc8 6: i
+    21  fclosure8 6: <function s>
+    23  put_loc8 7: s
+    25  set_loc_uninitialized 2: e
+    28  get_var Object
+    33  get_field2 defineProperty
+    66  get_arg2 2: exports
+    67  push_atom_value __esModule
+    72  object
+    73  push_0 0
+    74  lnot
+    75  define_field value
+    80  call_method #args=3
+    83  drop
+    84  get_arg2 2: exports
+    85  get_arg2 2: exports
+    86  get_arg2 2: exports
+    87  get_arg2 2: exports
+    88  get_arg2 2: exports
+    89  get_arg2 2: exports
+    90  get_arg2 2: exports
+    91  undefined
+    92  insert2
+    93  put_field arrayEquals
+   102  insert2
+   103  put_field lazyMap
+   112  insert2
+   113  put_field binarySearch
+   122  insert2
+   123  put_field binarySearchRange
+   132  insert2
+   133  put_field exponentialSearch
+   142  insert2
+   143  put_field groupBy
+   152  put_field remove
+   161  get_arg2 2: exports
+   162  get_loc0 0: t
+   163  put_field arrayEquals
+   172  get_arg2 2: exports
+   173  get_loc1 1: r
+   174  put_field lazyMap
+   183  object
+   184  push_0 0
+   185  define_field min
+   190  push_0 0
+   191  define_field max
+   196  put_loc2 2: e
+   197  get_arg2 2: exports
+   198  get_loc3 3: n
+   199  put_field binarySearch
+   208  get_arg2 2: exports
+   209  get_loc8 4: o
+   211  put_field binarySearchRange
+   220  get_arg2 2: exports
+   221  get_loc8 5: a
+   223  put_field exponentialSearch
+   232  get_arg2 2: exports
+   233  get_loc8 6: i
+   235  put_field groupBy
+   244  get_arg2 2: exports
+   245  get_loc8 7: s
+   247  put_field remove
+   256  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/ArrayUtils
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/Base64.js  (896 B)
+# 原子基准=215 原子表 19 条
+-- 原子表 --
+   [0]coreutils/src/Base64 | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]__esModule | [7]Base64 | [8]./Base64Native | [9]fromByteArray | [10]toByteArray | [11]byteLength | [12]r | [13]urlSafe | [14]encodeToBase64 | [15]decodeFromBase64 | [16]indexOf | [17]= | [18]Invalid string. Length must be a valid Base64 length
+
+-- fn name=<atom:0> args=2 vars=3 closure=1 cpool=0 bc=104B file=coreutils/src/Base64
+   locals: t, <atom:0>, t, r, r
+   closure: e
+     0  set_loc_uninitialized 1: r
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: t
+     7  put_loc0 0: t
+     8  get_arg1 1: <atom:0>
+     9  dup
+    10  is_undefined
+    11  if_true8 -> 0034
+L   13  to_object
+    14  dup
+    15  get_field urlSafe  ;+28B
+    48  put_loc1 1: r
+    49  drop
+    50  goto8 -> 0038
+L   52  drop
+    53  object
+    54  goto8 -> 000d
+L   56  get_loc_check 1: r
+    59  put_loc2 2: r
+    60  get_var_ref_check 0: e
+    63  get_field encodeToBase64
+    96  get_arg0 0: t
+    97  push_0 0
+    98  lnot
+    99  get_loc2 2: r
+   100  strict_eq
+   101  tail_call #args=2
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=40B file=coreutils/src/Base64
+   locals: t
+   closure: e
+     0  get_var_ref_check 0: e
+     3  get_field decodeFromBase64  ;+28B
+    36  get_arg0 0: t
+    37  tail_call #args=1
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=132B file=coreutils/src/Base64
+   locals: e, t, r
+     0  set_loc_uninitialized 1: r
+     3  set_loc_uninitialized 0: t
+     6  get_arg0 0: e
+     7  get_field2 indexOf  ;+28B
+    40  push_atom_value =
+    45  call_method #args=1
+    48  put_loc0 0: t
+    49  push_minus1 -1
+    50  get_loc_check 0: t
+    53  strict_eq
+    54  dup
+    55  if_false8 -> 0040
+    57  drop
+    58  get_arg0 0: e
+    59  get_length
+    60  dup
+    61  put_loc_check 0: t
+L   64  drop
+    65  get_loc_check 0: t
+    68  push_4 4
+    69  mod
+    70  push_1 1
+    71  eq
+    72  if_false8 -> 0059
+    74  get_var Error
+    79  dup
+    80  push_atom_value Invalid string. Length must be a valid Base64 length
+    85  call_constructor #args=1
+    88  throw
+L   89  get_loc_check 0: t
+    92  get_arg0 0: e
+    93  get_length
+    94  strict_eq
+    95  if_false8 -> 006c
+    97  push_4 4
+    98  get_loc_check 0: t
+   101  push_4 4
+   102  mod
+   103  sub
+   104  push_4 4
+   105  mod
+   106  goto8 -> 0073
+L  108  push_4 4
+   109  get_loc_check 0: t
+   112  push_4 4
+   113  mod
+   114  sub
+L  115  put_loc1 1: r
+   116  push_3 3
+   117  get_loc_check 0: t
+   120  get_loc_check 1: r
+   123  add
+   124  mul
+   125  push_4 4
+   126  div
+   127  get_loc_check 1: r
+   130  sub
+   131  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=3 bc=37B file=coreutils/src/Base64
+   locals: t
+   closure: e
+     0  get_arg0 0: t
+     1  fclosure8 0: <function <atom:0>>
+     3  put_field fromByteArray  ;+4B
+    12  get_arg0 0: t
+    13  fclosure8 1: <function <atom:0>>
+    15  put_field toByteArray
+    24  get_arg0 0: t
+    25  fclosure8 2: <function <atom:0>>
+    27  put_field byteLength
+    36  return_undef
+
+-- fn name=<atom:0> args=3 vars=2 closure=0 cpool=1 bc=101B file=coreutils/src/Base64
+   locals: require, module, exports, e, t
+     0  set_loc_uninitialized 0: e
+     3  get_var Object
+     8  get_field2 defineProperty  ;+28B
+    41  get_arg2 2: exports
+    42  push_atom_value __esModule
+    47  object
+    48  push_0 0
+    49  lnot
+    50  define_field value
+    55  call_method #args=3
+    58  drop
+    59  get_arg2 2: exports
+    60  undefined
+    61  put_field Base64
+    70  get_arg0 0: require
+    71  push_atom_value ./Base64Native
+    76  call1 #args=1
+    77  put_loc0 0: e
+    78  fclosure8 0: <function <atom:0>>
+    80  get_loc1 1: t
+    81  dup
+    82  if_true8 -> 0062
+    84  drop
+    85  get_arg2 2: exports
+    86  object
+    87  set_loc1 1: t
+    88  insert2
+    89  put_field Base64
+L   98  call1 #args=1
+    99  lnot
+   100  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/Base64
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/ByteBuffer.js  (1295 B)
+# 原子基准=215 原子表 17 条
+-- 原子表 --
+   [0]coreutils/src/ByteBuffer | [1]require | [2]module | [3]exports | [4]ByteBuffer | [5]__esModule | [6]inner | [7]size | [8]capacity | [9]appendData | [10]grow | [11]_inner | [12]subarray | [13]_size | [14]t | [15]e | [16]i
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=107B file=coreutils/src/ByteBuffer
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field _inner  ;+28B
+    36  get_field2 subarray
+    69  push_0 0
+    70  get_loc0 0: this
+    71  get_field _size
+   104  tail_call_method #args=2
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=37B file=coreutils/src/ByteBuffer
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field _size  ;+28B
+    36  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=38B file=coreutils/src/ByteBuffer
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field _inner  ;+28B
+    36  get_length
+    37  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=1 cpool=0 bc=59B file=coreutils/src/ByteBuffer
+   locals: t, t, this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc1 1: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc1 1: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  set_loc_uninitialized 0: t
+    18  get_arg0 0: t
+    19  dup
+    20  is_undefined
+    21  if_false8 -> 001a
+    23  drop
+    24  push_0 0
+    25  set_arg0 0: t
+L   26  put_loc0 0: t
+    27  get_loc1 1: this
+    28  push_0 0
+    29  put_field _size
+    38  get_loc1 1: this
+    39  get_var Uint8Array
+    44  dup
+    45  get_arg0 0: t
+    46  call_constructor #args=1
+    49  put_field _inner
+    58  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=246B file=coreutils/src/ByteBuffer
+   locals: t, e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  get_loc1 1: this
+     6  get_field _size  ;+28B
+    39  get_arg0 0: t
+    40  get_length
+    41  add
+    42  put_loc0 0: e
+    43  get_loc_check 0: e
+    46  get_loc1 1: this
+    47  get_field capacity
+    80  gt
+    81  dup
+    82  if_false8 -> 007d
+    84  drop
+    85  get_loc1 1: this
+    86  get_field2 grow
+   119  get_loc_check 0: e
+   122  call_method #args=1
+L  125  drop
+   126  get_loc1 1: this
+   127  get_field _inner
+   160  get_field2 set
+   193  get_arg0 0: t
+   194  get_loc1 1: this
+   195  get_field _size
+   228  call_method #args=2
+   231  drop
+   232  get_loc1 1: this
+   233  get_loc_check 0: e
+   236  put_field _size
+   245  return_undef
+
+-- fn name=<atom:0> args=1 vars=3 closure=0 cpool=0 bc=204B file=coreutils/src/ByteBuffer
+   locals: t, e, i, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: i
+     5  set_loc_uninitialized 0: e
+     8  push_0 0
+     9  get_loc2 2: this
+    10  get_field capacity  ;+28B
+    43  strict_eq
+    44  if_false8 -> 0031
+    46  push_1 1
+    47  goto8 -> 0053
+L   49  get_loc2 2: this
+    50  get_field capacity
+L   83  put_loc0 0: e
+L   84  get_loc_check 0: e
+    87  get_arg0 0: t
+    88  lt
+    89  if_false8 -> 0067
+    91  get_loc_check 0: e
+    94  push_2 2
+    95  mul
+    96  dup
+    97  put_loc_check 0: e
+   100  drop
+   101  goto8 -> 0054
+L  103  get_var Uint8Array
+   108  dup
+   109  get_loc_check 0: e
+   112  call_constructor #args=1
+   115  put_loc1 1: i
+   116  get_loc_check 1: i
+   119  get_field2 set
+   152  get_loc2 2: this
+   153  get_field inner
+   186  call_method #args=1
+   189  drop
+   190  get_loc2 2: this
+   191  get_loc_check 1: i
+   194  put_field _inner
+   203  return_undef
+
+-- fn name=<atom:0> args=3 vars=3 closure=0 cpool=6 bc=147B file=coreutils/src/ByteBuffer
+   locals: require, module, exports, ByteBuffer, <class_fields_init>, ByteBuffer
+     0  set_loc_uninitialized 2: ByteBuffer
+     3  get_var Object
+     8  get_field2 defineProperty  ;+28B
+    41  get_arg2 2: exports
+    42  push_atom_value __esModule
+    47  object
+    48  push_0 0
+    49  lnot
+    50  define_field value
+    55  call_method #args=3
+    58  drop
+    59  get_arg2 2: exports
+    60  undefined
+    61  put_field ByteBuffer
+    70  set_loc_uninitialized 0: ByteBuffer
+    73  undefined
+    74  set_loc_uninitialized 1: <class_fields_init>
+    77  push_const8 3: <function <atom:0>>
+    79  define_class ByteBuffer,0
+    85  fclosure8 0: <function <atom:0>>
+    87  define_method inner,1
+    93  fclosure8 1: <function <atom:0>>
+    95  define_method size,1
+   101  fclosure8 2: <function <atom:0>>
+   103  define_method capacity,1
+   109  fclosure8 4: <function <atom:0>>
+   111  define_method appendData,0
+   117  fclosure8 5: <function <atom:0>>
+   119  define_method grow,0
+   125  undefined
+   126  put_loc1 1: <class_fields_init>
+   127  drop
+   128  set_loc0 0: ByteBuffer
+   129  close_loc 1: <class_fields_init>
+   132  put_loc2 2: ByteBuffer
+   133  get_arg2 2: exports
+   134  get_loc_check 2: ByteBuffer
+   137  put_field ByteBuffer
+   146  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/ByteBuffer
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/LRUCache.js  (3450 B)
+# 原子基准=215 原子表 31 条
+-- 原子表 --
+   [0]coreutils/src/LRUCache | [1]require | [2]module | [3]exports | [4]t | [5]LRUCache | [6]__esModule | [7]size | [8]setMaxSize | [9]insert | [10]remove | [11]clear | [12]all | [13]trimToMaxSize | [14]removeEntry | [15]removeEntryFromList | [16]pushEntryInList | [17]Invalid maxSize  | [18]entryById | [19]e | [20]maxSize | [21]item | [22]i | [23]s | [24]key | [25]previous | [26]head | [27]push | [28]tail | [29]listener | [30]onItemEvicted
+
+-- fn name=t args=1 vars=0 closure=0 cpool=0 bc=58B file=coreutils/src/LRUCache
+   locals: t
+     0  get_arg0 0: t
+     1  push_0 0
+     2  lt
+     3  if_false8 -> 0039
+     5  get_var Error
+    10  dup
+    11  push_atom_value Invalid maxSize 
+    16  get_field2 concat  ;+28B
+    49  get_arg0 0: t
+    50  call_method #args=1
+    53  call_constructor #args=1
+    56  throw
+L   57  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=70B file=coreutils/src/LRUCache
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field entryById  ;+28B
+    36  get_field size
+    69  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=2 cpool=0 bc=50B file=coreutils/src/LRUCache
+   locals: e, this
+   closure: <class_fields_init>, t
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_var Map
+    21  dup
+    22  call_constructor #args=0
+    25  put_field entryById
+    34  get_var_ref1 1: t
+    35  get_arg0 0: e
+    36  call1 #args=1
+    37  drop
+    38  get_loc0 0: this
+    39  get_arg0 0: e
+    40  put_field maxSize
+    49  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=96B file=coreutils/src/LRUCache
+   locals: e, this
+   closure: t
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref0 0: t
+     3  get_arg0 0: e
+     4  call1 #args=1
+     5  drop
+     6  get_loc0 0: this
+     7  get_field maxSize  ;+28B
+    40  get_arg0 0: e
+    41  strict_neq
+    42  dup
+    43  if_false8 -> 005f
+    45  drop
+    46  get_loc0 0: this
+    47  get_arg0 0: e
+    48  put_field maxSize
+    57  get_loc0 0: this
+    58  get_field2 trimToMaxSize
+    91  get_arg0 0: e
+    92  call_method #args=1
+L   95  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=202B file=coreutils/src/LRUCache
+   locals: t, e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  get_loc1 1: this
+     6  get_field entryById  ;+28B
+    39  get_field2 get
+    72  get_arg0 0: t
+    73  call_method #args=1
+    76  put_loc0 0: e
+    77  get_loc_check 0: e
+    80  if_false8 -> 00c9
+    82  get_loc1 1: this
+    83  get_field2 removeEntryFromList
+   116  get_loc_check 0: e
+   119  call_method #args=1
+   122  drop
+   123  get_loc1 1: this
+   124  get_field2 pushEntryInList
+   157  get_loc_check 0: e
+   160  call_method #args=1
+   163  drop
+   164  get_loc_check 0: e
+   167  get_field item
+   200  return
+L  201  return_undef
+
+-- fn name=<atom:0> args=2 vars=3 closure=0 cpool=0 bc=517B file=coreutils/src/LRUCache
+   locals: t, e, i, s, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: s
+     5  set_loc_uninitialized 0: i
+     8  push_1 1
+     9  lnot
+    10  put_loc0 0: i
+    11  get_loc2 2: this
+    12  get_field entryById  ;+28B
+    45  get_field2 get
+    78  get_arg0 0: t
+    79  call_method #args=1
+    82  put_loc1 1: s
+    83  get_loc_check 1: s
+    86  if_false8 -> 00b9
+    88  get_loc_check 1: s
+    91  get_arg1 1: e
+    92  put_field item
+   101  get_loc2 2: this
+   102  get_field2 removeEntryFromList
+   135  get_loc_check 1: s
+   138  call_method #args=1
+   141  drop
+   142  get_loc2 2: this
+   143  get_field2 pushEntryInList
+   176  get_loc_check 1: s
+   179  call_method #args=1
+   182  goto16 -> 01b5
+L  185  object
+   186  get_arg0 0: t
+   187  define_field key
+   192  get_arg1 1: e
+   193  define_field item
+   198  undefined
+   199  define_field previous
+   204  undefined
+   205  define_field next
+   210  dup
+   211  put_loc_check 1: s
+   214  drop
+   215  get_loc2 2: this
+   216  get_field entryById
+   249  get_field2 set
+   282  get_arg0 0: t
+   283  get_loc_check 1: s
+   286  call_method #args=2
+   289  drop
+   290  get_loc2 2: this
+   291  get_field entryById
+   324  get_field size
+   357  get_loc2 2: this
+   358  get_field maxSize
+   391  gt
+   392  dup
+   393  put_loc_check 0: i
+   396  drop
+   397  get_loc2 2: this
+   398  get_field2 pushEntryInList
+   431  get_loc_check 1: s
+   434  call_method #args=1
+L  437  drop
+   438  get_loc_check 0: i
+   441  dup
+   442  if_false8 -> 0204
+   444  drop
+   445  get_loc2 2: this
+   446  get_field2 trimToMaxSize
+   479  get_loc2 2: this
+   480  get_field maxSize
+   513  call_method #args=1
+L  516  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=73B file=coreutils/src/LRUCache
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field entryById  ;+28B
+    36  get_field2 has
+    69  get_arg0 0: t
+    70  tail_call_method #args=1
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=130B file=coreutils/src/LRUCache
+   locals: t, e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  get_loc1 1: this
+     6  get_field entryById  ;+28B
+    39  get_field2 get
+    72  get_arg0 0: t
+    73  call_method #args=1
+    76  put_loc0 0: e
+    77  get_loc_check 0: e
+    80  lnot
+    81  lnot
+    82  dup
+    83  if_false8 -> 0081
+    85  drop
+    86  get_loc1 1: this
+    87  get_field2 removeEntry
+   120  get_loc_check 0: e
+   123  call_method #args=1
+   126  drop
+   127  push_0 0
+   128  lnot
+L  129  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=41B file=coreutils/src/LRUCache
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 trimToMaxSize  ;+28B
+    36  push_0 0
+    37  call_method #args=1
+    40  return_undef
+
+-- fn name=<atom:0> args=0 vars=3 closure=0 cpool=0 bc=175B file=coreutils/src/LRUCache
+   locals: t, e, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: e
+     5  set_loc_uninitialized 0: t
+     8  array_from #args=0
+    11  put_loc0 0: t
+    12  get_loc2 2: this
+    13  get_field head  ;+28B
+    46  put_loc1 1: e
+L   47  get_loc_check 1: e
+    50  if_false8 -> 00ab
+    52  get_loc_check 0: t
+    55  get_field2 push
+    88  get_loc_check 1: e
+    91  get_field item
+   124  call_method #args=1
+   127  drop
+   128  get_loc_check 1: e
+   131  get_field next
+   164  dup
+   165  put_loc_check 1: e
+   168  drop
+   169  goto8 -> 002f
+L  171  get_loc_check 0: t
+   174  return
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=156B file=coreutils/src/LRUCache
+   locals: t, t, this
+     0  push_this
+     1  put_loc1 1: this
+L    2  get_loc1 1: this
+     3  get_field entryById  ;+28B
+    36  get_field size
+    69  get_arg0 0: t
+    70  gt
+    71  if_false8 -> 009b
+    73  set_loc_uninitialized 0: t
+    76  get_loc1 1: this
+    77  get_field tail
+   110  put_loc0 0: t
+   111  get_loc1 1: this
+   112  get_field2 removeEntry
+   145  get_loc_check 0: t
+   148  call_method #args=1
+   151  drop
+   152  goto16 -> 0002
+L  155  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=326B file=coreutils/src/LRUCache
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field entryById  ;+28B
+    36  get_field2 delete
+    69  get_arg0 0: t
+    70  get_field key
+   103  call_method #args=1
+   106  drop
+   107  get_loc0 0: this
+   108  get_field2 removeEntryFromList
+   141  get_arg0 0: t
+   142  call_method #args=1
+   145  drop
+   146  get_loc0 0: this
+   147  get_field listener
+   180  dup
+   181  if_false -> 0145
+   186  drop
+   187  get_loc0 0: this
+   188  get_field listener
+   221  get_field2 onItemEvicted
+   254  get_arg0 0: t
+   255  get_field key
+   288  get_arg0 0: t
+   289  get_field item
+   322  call_method #args=2
+L  325  return_undef
+
+-- fn name=<atom:0> args=1 vars=3 closure=0 cpool=0 bc=259B file=coreutils/src/LRUCache
+   locals: t, e, i, this
+     0  push_this
+     1  put_loc2 2: this
+     2  set_loc_uninitialized 1: i
+     5  set_loc_uninitialized 0: e
+     8  get_arg0 0: t
+     9  get_field previous  ;+28B
+    42  put_loc0 0: e
+    43  get_arg0 0: t
+    44  get_field next
+    77  put_loc1 1: i
+    78  get_loc_check 0: e
+    81  dup
+    82  if_false8 -> 0065
+    84  drop
+    85  get_loc_check 0: e
+    88  get_loc_check 1: i
+    91  insert2
+    92  put_field next
+L  101  drop
+   102  get_loc_check 1: i
+   105  dup
+   106  if_false8 -> 007d
+   108  drop
+   109  get_loc_check 1: i
+   112  get_loc_check 0: e
+   115  insert2
+   116  put_field previous
+L  125  drop
+   126  get_loc2 2: this
+   127  get_field head
+   160  get_arg0 0: t
+   161  strict_eq
+   162  dup
+   163  if_false8 -> 00b4
+   165  drop
+   166  get_loc2 2: this
+   167  get_loc_check 1: i
+   170  insert2
+   171  put_field head
+L  180  drop
+   181  get_loc2 2: this
+   182  get_field tail
+   215  get_arg0 0: t
+   216  strict_eq
+   217  dup
+   218  if_false8 -> 00eb
+   220  drop
+   221  get_loc2 2: this
+   222  get_loc_check 0: e
+   225  insert2
+   226  put_field tail
+L  235  drop
+   236  get_arg0 0: t
+   237  undefined
+   238  put_field previous
+   247  get_arg0 0: t
+   248  undefined
+   249  put_field next
+   258  return_undef
+
+-- fn name=<atom:0> args=1 vars=2 closure=0 cpool=0 bc=137B file=coreutils/src/LRUCache
+   locals: t, e, this
+     0  push_this
+     1  put_loc1 1: this
+     2  set_loc_uninitialized 0: e
+     5  get_loc1 1: this
+     6  get_field head  ;+28B
+    39  put_loc0 0: e
+    40  get_loc_check 0: e
+    43  dup
+    44  if_false8 -> 003d
+    46  drop
+    47  get_loc_check 0: e
+    50  get_arg0 0: t
+    51  insert2
+    52  put_field previous
+L   61  drop
+    62  get_arg0 0: t
+    63  get_loc_check 0: e
+    66  put_field next
+    75  get_loc1 1: this
+    76  get_arg0 0: t
+    77  put_field head
+    86  get_loc1 1: this
+    87  get_field tail
+   120  dup
+   121  if_true8 -> 0088
+   123  drop
+   124  get_loc1 1: this
+   125  get_arg0 0: t
+   126  insert2
+   127  put_field tail
+L  136  return_undef
+
+-- fn name=<atom:0> args=3 vars=4 closure=0 cpool=14 bc=206B file=coreutils/src/LRUCache
+   locals: require, module, exports, t, LRUCache, <class_fields_init>, LRUCache
+     0  fclosure8 0: <function t>
+     2  put_loc0 0: t
+     3  set_loc_uninitialized 3: LRUCache
+     6  get_var Object
+    11  get_field2 defineProperty  ;+28B
+    44  get_arg2 2: exports
+    45  push_atom_value __esModule
+    50  object
+    51  push_0 0
+    52  lnot
+    53  define_field value
+    58  call_method #args=3
+    61  drop
+    62  get_arg2 2: exports
+    63  undefined
+    64  put_field LRUCache
+    73  set_loc_uninitialized 1: LRUCache
+    76  undefined
+    77  set_loc_uninitialized 2: <class_fields_init>
+    80  push_const8 2: <function <atom:0>>
+    82  define_class LRUCache,0
+    88  fclosure8 1: <function <atom:0>>
+    90  define_method size,1
+    96  fclosure8 3: <function <atom:0>>
+    98  define_method setMaxSize,0
+   104  fclosure8 4: <function <atom:0>>
+   106  define_method get,0
+   112  fclosure8 5: <function <atom:0>>
+   114  define_method insert,0
+   120  fclosure8 6: <function <atom:0>>
+   122  define_method has,0
+   128  fclosure8 7: <function <atom:0>>
+   130  define_method remove,0
+   136  fclosure8 8: <function <atom:0>>
+   138  define_method clear,0
+   144  fclosure8 9: <function <atom:0>>
+   146  define_method all,0
+   152  fclosure8 10: <function <atom:0>>
+   154  define_method trimToMaxSize,0
+   160  fclosure8 11: <function <atom:0>>
+   162  define_method removeEntry,0
+   168  fclosure8 12: <function <atom:0>>
+   170  define_method removeEntryFromList,0
+   176  fclosure8 13: <function <atom:0>>
+   178  define_method pushEntryInList,0
+   184  undefined
+   185  put_loc2 2: <class_fields_init>
+   186  drop
+   187  set_loc1 1: LRUCache
+   188  close_loc 2: <class_fields_init>
+   191  put_loc3 3: LRUCache
+   192  get_arg2 2: exports
+   193  get_loc_check 3: LRUCache
+   196  put_field LRUCache
+   205  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/LRUCache
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/Range.js  (190 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]coreutils/src/Range | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=coreutils/src/Range
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/Range
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/SerialTaskQueue.js  (868 B)
+# 原子基准=215 原子表 13 条
+-- 原子表 --
+   [0]coreutils/src/SerialTaskQueue | [1]require | [2]module | [3]exports | [4]SerialTaskQueue | [5]__esModule | [6]enqueueTask | [7]flushTasks | [8]ready | [9]pendingTasks | [10]s | [11]push | [12]shift
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=41B file=coreutils/src/SerialTaskQueue
+   locals: this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  push_0 0
+    17  lnot
+    18  put_field ready
+    27  get_loc0 0: this
+    28  array_from #args=0
+    31  put_field pendingTasks
+    40  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=112B file=coreutils/src/SerialTaskQueue
+   locals: s, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field pendingTasks  ;+28B
+    36  get_field2 push
+    69  get_arg0 0: s
+    70  call_method #args=1
+    73  drop
+    74  get_loc0 0: this
+    75  get_field2 flushTasks
+   108  call_method #args=0
+   111  return_undef
+
+-- fn name=<atom:0> args=0 vars=0 closure=1 cpool=0 bc=50B file=coreutils/src/SerialTaskQueue
+   closure: this
+     0  get_var_ref0 0: this
+     1  push_0 0
+     2  lnot
+     3  put_field ready  ;+4B
+    12  get_var_ref0 0: this
+    13  get_field2 flushTasks  ;+28B
+    46  call_method #args=0
+    49  return_undef
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=1 bc=172B file=coreutils/src/SerialTaskQueue
+   locals: s, this
+     0  push_this
+     1  put_loc1 1: this
+     2  get_loc1 1: this
+     3  get_field ready  ;+28B
+    36  if_false -> 00ab
+    41  get_loc1 1: this
+    42  get_field pendingTasks
+    75  get_length
+    76  if_false8 -> 00ab
+    78  set_loc_uninitialized 0: s
+    81  get_loc1 1: this
+    82  get_field pendingTasks
+   115  get_field2 shift
+   148  call_method #args=0
+   151  put_loc0 0: s
+   152  get_loc1 1: this
+   153  push_1 1
+   154  lnot
+   155  put_field ready
+   164  get_loc_check 0: s
+   167  fclosure8 0: <function <atom:0>>
+   169  call1 #args=1
+   170  drop
+L  171  return_undef
+
+-- fn name=<atom:0> args=3 vars=3 closure=0 cpool=3 bc=123B file=coreutils/src/SerialTaskQueue
+   locals: require, module, exports, SerialTaskQueue, <class_fields_init>, SerialTaskQueue
+     0  set_loc_uninitialized 2: SerialTaskQueue
+     3  get_var Object
+     8  get_field2 defineProperty  ;+28B
+    41  get_arg2 2: exports
+    42  push_atom_value __esModule
+    47  object
+    48  push_0 0
+    49  lnot
+    50  define_field value
+    55  call_method #args=3
+    58  drop
+    59  get_arg2 2: exports
+    60  undefined
+    61  put_field SerialTaskQueue
+    70  set_loc_uninitialized 0: SerialTaskQueue
+    73  undefined
+    74  set_loc_uninitialized 1: <class_fields_init>
+    77  push_const8 0: <function <atom:0>>
+    79  define_class SerialTaskQueue,0
+    85  fclosure8 1: <function <atom:0>>
+    87  define_method enqueueTask,0
+    93  fclosure8 2: <function <atom:0>>
+    95  define_method flushTasks,0
+   101  undefined
+   102  put_loc1 1: <class_fields_init>
+   103  drop
+   104  set_loc0 0: SerialTaskQueue
+   105  close_loc 1: <class_fields_init>
+   108  put_loc2 2: SerialTaskQueue
+   109  get_arg2 2: exports
+   110  get_loc_check 2: SerialTaskQueue
+   113  put_field SerialTaskQueue
+   122  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/SerialTaskQueue
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/Uint8ArrayUtils.js  (702 B)
+# 原子基准=215 原子表 16 条
+-- 原子表 --
+   [0]coreutils/src/Uint8ArrayUtils | [1]require | [2]module | [3]exports | [4]r | [5]t | [6]__esModule | [7]arrayToString | [8]stringToArray | [9]runtime | [10]bytesToString | [11]fromCharCode | [12]e | [13]n | [14]o | [15]charCodeAt
+
+-- fn name=r args=1 vars=0 closure=0 cpool=0 bc=160B file=coreutils/src/Uint8ArrayUtils
+   locals: r
+     0  get_var runtime
+     5  get_field bytesToString  ;+28B
+    38  if_false8 -> 0053
+    40  get_var runtime
+    45  get_field2 bytesToString
+    78  get_arg0 0: r
+    79  call_method #args=1
+    82  return
+L   83  get_var String
+    88  get_field fromCharCode
+   121  get_field2 apply
+   154  null
+   155  get_arg0 0: r
+   156  call_method #args=2
+   159  return
+
+-- fn name=t args=1 vars=4 closure=0 cpool=0 bc=113B file=coreutils/src/Uint8ArrayUtils
+   locals: r, t, e, n, o
+     0  set_loc_uninitialized 1: e
+     3  set_loc_uninitialized 0: t
+     6  get_var ArrayBuffer
+    11  dup
+    12  get_arg0 0: r
+    13  get_length
+    14  call_constructor #args=1
+    17  put_loc0 0: t
+    18  get_var Uint8Array
+    23  dup
+    24  get_loc_check 0: t
+    27  call_constructor #args=1
+    30  put_loc1 1: e
+    31  set_loc_uninitialized 3: o
+    34  set_loc_uninitialized 2: n
+    37  push_0 0
+    38  put_loc2 2: n
+    39  get_arg0 0: r
+    40  get_length
+    41  put_loc3 3: o
+L   42  get_loc_check 2: n
+    45  get_loc_check 3: o
+    48  lt
+    49  if_false8 -> 006d
+    51  get_loc_check 1: e
+    54  get_loc_check 2: n
+    57  to_propkey2
+    58  get_arg0 0: r
+    59  get_field2 charCodeAt
+    92  get_loc_check 2: n
+    95  call_method #args=1
+    98  put_array_el
+    99  get_loc_check 2: n
+   102  post_inc
+   103  put_loc_check 2: n
+   106  drop
+   107  goto8 -> 002a
+L  109  get_loc_check 1: e
+   112  return
+
+-- fn name=<atom:0> args=3 vars=2 closure=0 cpool=2 bc=107B file=coreutils/src/Uint8ArrayUtils
+   locals: require, module, exports, r, t
+     0  fclosure8 0: <function r>
+     2  put_loc0 0: r
+     3  fclosure8 1: <function t>
+     5  put_loc1 1: t
+     6  get_var Object
+    11  get_field2 defineProperty  ;+28B
+    44  get_arg2 2: exports
+    45  push_atom_value __esModule
+    50  object
+    51  push_0 0
+    52  lnot
+    53  define_field value
+    58  call_method #args=3
+    61  drop
+    62  get_arg2 2: exports
+    63  get_arg2 2: exports
+    64  undefined
+    65  insert2
+    66  put_field arrayToString
+    75  put_field stringToArray
+    84  get_arg2 2: exports
+    85  get_loc0 0: r
+    86  put_field arrayToString
+    95  get_arg2 2: exports
+    96  get_loc1 1: t
+    97  put_field stringToArray
+   106  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/Uint8ArrayUtils
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/dummy.js  (119 B)
+# 原子基准=215 原子表 4 条
+-- 原子表 --
+   [0]coreutils/src/dummy | [1]require | [2]module | [3]exports
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=1B file=coreutils/src/dummy
+   locals: require, module, exports
+     0  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/dummy
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/md5.js  (4224 B)
+# 原子基准=215 原子表 23 条
+-- 原子表 --
+   [0]coreutils/src/md5 | [1]require | [2]module | [3]exports | [4]t | [5]n | [6]r | [7]e | [8]o | [9]u | [10]c | [11]f | [12]i | [13]s | [14]l | [15]d | [16]h | [17]__esModule | [18]md5 | [19]0123456789abcdef | [20]substring | [21]charCodeAt | [22]hash
+
+-- fn name=n args=2 vars=4 closure=5 cpool=0 bc=2085B file=coreutils/src/md5
+   locals: t, n, r, f, i, s
+   closure: e, o, u, c, h
+     0  set_loc_uninitialized 3: s
+     3  set_loc_uninitialized 2: i
+     6  set_loc_uninitialized 1: f
+     9  set_loc_uninitialized 0: r
+    12  get_arg0 0: t
+    13  push_0 0
+    14  get_array_el
+    15  put_loc0 0: r
+    16  get_arg0 0: t
+    17  push_1 1
+    18  get_array_el
+    19  put_loc1 1: f
+    20  get_arg0 0: t
+    21  push_2 2
+    22  get_array_el
+    23  put_loc2 2: i
+    24  get_arg0 0: t
+    25  push_3 3
+    26  get_array_el
+    27  put_loc3 3: s
+    28  get_var_ref0 0: e
+    29  get_loc_check 0: r
+    32  get_loc_check 1: f
+    35  get_loc_check 2: i
+    38  get_loc_check 3: s
+    41  get_arg1 1: n
+    42  push_0 0
+    43  get_array_el
+    44  push_7 7
+    45  push_i32 -680876936
+    50  call #args=7
+    53  dup
+    54  put_loc_check 0: r
+    57  drop
+    58  get_var_ref0 0: e
+    59  get_loc_check 3: s
+    62  get_loc_check 0: r
+    65  get_loc_check 1: f
+    68  get_loc_check 2: i
+    71  get_arg1 1: n
+    72  push_1 1
+    73  get_array_el
+    74  push_i8 12
+    76  push_i32 -389564586
+    81  call #args=7
+    84  dup
+    85  put_loc_check 3: s
+    88  drop
+    89  get_var_ref0 0: e
+    90  get_loc_check 2: i
+    93  get_loc_check 3: s
+    96  get_loc_check 0: r
+    99  get_loc_check 1: f
+   102  get_arg1 1: n
+   103  push_2 2
+   104  get_array_el
+   105  push_i8 17
+   107  push_i32 606105819
+   112  call #args=7
+   115  dup
+   116  put_loc_check 2: i
+   119  drop
+   120  get_var_ref0 0: e
+   121  get_loc_check 1: f
+   124  get_loc_check 2: i
+   127  get_loc_check 3: s
+   130  get_loc_check 0: r
+   133  get_arg1 1: n
+   134  push_3 3
+   135  get_array_el
+   136  push_i8 22
+   138  push_i32 -1044525330
+   143  call #args=7
+   146  dup
+   147  put_loc_check 1: f
+   150  drop
+   151  get_var_ref0 0: e
+   152  get_loc_check 0: r
+   155  get_loc_check 1: f
+   158  get_loc_check 2: i
+   161  get_loc_check 3: s
+   164  get_arg1 1: n
+   165  push_4 4
+   166  get_array_el
+   167  push_7 7
+   168  push_i32 -176418897
+   173  call #args=7
+   176  dup
+   177  put_loc_check 0: r
+   180  drop
+   181  get_var_ref0 0: e
+   182  get_loc_check 3: s
+   185  get_loc_check 0: r
+   188  get_loc_check 1: f
+   191  get_loc_check 2: i
+   194  get_arg1 1: n
+   195  push_5 5
+   196  get_array_el
+   197  push_i8 12
+   199  push_i32 1200080426
+   204  call #args=7
+   207  dup
+   208  put_loc_check 3: s
+   211  drop
+   212  get_var_ref0 0: e
+   213  get_loc_check 2: i
+   216  get_loc_check 3: s
+   219  get_loc_check 0: r
+   222  get_loc_check 1: f
+   225  get_arg1 1: n
+   226  push_6 6
+   227  get_array_el
+   228  push_i8 17
+   230  push_i32 -1473231341
+   235  call #args=7
+   238  dup
+   239  put_loc_check 2: i
+   242  drop
+   243  get_var_ref0 0: e
+   244  get_loc_check 1: f
+   247  get_loc_check 2: i
+   250  get_loc_check 3: s
+   253  get_loc_check 0: r
+   256  get_arg1 1: n
+   257  push_7 7
+   258  get_array_el
+   259  push_i8 22
+   261  push_i32 -45705983
+   266  call #args=7
+   269  dup
+   270  put_loc_check 1: f
+   273  drop
+   274  get_var_ref0 0: e
+   275  get_loc_check 0: r
+   278  get_loc_check 1: f
+   281  get_loc_check 2: i
+   284  get_loc_check 3: s
+   287  get_arg1 1: n
+   288  push_i8 8
+   290  get_array_el
+   291  push_7 7
+   292  push_i32 1770035416
+   297  call #args=7
+   300  dup
+   301  put_loc_check 0: r
+   304  drop
+   305  get_var_ref0 0: e
+   306  get_loc_check 3: s
+   309  get_loc_check 0: r
+   312  get_loc_check 1: f
+   315  get_loc_check 2: i
+   318  get_arg1 1: n
+   319  push_i8 9
+   321  get_array_el
+   322  push_i8 12
+   324  push_i32 -1958414417
+   329  call #args=7
+   332  dup
+   333  put_loc_check 3: s
+   336  drop
+   337  get_var_ref0 0: e
+   338  get_loc_check 2: i
+   341  get_loc_check 3: s
+   344  get_loc_check 0: r
+   347  get_loc_check 1: f
+   350  get_arg1 1: n
+   351  push_i8 10
+   353  get_array_el
+   354  push_i8 17
+   356  push_i32 -42063
+   361  call #args=7
+   364  dup
+   365  put_loc_check 2: i
+   368  drop
+   369  get_var_ref0 0: e
+   370  get_loc_check 1: f
+   373  get_loc_check 2: i
+   376  get_loc_check 3: s
+   379  get_loc_check 0: r
+   382  get_arg1 1: n
+   383  push_i8 11
+   385  get_array_el
+   386  push_i8 22
+   388  push_i32 -1990404162
+   393  call #args=7
+   396  dup
+   397  put_loc_check 1: f
+   400  drop
+   401  get_var_ref0 0: e
+   402  get_loc_check 0: r
+   405  get_loc_check 1: f
+   408  get_loc_check 2: i
+   411  get_loc_check 3: s
+   414  get_arg1 1: n
+   415  push_i8 12
+   417  get_array_el
+   418  push_7 7
+   419  push_i32 1804603682
+   424  call #args=7
+   427  dup
+   428  put_loc_check 0: r
+   431  drop
+   432  get_var_ref0 0: e
+   433  get_loc_check 3: s
+   436  get_loc_check 0: r
+   439  get_loc_check 1: f
+   442  get_loc_check 2: i
+   445  get_arg1 1: n
+   446  push_i8 13
+   448  get_array_el
+   449  push_i8 12
+   451  push_i32 -40341101
+   456  call #args=7
+   459  dup
+   460  put_loc_check 3: s
+   463  drop
+   464  get_var_ref0 0: e
+   465  get_loc_check 2: i
+   468  get_loc_check 3: s
+   471  get_loc_check 0: r
+   474  get_loc_check 1: f
+   477  get_arg1 1: n
+   478  push_i8 14
+   480  get_array_el
+   481  push_i8 17
+   483  push_i32 -1502002290
+   488  call #args=7
+   491  dup
+   492  put_loc_check 2: i
+   495  drop
+   496  get_var_ref0 0: e
+   497  get_loc_check 1: f
+   500  get_loc_check 2: i
+   503  get_loc_check 3: s
+   506  get_loc_check 0: r
+   509  get_arg1 1: n
+   510  push_i8 15
+   512  get_array_el
+   513  push_i8 22
+   515  push_i32 1236535329
+   520  call #args=7
+   523  dup
+   524  put_loc_check 1: f
+   527  drop
+   528  get_var_ref1 1: o
+   529  get_loc_check 0: r
+   532  get_loc_check 1: f
+   535  get_loc_check 2: i
+   538  get_loc_check 3: s
+   541  get_arg1 1: n
+   542  push_1 1
+   543  get_array_el
+   544  push_5 5
+   545  push_i32 -165796510
+   550  call #args=7
+   553  dup
+   554  put_loc_check 0: r
+   557  drop
+   558  get_var_ref1 1: o
+   559  get_loc_check 3: s
+   562  get_loc_check 0: r
+   565  get_loc_check 1: f
+   568  get_loc_check 2: i
+   571  get_arg1 1: n
+   572  push_6 6
+   573  get_array_el
+   574  push_i8 9
+   576  push_i32 -1069501632
+   581  call #args=7
+   584  dup
+   585  put_loc_check 3: s
+   588  drop
+   589  get_var_ref1 1: o
+   590  get_loc_check 2: i
+   593  get_loc_check 3: s
+   596  get_loc_check 0: r
+   599  get_loc_check 1: f
+   602  get_arg1 1: n
+   603  push_i8 11
+   605  get_array_el
+   606  push_i8 14
+   608  push_i32 643717713
+   613  call #args=7
+   616  dup
+   617  put_loc_check 2: i
+   620  drop
+   621  get_var_ref1 1: o
+   622  get_loc_check 1: f
+   625  get_loc_check 2: i
+   628  get_loc_check 3: s
+   631  get_loc_check 0: r
+   634  get_arg1 1: n
+   635  push_0 0
+   636  get_array_el
+   637  push_i8 20
+   639  push_i32 -373897302
+   644  call #args=7
+   647  dup
+   648  put_loc_check 1: f
+   651  drop
+   652  get_var_ref1 1: o
+   653  get_loc_check 0: r
+   656  get_loc_check 1: f
+   659  get_loc_check 2: i
+   662  get_loc_check 3: s
+   665  get_arg1 1: n
+   666  push_5 5
+   667  get_array_el
+   668  push_5 5
+   669  push_i32 -701558691
+   674  call #args=7
+   677  dup
+   678  put_loc_check 0: r
+   681  drop
+   682  get_var_ref1 1: o
+   683  get_loc_check 3: s
+   686  get_loc_check 0: r
+   689  get_loc_check 1: f
+   692  get_loc_check 2: i
+   695  get_arg1 1: n
+   696  push_i8 10
+   698  get_array_el
+   699  push_i8 9
+   701  push_i32 38016083
+   706  call #args=7
+   709  dup
+   710  put_loc_check 3: s
+   713  drop
+   714  get_var_ref1 1: o
+   715  get_loc_check 2: i
+   718  get_loc_check 3: s
+   721  get_loc_check 0: r
+   724  get_loc_check 1: f
+   727  get_arg1 1: n
+   728  push_i8 15
+   730  get_array_el
+   731  push_i8 14
+   733  push_i32 -660478335
+   738  call #args=7
+   741  dup
+   742  put_loc_check 2: i
+   745  drop
+   746  get_var_ref1 1: o
+   747  get_loc_check 1: f
+   750  get_loc_check 2: i
+   753  get_loc_check 3: s
+   756  get_loc_check 0: r
+   759  get_arg1 1: n
+   760  push_4 4
+   761  get_array_el
+   762  push_i8 20
+   764  push_i32 -405537848
+   769  call #args=7
+   772  dup
+   773  put_loc_check 1: f
+   776  drop
+   777  get_var_ref1 1: o
+   778  get_loc_check 0: r
+   781  get_loc_check 1: f
+   784  get_loc_check 2: i
+   787  get_loc_check 3: s
+   790  get_arg1 1: n
+   791  push_i8 9
+   793  get_array_el
+   794  push_5 5
+   795  push_i32 568446438
+   800  call #args=7
+   803  dup
+   804  put_loc_check 0: r
+   807  drop
+   808  get_var_ref1 1: o
+   809  get_loc_check 3: s
+   812  get_loc_check 0: r
+   815  get_loc_check 1: f
+   818  get_loc_check 2: i
+   821  get_arg1 1: n
+   822  push_i8 14
+   824  get_array_el
+   825  push_i8 9
+   827  push_i32 -1019803690
+   832  call #args=7
+   835  dup
+   836  put_loc_check 3: s
+   839  drop
+   840  get_var_ref1 1: o
+   841  get_loc_check 2: i
+   844  get_loc_check 3: s
+   847  get_loc_check 0: r
+   850  get_loc_check 1: f
+   853  get_arg1 1: n
+   854  push_3 3
+   855  get_array_el
+   856  push_i8 14
+   858  push_i32 -187363961
+   863  call #args=7
+   866  dup
+   867  put_loc_check 2: i
+   870  drop
+   871  get_var_ref1 1: o
+   872  get_loc_check 1: f
+   875  get_loc_check 2: i
+   878  get_loc_check 3: s
+   881  get_loc_check 0: r
+   884  get_arg1 1: n
+   885  push_i8 8
+   887  get_array_el
+   888  push_i8 20
+   890  push_i32 1163531501
+   895  call #args=7
+   898  dup
+   899  put_loc_check 1: f
+   902  drop
+   903  get_var_ref1 1: o
+   904  get_loc_check 0: r
+   907  get_loc_check 1: f
+   910  get_loc_check 2: i
+   913  get_loc_check 3: s
+   916  get_arg1 1: n
+   917  push_i8 13
+   919  get_array_el
+   920  push_5 5
+   921  push_i32 -1444681467
+   926  call #args=7
+   929  dup
+   930  put_loc_check 0: r
+   933  drop
+   934  get_var_ref1 1: o
+   935  get_loc_check 3: s
+   938  get_loc_check 0: r
+   941  get_loc_check 1: f
+   944  get_loc_check 2: i
+   947  get_arg1 1: n
+   948  push_2 2
+   949  get_array_el
+   950  push_i8 9
+   952  push_i32 -51403784
+   957  call #args=7
+   960  dup
+   961  put_loc_check 3: s
+   964  drop
+   965  get_var_ref1 1: o
+   966  get_loc_check 2: i
+   969  get_loc_check 3: s
+   972  get_loc_check 0: r
+   975  get_loc_check 1: f
+   978  get_arg1 1: n
+   979  push_7 7
+   980  get_array_el
+   981  push_i8 14
+   983  push_i32 1735328473
+   988  call #args=7
+   991  dup
+   992  put_loc_check 2: i
+   995  drop
+   996  get_var_ref1 1: o
+   997  get_loc_check 1: f
+  1000  get_loc_check 2: i
+  1003  get_loc_check 3: s
+  1006  get_loc_check 0: r
+  1009  get_arg1 1: n
+  1010  push_i8 12
+  1012  get_array_el
+  1013  push_i8 20
+  1015  push_i32 -1926607734
+  1020  call #args=7
+  1023  dup
+  1024  put_loc_check 1: f
+  1027  drop
+  1028  get_var_ref2 2: u
+  1029  get_loc_check 0: r
+  1032  get_loc_check 1: f
+  1035  get_loc_check 2: i
+  1038  get_loc_check 3: s
+  1041  get_arg1 1: n
+  1042  push_5 5
+  1043  get_array_el
+  1044  push_4 4
+  1045  push_i32 -378558
+  1050  call #args=7
+  1053  dup
+  1054  put_loc_check 0: r
+  1057  drop
+  1058  get_var_ref2 2: u
+  1059  get_loc_check 3: s
+  1062  get_loc_check 0: r
+  1065  get_loc_check 1: f
+  1068  get_loc_check 2: i
+  1071  get_arg1 1: n
+  1072  push_i8 8
+  1074  get_array_el
+  1075  push_i8 11
+  1077  push_i32 -2022574463
+  1082  call #args=7
+  1085  dup
+  1086  put_loc_check 3: s
+  1089  drop
+  1090  get_var_ref2 2: u
+  1091  get_loc_check 2: i
+  1094  get_loc_check 3: s
+  1097  get_loc_check 0: r
+  1100  get_loc_check 1: f
+  1103  get_arg1 1: n
+  1104  push_i8 11
+  1106  get_array_el
+  1107  push_i8 16
+  1109  push_i32 1839030562
+  1114  call #args=7
+  1117  dup
+  1118  put_loc_check 2: i
+  1121  drop
+  1122  get_var_ref2 2: u
+  1123  get_loc_check 1: f
+  1126  get_loc_check 2: i
+  1129  get_loc_check 3: s
+  1132  get_loc_check 0: r
+  1135  get_arg1 1: n
+  1136  push_i8 14
+  1138  get_array_el
+  1139  push_i8 23
+  1141  push_i32 -35309556
+  1146  call #args=7
+  1149  dup
+  1150  put_loc_check 1: f
+  1153  drop
+  1154  get_var_ref2 2: u
+  1155  get_loc_check 0: r
+  1158  get_loc_check 1: f
+  1161  get_loc_check 2: i
+  1164  get_loc_check 3: s
+  1167  get_arg1 1: n
+  1168  push_1 1
+  1169  get_array_el
+  1170  push_4 4
+  1171  push_i32 -1530992060
+  1176  call #args=7
+  1179  dup
+  1180  put_loc_check 0: r
+  1183  drop
+  1184  get_var_ref2 2: u
+  1185  get_loc_check 3: s
+  1188  get_loc_check 0: r
+  1191  get_loc_check 1: f
+  1194  get_loc_check 2: i
+  1197  get_arg1 1: n
+  1198  push_4 4
+  1199  get_array_el
+  1200  push_i8 11
+  1202  push_i32 1272893353
+  1207  call #args=7
+  1210  dup
+  1211  put_loc_check 3: s
+  1214  drop
+  1215  get_var_ref2 2: u
+  1216  get_loc_check 2: i
+  1219  get_loc_check 3: s
+  1222  get_loc_check 0: r
+  1225  get_loc_check 1: f
+  1228  get_arg1 1: n
+  1229  push_7 7
+  1230  get_array_el
+  1231  push_i8 16
+  1233  push_i32 -155497632
+  1238  call #args=7
+  1241  dup
+  1242  put_loc_check 2: i
+  1245  drop
+  1246  get_var_ref2 2: u
+  1247  get_loc_check 1: f
+  1250  get_loc_check 2: i
+  1253  get_loc_check 3: s
+  1256  get_loc_check 0: r
+  1259  get_arg1 1: n
+  1260  push_i8 10
+  1262  get_array_el
+  1263  push_i8 23
+  1265  push_i32 -1094730640
+  1270  call #args=7
+  1273  dup
+  1274  put_loc_check 1: f
+  1277  drop
+  1278  get_var_ref2 2: u
+  1279  get_loc_check 0: r
+  1282  get_loc_check 1: f
+  1285  get_loc_check 2: i
+  1288  get_loc_check 3: s
+  1291  get_arg1 1: n
+  1292  push_i8 13
+  1294  get_array_el
+  1295  push_4 4
+  1296  push_i32 681279174
+  1301  call #args=7
+  1304  dup
+  1305  put_loc_check 0: r
+  1308  drop
+  1309  get_var_ref2 2: u
+  1310  get_loc_check 3: s
+  1313  get_loc_check 0: r
+  1316  get_loc_check 1: f
+  1319  get_loc_check 2: i
+  1322  get_arg1 1: n
+  1323  push_0 0
+  1324  get_array_el
+  1325  push_i8 11
+  1327  push_i32 -358537222
+  1332  call #args=7
+  1335  dup
+  1336  put_loc_check 3: s
+  1339  drop
+  1340  get_var_ref2 2: u
+  1341  get_loc_check 2: i
+  1344  get_loc_check 3: s
+  1347  get_loc_check 0: r
+  1350  get_loc_check 1: f
+  1353  get_arg1 1: n
+  1354  push_3 3
+  1355  get_array_el
+  1356  push_i8 16
+  1358  push_i32 -722521979
+  1363  call #args=7
+  1366  dup
+  1367  put_loc_check 2: i
+  1370  drop
+  1371  get_var_ref2 2: u
+  1372  get_loc_check 1: f
+  1375  get_loc_check 2: i
+  1378  get_loc_check 3: s
+  1381  get_loc_check 0: r
+  1384  get_arg1 1: n
+  1385  push_6 6
+  1386  get_array_el
+  1387  push_i8 23
+  1389  push_i32 76029189
+  1394  call #args=7
+  1397  dup
+  1398  put_loc_check 1: f
+  1401  drop
+  1402  get_var_ref2 2: u
+  1403  get_loc_check 0: r
+  1406  get_loc_check 1: f
+  1409  get_loc_check 2: i
+  1412  get_loc_check 3: s
+  1415  get_arg1 1: n
+  1416  push_i8 9
+  1418  get_array_el
+  1419  push_4 4
+  1420  push_i32 -640364487
+  1425  call #args=7
+  1428  dup
+  1429  put_loc_check 0: r
+  1432  drop
+  1433  get_var_ref2 2: u
+  1434  get_loc_check 3: s
+  1437  get_loc_check 0: r
+  1440  get_loc_check 1: f
+  1443  get_loc_check 2: i
+  1446  get_arg1 1: n
+  1447  push_i8 12
+  1449  get_array_el
+  1450  push_i8 11
+  1452  push_i32 -421815835
+  1457  call #args=7
+  1460  dup
+  1461  put_loc_check 3: s
+  1464  drop
+  1465  get_var_ref2 2: u
+  1466  get_loc_check 2: i
+  1469  get_loc_check 3: s
+  1472  get_loc_check 0: r
+  1475  get_loc_check 1: f
+  1478  get_arg1 1: n
+  1479  push_i8 15
+  1481  get_array_el
+  1482  push_i8 16
+  1484  push_i32 530742520
+  1489  call #args=7
+  1492  dup
+  1493  put_loc_check 2: i
+  1496  drop
+  1497  get_var_ref2 2: u
+  1498  get_loc_check 1: f
+  1501  get_loc_check 2: i
+  1504  get_loc_check 3: s
+  1507  get_loc_check 0: r
+  1510  get_arg1 1: n
+  1511  push_2 2
+  1512  get_array_el
+  1513  push_i8 23
+  1515  push_i32 -995338651
+  1520  call #args=7
+  1523  dup
+  1524  put_loc_check 1: f
+  1527  drop
+  1528  get_var_ref3 3: c
+  1529  get_loc_check 0: r
+  1532  get_loc_check 1: f
+  1535  get_loc_check 2: i
+  1538  get_loc_check 3: s
+  1541  get_arg1 1: n
+  1542  push_0 0
+  1543  get_array_el
+  1544  push_6 6
+  1545  push_i32 -198630844
+  1550  call #args=7
+  1553  dup
+  1554  put_loc_check 0: r
+  1557  drop
+  1558  get_var_ref3 3: c
+  1559  get_loc_check 3: s
+  1562  get_loc_check 0: r
+  1565  get_loc_check 1: f
+  1568  get_loc_check 2: i
+  1571  get_arg1 1: n
+  1572  push_7 7
+  1573  get_array_el
+  1574  push_i8 10
+  1576  push_i32 1126891415
+  1581  call #args=7
+  1584  dup
+  1585  put_loc_check 3: s
+  1588  drop
+  1589  get_var_ref3 3: c
+  1590  get_loc_check 2: i
+  1593  get_loc_check 3: s
+  1596  get_loc_check 0: r
+  1599  get_loc_check 1: f
+  1602  get_arg1 1: n
+  1603  push_i8 14
+  1605  get_array_el
+  1606  push_i8 15
+  1608  push_i32 -1416354905
+  1613  call #args=7
+  1616  dup
+  1617  put_loc_check 2: i
+  1620  drop
+  1621  get_var_ref3 3: c
+  1622  get_loc_check 1: f
+  1625  get_loc_check 2: i
+  1628  get_loc_check 3: s
+  1631  get_loc_check 0: r
+  1634  get_arg1 1: n
+  1635  push_5 5
+  1636  get_array_el
+  1637  push_i8 21
+  1639  push_i32 -57434055
+  1644  call #args=7
+  1647  dup
+  1648  put_loc_check 1: f
+  1651  drop
+  1652  get_var_ref3 3: c
+  1653  get_loc_check 0: r
+  1656  get_loc_check 1: f
+  1659  get_loc_check 2: i
+  1662  get_loc_check 3: s
+  1665  get_arg1 1: n
+  1666  push_i8 12
+  1668  get_array_el
+  1669  push_6 6
+  1670  push_i32 1700485571
+  1675  call #args=7
+  1678  dup
+  1679  put_loc_check 0: r
+  1682  drop
+  1683  get_var_ref3 3: c
+  1684  get_loc_check 3: s
+  1687  get_loc_check 0: r
+  1690  get_loc_check 1: f
+  1693  get_loc_check 2: i
+  1696  get_arg1 1: n
+  1697  push_3 3
+  1698  get_array_el
+  1699  push_i8 10
+  1701  push_i32 -1894986606
+  1706  call #args=7
+  1709  dup
+  1710  put_loc_check 3: s
+  1713  drop
+  1714  get_var_ref3 3: c
+  1715  get_loc_check 2: i
+  1718  get_loc_check 3: s
+  1721  get_loc_check 0: r
+  1724  get_loc_check 1: f
+  1727  get_arg1 1: n
+  1728  push_i8 10
+  1730  get_array_el
+  1731  push_i8 15
+  1733  push_i32 -1051523
+  1738  call #args=7
+  1741  dup
+  1742  put_loc_check 2: i
+  1745  drop
+  1746  get_var_ref3 3: c
+  1747  get_loc_check 1: f
+  1750  get_loc_check 2: i
+  1753  get_loc_check 3: s
+  1756  get_loc_check 0: r
+  1759  get_arg1 1: n
+  1760  push_1 1
+  1761  get_array_el
+  1762  push_i8 21
+  1764  push_i32 -2054922799
+  1769  call #args=7
+  1772  dup
+  1773  put_loc_check 1: f
+  1776  drop
+  1777  get_var_ref3 3: c
+  1778  get_loc_check 0: r
+  1781  get_loc_check 1: f
+  1784  get_loc_check 2: i
+  1787  get_loc_check 3: s
+  1790  get_arg1 1: n
+  1791  push_i8 8
+  1793  get_array_el
+  1794  push_6 6
+  1795  push_i32 1873313359
+  1800  call #args=7
+  1803  dup
+  1804  put_loc_check 0: r
+  1807  drop
+  1808  get_var_ref3 3: c
+  1809  get_loc_check 3: s
+  1812  get_loc_check 0: r
+  1815  get_loc_check 1: f
+  1818  get_loc_check 2: i
+  1821  get_arg1 1: n
+  1822  push_i8 15
+  1824  get_array_el
+  1825  push_i8 10
+  1827  push_i32 -30611744
+  1832  call #args=7
+  1835  dup
+  1836  put_loc_check 3: s
+  1839  drop
+  1840  get_var_ref3 3: c
+  1841  get_loc_check 2: i
+  1844  get_loc_check 3: s
+  1847  get_loc_check 0: r
+  1850  get_loc_check 1: f
+  1853  get_arg1 1: n
+  1854  push_6 6
+  1855  get_array_el
+  1856  push_i8 15
+  1858  push_i32 -1560198380
+  1863  call #args=7
+  1866  dup
+  1867  put_loc_check 2: i
+  1870  drop
+  1871  get_var_ref3 3: c
+  1872  get_loc_check 1: f
+  1875  get_loc_check 2: i
+  1878  get_loc_check 3: s
+  1881  get_loc_check 0: r
+  1884  get_arg1 1: n
+  1885  push_i8 13
+  1887  get_array_el
+  1888  push_i8 21
+  1890  push_i32 1309151649
+  1895  call #args=7
+  1898  dup
+  1899  put_loc_check 1: f
+  1902  drop
+  1903  get_var_ref3 3: c
+  1904  get_loc_check 0: r
+  1907  get_loc_check 1: f
+  1910  get_loc_check 2: i
+  1913  get_loc_check 3: s
+  1916  get_arg1 1: n
+  1917  push_4 4
+  1918  get_array_el
+  1919  push_6 6
+  1920  push_i32 -145523070
+  1925  call #args=7
+  1928  dup
+  1929  put_loc_check 0: r
+  1932  drop
+  1933  get_var_ref3 3: c
+  1934  get_loc_check 3: s
+  1937  get_loc_check 0: r
+  1940  get_loc_check 1: f
+  1943  get_loc_check 2: i
+  1946  get_arg1 1: n
+  1947  push_i8 11
+  1949  get_array_el
+  1950  push_i8 10
+  1952  push_i32 -1120210379
+  1957  call #args=7
+  1960  dup
+  1961  put_loc_check 3: s
+  1964  drop
+  1965  get_var_ref3 3: c
+  1966  get_loc_check 2: i
+  1969  get_loc_check 3: s
+  1972  get_loc_check 0: r
+  1975  get_loc_check 1: f
+  1978  get_arg1 1: n
+  1979  push_2 2
+  1980  get_array_el
+  1981  push_i8 15
+  1983  push_i32 718787259
+  1988  call #args=7
+  1991  dup
+  1992  put_loc_check 2: i
+  1995  drop
+  1996  get_var_ref3 3: c
+  1997  get_loc_check 1: f
+  2000  get_loc_check 2: i
+  2003  get_loc_check 3: s
+  2006  get_loc_check 0: r
+  2009  get_arg1 1: n
+  2010  push_i8 9
+  2012  get_array_el
+  2013  push_i8 21
+  2015  push_i32 -343485551
+  2020  call #args=7
+  2023  dup
+  2024  put_loc_check 1: f
+  2027  drop
+  2028  get_arg0 0: t
+  2029  push_0 0
+  2030  to_propkey2
+  2031  get_var_ref 4: h
+  2034  get_loc_check 0: r
+  2037  get_arg0 0: t
+  2038  push_0 0
+  2039  get_array_el
+  2040  call2 #args=2
+  2041  put_array_el
+  2042  get_arg0 0: t
+  2043  push_1 1
+  2044  to_propkey2
+  2045  get_var_ref 4: h
+  2048  get_loc_check 1: f
+  2051  get_arg0 0: t
+  2052  push_1 1
+  2053  get_array_el
+  2054  call2 #args=2
+  2055  put_array_el
+  2056  get_arg0 0: t
+  2057  push_2 2
+  2058  to_propkey2
+  2059  get_var_ref 4: h
+  2062  get_loc_check 2: i
+  2065  get_arg0 0: t
+  2066  push_2 2
+  2067  get_array_el
+  2068  call2 #args=2
+  2069  put_array_el
+  2070  get_arg0 0: t
+  2071  push_3 3
+  2072  to_propkey2
+  2073  get_var_ref 4: h
+  2076  get_loc_check 3: s
+  2079  get_arg0 0: t
+  2080  push_3 3
+  2081  get_array_el
+  2082  call2 #args=2
+  2083  put_array_el
+  2084  return_undef
+
+-- fn name=r args=6 vars=0 closure=1 cpool=0 bc=32B file=coreutils/src/md5
+   locals: t, n, r, e, o, u
+   closure: h
+     0  get_var_ref0 0: h
+     1  get_var_ref0 0: h
+     2  get_arg1 1: n
+     3  get_arg0 0: t
+     4  call2 #args=2
+     5  get_var_ref0 0: h
+     6  get_arg3 3: e
+     7  get_arg 5: u
+    10  call2 #args=2
+    11  call2 #args=2
+    12  put_arg1 1: n
+    13  get_var_ref0 0: h
+    14  get_arg1 1: n
+    15  get_arg 4: o
+    18  shl
+    19  get_arg1 1: n
+    20  push_i8 32
+    22  get_arg 4: o
+    25  sub
+    26  shr
+    27  or
+    28  get_arg2 2: r
+    29  tail_call #args=2
+
+-- fn name=e args=7 vars=0 closure=1 cpool=0 bc=23B file=coreutils/src/md5
+   locals: t, n, e, o, u, c, f
+   closure: r
+     0  get_var_ref0 0: r
+     1  get_arg1 1: n
+     2  get_arg2 2: e
+     3  and
+     4  get_arg1 1: n
+     5  not
+     6  get_arg3 3: o
+     7  and
+     8  or
+     9  get_arg0 0: t
+    10  get_arg1 1: n
+    11  get_arg 4: u
+    14  get_arg 5: c
+    17  get_arg 6: f
+    20  tail_call #args=6
+
+-- fn name=o args=7 vars=0 closure=1 cpool=0 bc=23B file=coreutils/src/md5
+   locals: t, n, e, o, u, c, f
+   closure: r
+     0  get_var_ref0 0: r
+     1  get_arg1 1: n
+     2  get_arg3 3: o
+     3  and
+     4  get_arg2 2: e
+     5  get_arg3 3: o
+     6  not
+     7  and
+     8  or
+     9  get_arg0 0: t
+    10  get_arg1 1: n
+    11  get_arg 4: u
+    14  get_arg 5: c
+    17  get_arg 6: f
+    20  tail_call #args=6
+
+-- fn name=u args=7 vars=0 closure=1 cpool=0 bc=20B file=coreutils/src/md5
+   locals: t, n, e, o, u, c, f
+   closure: r
+     0  get_var_ref0 0: r
+     1  get_arg1 1: n
+     2  get_arg2 2: e
+     3  xor
+     4  get_arg3 3: o
+     5  xor
+     6  get_arg0 0: t
+     7  get_arg1 1: n
+     8  get_arg 4: u
+    11  get_arg 5: c
+    14  get_arg 6: f
+    17  tail_call #args=6
+
+-- fn name=c args=7 vars=0 closure=1 cpool=0 bc=21B file=coreutils/src/md5
+   locals: t, n, e, o, u, c, f
+   closure: r
+     0  get_var_ref0 0: r
+     1  get_arg2 2: e
+     2  get_arg1 1: n
+     3  get_arg3 3: o
+     4  not
+     5  or
+     6  xor
+     7  get_arg0 0: t
+     8  get_arg1 1: n
+     9  get_arg 4: u
+    12  get_arg 5: c
+    15  get_arg 6: f
+    18  tail_call #args=6
+
+-- fn name=f args=1 vars=4 closure=2 cpool=0 bc=371B file=coreutils/src/md5
+   locals: t, r, e, o, u
+   closure: n, i
+     0  set_loc_uninitialized 3: u
+     3  set_loc_uninitialized 2: o
+     6  set_loc_uninitialized 1: e
+     9  set_loc_uninitialized 0: r
+    12  get_arg0 0: t
+    13  get_length
+    14  put_loc0 0: r
+    15  push_i32 1732584193
+    20  push_i32 -271733879
+    25  push_i32 -1732584194
+    30  push_i32 271733878
+    35  array_from #args=4
+    38  put_loc1 1: e
+    39  push_0 0
+    40  put_loc2 2: o
+    41  push_i8 64
+    43  dup
+    44  put_loc_check 2: o
+    47  drop
+L   48  get_loc_check 2: o
+    51  get_arg0 0: t
+    52  get_length
+    53  lte
+    54  if_false8 -> 007b
+    56  get_var_ref0 0: n
+    57  get_loc_check 1: e
+    60  get_var_ref1 1: i
+    61  get_arg0 0: t
+    62  get_field2 substring
+    95  get_loc_check 2: o
+    98  push_i8 64
+   100  sub
+   101  get_loc_check 2: o
+   104  call_method #args=2
+   107  call1 #args=1
+   108  call2 #args=2
+   109  drop
+   110  get_loc_check 2: o
+   113  push_i8 64
+   115  add
+   116  dup
+   117  put_loc_check 2: o
+   120  drop
+   121  goto8 -> 0030
+L  123  get_arg0 0: t
+   124  get_field2 substring
+   157  get_loc_check 2: o
+   160  push_i8 64
+   162  sub
+   163  call_method #args=1
+   166  put_arg0 0: t
+   167  push_0 0
+   168  push_0 0
+   169  push_0 0
+   170  push_0 0
+   171  push_0 0
+   172  push_0 0
+   173  push_0 0
+   174  push_0 0
+   175  push_0 0
+   176  push_0 0
+   177  push_0 0
+   178  push_0 0
+   179  push_0 0
+   180  push_0 0
+   181  push_0 0
+   182  push_0 0
+   183  array_from #args=16
+   186  put_loc3 3: u
+   187  push_0 0
+   188  dup
+   189  put_loc_check 2: o
+   192  drop
+L  193  get_loc_check 2: o
+   196  get_arg0 0: t
+   197  get_length
+   198  lt
+   199  if_false8 -> 0110
+   201  get_loc_check 3: u
+   204  get_loc_check 2: o
+   207  push_2 2
+   208  sar
+   209  to_propkey2
+   210  dup2
+   211  get_array_el
+   212  get_arg0 0: t
+   213  get_field2 charCodeAt
+   246  get_loc_check 2: o
+   249  call_method #args=1
+   252  get_loc_check 2: o
+   255  push_4 4
+   256  mod
+   257  push_3 3
+   258  shl
+   259  shl
+   260  or
+   261  put_array_el
+   262  get_loc_check 2: o
+   265  post_inc
+   266  put_loc_check 2: o
+   269  drop
+   270  goto8 -> 00c1
+L  272  get_loc_check 3: u
+   275  get_loc_check 2: o
+   278  push_2 2
+   279  sar
+   280  to_propkey2
+   281  dup2
+   282  get_array_el
+   283  push_i16 128
+   286  get_loc_check 2: o
+   289  push_4 4
+   290  mod
+   291  push_3 3
+   292  shl
+   293  shl
+   294  or
+   295  put_array_el
+   296  get_loc_check 2: o
+   299  push_i8 55
+   301  gt
+   302  if_false8 -> 0159
+   304  get_var_ref0 0: n
+   305  get_loc_check 1: e
+   308  get_loc_check 3: u
+   311  call2 #args=2
+   312  drop
+   313  push_0 0
+   314  dup
+   315  put_loc_check 2: o
+   318  drop
+L  319  get_loc_check 2: o
+   322  push_i8 16
+   324  lt
+   325  if_false8 -> 0159
+   327  get_loc_check 3: u
+   330  get_loc_check 2: o
+   333  push_0 0
+   334  put_array_el
+   335  get_loc_check 2: o
+   338  post_inc
+   339  put_loc_check 2: o
+   342  drop
+   343  goto8 -> 013f
+L  345  get_loc_check 3: u
+   348  push_i8 14
+   350  to_propkey2
+   351  push_i8 8
+   353  get_loc_check 0: r
+   356  mul
+   357  put_array_el
+   358  get_var_ref0 0: n
+   359  get_loc_check 1: e
+   362  get_loc_check 3: u
+   365  call2 #args=2
+   366  drop
+   367  get_loc_check 1: e
+   370  return
+
+-- fn name=i args=1 vars=2 closure=0 cpool=0 bc=228B file=coreutils/src/md5
+   locals: t, n, r
+     0  set_loc_uninitialized 0: n
+     3  array_from #args=0
+     6  put_loc0 0: n
+     7  set_loc_uninitialized 1: r
+    10  push_0 0
+    11  put_loc1 1: r
+L   12  get_loc_check 1: r
+    15  push_i8 64
+    17  lt
+    18  if_false -> 00e0
+    23  get_loc_check 0: n
+    26  get_loc_check 1: r
+    29  push_2 2
+    30  sar
+    31  to_propkey2
+    32  get_arg0 0: t
+    33  get_field2 charCodeAt
+    66  get_loc_check 1: r
+    69  call_method #args=1
+    72  get_arg0 0: t
+    73  get_field2 charCodeAt
+   106  get_loc_check 1: r
+   109  push_1 1
+   110  add
+   111  call_method #args=1
+   114  push_i8 8
+   116  shl
+   117  add
+   118  get_arg0 0: t
+   119  get_field2 charCodeAt
+   152  get_loc_check 1: r
+   155  push_2 2
+   156  add
+   157  call_method #args=1
+   160  push_i8 16
+   162  shl
+   163  add
+   164  get_arg0 0: t
+   165  get_field2 charCodeAt
+   198  get_loc_check 1: r
+   201  push_3 3
+   202  add
+   203  call_method #args=1
+   206  push_i8 24
+   208  shl
+   209  add
+   210  put_array_el
+   211  get_loc_check 1: r
+   214  push_4 4
+   215  add
+   216  dup
+   217  put_loc_check 1: r
+   220  drop
+   221  goto16 -> 000c
+L  224  get_loc_check 0: n
+   227  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=0 bc=7B file=coreutils/src/md5
+   locals: t
+   closure: d, f
+     0  get_var_ref0 0: d
+     1  get_var_ref1 1: f
+     2  get_arg0 0: t
+     3  call1 #args=1
+     4  tail_call #args=1
+
+-- fn name=<atom:0> args=1 vars=0 closure=2 cpool=1 bc=13B file=coreutils/src/md5
+   locals: t
+   closure: d, f
+     0  get_arg0 0: t
+     1  fclosure8 0: <function <atom:0>>
+     3  put_field hash  ;+4B
+    12  return_undef
+
+-- fn name=l args=1 vars=2 closure=1 cpool=0 bc=73B file=coreutils/src/md5
+   locals: t, n, r
+   closure: s
+     0  set_loc_uninitialized 1: r
+     3  set_loc_uninitialized 0: n
+     6  push_empty_string
+     7  put_loc0 0: n
+     8  push_0 0
+     9  put_loc1 1: r
+L   10  get_loc_check 1: r
+    13  push_4 4
+    14  lt
+    15  if_false8 -> 0045
+    17  get_loc_check 0: n
+    20  get_var_ref_check 0: s
+    23  get_arg0 0: t
+    24  push_i8 8
+    26  get_loc_check 1: r
+    29  mul
+    30  push_4 4
+    31  add
+    32  sar
+    33  push_i8 15
+    35  and
+    36  get_array_el
+    37  get_var_ref_check 0: s
+    40  get_arg0 0: t
+    41  push_i8 8
+    43  get_loc_check 1: r
+    46  mul
+    47  sar
+    48  push_i8 15
+    50  and
+    51  get_array_el
+    52  add
+    53  add
+    54  dup
+    55  put_loc_check 0: n
+    58  drop
+    59  get_loc_check 1: r
+    62  post_inc
+    63  put_loc_check 1: r
+    66  drop
+    67  goto8 -> 000a
+L   69  get_loc_check 0: n
+    72  return
+
+-- fn name=d args=1 vars=1 closure=1 cpool=0 bc=74B file=coreutils/src/md5
+   locals: t, n
+   closure: l
+     0  set_loc_uninitialized 0: n
+     3  push_0 0
+     4  put_loc0 0: n
+L    5  get_loc_check 0: n
+     8  get_arg0 0: t
+     9  get_length
+    10  lt
+    11  if_false8 -> 0024
+    13  get_arg0 0: t
+    14  get_loc_check 0: n
+    17  to_propkey2
+    18  get_var_ref0 0: l
+    19  get_arg0 0: t
+    20  get_loc_check 0: n
+    23  get_array_el
+    24  call1 #args=1
+    25  put_array_el
+    26  get_loc_check 0: n
+    29  post_inc
+    30  put_loc_check 0: n
+    33  drop
+    34  goto8 -> 0005
+L   36  get_arg0 0: t
+    37  get_field2 join
+    70  push_empty_string
+    71  tail_call_method #args=1
+
+-- fn name=h args=2 vars=0 closure=0 cpool=1 bc=7B file=coreutils/src/md5
+   locals: t, n
+     0  get_arg0 0: t
+     1  get_arg1 1: n
+     2  add
+     3  push_const8 0: <float64 None>
+     5  and
+     6  return
+
+-- fn name=<atom:0> args=3 vars=13 closure=0 cpool=12 bc=178B file=coreutils/src/md5
+   locals: require, module, exports, t, n, r, e, o, u, c, f, i, s, l, d, h
+     0  fclosure8 0: <function n>
+     2  put_loc1 1: n
+     3  fclosure8 1: <function r>
+     5  put_loc2 2: r
+     6  fclosure8 2: <function e>
+     8  put_loc3 3: e
+     9  fclosure8 3: <function o>
+    11  put_loc8 4: o
+    13  fclosure8 4: <function u>
+    15  put_loc8 5: u
+    17  fclosure8 5: <function c>
+    19  put_loc8 6: c
+    21  fclosure8 6: <function f>
+    23  put_loc8 7: f
+    25  fclosure8 7: <function i>
+    27  put_loc8 8: i
+    29  fclosure8 9: <function l>
+    31  put_loc8 10: l
+    33  fclosure8 10: <function d>
+    35  put_loc8 11: d
+    37  fclosure8 11: <function h>
+    39  put_loc8 12: h
+    41  set_loc_uninitialized 9: s
+    44  get_var Object
+    49  get_field2 defineProperty
+    82  get_arg2 2: exports
+    83  push_atom_value __esModule
+    88  object
+    89  push_0 0
+    90  lnot
+    91  define_field value
+    96  call_method #args=3
+    99  drop
+   100  get_arg2 2: exports
+   101  undefined
+   102  put_field md5
+   111  fclosure8 8: <function <atom:0>>
+   113  get_loc0 0: t
+   114  dup
+   115  if_true8 -> 0083
+   117  drop
+   118  get_arg2 2: exports
+   119  object
+   120  set_loc0 0: t
+   121  insert2
+   122  put_field md5
+L  131  call1 #args=1
+   132  drop
+   133  push_atom_value 0123456789abcdef
+   138  get_field2 split
+   171  push_empty_string
+   172  call_method #args=1
+   175  put_loc8 9: s
+   177  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/md5
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/url.js  (1745 B)
+# 原子基准=215 原子表 26 条
+-- 原子表 --
+   [0]coreutils/src/url | [1]require | [2]module | [3]exports | [4]e | [5]r | [6]t | [7]o | [8]n | [9]s | [10]__esModule | [11]encodeQueryParams | [12]decodeQueryParams | [13]pathWithParams | [14]paramsFromUrl | [15]hostnameFromUrl | [16]keys | [17]filter | [18]map | [19]& | [20]encodeURIComponent | [21]= | [22]reduce | [23]decodeURIComponent | [24]? | [25]match
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=6B file=coreutils/src/url
+   locals: r
+   closure: e
+     0  undefined
+     1  get_var_ref0 0: e
+     2  get_arg0 0: r
+     3  get_array_el
+     4  strict_neq
+     5  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=1 cpool=0 bc=89B file=coreutils/src/url
+   locals: r
+   closure: e
+     0  get_arg0 0: r
+     1  get_var_ref0 0: e
+     2  get_arg0 0: r
+     3  get_array_el
+     4  array_from #args=2
+     7  get_field2 map  ;+28B
+    40  get_var encodeURIComponent
+    45  call_method #args=1
+    48  get_field2 join
+    81  push_atom_value =
+    86  tail_call_method #args=1
+
+-- fn name=e args=1 vars=0 closure=0 cpool=2 bc=159B file=coreutils/src/url
+   locals: e
+     0  get_var Object
+     5  get_field2 keys  ;+28B
+    38  get_arg0 0: e
+    39  call_method #args=1
+    42  get_field2 filter
+    75  fclosure8 0: <function <atom:0>>
+    77  call_method #args=1
+    80  get_field2 map
+   113  fclosure8 1: <function <atom:0>>
+   115  call_method #args=1
+   118  get_field2 join
+   151  push_atom_value &
+   156  tail_call_method #args=1
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=2B file=coreutils/src/url
+   locals: e
+     0  get_arg0 0: e
+     1  return
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=83B file=coreutils/src/url
+   locals: e
+     0  get_arg0 0: e
+     1  get_field2 split  ;+28B
+    34  push_atom_value =
+    39  call_method #args=1
+    42  get_field2 map
+    75  get_var decodeURIComponent
+    80  tail_call_method #args=1
+
+-- fn name=<atom:0> args=2 vars=0 closure=0 cpool=0 bc=20B file=coreutils/src/url
+   locals: e, r
+     0  get_arg0 0: e
+     1  get_arg1 1: r
+     2  push_0 0
+     3  get_array_el
+     4  to_propkey2
+     5  get_arg1 1: r
+     6  get_length
+     7  push_1 1
+     8  gt
+     9  if_false8 -> 0010
+    11  get_arg1 1: r
+    12  push_1 1
+    13  get_array_el
+    14  goto8 -> 0011
+L   16  undefined
+L   17  put_array_el
+    18  get_arg0 0: e
+    19  return
+
+-- fn name=r args=1 vars=0 closure=0 cpool=3 bc=157B file=coreutils/src/url
+   locals: e
+     0  get_arg0 0: e
+     1  get_field2 split  ;+28B
+    34  push_atom_value &
+    39  call_method #args=1
+    42  get_field2 filter
+    75  fclosure8 0: <function <atom:0>>
+    77  call_method #args=1
+    80  get_field2 map
+   113  fclosure8 1: <function <atom:0>>
+   115  call_method #args=1
+   118  get_field2 reduce
+   151  fclosure8 2: <function <atom:0>>
+   153  object
+   154  tail_call_method #args=2
+
+-- fn name=t args=2 vars=0 closure=1 cpool=0 bc=48B file=coreutils/src/url
+   locals: r, t
+   closure: e
+     0  get_arg0 0: r
+     1  get_var_ref0 0: e
+     2  get_arg1 1: t
+     3  call1 #args=1
+     4  array_from #args=2
+     7  get_field2 join  ;+28B
+    40  push_atom_value ?
+    45  tail_call_method #args=1
+
+-- fn name=o args=1 vars=1 closure=1 cpool=0 bc=70B file=coreutils/src/url
+   locals: e, t
+   closure: r
+     0  set_loc_uninitialized 0: t
+     3  get_arg0 0: e
+     4  lnot
+     5  if_false8 -> 0009
+     7  object
+     8  return
+L    9  get_arg0 0: e
+    10  get_field2 split  ;+28B
+    43  push_atom_value ?
+    48  call_method #args=1
+    51  put_loc0 0: t
+    52  get_loc_check 0: t
+    55  get_length
+    56  push_1 1
+    57  lte
+    58  if_false8 -> 003e
+    60  object
+    61  return
+L   62  get_var_ref0 0: r
+    63  get_loc_check 0: t
+    66  push_1 1
+    67  get_array_el
+    68  call1 #args=1
+    69  return
+
+-- fn name=n args=1 vars=0 closure=0 cpool=2 bc=42B file=coreutils/src/url
+   locals: e
+     0  get_arg0 0: e
+     1  get_field2 match  ;+28B
+    34  push_const8 0: <string None>
+    36  push_const8 1: <string None>
+    38  regexp
+    39  tail_call_method #args=1
+
+-- fn name=s args=1 vars=1 closure=1 cpool=0 bc=25B file=coreutils/src/url
+   locals: e, r
+   closure: n
+     0  set_loc_uninitialized 0: r
+     3  get_var_ref0 0: n
+     4  get_arg0 0: e
+     5  call1 #args=1
+     6  put_loc0 0: r
+     7  get_loc_check 0: r
+    10  dup
+    11  if_false8 -> 0013
+    13  drop
+    14  get_loc_check 0: r
+    17  push_1 1
+    18  get_array_el
+L   19  dup
+    20  if_true8 -> 0018
+    22  drop
+    23  push_empty_string
+L   24  return
+
+-- fn name=<atom:0> args=3 vars=6 closure=0 cpool=6 bc=188B file=coreutils/src/url
+   locals: require, module, exports, e, r, t, o, n, s
+     0  fclosure8 0: <function e>
+     2  put_loc0 0: e
+     3  fclosure8 1: <function r>
+     5  put_loc1 1: r
+     6  fclosure8 2: <function t>
+     8  put_loc2 2: t
+     9  fclosure8 3: <function o>
+    11  put_loc3 3: o
+    12  fclosure8 4: <function n>
+    14  put_loc8 4: n
+    16  fclosure8 5: <function s>
+    18  put_loc8 5: s
+    20  get_var Object
+    25  get_field2 defineProperty  ;+28B
+    58  get_arg2 2: exports
+    59  push_atom_value __esModule
+    64  object
+    65  push_0 0
+    66  lnot
+    67  define_field value
+    72  call_method #args=3
+    75  drop
+    76  get_arg2 2: exports
+    77  get_arg2 2: exports
+    78  get_arg2 2: exports
+    79  get_arg2 2: exports
+    80  get_arg2 2: exports
+    81  undefined
+    82  insert2
+    83  put_field encodeQueryParams
+    92  insert2
+    93  put_field decodeQueryParams
+   102  insert2
+   103  put_field pathWithParams
+   112  insert2
+   113  put_field paramsFromUrl
+   122  put_field hostnameFromUrl
+   131  get_arg2 2: exports
+   132  get_loc0 0: e
+   133  put_field encodeQueryParams
+   142  get_arg2 2: exports
+   143  get_loc1 1: r
+   144  put_field decodeQueryParams
+   153  get_arg2 2: exports
+   154  get_loc2 2: t
+   155  put_field pathWithParams
+   164  get_arg2 2: exports
+   165  get_loc3 3: o
+   166  put_field paramsFromUrl
+   175  get_arg2 2: exports
+   176  get_loc8 5: s
+   178  put_field hostnameFromUrl
+   187  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/url
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/uuidUtils.js  (1456 B)
+# 原子基准=215 原子表 21 条
+-- 原子表 --
+   [0]coreutils/src/uuidUtils | [1]require | [2]module | [3]exports | [4]t | [5]r | [6]e | [7]i | [8]__esModule | [9]uuidStringToBytes | [10]uuidStringToBytesList | [11]uuidBytesToString | [12]uuidBytesToStringList | [13]trim | [14]replace | [15]match | [16]map | [17]parseInt | [18]$1-$2-$3-$4-$5 | [19]00 | [20]slice
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=11B file=coreutils/src/uuidUtils
+   locals: t
+     0  get_var parseInt
+     5  get_arg0 0: t
+     6  push_i8 16
+     8  tail_call #args=2
+
+-- fn name=t args=1 vars=1 closure=0 cpool=5 bc=221B file=coreutils/src/uuidUtils
+   locals: t, r
+     0  set_loc_uninitialized 0: r
+     3  get_arg0 0: t
+     4  get_field2 trim  ;+28B
+    37  call_method #args=0
+    40  get_field2 replace
+    73  push_const8 0: <string None>
+    75  push_const8 1: <string None>
+    77  regexp
+    78  push_empty_string
+    79  call_method #args=2
+    82  get_field2 match
+   115  push_const8 2: <string None>
+   117  push_const8 3: <string None>
+   119  regexp
+   120  call_method #args=1
+   123  dup
+   124  if_true8 -> 0082
+   126  drop
+   127  array_from #args=0
+L  130  get_field2 map
+   163  fclosure8 4: <function <atom:0>>
+   165  call_method #args=1
+   168  put_loc0 0: r
+   169  get_var Uint8Array
+   174  get_field2 of
+   207  array_from #args=0
+   210  push_0 0
+   211  get_loc_check 0: r
+   214  append
+   215  drop
+   216  perm3
+   217  apply 0
+   220  return
+
+-- fn name=r args=1 vars=0 closure=1 cpool=0 bc=38B file=coreutils/src/uuidUtils
+   locals: r
+   closure: t
+     0  get_arg0 0: r
+     1  get_field2 map  ;+28B
+    34  get_var_ref0 0: t
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=83B file=coreutils/src/uuidUtils
+   locals: t
+     0  push_atom_value 00
+     5  get_arg0 0: t
+     6  get_field2 toString  ;+28B
+    39  push_i8 16
+    41  call_method #args=1
+    44  add
+    45  get_field2 slice
+    78  push_i8 -2
+    80  tail_call_method #args=1
+
+-- fn name=e args=1 vars=0 closure=0 cpool=3 bc=163B file=coreutils/src/uuidUtils
+   locals: t
+     0  get_var Array
+     5  get_field2 from  ;+28B
+    38  get_arg0 0: t
+    39  call_method #args=1
+    42  get_field2 map
+    75  fclosure8 0: <function <atom:0>>
+    77  call_method #args=1
+    80  get_field2 join
+   113  push_empty_string
+   114  call_method #args=1
+   117  get_field2 replace
+   150  push_const8 1: <string None>
+   152  push_const8 2: <string None>
+   154  regexp
+   155  push_atom_value $1-$2-$3-$4-$5
+   160  tail_call_method #args=2
+
+-- fn name=i args=1 vars=0 closure=1 cpool=0 bc=38B file=coreutils/src/uuidUtils
+   locals: t
+   closure: e
+     0  get_arg0 0: t
+     1  get_field2 map  ;+28B
+    34  get_var_ref0 0: e
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=3 vars=4 closure=0 cpool=4 bc=157B file=coreutils/src/uuidUtils
+   locals: require, module, exports, t, r, e, i
+     0  fclosure8 0: <function t>
+     2  put_loc0 0: t
+     3  fclosure8 1: <function r>
+     5  put_loc1 1: r
+     6  fclosure8 2: <function e>
+     8  put_loc2 2: e
+     9  fclosure8 3: <function i>
+    11  put_loc3 3: i
+    12  get_var Object
+    17  get_field2 defineProperty  ;+28B
+    50  get_arg2 2: exports
+    51  push_atom_value __esModule
+    56  object
+    57  push_0 0
+    58  lnot
+    59  define_field value
+    64  call_method #args=3
+    67  drop
+    68  get_arg2 2: exports
+    69  get_arg2 2: exports
+    70  get_arg2 2: exports
+    71  get_arg2 2: exports
+    72  undefined
+    73  insert2
+    74  put_field uuidStringToBytes
+    83  insert2
+    84  put_field uuidStringToBytesList
+    93  insert2
+    94  put_field uuidBytesToString
+   103  put_field uuidBytesToStringList
+   112  get_arg2 2: exports
+   113  get_loc0 0: t
+   114  put_field uuidStringToBytes
+   123  get_arg2 2: exports
+   124  get_loc1 1: r
+   125  put_field uuidStringToBytesList
+   134  get_arg2 2: exports
+   135  get_loc2 2: e
+   136  put_field uuidBytesToString
+   145  get_arg2 2: exports
+   146  get_loc3 3: i
+   147  put_field uuidBytesToStringList
+   156  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/uuidUtils
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/unicode/TextCoding.js  (1645 B)
+# 原子基准=215 原子表 29 条
+-- 原子表 --
+   [0]coreutils/src/unicode/TextCoding | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]r | [7]TextDecoder | [8]TextEncoder | [9]__esModule | [10]./UnicodeNative | [11]encoding | [12]fatal | [13]ignoreBOM | [14]decode | [15]encode | [16]encodeInto | [17]utf-8 | [18]utf8 | [19]utf-16 | [20]utf16 | [21]utf-32 | [22]utf32 | [23]Unsupported text encoding ' | [24]' | [25]_encoding | [26]decodeIntoString | [27]encodeString | [28]TextEncoder.encodeInto requires a Uint8Array
+
+-- fn name=t args=1 vars=0 closure=0 cpool=0 bc=123B file=coreutils/src/unicode/TextCoding
+   locals: e
+     0  push_atom_value utf-8
+     5  get_arg0 0: e
+     6  strict_eq
+     7  dup
+     8  if_true8 -> 0012
+    10  drop
+    11  push_atom_value utf8
+    16  get_arg0 0: e
+    17  eq
+L   18  if_false8 -> 0016
+    20  push_1 1
+    21  return
+L   22  push_atom_value utf-16
+    27  get_arg0 0: e
+    28  strict_eq
+    29  dup
+    30  if_true8 -> 0028
+    32  drop
+    33  push_atom_value utf16
+    38  get_arg0 0: e
+    39  eq
+L   40  if_false8 -> 002c
+    42  push_2 2
+    43  return
+L   44  push_atom_value utf-32
+    49  get_arg0 0: e
+    50  strict_eq
+    51  dup
+    52  if_true8 -> 003e
+    54  drop
+    55  push_atom_value utf32
+    60  get_arg0 0: e
+    61  eq
+L   62  if_false8 -> 0042
+    64  push_3 3
+    65  return
+L   66  get_var Error
+    71  dup
+    72  push_atom_value Unsupported text encoding '
+    77  get_field2 concat
+   110  get_arg0 0: e
+   111  push_atom_value '
+   116  call_method #args=2
+   119  call_constructor #args=1
+   122  throw
+
+-- fn name=r args=1 vars=0 closure=0 cpool=0 bc=35B file=coreutils/src/unicode/TextCoding
+   locals: e
+     0  get_arg0 0: e
+     1  dup
+     2  push_1 1
+     3  strict_eq
+     4  if_false8 -> 000c
+     6  push_atom_value utf-8
+    11  return
+L   12  dup
+    13  push_2 2
+    14  strict_eq
+    15  if_false8 -> 0017
+    17  push_atom_value utf-16
+    22  return
+L   23  dup
+    24  push_3 3
+    25  strict_eq
+    26  if_false8 -> 0022
+    28  push_atom_value utf-32
+    33  return
+L   34  return_undef
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=40B file=coreutils/src/unicode/TextCoding
+   locals: this
+   closure: r
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref0 0: r
+     3  get_loc0 0: this
+     4  get_field _encoding  ;+28B
+    37  tail_call #args=1
+
+-- fn name=<atom:0> args=0 vars=0 closure=0 cpool=0 bc=3B file=coreutils/src/unicode/TextCoding
+     0  push_1 1
+     1  lnot
+     2  return
+
+-- fn name=<atom:0> args=0 vars=0 closure=0 cpool=0 bc=3B file=coreutils/src/unicode/TextCoding
+     0  push_1 1
+     1  lnot
+     2  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=2 cpool=0 bc=35B file=coreutils/src/unicode/TextCoding
+   locals: e, this
+   closure: <class_fields_init>, t
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: e
+    17  if_false8 -> 0018
+    19  get_var_ref1 1: t
+    20  get_arg0 0: e
+    21  call1 #args=1
+    22  goto8 -> 0019
+L   24  push_1 1
+L   25  put_field _encoding
+    34  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=76B file=coreutils/src/unicode/TextCoding
+   locals: t, this
+   closure: e
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: e
+     5  get_field decodeIntoString  ;+28B
+    38  get_arg0 0: t
+    39  get_loc0 0: this
+    40  get_field _encoding
+    73  tail_call #args=2
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=40B file=coreutils/src/unicode/TextCoding
+   locals: this
+   closure: r
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref0 0: r
+     3  get_loc0 0: this
+     4  get_field _encoding  ;+28B
+    37  tail_call #args=1
+
+-- fn name=<atom:0> args=1 vars=1 closure=2 cpool=0 bc=35B file=coreutils/src/unicode/TextCoding
+   locals: e, this
+   closure: <class_fields_init>, t
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  drop
+    15  get_loc0 0: this
+    16  get_arg0 0: e
+    17  if_false8 -> 0018
+    19  get_var_ref1 1: t
+    20  get_arg0 0: e
+    21  call1 #args=1
+    22  goto8 -> 0019
+L   24  push_1 1
+L   25  put_field _encoding
+    34  return_undef
+
+-- fn name=<atom:0> args=1 vars=1 closure=1 cpool=0 bc=92B file=coreutils/src/unicode/TextCoding
+   locals: t, this
+   closure: e
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var Uint8Array
+     7  dup
+     8  get_var_ref_check 0: e
+    11  get_field encodeString  ;+28B
+    44  undefined
+    45  get_arg0 0: t
+    46  strict_eq
+    47  if_false8 -> 0034
+    49  push_empty_string
+    50  goto8 -> 0035
+L   52  get_arg0 0: t
+L   53  get_loc0 0: this
+    54  get_field _encoding
+    87  call2 #args=2
+    88  call_constructor #args=1
+    91  return
+
+-- fn name=<atom:0> args=2 vars=1 closure=1 cpool=0 bc=102B file=coreutils/src/unicode/TextCoding
+   locals: t, r, this
+   closure: e
+     0  push_this
+     1  put_loc0 0: this
+     2  get_arg1 1: r
+     3  get_var Uint8Array
+     8  instanceof
+     9  lnot
+    10  if_false8 -> 001b
+    12  get_var TypeError
+    17  dup
+    18  push_atom_value TextEncoder.encodeInto requires a Uint8Array
+    23  call_constructor #args=1
+    26  throw
+L   27  get_var_ref_check 0: e
+    30  get_field encodeInto
+    63  get_arg0 0: t
+    64  get_arg1 1: r
+    65  get_loc0 0: this
+    66  get_field _encoding
+    99  tail_call #args=3
+
+-- fn name=<atom:0> args=3 vars=9 closure=0 cpool=11 bc=235B file=coreutils/src/unicode/TextCoding
+   locals: require, module, exports, e, t, r, TextDecoder, <class_fields_init>, TextDecoder, TextEncoder, <class_fields_init>, TextEncoder
+     0  fclosure8 0: <function t>
+     2  put_loc1 1: t
+     3  fclosure8 1: <function r>
+     5  put_loc2 2: r
+     6  set_loc_uninitialized 8: TextEncoder
+     9  set_loc_uninitialized 5: TextDecoder
+    12  set_loc_uninitialized 0: e
+    15  get_var Object
+    20  get_field2 defineProperty  ;+28B
+    53  get_arg2 2: exports
+    54  push_atom_value __esModule
+    59  object
+    60  push_0 0
+    61  lnot
+    62  define_field value
+    67  call_method #args=3
+    70  drop
+    71  get_arg2 2: exports
+    72  get_arg2 2: exports
+    73  undefined
+    74  insert2
+    75  put_field TextDecoder
+    84  put_field TextEncoder
+    93  get_arg0 0: require
+    94  push_atom_value ./UnicodeNative
+    99  call1 #args=1
+   100  put_loc0 0: e
+   101  set_loc_uninitialized 3: TextDecoder
+   104  undefined
+   105  set_loc_uninitialized 4: <class_fields_init>
+   108  push_const8 5: <function <atom:0>>
+   110  define_class TextDecoder,0
+   116  fclosure8 2: <function <atom:0>>
+   118  define_method encoding,1
+   124  fclosure8 3: <function <atom:0>>
+   126  define_method fatal,1
+   132  fclosure8 4: <function <atom:0>>
+   134  define_method ignoreBOM,1
+   140  fclosure8 6: <function <atom:0>>
+   142  define_method decode,0
+   148  undefined
+   149  put_loc8 4: <class_fields_init>
+   151  drop
+   152  set_loc3 3: TextDecoder
+   153  close_loc 4: <class_fields_init>
+   156  put_loc8 5: TextDecoder
+   158  get_arg2 2: exports
+   159  get_loc_check 5: TextDecoder
+   162  put_field TextDecoder
+   171  set_loc_uninitialized 6: TextEncoder
+   174  undefined
+   175  set_loc_uninitialized 7: <class_fields_init>
+   178  push_const8 8: <function <atom:0>>
+   180  define_class TextEncoder,0
+   186  fclosure8 7: <function <atom:0>>
+   188  define_method encoding,1
+   194  fclosure8 9: <function <atom:0>>
+   196  define_method encode,0
+   202  fclosure8 10: <function <atom:0>>
+   204  define_method encodeInto,0
+   210  undefined
+   211  put_loc8 7: <class_fields_init>
+   213  drop
+   214  set_loc8 6: TextEncoder
+   216  close_loc 7: <class_fields_init>
+   219  put_loc8 8: TextEncoder
+   221  get_arg2 2: exports
+   222  get_loc_check 8: TextEncoder
+   225  put_field TextEncoder
+   234  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/unicode/TextCoding
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/unicode/UnicodeString.js  (7006 B)
+# 原子基准=215 原子表 60 条
+-- 原子表 --
+   [0]coreutils/src/unicode/UnicodeString | [1]require | [2]module | [3]exports | [4]t | [5]UnicodeStringBase | [6]e | [7]UnicodeString | [8]MutableUnicodeString | [9]__esModule | [10]./UnicodeNative | [11]isEmojiAt | [12]isLetterAt | [13]isNumber | [14]isPunctuationAt | [15]isSeparatorAt | [16]isSurrogateAt | [17]isModifierSymbolAt | [18]isFormatAt | [19]isControlAt | [20]isNewlineAt | [21]isWhitespaceAt | [22]isFromGraphemeClusterAt | [23]isVisibleAt | [24]countGraphemeClusters | [25]getCodepointAt | [26]getFlagsAt | [27]toMutable | [28]fromString | [29]fromCodepoints | [30]space | [31]trim | [32]trimLeft | [33]trimRight | [34]removeAt | [35]removeRange | [36]removeCount | [37]insertAt | [38]filterGraphemeClusters | [39]replaceGraphemeClusters | [40]splitBy | [41]splitByWhitespace | [42]copy | [43]toUnicodeString | [44]i | [45]str | [46]buffer | [47]s | [48]push | [49]r | [50]n | [51]strToCodepoints | [52]codepointsToStr | [53]  | [54]codepoints | [55]shift | [56]pop | [57]Invalid range  | [58] to  | [59]splice
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=49B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i32 1073741824
+     7  get_loc0 0: this
+     8  get_field2 getFlagsAt  ;+28B
+    41  get_arg0 0: t
+    42  call_method #args=1
+    45  and
+    46  lnot
+    47  lnot
+    48  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=47B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i16 992
+     5  get_loc0 0: this
+     6  get_field2 getFlagsAt  ;+28B
+    39  get_arg0 0: t
+    40  call_method #args=1
+    43  and
+    44  lnot
+    45  lnot
+    46  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=49B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i32 57344
+     7  get_loc0 0: this
+     8  get_field2 getFlagsAt  ;+28B
+    41  get_arg0 0: t
+    42  call_method #args=1
+    45  and
+    46  lnot
+    47  lnot
+    48  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=49B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i32 8323072
+     7  get_loc0 0: this
+     8  get_field2 getFlagsAt  ;+28B
+    41  get_arg0 0: t
+    42  call_method #args=1
+    45  and
+    46  lnot
+    47  lnot
+    48  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=49B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i32 939524096
+     7  get_loc0 0: this
+     8  get_field2 getFlagsAt  ;+28B
+    41  get_arg0 0: t
+    42  call_method #args=1
+    45  and
+    46  lnot
+    47  lnot
+    48  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=46B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i8 16
+     4  get_loc0 0: this
+     5  get_field2 getFlagsAt  ;+28B
+    38  get_arg0 0: t
+    39  call_method #args=1
+    42  and
+    43  lnot
+    44  lnot
+    45  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=49B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i32 16777216
+     7  get_loc0 0: this
+     8  get_field2 getFlagsAt  ;+28B
+    41  get_arg0 0: t
+    42  call_method #args=1
+    45  and
+    46  lnot
+    47  lnot
+    48  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=45B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_2 2
+     3  get_loc0 0: this
+     4  get_field2 getFlagsAt  ;+28B
+    37  get_arg0 0: t
+    38  call_method #args=1
+    41  and
+    42  lnot
+    43  lnot
+    44  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=45B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_1 1
+     3  get_loc0 0: this
+     4  get_field2 getFlagsAt  ;+28B
+    37  get_arg0 0: t
+    38  call_method #args=1
+    41  and
+    42  lnot
+    43  lnot
+    44  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=44B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i8 10
+     4  get_loc0 0: this
+     5  get_field2 getCodepointAt  ;+28B
+    38  get_arg0 0: t
+    39  call_method #args=1
+    42  eq
+    43  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=83B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 isSeparatorAt  ;+28B
+    36  get_arg0 0: t
+    37  call_method #args=1
+    40  dup
+    41  if_true8 -> 0052
+    43  drop
+    44  get_loc0 0: this
+    45  get_field2 isNewlineAt
+    78  get_arg0 0: t
+    79  call_method #args=1
+L   82  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=1 bc=47B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_const8 0: <float64 None>
+     4  neg
+     5  get_loc0 0: this
+     6  get_field2 getFlagsAt  ;+28B
+    39  get_arg0 0: t
+    40  call_method #args=1
+    43  and
+    44  lnot
+    45  lnot
+    46  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=49B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  push_i32 1073734624
+     7  get_loc0 0: this
+     8  get_field2 getFlagsAt  ;+28B
+    41  get_arg0 0: t
+    42  call_method #args=1
+    45  and
+    46  lnot
+    47  lnot
+    48  return
+
+-- fn name=<atom:0> args=0 vars=4 closure=0 cpool=0 bc=93B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, i, this
+     0  push_this
+     1  put_loc3 3: this
+     2  set_loc_uninitialized 1: e
+     5  set_loc_uninitialized 0: t
+     8  get_loc3 3: this
+     9  get_length
+    10  put_loc0 0: t
+    11  push_0 0
+    12  put_loc1 1: e
+    13  set_loc_uninitialized 2: i
+    16  push_0 0
+    17  put_loc2 2: i
+L   18  get_loc_check 2: i
+    21  get_loc_check 0: t
+    24  lt
+    25  if_false8 -> 0059
+    27  get_loc3 3: this
+    28  get_field2 isFromGraphemeClusterAt
+    61  get_loc_check 2: i
+    64  call_method #args=1
+    67  dup
+    68  if_true8 -> 004e
+    70  drop
+    71  get_loc_check 1: e
+    74  post_inc
+    75  put_loc_check 1: e
+L   78  drop
+    79  get_loc_check 2: i
+    82  post_inc
+    83  put_loc_check 2: i
+    86  drop
+    87  goto8 -> 0012
+L   89  get_loc_check 1: e
+    92  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=15B file=coreutils/src/unicode/UnicodeString
+   locals: this
+   closure: <class_fields_init>
+     0  push_this
+     1  put_loc0 0: this
+     2  check_ctor
+     3  get_var_ref_check 0: <class_fields_init>
+     6  dup
+     7  if_false8 -> 000e
+     9  get_loc0 0: this
+    10  swap
+    11  call_method #args=0
+L   14  return_undef
+
+-- fn name=<atom:0> args=2 vars=3 closure=1 cpool=0 bc=81B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, this.active_func, new.target, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 2: this
+     9  check_ctor
+    10  get_loc0 0: this.active_func
+    11  get_super
+    12  get_loc1 1: new.target
+    13  call_constructor #args=0
+    16  dup
+    17  put_loc_check_init 2: this
+    20  get_var_ref_check 0: <class_fields_init>
+    23  dup
+    24  if_false8 -> 0021
+    26  get_loc_check 2: this
+    29  swap
+    30  call_method #args=0
+L   33  drop
+    34  drop
+    35  get_loc_check 2: this
+    38  get_arg0 0: t
+    39  put_field str
+    48  get_loc_check 2: this
+    51  get_arg1 1: e
+    52  get_length
+    53  push_2 2
+    54  div
+    55  put_field length
+    64  get_loc_check 2: this
+    67  get_arg1 1: e
+    68  put_field buffer
+    77  get_loc_check 2: this
+    80  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=39B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field buffer  ;+28B
+    36  get_arg0 0: t
+    37  get_array_el
+    38  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=42B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field buffer  ;+28B
+    36  get_loc0 0: this
+    37  get_length
+    38  get_arg0 0: t
+    39  add
+    40  get_array_el
+    41  return
+
+-- fn name=<atom:0> args=0 vars=5 closure=1 cpool=0 bc=228B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, i, s, this
+   closure: MutableUnicodeString
+     0  push_this
+     1  put_loc8 4: this
+     3  set_loc_uninitialized 1: e
+     6  set_loc_uninitialized 0: t
+     9  array_from #args=0
+    12  put_loc0 0: t
+    13  array_from #args=0
+    16  put_loc1 1: e
+    17  set_loc_uninitialized 3: s
+    20  set_loc_uninitialized 2: i
+    23  push_0 0
+    24  put_loc2 2: i
+    25  get_loc8 4: this
+    27  get_length
+    28  put_loc3 3: s
+L   29  get_loc_check 2: i
+    32  get_loc_check 3: s
+    35  lt
+    36  if_false -> 00d6
+    41  get_loc_check 0: t
+    44  get_field2 push
+    77  get_loc8 4: this
+    79  get_field2 getCodepointAt
+   112  get_loc_check 2: i
+   115  call_method #args=1
+   118  call_method #args=1
+   121  drop
+   122  get_loc_check 1: e
+   125  get_field2 push
+   158  get_loc8 4: this
+   160  get_field2 getFlagsAt
+   193  get_loc_check 2: i
+   196  call_method #args=1
+   199  call_method #args=1
+   202  drop
+   203  get_loc_check 2: i
+   206  post_inc
+   207  put_loc_check 2: i
+   210  drop
+   211  goto16 -> 001d
+L  214  get_var_ref_check 0: MutableUnicodeString
+   217  dup
+   218  get_loc_check 0: t
+   221  get_loc_check 1: e
+   224  call_constructor #args=2
+   227  return
+
+-- fn name=<atom:0> args=2 vars=5 closure=2 cpool=0 bc=105B file=coreutils/src/unicode/UnicodeString
+   locals: e, i, e, i, s, r, n
+   closure: t, UnicodeString
+     0  set_loc_uninitialized 1: i
+     3  set_loc_uninitialized 0: e
+     6  get_arg0 0: e
+     7  put_loc0 0: e
+     8  get_arg1 1: i
+     9  dup
+    10  is_undefined
+    11  if_false8 -> 0010
+    13  drop
+    14  push_0 0
+    15  set_arg1 1: i
+L   16  put_loc1 1: i
+    17  set_loc_uninitialized 4: n
+    20  set_loc_uninitialized 3: r
+    23  set_loc_uninitialized 2: s
+    26  push_1 1
+    27  get_arg1 1: i
+    28  and
+    29  lnot
+    30  lnot
+    31  put_loc2 2: s
+    32  push_2 2
+    33  get_arg1 1: i
+    34  and
+    35  lnot
+    36  lnot
+    37  put_loc3 3: r
+    38  get_var_ref_check 0: t
+    41  get_field strToCodepoints
+    74  get_arg0 0: e
+    75  get_loc_check 2: s
+    78  get_loc_check 3: r
+    81  call3 #args=3
+    82  put_loc8 4: n
+    84  get_var_ref_check 1: UnicodeString
+    87  dup
+    88  get_arg0 0: e
+    89  get_var Uint32Array
+    94  dup
+    95  get_loc_check 4: n
+    98  call_constructor #args=1
+   101  call_constructor #args=2
+   104  return
+
+-- fn name=<atom:0> args=2 vars=5 closure=2 cpool=0 bc=173B file=coreutils/src/unicode/UnicodeString
+   locals: e, i, e, i, s, r, n
+   closure: t, UnicodeString
+     0  set_loc_uninitialized 1: i
+     3  set_loc_uninitialized 0: e
+     6  get_arg0 0: e
+     7  put_loc0 0: e
+     8  get_arg1 1: i
+     9  dup
+    10  is_undefined
+    11  if_false8 -> 0010
+    13  drop
+    14  push_0 0
+    15  set_arg1 1: i
+L   16  put_loc1 1: i
+    17  set_loc_uninitialized 4: n
+    20  set_loc_uninitialized 3: r
+    23  set_loc_uninitialized 2: s
+    26  push_1 1
+    27  get_arg1 1: i
+    28  and
+    29  lnot
+    30  lnot
+    31  put_loc2 2: s
+    32  push_2 2
+    33  get_arg1 1: i
+    34  and
+    35  lnot
+    36  lnot
+    37  put_loc3 3: r
+    38  get_var_ref_check 0: t
+    41  get_field codepointsToStr
+    74  get_arg0 0: e
+    75  get_loc_check 2: s
+    78  get_loc_check 3: r
+    81  call3 #args=3
+    82  put_loc8 4: n
+    84  get_var_ref_check 1: UnicodeString
+    87  dup
+    88  get_loc_check 4: n
+    91  get_field str
+   124  get_var Uint32Array
+   129  dup
+   130  get_loc_check 4: n
+   133  get_field buffer
+   166  call_constructor #args=1
+   169  call_constructor #args=2
+   172  return
+
+-- fn name=<atom:0> args=0 vars=0 closure=2 cpool=0 bc=60B file=coreutils/src/unicode/UnicodeString
+   closure: e, UnicodeString
+     0  get_var_ref_check 0: e
+     3  dup
+     4  if_true8 -> 0037
+     6  drop
+     7  get_var_ref_check 1: UnicodeString
+    10  get_field2 fromString  ;+28B
+    43  push_atom_value  
+    48  call_method #args=1
+    51  dup
+    52  put_var_ref_check 0: e
+L   55  drop
+    56  get_var_ref_check 0: e
+    59  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=38B file=coreutils/src/unicode/UnicodeString
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field codepoints  ;+28B
+    36  get_length
+    37  return
+
+-- fn name=<atom:0> args=2 vars=3 closure=1 cpool=0 bc=65B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, this.active_func, new.target, this
+   closure: <class_fields_init>
+     0  special_object 2
+     2  put_loc0 0: this.active_func
+     3  special_object 3
+     5  put_loc1 1: new.target
+     6  set_loc_uninitialized 2: this
+     9  check_ctor
+    10  get_loc0 0: this.active_func
+    11  get_super
+    12  get_loc1 1: new.target
+    13  call_constructor #args=0
+    16  dup
+    17  put_loc_check_init 2: this
+    20  get_var_ref_check 0: <class_fields_init>
+    23  dup
+    24  if_false8 -> 0021
+    26  get_loc_check 2: this
+    29  swap
+    30  call_method #args=0
+L   33  drop
+    34  drop
+    35  get_loc_check 2: this
+    38  get_arg0 0: t
+    39  put_field codepoints
+    48  get_loc_check 2: this
+    51  get_arg1 1: e
+    52  put_field flags
+    61  get_loc_check 2: this
+    64  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=39B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field codepoints  ;+28B
+    36  get_arg0 0: t
+    37  get_array_el
+    38  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=39B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field flags  ;+28B
+    36  get_arg0 0: t
+    37  get_array_el
+    38  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=75B file=coreutils/src/unicode/UnicodeString
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 trimRight  ;+28B
+    36  call_method #args=0
+    39  get_field2 trimLeft
+    72  tail_call_method #args=0
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=0 bc=201B file=coreutils/src/unicode/UnicodeString
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+L    2  get_loc0 0: this
+     3  get_length
+     4  push_0 0
+     5  gt
+     6  if_false -> 00c7
+    11  get_loc0 0: this
+    12  get_field2 isWhitespaceAt  ;+28B
+    45  push_0 0
+    46  call_method #args=1
+    49  if_false -> 00c7
+    54  get_loc0 0: this
+    55  get_field codepoints
+    88  get_field2 shift
+   121  call_method #args=0
+   124  drop
+   125  get_loc0 0: this
+   126  get_field flags
+   159  get_field2 shift
+   192  call_method #args=0
+   195  drop
+   196  goto16 -> 0002
+L  199  get_loc0 0: this
+   200  return
+
+-- fn name=<atom:0> args=0 vars=2 closure=0 cpool=0 bc=212B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc1 1: this
+L    2  set_loc_uninitialized 0: t
+     5  get_loc1 1: this
+     6  get_length
+     7  push_1 1
+     8  sub
+     9  put_loc0 0: t
+    10  get_loc_check 0: t
+    13  push_0 0
+    14  lt
+    15  dup
+    16  if_true8 -> 003c
+    18  drop
+    19  get_loc1 1: this
+    20  get_field2 isWhitespaceAt  ;+28B
+    53  get_loc_check 0: t
+    56  call_method #args=1
+    59  lnot
+L   60  if_true -> 00d2
+    65  get_loc1 1: this
+    66  get_field codepoints
+    99  get_field2 pop
+   132  call_method #args=0
+   135  drop
+   136  get_loc1 1: this
+   137  get_field flags
+   170  get_field2 pop
+   203  call_method #args=0
+   206  drop
+   207  goto16 -> 0002
+L  210  get_loc1 1: this
+   211  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=0 bc=41B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 removeCount  ;+28B
+    36  get_arg0 0: t
+    37  push_1 1
+    38  tail_call_method #args=2
+
+-- fn name=<atom:0> args=2 vars=1 closure=0 cpool=0 bc=106B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_arg1 1: e
+     3  get_arg0 0: t
+     4  lt
+     5  if_false8 -> 0041
+     7  get_var Error
+    12  dup
+    13  push_atom_value Invalid range 
+    18  get_field2 concat  ;+28B
+    51  get_arg0 0: t
+    52  push_atom_value  to 
+    57  get_arg1 1: e
+    58  call_method #args=3
+    61  call_constructor #args=1
+    64  throw
+L   65  get_loc0 0: this
+    66  get_field2 removeCount
+    99  get_arg0 0: t
+   100  get_arg1 1: e
+   101  get_arg0 0: t
+   102  sub
+   103  tail_call_method #args=2
+
+-- fn name=<atom:0> args=2 vars=1 closure=0 cpool=0 bc=150B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field codepoints  ;+28B
+    36  get_field2 splice
+    69  get_arg0 0: t
+    70  get_arg1 1: e
+    71  call_method #args=2
+    74  drop
+    75  get_loc0 0: this
+    76  get_field flags
+   109  get_field2 splice
+   142  get_arg0 0: t
+   143  get_arg1 1: e
+   144  call_method #args=2
+   147  drop
+   148  get_loc0 0: this
+   149  return
+
+-- fn name=<atom:0> args=3 vars=1 closure=0 cpool=0 bc=152B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, i, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field codepoints  ;+28B
+    36  get_field2 splice
+    69  get_arg0 0: t
+    70  push_0 0
+    71  get_arg1 1: e
+    72  call_method #args=3
+    75  drop
+    76  get_loc0 0: this
+    77  get_field flags
+   110  get_field2 splice
+   143  get_arg0 0: t
+   144  push_0 0
+   145  get_arg2 2: i
+   146  call_method #args=3
+   149  drop
+   150  get_loc0 0: this
+   151  return
+
+-- fn name=<atom:0> args=3 vars=0 closure=1 cpool=0 bc=7B file=coreutils/src/unicode/UnicodeString
+   locals: e, i, s
+   closure: t
+     0  get_var_ref0 0: t
+     1  get_arg0 0: e
+     2  get_arg1 1: i
+     3  get_arg2 2: s
+     4  call3 #args=3
+     5  lnot
+     6  return
+
+-- fn name=<atom:0> args=1 vars=1 closure=0 cpool=1 bc=42B file=coreutils/src/unicode/UnicodeString
+   locals: t, this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 replaceGraphemeClusters  ;+28B
+    36  fclosure8 0: <function <atom:0>>
+    38  undefined
+    39  tail_call_method #args=2
+
+-- fn name=<atom:0> args=2 vars=8 closure=0 cpool=0 bc=604B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, i, s, r, t, i, t, i, this
+     0  push_this
+     1  put_loc8 7: this
+     3  set_loc_uninitialized 1: s
+     6  set_loc_uninitialized 0: i
+     9  push_minus1 -1
+    10  put_loc0 0: i
+    11  push_0 0
+    12  put_loc1 1: s
+L   13  get_loc_check 1: s
+    16  get_loc8 7: this
+    18  get_length
+    19  lt
+    20  if_false -> 0163
+    25  get_loc8 7: this
+    27  get_field2 isFromGraphemeClusterAt  ;+28B
+    60  get_loc_check 1: s
+    63  call_method #args=1
+    66  lnot
+    67  if_false -> 0158
+    72  get_loc_check 0: i
+    75  push_0 0
+    76  gte
+    77  if_false -> 0150
+    82  set_loc_uninitialized 2: r
+    85  get_loc_check 1: s
+    88  put_loc2 2: r
+    89  get_arg0 0: t
+    90  get_loc8 7: this
+    92  get_loc_check 0: i
+    95  get_loc_check 2: r
+    98  call3 #args=3
+    99  if_false -> 0150
+   104  set_loc_uninitialized 3: t
+   107  get_loc_check 2: r
+   110  get_loc_check 0: i
+   113  sub
+   114  put_loc3 3: t
+   115  get_loc8 7: this
+   117  get_field2 removeCount
+   150  get_loc_check 0: i
+   153  get_loc_check 3: t
+   156  call_method #args=2
+   159  drop
+   160  get_loc_check 1: s
+   163  get_loc_check 3: t
+   166  sub
+   167  dup
+   168  put_loc_check 1: s
+   171  drop
+   172  get_arg1 1: e
+   173  if_false -> 0150
+   178  set_loc_uninitialized 4: i
+   181  push_0 0
+   182  put_loc8 4: i
+L  184  get_loc_check 4: i
+   187  get_arg1 1: e
+   188  get_length
+   189  lt
+   190  if_false -> 0150
+   195  get_loc8 7: this
+   197  get_field2 insertAt
+   230  get_loc_check 1: s
+   233  get_arg1 1: e
+   234  get_field2 getCodepointAt
+   267  get_loc_check 4: i
+   270  call_method #args=1
+   273  get_arg1 1: e
+   274  get_field2 getFlagsAt
+   307  get_loc_check 4: i
+   310  call_method #args=1
+   313  call_method #args=3
+   316  drop
+   317  get_loc_check 1: s
+   320  post_inc
+   321  put_loc_check 1: s
+   324  drop
+   325  get_loc_check 4: i
+   328  post_inc
+   329  put_loc_check 4: i
+   332  drop
+   333  goto16 -> 00b8
+L  336  get_loc_check 1: s
+   339  dup
+   340  put_loc_check 0: i
+   343  drop
+L  344  get_loc_check 1: s
+   347  post_inc
+   348  put_loc_check 1: s
+   351  drop
+   352  goto16 -> 000d
+L  355  get_loc_check 0: i
+   358  push_0 0
+   359  gte
+   360  if_false -> 0259
+   365  get_arg0 0: t
+   366  get_loc8 7: this
+   368  get_loc_check 0: i
+   371  get_loc_check 1: s
+   374  call3 #args=3
+   375  if_false -> 0259
+   380  set_loc_uninitialized 5: t
+   383  get_loc_check 1: s
+   386  get_loc_check 0: i
+   389  sub
+   390  put_loc8 5: t
+   392  get_loc8 7: this
+   394  get_field2 removeCount
+   427  get_loc_check 0: i
+   430  get_loc_check 5: t
+   433  call_method #args=2
+   436  drop
+   437  get_arg1 1: e
+   438  if_false -> 0259
+   443  set_loc_uninitialized 6: i
+   446  push_0 0
+   447  put_loc8 6: i
+L  449  get_loc_check 6: i
+   452  get_arg1 1: e
+   453  get_length
+   454  lt
+   455  if_false -> 0259
+   460  get_loc8 7: this
+   462  get_field2 insertAt
+   495  get_loc_check 1: s
+   498  get_arg1 1: e
+   499  get_field2 getCodepointAt
+   532  get_loc_check 6: i
+   535  call_method #args=1
+   538  get_arg1 1: e
+   539  get_field2 getFlagsAt
+   572  get_loc_check 6: i
+   575  call_method #args=1
+   578  call_method #args=3
+   581  drop
+   582  get_loc_check 1: s
+   585  post_inc
+   586  put_loc_check 1: s
+   589  drop
+   590  get_loc_check 6: i
+   593  post_inc
+   594  put_loc_check 6: i
+   597  drop
+   598  goto16 -> 01c1
+L  601  get_loc8 7: this
+   603  return
+
+-- fn name=<atom:0> args=1 vars=5 closure=1 cpool=0 bc=381B file=coreutils/src/unicode/UnicodeString
+   locals: t, e, i, s, r, this
+   closure: MutableUnicodeString
+     0  push_this
+     1  put_loc8 4: this
+     3  set_loc_uninitialized 2: s
+     6  set_loc_uninitialized 1: i
+     9  set_loc_uninitialized 0: e
+    12  array_from #args=0
+    15  put_loc0 0: e
+    16  array_from #args=0
+    19  put_loc1 1: i
+    20  array_from #args=0
+    23  put_loc2 2: s
+    24  set_loc_uninitialized 3: r
+    27  push_0 0
+    28  put_loc3 3: r
+L   29  get_loc_check 3: r
+    32  get_loc8 4: this
+    34  get_length
+    35  lt
+    36  if_false -> 0144
+    41  get_arg0 0: t
+    42  get_loc8 4: this
+    44  get_loc_check 3: r
+    47  call2 #args=2
+    48  if_false8 -> 0079
+    50  get_loc_check 0: e
+    53  get_field2 push
+    86  get_var_ref_check 0: MutableUnicodeString
+    89  dup
+    90  get_loc_check 1: i
+    93  get_loc_check 2: s
+    96  call_constructor #args=2
+    99  call_method #args=1
+   102  drop
+   103  array_from #args=0
+   106  dup
+   107  put_loc_check 1: i
+   110  drop
+   111  array_from #args=0
+   114  dup
+   115  put_loc_check 2: s
+   118  goto16 -> 0138
+L  121  get_loc_check 1: i
+   124  dup
+   125  if_true8 -> 0087
+   127  drop
+   128  array_from #args=0
+   131  dup
+   132  put_loc_check 1: i
+L  135  drop
+   136  get_loc_check 2: s
+   139  dup
+   140  if_true8 -> 0096
+   142  drop
+   143  array_from #args=0
+   146  dup
+   147  put_loc_check 2: s
+L  150  drop
+   151  get_loc_check 1: i
+   154  get_field2 push
+   187  get_loc8 4: this
+   189  get_field2 getCodepointAt
+   222  get_loc_check 3: r
+   225  call_method #args=1
+   228  call_method #args=1
+   231  drop
+   232  get_loc_check 2: s
+   235  get_field2 push
+   268  get_loc8 4: this
+   270  get_field2 getFlagsAt
+   303  get_loc_check 3: r
+   306  call_method #args=1
+   309  call_method #args=1
+L  312  drop
+   313  get_loc_check 3: r
+   316  post_inc
+   317  put_loc_check 3: r
+   320  drop
+   321  goto16 -> 001d
+L  324  get_loc_check 0: e
+   327  get_field2 push
+   360  get_var_ref_check 0: MutableUnicodeString
+   363  dup
+   364  get_loc_check 1: i
+   367  get_loc_check 2: s
+   370  call_constructor #args=2
+   373  call_method #args=1
+   376  drop
+   377  get_loc_check 0: e
+   380  return
+
+-- fn name=<atom:0> args=2 vars=0 closure=0 cpool=0 bc=38B file=coreutils/src/unicode/UnicodeString
+   locals: t, e
+     0  get_arg0 0: t
+     1  get_field2 isWhitespaceAt  ;+28B
+    34  get_arg1 1: e
+    35  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=1 closure=0 cpool=1 bc=41B file=coreutils/src/unicode/UnicodeString
+   locals: this
+     0  push_this
+     1  put_loc0 0: this
+     2  get_loc0 0: this
+     3  get_field2 splitBy  ;+28B
+    36  fclosure8 0: <function <atom:0>>
+    38  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=90B file=coreutils/src/unicode/UnicodeString
+   locals: this
+   closure: MutableUnicodeString
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: MutableUnicodeString
+     5  dup
+     6  array_from #args=0
+     9  push_0 0
+    10  get_loc0 0: this
+    11  get_field codepoints  ;+28B
+    44  append
+    45  drop
+    46  array_from #args=0
+    49  push_0 0
+    50  get_loc0 0: this
+    51  get_field flags
+    84  append
+    85  drop
+    86  call_constructor #args=2
+    89  return
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=75B file=coreutils/src/unicode/UnicodeString
+   locals: this
+   closure: UnicodeString
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: UnicodeString
+     5  get_field2 fromCodepoints  ;+28B
+    38  get_loc0 0: this
+    39  get_field codepoints
+    72  tail_call_method #args=1
+
+-- fn name=<atom:0> args=0 vars=1 closure=1 cpool=0 bc=111B file=coreutils/src/unicode/UnicodeString
+   locals: this
+   closure: t
+     0  push_this
+     1  put_loc0 0: this
+     2  get_var_ref_check 0: t
+     5  get_field codepointsToStr  ;+28B
+    38  get_loc0 0: this
+    39  get_field codepoints
+    72  push_1 1
+    73  lnot
+    74  push_0 0
+    75  lnot
+    76  call3 #args=3
+    77  get_field str
+   110  return
+
+-- fn name=<atom:0> args=3 vars=11 closure=0 cpool=40 bc=518B file=coreutils/src/unicode/UnicodeString
+   locals: require, module, exports, t, UnicodeStringBase, <class_fields_init>, UnicodeStringBase, e, UnicodeString, <class_fields_init>, UnicodeString, MutableUnicodeString, <class_fields_init>, MutableUnicodeString
+     0  set_loc_uninitialized 10: MutableUnicodeString
+     3  set_loc_uninitialized 7: UnicodeString
+     6  set_loc_uninitialized 4: e
+     9  set_loc_uninitialized 3: UnicodeStringBase
+    12  set_loc_uninitialized 0: t
+    15  get_var Object
+    20  get_field2 defineProperty  ;+28B
+    53  get_arg2 2: exports
+    54  push_atom_value __esModule
+    59  object
+    60  push_0 0
+    61  lnot
+    62  define_field value
+    67  call_method #args=3
+    70  drop
+    71  get_arg2 2: exports
+    72  get_arg2 2: exports
+    73  undefined
+    74  insert2
+    75  put_field UnicodeString
+    84  put_field MutableUnicodeString
+    93  get_arg0 0: require
+    94  push_atom_value ./UnicodeNative
+    99  call1 #args=1
+   100  put_loc0 0: t
+   101  set_loc_uninitialized 1: UnicodeStringBase
+   104  undefined
+   105  set_loc_uninitialized 2: <class_fields_init>
+   108  push_const8 14: <function <atom:0>>
+   110  define_class UnicodeStringBase,0
+   116  fclosure8 0: <function <atom:0>>
+   118  define_method isEmojiAt,0
+   124  fclosure8 1: <function <atom:0>>
+   126  define_method isLetterAt,0
+   132  fclosure8 2: <function <atom:0>>
+   134  define_method isNumber,0
+   140  fclosure8 3: <function <atom:0>>
+   142  define_method isPunctuationAt,0
+   148  fclosure8 4: <function <atom:0>>
+   150  define_method isSeparatorAt,0
+   156  fclosure8 5: <function <atom:0>>
+   158  define_method isSurrogateAt,0
+   164  fclosure8 6: <function <atom:0>>
+   166  define_method isModifierSymbolAt,0
+   172  fclosure8 7: <function <atom:0>>
+   174  define_method isFormatAt,0
+   180  fclosure8 8: <function <atom:0>>
+   182  define_method isControlAt,0
+   188  fclosure8 9: <function <atom:0>>
+   190  define_method isNewlineAt,0
+   196  fclosure8 10: <function <atom:0>>
+   198  define_method isWhitespaceAt,0
+   204  fclosure8 11: <function <atom:0>>
+   206  define_method isFromGraphemeClusterAt,0
+   212  fclosure8 12: <function <atom:0>>
+   214  define_method isVisibleAt,0
+   220  fclosure8 13: <function <atom:0>>
+   222  define_method countGraphemeClusters,0
+   228  undefined
+   229  put_loc2 2: <class_fields_init>
+   230  drop
+   231  set_loc1 1: UnicodeStringBase
+   232  close_loc 2: <class_fields_init>
+   235  put_loc3 3: UnicodeStringBase
+   236  undefined
+   237  put_loc8 4: e
+   239  set_loc_uninitialized 5: UnicodeString
+   242  get_loc_check 3: UnicodeStringBase
+   245  set_loc_uninitialized 6: <class_fields_init>
+   248  push_const8 15: <function <atom:0>>
+   250  define_class UnicodeString,1
+   256  fclosure8 16: <function <atom:0>>
+   258  define_method getCodepointAt,0
+   264  fclosure8 17: <function <atom:0>>
+   266  define_method getFlagsAt,0
+   272  fclosure8 18: <function <atom:0>>
+   274  define_method toMutable,0
+   280  swap
+   281  fclosure8 19: <function <atom:0>>
+   283  define_method fromString,0
+   289  swap
+   290  swap
+   291  fclosure8 20: <function <atom:0>>
+   293  define_method fromCodepoints,0
+   299  swap
+   300  swap
+   301  fclosure8 21: <function <atom:0>>
+   303  define_method space,0
+   309  swap
+   310  undefined
+   311  put_loc8 6: <class_fields_init>
+   313  drop
+   314  set_loc8 5: UnicodeString
+   316  close_loc 6: <class_fields_init>
+   319  close_loc 5: UnicodeString
+   322  put_loc8 7: UnicodeString
+   324  get_arg2 2: exports
+   325  get_loc_check 7: UnicodeString
+   328  put_field UnicodeString
+   337  set_loc_uninitialized 8: MutableUnicodeString
+   340  get_loc_check 3: UnicodeStringBase
+   343  set_loc_uninitialized 9: <class_fields_init>
+   346  push_const8 23: <function <atom:0>>
+   348  define_class MutableUnicodeString,1
+   354  fclosure8 22: <function <atom:0>>
+   356  define_method length,1
+   362  fclosure8 24: <function <atom:0>>
+   364  define_method getCodepointAt,0
+   370  fclosure8 25: <function <atom:0>>
+   372  define_method getFlagsAt,0
+   378  fclosure8 26: <function <atom:0>>
+   380  define_method trim,0
+   386  fclosure8 27: <function <atom:0>>
+   388  define_method trimLeft,0
+   394  fclosure8 28: <function <atom:0>>
+   396  define_method trimRight,0
+   402  fclosure8 29: <function <atom:0>>
+   404  define_method removeAt,0
+   410  fclosure8 30: <function <atom:0>>
+   412  define_method removeRange,0
+   418  fclosure8 31: <function <atom:0>>
+   420  define_method removeCount,0
+   426  fclosure8 32: <function <atom:0>>
+   428  define_method insertAt,0
+   434  fclosure8 33: <function <atom:0>>
+   436  define_method filterGraphemeClusters,0
+   442  fclosure8 34: <function <atom:0>>
+   444  define_method replaceGraphemeClusters,0
+   450  fclosure8 35: <function <atom:0>>
+   452  define_method splitBy,0
+   458  fclosure8 36: <function <atom:0>>
+   460  define_method splitByWhitespace,0
+   466  fclosure8 37: <function <atom:0>>
+   468  define_method copy,0
+   474  fclosure8 38: <function <atom:0>>
+   476  define_method toUnicodeString,0
+   482  fclosure8 39: <function <atom:0>>
+   484  define_method toString,0
+   490  undefined
+   491  put_loc8 9: <class_fields_init>
+   493  drop
+   494  set_loc8 8: MutableUnicodeString
+   496  close_loc 9: <class_fields_init>
+   499  close_loc 8: MutableUnicodeString
+   502  put_loc8 10: MutableUnicodeString
+   504  get_arg2 2: exports
+   505  get_loc_check 10: MutableUnicodeString
+   508  put_field MutableUnicodeString
+   517  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=coreutils/src/unicode/UnicodeString
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

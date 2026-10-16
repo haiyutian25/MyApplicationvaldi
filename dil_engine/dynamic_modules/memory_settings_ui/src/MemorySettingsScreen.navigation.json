@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "titleKey": "memory_settings_title",
+  "titleDisplayMode": 1,
+  "backgroundVisibility": 2,
+  "trailingActions": [
+    {
+      "id": "save-custom-instructions",
+      "titleKey": "memory_settings_save",
+      "style": 2,
+      "disabled": true
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+# oai_reasoning_api — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/ReasoningTypes.js  (809 B)
+# 原子基准=215 原子表 20 条
+-- 原子表 --
+   [0]oai_reasoning_api/src/ReasoningTypes | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]o | [7]i | [8]__esModule | [9]ReasoningStatus | [10]ReasoningItemKind | [11]ReasoningActiveKind | [12]ReasoningActivityStyle | [13]InProgress | [14]Complete | [15]Activity | [16]Preamble | [17]Thought | [18]Placeholder | [19]TextOnly
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=39B file=oai_reasoning_api/src/ReasoningTypes
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field InProgress
+    13  push_atom_value InProgress
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field Complete
+    32  push_atom_value Complete
+    37  put_array_el
+    38  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=58B file=oai_reasoning_api/src/ReasoningTypes
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field Activity
+    13  push_atom_value Activity
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field Preamble
+    32  push_atom_value Preamble
+    37  put_array_el
+    38  get_arg0 0: e
+    39  get_arg0 0: e
+    40  push_2 2
+    41  insert2
+    42  put_field Thought
+    51  push_atom_value Thought
+    56  put_array_el
+    57  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=58B file=oai_reasoning_api/src/ReasoningTypes
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field Activity
+    13  push_atom_value Activity
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field Placeholder
+    32  push_atom_value Placeholder
+    37  put_array_el
+    38  get_arg0 0: e
+    39  get_arg0 0: e
+    40  push_2 2
+    41  insert2
+    42  put_field Thought
+    51  push_atom_value Thought
+    56  put_array_el
+    57  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=20B file=oai_reasoning_api/src/ReasoningTypes
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field TextOnly
+    13  push_atom_value TextOnly
+    18  put_array_el
+    19  return_undef
+
+-- fn name=<atom:0> args=3 vars=4 closure=0 cpool=4 bc=188B file=oai_reasoning_api/src/ReasoningTypes
+   locals: require, module, exports, e, t, o, i
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  drop
+    56  get_arg2 2: exports
+    57  get_arg2 2: exports
+    58  get_arg2 2: exports
+    59  get_arg2 2: exports
+    60  undefined
+    61  insert2
+    62  put_field ReasoningStatus
+    71  insert2
+    72  put_field ReasoningItemKind
+    81  insert2
+    82  put_field ReasoningActiveKind
+    91  put_field ReasoningActivityStyle
+   100  fclosure8 0: <function <atom:0>>
+   102  get_loc0 0: e
+   103  dup
+   104  if_true8 -> 0078
+   106  drop
+   107  get_arg2 2: exports
+   108  object
+   109  set_loc0 0: e
+   110  insert2
+   111  put_field ReasoningStatus
+L  120  call1 #args=1
+   121  drop
+   122  fclosure8 1: <function <atom:0>>
+   124  get_loc1 1: t
+   125  dup
+   126  if_true8 -> 008e
+   128  drop
+   129  get_arg2 2: exports
+   130  object
+   131  set_loc1 1: t
+   132  insert2
+   133  put_field ReasoningItemKind
+L  142  call1 #args=1
+   143  drop
+   144  fclosure8 2: <function <atom:0>>
+   146  get_loc2 2: o
+   147  dup
+   148  if_true8 -> 00a4
+   150  drop
+   151  get_arg2 2: exports
+   152  object
+   153  set_loc2 2: o
+   154  insert2
+   155  put_field ReasoningActiveKind
+L  164  call1 #args=1
+   165  drop
+   166  fclosure8 3: <function <atom:0>>
+   168  get_loc3 3: i
+   169  dup
+   170  if_true8 -> 00ba
+   172  drop
+   173  get_arg2 2: exports
+   174  object
+   175  set_loc3 3: i
+   176  insert2
+   177  put_field ReasoningActivityStyle
+L  186  call1 #args=1
+   187  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=oai_reasoning_api/src/ReasoningTypes
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return

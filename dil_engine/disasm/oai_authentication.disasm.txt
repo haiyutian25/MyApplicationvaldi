@@ -1,0 +1,139 @@
+# oai_authentication — QuickJS 字节码反汇编
+# 操作码表: 'nop'=180 OP_TEMP_START=181 临时=15 短操作码=66
+# 说明: 行首 L = 跳转目标; ;+NB = 内联缓存槽等未解析字节
+
+====================================================================================================
+## src/OAIAuthenticationService.js  (617 B)
+# 原子基准=215 原子表 16 条
+-- 原子表 --
+   [0]oai_authentication/src/OAIAuthenticationService | [1]require | [2]module | [3]exports | [4]e | [5]t | [6]__esModule | [7]OAIAuthenticationMethod | [8]OAIAuthenticationServiceFailureKind | [9]Browser | [10]Codex | [11]Cancelled | [12]Network | [13]Rejected | [14]Unavailable | [15]Unknown
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=39B file=oai_authentication/src/OAIAuthenticationService
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field Browser
+    13  push_atom_value Browser
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field Codex
+    32  push_atom_value Codex
+    37  put_array_el
+    38  return_undef
+
+-- fn name=<atom:0> args=1 vars=0 closure=0 cpool=0 bc=96B file=oai_authentication/src/OAIAuthenticationService
+   locals: e
+     0  get_arg0 0: e
+     1  get_arg0 0: e
+     2  push_0 0
+     3  insert2
+     4  put_field Cancelled
+    13  push_atom_value Cancelled
+    18  put_array_el
+    19  get_arg0 0: e
+    20  get_arg0 0: e
+    21  push_1 1
+    22  insert2
+    23  put_field Network
+    32  push_atom_value Network
+    37  put_array_el
+    38  get_arg0 0: e
+    39  get_arg0 0: e
+    40  push_2 2
+    41  insert2
+    42  put_field Rejected
+    51  push_atom_value Rejected
+    56  put_array_el
+    57  get_arg0 0: e
+    58  get_arg0 0: e
+    59  push_3 3
+    60  insert2
+    61  put_field Unavailable
+    70  push_atom_value Unavailable
+    75  put_array_el
+    76  get_arg0 0: e
+    77  get_arg0 0: e
+    78  push_4 4
+    79  insert2
+    80  put_field Unknown
+    89  push_atom_value Unknown
+    94  put_array_el
+    95  return_undef
+
+-- fn name=<atom:0> args=3 vars=2 closure=0 cpool=2 bc=122B file=oai_authentication/src/OAIAuthenticationService
+   locals: require, module, exports, e, t
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  drop
+    56  get_arg2 2: exports
+    57  get_arg2 2: exports
+    58  undefined
+    59  insert2
+    60  put_field OAIAuthenticationMethod
+    69  put_field OAIAuthenticationServiceFailureKind
+    78  fclosure8 0: <function <atom:0>>
+    80  get_loc0 0: e
+    81  dup
+    82  if_true8 -> 0062
+    84  drop
+    85  get_arg2 2: exports
+    86  object
+    87  set_loc0 0: e
+    88  insert2
+    89  put_field OAIAuthenticationMethod
+L   98  call1 #args=1
+    99  drop
+   100  fclosure8 1: <function <atom:0>>
+   102  get_loc1 1: t
+   103  dup
+   104  if_true8 -> 0078
+   106  drop
+   107  get_arg2 2: exports
+   108  object
+   109  set_loc1 1: t
+   110  insert2
+   111  put_field OAIAuthenticationServiceFailureKind
+L  120  call1 #args=1
+   121  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=oai_authentication/src/OAIAuthenticationService
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
+====================================================================================================
+## src/OAIScopedAuthorization.js  (216 B)
+# 原子基准=215 原子表 5 条
+-- 原子表 --
+   [0]oai_authentication/src/OAIScopedAuthorization | [1]require | [2]module | [3]exports | [4]__esModule
+
+-- fn name=<atom:0> args=3 vars=0 closure=0 cpool=0 bc=56B file=oai_authentication/src/OAIScopedAuthorization
+   locals: require, module, exports
+     0  get_var Object
+     5  get_field2 defineProperty  ;+28B
+    38  get_arg2 2: exports
+    39  push_atom_value __esModule
+    44  object
+    45  push_0 0
+    46  lnot
+    47  define_field value
+    52  call_method #args=3
+    55  return_undef
+
+-- fn name=<eval> args=0 vars=1 closure=0 cpool=1 bc=4B file=oai_authentication/src/OAIScopedAuthorization
+   locals: <ret>
+     0  fclosure8 0: <function <atom:0>>
+     2  set_loc0 0: <ret>
+     3  return
