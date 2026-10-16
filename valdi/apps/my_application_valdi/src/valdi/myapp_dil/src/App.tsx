@@ -22,10 +22,7 @@ export interface AppViewModel {
 
 /**
  * @Context
- * @ExportModel({
- *   ios: 'SCMyApplicationDILContext',
- *   android: 'com.example.myapplication.core.valdi.MyApplicationDILContext',
- * })
+ * @ExportModel({ios: 'SCMyApplicationDILContext', android: 'com.example.myapplication.core.valdi.MyApplicationDILContext'})
  */
 export interface AppContext {
   /** Called when a `button` node inside the rendered document is tapped. */
