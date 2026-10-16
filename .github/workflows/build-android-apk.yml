@@ -290,14 +290,6 @@ jobs:
 
           echo "RELEASE_NOTES_FILE=release_notes.md" >> "$GITHUB_ENV"
 
-      - name: Upload APK as workflow artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: myapplicationvaldi-test-apk-${{ github.run_number }}
-          path: output/*
-          if-no-files-found: error
-          retention-days: 14
-
       - name: Publish test APK to GitHub Releases
         if: github.event_name != 'pull_request'
         uses: softprops/action-gh-release@v2
