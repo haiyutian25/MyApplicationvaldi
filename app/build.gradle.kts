@@ -133,13 +133,16 @@ kotlin {
     }
 }
 
+// Path of the exported Valdi AAR. Resolved here, at script scope: inside `dependencies { }`
+// the call `project(":core:valdi")` binds to `DependencyHandler.project(...)` (a Dependency,
+// which has no `projectDir`) and the build script fails to compile.
+val valdiAar = rootProject.file("core/valdi/libs/my_application_valdi_export.aar")
+
 dependencies {
     // The Valdi exported AAR (runtime + compiled `myapp_dil` module + generated classes).
     // Built with `valdi export android`, see core/valdi/libs/README.md. It has to be an
     // app-level dependency: library modules cannot package local .aar files.
-    implementation(
-        files(project(":core:valdi").projectDir.resolve("libs/my_application_valdi_export.aar")),
-    )
+    implementation(files(valdiAar))
 
     implementation(project(":core:annotation"))
     implementation(project(":core:common"))
