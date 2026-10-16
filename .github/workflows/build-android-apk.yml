@@ -1,0 +1,370 @@
+name: Build and Publish Android APK
+
+# Builds the Valdi AAR from a pinned Snapchat/Valdi revision, builds the app with it,
+# and publishes a signed APK to the repository's Releases.
+#
+# Secrets used (same environment-variable convention as the previous release workflow):
+#   RELEASE_KEYSTORE_BASE64  base64 of the release keystore (.jks)
+#   RELEASE_KEY_PASSWORD     keystore password == key password (the alias is not a secret)
+#
+# Without those secrets the job still builds the debug APK and skips signing/publishing,
+# so pull requests and forks stay green.
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release tag (for example v1.0.0); left empty it is read from the version catalog'
+        required: false
+        default: ''
+      draft:
+        description: 'Create the release as a draft'
+        type: boolean
+        default: false
+      prerelease:
+        description: 'Mark the release as a pre-release'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-apk-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  VALDI_CLI_VERSION: '1.2.0'
+  # Pinned framework revision, validated together with the NDK API level below.
+  VALDI_FRAMEWORK_REF: '3d0b98c79de1ad5ba7f4ff9c0d58694d2c7d09e1'
+  # Must stay <= the app's minSdk (gradle/libs.versions.toml). Valdi's hermetic NDK
+  # defaults to api_level 31, which links API 30+ libc symbols such as
+  # pthread_cond_clockwait and makes the exported .so unloadable on API < 30 devices.
+  VALDI_NDK_API_LEVEL: '28'
+  AAR_PATH: core/valdi/libs/my_application_valdi_export.aar
+  HAS_RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE_BASE64 != '' }}
+
+jobs:
+  build-android:
+    name: Build Valdi AAR and Android APK
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+
+    steps:
+      - name: Checkout application
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine version tag
+        id: version
+        run: |
+          set -euo pipefail
+          if [ -n "${{ github.event.inputs.tag_name }}" ]; then
+            TAG="${{ github.event.inputs.tag_name }}"
+          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            TAG="${GITHUB_REF_NAME}"
+          else
+            VERSION=$(grep -E '^appVersionName' gradle/libs.versions.toml | sed -E 's/.*"([^"]+)".*/\1/')
+            TAG="v${VERSION}"
+          fi
+          echo "TARGET_TAG=$TAG" >> "$GITHUB_ENV"
+          # Version catalog tags carry a pre-release suffix (v0.0.1-beta.4).
+          if [[ "$TAG" == *-* ]]; then
+            echo "PRERELEASE=true" >> "$GITHUB_ENV"
+          else
+            echo "PRERELEASE=false" >> "$GITHUB_ENV"
+          fi
+          echo "Using version tag: $TAG"
+
+      - name: Checkout Valdi framework
+        uses: actions/checkout@v4
+        with:
+          repository: Snapchat/Valdi
+          ref: ${{ env.VALDI_FRAMEWORK_REF }}
+          path: .valdi-framework
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Valdi's Bazel build runs under JDK 17; the Android Gradle project uses JDK 21
+      # (switched back to 21 further down, right before Gradle runs).
+      - name: Set up JDK 17 for Valdi
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+
+      - name: Accept Android SDK licenses and install API 37
+        shell: bash
+        run: |
+          set -euo pipefail
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          test -x "$SDKMANAGER"
+          # Process substitution avoids a broken-pipe exit when sdkmanager finishes
+          # reading licenses before the `yes` process exits.
+          "$SDKMANAGER" --sdk_root="$ANDROID_HOME" --licenses < <(yes)
+          "$SDKMANAGER" --sdk_root="$ANDROID_HOME" --install \
+            'platforms;android-37.0' \
+            'build-tools;37.0.0' \
+            'platform-tools'
+
+      - name: Prepare Valdi Linux build environment
+        working-directory: .valdi-framework
+        run: bash tools/ci/setup_linux_env.sh
+
+      - name: Install Valdi CLI
+        run: npm install --global @snap/valdi@${VALDI_CLI_VERSION}
+
+      - name: Copy application Valdi module into the framework workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE="$GITHUB_WORKSPACE/valdi/apps/my_application_valdi"
+          TARGET="$GITHUB_WORKSPACE/.valdi-framework/apps/my_application_valdi"
+          test -d "$SOURCE"
+          mkdir -p "$TARGET"
+          cp -a "$SOURCE/." "$TARGET/"
+
+      # Valdi configures the hermetic Android *SDK* api_level (36) in its MODULE.bazel, but the
+      # hermetic *NDK* falls back to its default of 31. That default links symbols added in
+      # API 30, which the app cannot load on older devices. Pin it to the app's minSdk.
+      - name: Pin Valdi hermetic NDK API level
+        shell: bash
+        run: |
+          set -euo pipefail
+          MODULE_FILE="$GITHUB_WORKSPACE/.valdi-framework/MODULE.bazel"
+          test -f "$MODULE_FILE"
+          if grep -q 'hermetic_ndk_extension.configure' "$MODULE_FILE"; then
+            echo "hermetic_ndk_extension already configured; leaving it untouched"
+            exit 0
+          fi
+          # Written with printf: a heredoc body would have to be indented for YAML and the
+          # indentation would then leak into Starlark, which is indentation-sensitive.
+          {
+            echo ""
+            echo "# --- injected by the application CI ---"
+            echo "# Target the libc of the oldest Android version the app supports (minSdk ${VALDI_NDK_API_LEVEL})."
+            echo "hermetic_ndk_extension.configure(api_level = ${VALDI_NDK_API_LEVEL})"
+          } >> "$MODULE_FILE"
+          echo "Appended NDK api_level=${VALDI_NDK_API_LEVEL} to $MODULE_FILE"
+          tail -n 5 "$MODULE_FILE"
+
+      - name: Export Valdi Android AAR
+        working-directory: .valdi-framework
+        shell: bash
+        run: |
+          set -euo pipefail
+          valdi --version
+          valdi export android \
+            --library=//apps/my_application_valdi:my_application_valdi_export_android \
+            --output_path="$GITHUB_WORKSPACE/$AAR_PATH"
+          test -s "$GITHUB_WORKSPACE/$AAR_PATH"
+
+      # Fail here instead of on a device: the APK cannot load the library if it references
+      # libc symbols that only exist on newer Android versions.
+      - name: Verify exported library targets the app minSdk
+        shell: bash
+        run: |
+          set -euo pipefail
+          WORK=$(mktemp -d)
+          unzip -o -q "$AAR_PATH" 'jni/arm64-v8a/*' -d "$WORK"
+          SO=$(find "$WORK" -name '*.so' | head -n 1)
+          test -n "$SO"
+          echo "Exported library: $SO"
+          if readelf --dyn-syms -W "$SO" 2>/dev/null | grep -q 'pthread_cond_clockwait'; then
+            echo "::error::$SO references pthread_cond_clockwait (added in API 30) while the app targets an older minSdk; System.loadLibrary would fail with UnsatisfiedLinkError. Keep VALDI_NDK_API_LEVEL at or below the app minSdk."
+            exit 1
+          fi
+          echo "OK: no API-30+ libc-only symbols referenced."
+
+      - name: Set up JDK 21 for Gradle
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      # The release keystore is stored in the repository secrets as base64 and restored here;
+      # the Android Gradle build reads the four RELEASE_* variables from the environment and
+      # traces back to the debug key when they are absent.
+      - name: Restore release keystore
+        if: env.HAS_RELEASE_KEYSTORE == 'true'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/release.jks"
+          if [ ! -s "$RUNNER_TEMP/release.jks" ]; then
+            echo "::error::Decoded release keystore is empty"
+            exit 1
+          fi
+          echo "RELEASE_KEYSTORE_FILE=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
+          echo "Keystore restored to $RUNNER_TEMP/release.jks"
+
+      - name: Build debug and signed release APKs
+        env:
+          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+          RELEASE_KEY_ALIAS: 'myapplication'
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          chmod +x ./gradlew
+          TASKS="assembleDebug"
+          if [ "${HAS_RELEASE_KEYSTORE}" = "true" ]; then
+            for variable in \
+              RELEASE_KEYSTORE_FILE \
+              RELEASE_KEYSTORE_PASSWORD \
+              RELEASE_KEY_ALIAS \
+              RELEASE_KEY_PASSWORD; do
+              if [ -z "${!variable:-}" ]; then
+                echo "::error::$variable is not configured"
+                exit 1
+              fi
+            done
+            keytool -list \
+              -keystore "$RELEASE_KEYSTORE_FILE" \
+              -storepass:env RELEASE_KEYSTORE_PASSWORD \
+              -alias "$RELEASE_KEY_ALIAS" > /dev/null
+            TASKS="$TASKS assembleRelease"
+          else
+            echo "warning: release keystore not configured, building the debug APK only"
+          fi
+          ./gradlew $TASKS --no-daemon --stacktrace
+
+      - name: Collect and rename APKs
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          TAG="${TARGET_TAG}"
+
+          DEBUG_APK=$(find app/build/outputs/apk/debug -name '*.apk' | head -n 1)
+          if [ -n "$DEBUG_APK" ]; then
+            cp "$DEBUG_APK" "output/MyApplicationValdi-debug-${TAG}.apk"
+            sha256sum "output/MyApplicationValdi-debug-${TAG}.apk" \
+              > "output/MyApplicationValdi-debug-${TAG}.apk.sha256"
+          fi
+
+          RELEASE_APK=$(find app/build/outputs/apk/release -name '*.apk' | head -n 1 || true)
+          if [ -z "$RELEASE_APK" ]; then
+            echo "No release APK generated (signing not configured); publishing is skipped."
+            exit 0
+          fi
+          cp "$RELEASE_APK" "output/MyApplicationValdi-${TAG}.apk"
+          sha256sum "output/MyApplicationValdi-${TAG}.apk" \
+            > "output/MyApplicationValdi-${TAG}.apk.sha256"
+
+          # Signature sanity check: the published APK must actually be signed.
+          APKSIGNER=$(find "$ANDROID_HOME/build-tools" -name apksigner 2>/dev/null | sort -V | tail -n 1)
+          if [ -n "$APKSIGNER" ]; then
+            "$APKSIGNER" verify --print-certs "output/MyApplicationValdi-${TAG}.apk"
+          else
+            echo "warning: apksigner not found, skipping signature verification"
+          fi
+
+          echo "APK_FILE=output/MyApplicationValdi-${TAG}.apk" >> "$GITHUB_ENV"
+          echo "SHA_FILE=output/MyApplicationValdi-${TAG}.apk.sha256" >> "$GITHUB_ENV"
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          set -euo pipefail
+          CURRENT_TAG="${TARGET_TAG}"
+          PREV_TAG=$(git tag --sort=-version:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+' | sed -n '2p' || true)
+          echo "Current tag: $CURRENT_TAG, previous tag: ${PREV_TAG:-<none>}"
+
+          if git rev-parse "$CURRENT_TAG" >/dev/null 2>&1; then
+            CURRENT_REF="$CURRENT_TAG"
+          else
+            CURRENT_REF="HEAD"
+          fi
+
+          if [ -z "$PREV_TAG" ]; then
+            LOG=$(git log -n 50 --pretty=format:"- %s (%h)" "$CURRENT_REF")
+          else
+            LOG=$(git log --pretty=format:"- %s (%h)" "${PREV_TAG}..${CURRENT_REF}")
+          fi
+
+          FEAT=$(echo "$LOG" | grep -i "^- feat" || true)
+          FIX=$(echo "$LOG" | grep -i "^- fix" || true)
+          PERF=$(echo "$LOG" | grep -i "^- perf\|^- refactor\|^- improve" || true)
+          CHORE=$(echo "$LOG" | grep -Eiv "^- feat|^- fix|^- perf|^- refactor|^- improve" || true)
+
+          {
+            echo "## My Application Valdi ${CURRENT_TAG}"
+            echo ""
+            echo "Built against Valdi \`${VALDI_FRAMEWORK_REF}\` with the CLI \`@snap/valdi@${VALDI_CLI_VERSION}\`;"
+            echo "the exported library targets Android API ${VALDI_NDK_API_LEVEL}+."
+            echo ""
+            if [ -n "$PREV_TAG" ]; then
+              echo "> Everything that changed since \`$PREV_TAG\`"
+              echo ""
+            fi
+            if [ -n "$FEAT" ]; then
+              echo "### ✨ Features"
+              echo "$FEAT"
+              echo ""
+            fi
+            if [ -n "$FIX" ]; then
+              echo "### 🐛 Fixes"
+              echo "$FIX"
+              echo ""
+            fi
+            if [ -n "$PERF" ]; then
+              echo "### ⚡ Performance and refactoring"
+              echo "$PERF"
+              echo ""
+            fi
+            if [ -n "$CHORE" ]; then
+              echo "### 🔧 Other changes"
+              echo "$CHORE"
+              echo ""
+            fi
+            echo "---"
+            echo ""
+            if [ -n "${SHA_FILE:-}" ] && [ -f "${SHA_FILE}" ]; then
+              echo "**APK**"
+              echo "\`\`\`"
+              cat "$SHA_FILE"
+              echo "\`\`\`"
+            fi
+          } > release_notes.md
+
+          echo "RELEASE_NOTES_FILE=release_notes.md" >> "$GITHUB_ENV"
+
+      - name: Upload APKs as workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: myapplicationvaldi-apk-${{ github.run_number }}
+          path: output/*
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Publish signed APK to GitHub Releases
+        if: github.event_name != 'pull_request' && env.HAS_RELEASE_KEYSTORE == 'true' && env.APK_FILE != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TARGET_TAG }}
+          name: 'My Application Valdi ${{ env.TARGET_TAG }}'
+          body_path: ${{ env.RELEASE_NOTES_FILE }}
+          files: |
+            ${{ env.APK_FILE }}
+            ${{ env.SHA_FILE }}
+          draft: ${{ github.event.inputs.draft == 'true' }}
+          prerelease: ${{ env.PRERELEASE == 'true' || github.event.inputs.prerelease == 'true' }}
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
