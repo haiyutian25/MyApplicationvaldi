@@ -3,7 +3,9 @@ package com.example.myapplication.core.valdi
 import android.content.Context
 import com.snap.valdi.ValdiRuntime
 import com.snap.valdi.ValdiRuntimeManager
+import com.snap.valdi.ValdiTweaks
 import com.snap.valdi.support.SupportValdiRuntimeManager
+import com.snapchat.client.valdi_core.JavaScriptEngineType
 import timber.log.Timber
 
 /**
@@ -20,6 +22,15 @@ object ValdiRuntimeProvider {
     /** Must match the `valdi_exported_library(name = ...)` target in the Valdi repo. */
     const val EXPORTED_LIBRARY_NAME: String = "my_application_valdi_export"
 
+    /**
+     * JS engine used by the runtime.
+     *
+     * Tried `HERMES` while chasing "Incorrect magic number" when evaluating the DIL modules
+     * extracted from the ChatGPT APK; it failed identically, so the mismatch is the Valdi /
+     * QuickJS bytecode revision rather than the engine choice. Kept as a switch, default AUTO.
+     */
+    private val ENGINE: JavaScriptEngineType = JavaScriptEngineType.AUTO
+
     @Volatile
     private var runtimeManager: ValdiRuntimeManager? = null
 
@@ -31,9 +42,12 @@ object ValdiRuntimeProvider {
         synchronized(this) {
             runtimeManager?.let { return it }
             System.loadLibrary(EXPORTED_LIBRARY_NAME)
-            val created = SupportValdiRuntimeManager.createWithSupportLibs(context.applicationContext)
+            val created = SupportValdiRuntimeManager.createWithSupportLibs(
+                context.applicationContext,
+                ValdiTweaks(javaScriptEngineType = ENGINE),
+            )
             runtimeManager = created
-            Timber.i("Valdi runtime created from %s", EXPORTED_LIBRARY_NAME)
+            Timber.i("Valdi runtime created from %s (engine=%s)", EXPORTED_LIBRARY_NAME, ENGINE)
             return created
         }
     }

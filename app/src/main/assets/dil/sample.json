@@ -1,0 +1,9 @@
+{
+  "type": "document",
+  "version": "v2",
+  "code": "real-engine-smoke",
+  "children": [
+    { "type": "title", "children": "Real DIL engine" },
+    { "type": "text", "children": "This document is rendered by dil_widgets loaded at runtime from assets, not by app code." }
+  ]
+}
