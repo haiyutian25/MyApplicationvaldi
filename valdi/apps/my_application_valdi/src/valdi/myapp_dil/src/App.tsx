@@ -9,7 +9,7 @@ import {
 import { gunzipUtf8, gunzipUtf8WithLimit } from './DILInflater';
 import { DILNodeView } from './DILRenderer';
 import { DILNode, DILNodeChildren } from './DILTypes';
-import { COMPRESSED_WIDGET_STATE, MODEL_DIL_V2_DOCUMENT } from './payloads';
+import { COMPRESSED_WIDGET_STATE, MODEL_DIL_V2_DOCUMENT, SAMPLE_DOCUMENTS } from './payloads';
 
 /**
  * @ViewModel
@@ -88,6 +88,7 @@ export class App extends StatefulComponent<AppViewModel, AppState, AppContext> {
           numberOfLines={0}
           marginBottom={12}
         />
+        {this.renderSampleChips()}
         {this.renderAction('① 渲染明文 model_dil_v2', () => this.renderPlainDocument())}
         {this.renderAction('② 渲染压缩 widget 状态（走 native gunzipUtf8）', () =>
           this.renderCompressedWidgetState(),
@@ -113,6 +114,36 @@ export class App extends StatefulComponent<AppViewModel, AppState, AppContext> {
         <DILNodeView node={this.state.document} depth={0} />
       </scroll>
     </view>;
+  }
+
+  private renderSampleChips(): void {
+    <view flexDirection="row" flexWrap="wrap" marginBottom={4}>
+      {SAMPLE_DOCUMENTS.forEach((sample, index) => {
+        const selected = this.state.document === sample.document;
+        <view
+          key={`chip-${index}`}
+          backgroundColor={selected ? '#10a37f' : '#eef1f5'}
+          borderRadius={12}
+          paddingLeft={10}
+          paddingRight={10}
+          paddingTop={5}
+          paddingBottom={5}
+          marginRight={6}
+          marginBottom={6}
+          onTap={() => this.showSample(sample.label, sample.document)}
+        >
+          <label value={sample.label} font={systemFont(11)} color={selected ? '#ffffff' : '#31363d'} />;
+        </view>;
+      })}
+    </view>;
+  }
+
+  private showSample(label: string, document: DILNode): void {
+    this.setState({
+      document,
+      status: `已切换到示例「${label}」（${document.code ?? 'document'}）。`,
+      statusIsError: false,
+    });
   }
 
   private renderAction(label: string, onTap: () => void): void {

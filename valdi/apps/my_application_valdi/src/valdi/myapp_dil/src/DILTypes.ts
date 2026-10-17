@@ -80,3 +80,29 @@ export function progressFraction(node: DILNode): number {
   }
   return Math.max(0, Math.min(1, value));
 }
+
+/** One bar of a `chart` node. */
+export interface DILChartEntry {
+  label: string;
+  value: number;
+}
+
+/**
+ * Entries of a `chart` node: its `data` children, each written as `"label：value"`
+ * (the full-width colon the server uses works, and so does an ASCII one).
+ */
+export function chartEntries(node: DILNode): DILChartEntry[] {
+  const entries: DILChartEntry[] = [];
+  childNodes(node.children).forEach(child => {
+    const text = childText(child.children);
+    const match = text.match(/^([^:：]*)[:：]\s*([\d.]+)\s*$/);
+    if (!match) {
+      return;
+    }
+    const value = parseFloat(match[2]);
+    if (!isNaN(value)) {
+      entries.push({ label: match[1].trim(), value });
+    }
+  });
+  return entries;
+}
