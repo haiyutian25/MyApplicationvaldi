@@ -88,12 +88,10 @@ jobs:
             TAG="v${VERSION}-build.${GITHUB_RUN_NUMBER}"
           fi
           echo "TARGET_TAG=$TAG" >> "$GITHUB_ENV"
-          # Version catalog tags carry a pre-release suffix (v0.0.1-beta.4).
-          if [[ "$TAG" == *-* ]]; then
-            echo "PRERELEASE=true" >> "$GITHUB_ENV"
-          else
-            echo "PRERELEASE=false" >> "$GITHUB_ENV"
-          fi
+          # Always publish a normal release. The version catalog carries a `-beta.N` suffix and
+          # push builds append `-build.N`, but neither may turn the release into a GitHub
+          # pre-release — it has to show up under "Latest release".
+          echo "PRERELEASE=false" >> "$GITHUB_ENV"
           echo "Using version tag: $TAG"
 
       # The AAR export takes ~1.5 h, so it can be skipped by reusing the AAR published by a
@@ -361,9 +359,9 @@ jobs:
           # existing tag on purpose.
           target_commitish: ${{ github.sha }}
           draft: ${{ github.event.inputs.draft == 'true' }}
-          prerelease: ${{ env.PRERELEASE == 'true' || github.event.inputs.prerelease == 'true' }}
-          # Only a non pre-release build may take over the "latest" marker.
-          make_latest: ${{ env.PRERELEASE != 'true' }}
+          # Normal release by default; the manual `prerelease` input can still opt in.
+          prerelease: ${{ github.event.inputs.prerelease == 'true' }}
+          make_latest: true
         env:
           # 仓库设置里配置的 secret（Settings → Secrets and variables → Actions）；
           # 不要在这里写死令牌。用 PAT 而非默认 GITHUB_TOKEN，方便后续需要它触发其它工作流。
