@@ -10,11 +10,15 @@ name: Build and Publish Android Test APK
 # loadable on the app's minimum Android version (see the "Pin Valdi hermetic NDK" step).
 
 on:
-  # Manual only. The AAR is exported on a separate machine and handed to this workflow
-  # through the `aar_url` input (use "published" for the current tag's release asset, or a
-  # full URL). Push/PR triggers are deliberately off so a commit cannot kick off a ~1.5 h
-  # AAR build.
+  # The exported AAR is committed under core/valdi/libs, so a push builds the test APK
+  # straight away (~10 minutes) instead of exporting the AAR first (which takes ~1.5 h).
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
   workflow_dispatch:
+    # Optional: point a manual run at a different AAR (aar_url = published for the current
+    # tag's release asset, or a full URL). The exported-from-source path is kept but
+    # disabled - see the `if: ${{ false }}` steps below.
     inputs:
       tag_name:
         description: 'Release tag (for example v0.0.1-beta.5); left empty it is read from the version catalog'
@@ -88,6 +92,7 @@ jobs:
       # The AAR export takes ~1.5 h, so it can be skipped by reusing the AAR published by a
       # previous run (release asset). The APK build itself only needs the AAR, not the framework.
       - name: Decide AAR source
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         shell: bash
         run: |
           set -euo pipefail
@@ -105,6 +110,7 @@ jobs:
           fi
 
       - name: Checkout Valdi framework
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         uses: actions/checkout@v4
         with:
           repository: Snapchat/Valdi
@@ -113,6 +119,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Node.js
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -120,6 +127,7 @@ jobs:
       # Valdi's Bazel build runs under JDK 17; the Android Gradle project uses JDK 21
       # (switched back to 21 further down, right before Gradle runs).
       - name: Set up JDK 17 for Valdi
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -145,13 +153,16 @@ jobs:
             'platform-tools'
 
       - name: Prepare Valdi Linux build environment
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         working-directory: .valdi-framework
         run: bash tools/ci/setup_linux_env.sh
 
       - name: Install Valdi CLI
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         run: npm install --global @snap/valdi@${VALDI_CLI_VERSION}
 
       - name: Copy application Valdi module into the framework workspace
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         shell: bash
         run: |
           set -euo pipefail
@@ -165,6 +176,7 @@ jobs:
       # hermetic *NDK* falls back to its default of 31. That default links symbols added in
       # API 30, which the app cannot load on older devices. Pin it to the app's minSdk.
       - name: Pin Valdi hermetic NDK API level
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         shell: bash
         run: |
           set -euo pipefail
@@ -186,7 +198,7 @@ jobs:
           tail -n 5 "$MODULE_FILE"
 
       - name: Export Valdi Android AAR
-        if: env.SKIP_EXPORT != 'true'
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         working-directory: .valdi-framework
         shell: bash
         run: |
@@ -198,7 +210,7 @@ jobs:
           test -s "$GITHUB_WORKSPACE/$AAR_PATH"
 
       - name: Download prebuilt AAR
-        if: env.SKIP_EXPORT == 'true'
+        if: false  # disabled: the AAR is committed under core/valdi/libs; delete this line to export from source again
         shell: bash
         run: |
           set -euo pipefail

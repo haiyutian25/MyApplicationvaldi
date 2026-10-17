@@ -63,6 +63,12 @@ def strip_aar(aar_path: str) -> int:
 
             target.writestr(item, data)
 
+    if removed == 0:
+        # Nothing to strip: keep the original bytes untouched (the script stays idempotent
+        # and running it on an already-clean AAR does not change the file).
+        os.remove(tmp_path)
+        return 0
+
     shutil.move(tmp_path, aar_path)
     return removed
 
