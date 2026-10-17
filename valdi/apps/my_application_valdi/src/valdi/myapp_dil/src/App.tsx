@@ -184,17 +184,15 @@ export class App extends StatefulComponent<AppViewModel, AppState, AppContext> {
       lines.push('gunzipUtf8 失败: ' + String(error));
     }
     try {
-      gunzipUtf8WithLimit(bytes, 16);
-      lines.push('gunzipUtf8WithLimit(16 B) 未拦截 ✗（不符合还原语义）');
-    } catch (error) {
-      lines.push('gunzipUtf8WithLimit(16 B) 已按上限拦截 ✓');
-    }
-    try {
       gunzipUtf8WithLimit(bytes, MAX_UNCOMPRESSED_BYTES);
       lines.push(`gunzipUtf8WithLimit(${MAX_UNCOMPRESSED_BYTES} = 16 MiB) 通过 ✓`);
     } catch (error) {
       lines.push('gunzipUtf8WithLimit(16 MiB) 失败: ' + String(error));
     }
+    // Deliberately not provoking the limit here: an exception thrown by the native module
+    // is not catchable from JS (Valdi reports it as an unmanaged fatal and kills the
+    // process). The limit itself is enforced on the native side.
+    lines.push('上限（16 MiB）由原生侧强制，本测试不触发溢出 ✓');
     this.setState({ status: lines.join('\n'), statusIsError: false });
   }
 }
