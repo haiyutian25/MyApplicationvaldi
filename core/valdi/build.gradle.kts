@@ -59,6 +59,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(platform(libs.androidx.compose.bom))
+    // fillMaxSize() lives in compose-foundation (version comes from the BOM above).
+    implementation("androidx.compose.foundation:foundation")
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.ui)
     implementation(libs.timber)

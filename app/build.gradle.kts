@@ -35,6 +35,13 @@ configure<ApplicationExtension> {
         versionCode = libs.versions.appVersionCode.get().toInt()
         versionName = libs.versions.appVersionName.get()
 
+        // The Valdi AAR ships a ~40 MB native library per ABI, so a universal debug APK is
+        // ~150 MB and very slow to install over adb. Test devices are arm64; widen this list
+        // if a 32-bit device or an emulator has to run the app.
+        ndk {
+            abiFilters += "arm64-v8a"
+        }
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
