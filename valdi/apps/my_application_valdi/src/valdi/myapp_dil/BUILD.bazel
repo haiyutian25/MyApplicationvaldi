@@ -1,10 +1,8 @@
 load("//bzl/valdi:valdi_module.bzl", "valdi_module")
 
-# Valdi module holding the DIL renderer + the native gzip inflater binding.
-#
-# `android_class_path` is the Kotlin package of the *generated* module factory;
-# `android_deps` points at the Kotlin implementation of that factory
-# (see ../../android/DILInflaterModuleFactory.kt).
+# Empty module: the DIL UI is rendered by the real engine (`dil_widgets`), which the Android
+# host loads at runtime from assets. Nothing is generated here, so there is no
+# `android_class_path` and no `android_deps`.
 valdi_module(
     name = "myapp_dil",
     srcs = glob([
@@ -13,12 +11,9 @@ valdi_module(
     ]) + [
         "tsconfig.json",
     ],
-    android_class_path = "com.snap.valdi.modules.myapp_dil",
-    android_deps = ["//apps/my_application_valdi/src/android:dil_inflater_android"],
     android_output_target = "release",
     visibility = ["//visibility:public"],
     deps = [
-        "//src/valdi_modules/src/valdi/drawing",
         "//src/valdi_modules/src/valdi/valdi_core",
         "//src/valdi_modules/src/valdi/valdi_tsx",
     ],
