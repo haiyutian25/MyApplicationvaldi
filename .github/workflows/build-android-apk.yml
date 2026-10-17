@@ -83,7 +83,9 @@ jobs:
             TAG="${GITHUB_REF_NAME}"
           else
             VERSION=$(grep -E '^appVersionName' gradle/libs.versions.toml | sed -E 's/.*"([^"]+)".*/\1/')
-            TAG="v${VERSION}"
+            # Every push build gets its own tag (run number appended) so it publishes a NEW
+            # release instead of overwriting the artifacts of an older one.
+            TAG="v${VERSION}-build.${GITHUB_RUN_NUMBER}"
           fi
           echo "TARGET_TAG=$TAG" >> "$GITHUB_ENV"
           # Version catalog tags carry a pre-release suffix (v0.0.1-beta.4).
@@ -103,7 +105,9 @@ jobs:
           if [ -n "${{ github.event.inputs.aar_url }}" ]; then
             URL="${{ github.event.inputs.aar_url }}"
             if [ "$URL" = "published" ]; then
-              URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/${TARGET_TAG}/my_application_valdi_export.aar"
+              # Tags are per-run now, so resolve to the newest release rather than to
+              # TARGET_TAG (which does not exist yet at this point).
+              URL="https://github.com/${GITHUB_REPOSITORY}/releases/latest/download/my_application_valdi_export.aar"
             fi
             echo "SKIP_EXPORT=true" >> "$GITHUB_ENV"
             echo "AAR_DOWNLOAD_URL=$URL" >> "$GITHUB_ENV"
@@ -353,6 +357,9 @@ jobs:
             ${{ env.APK_FILE }}
             ${{ env.SHA_FILE }}
             ${{ env.AAR_PATH }}
+          # Each run gets its own tag, so this only matters when a manual run is pointed at an
+          # existing tag on purpose.
+          target_commitish: ${{ github.sha }}
           draft: ${{ github.event.inputs.draft == 'true' }}
           prerelease: ${{ env.PRERELEASE == 'true' || github.event.inputs.prerelease == 'true' }}
           # Only a non pre-release build may take over the "latest" marker.
