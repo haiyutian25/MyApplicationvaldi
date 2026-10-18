@@ -27,10 +27,11 @@ object DilEngine {
      */
     private val MODULES = listOf(
         // Framework modules (valdi_core / valdi_tsx / coreutils / foundation / json_patch) are
-        // deliberately NOT listed: they are already compiled into the exported AAR, and the
-        // runtime bootstraps them itself (`JavaScriptRuntime::initializeModuleLoader` loads
-        // `valdi_core/src/Init`). Shipping the ChatGPT copies as assets shadowed them and the
-        // Init hook aborted the process with "Fatal init error ... initializeModuleLoader".
+        // NOT listed: they are compiled into the exported AAR and bootstrapped by the runtime
+        // itself. Shipping the ChatGPT copies as assets broke that bootstrap
+        // ("Fatal init error ... initializeModuleLoader"). The only piece the engine needs and
+        // the AAR lacks is `valdi_core/src/ValdiRuntimeProvider`, which is added to the AAR's
+        // `valdi_core.valdimodule` by `tools/patch_valdi_core.py` instead.
         "oai_core",
         "oai_ui",
         "oai_platform_services",

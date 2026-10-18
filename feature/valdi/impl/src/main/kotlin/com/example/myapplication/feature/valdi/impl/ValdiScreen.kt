@@ -95,26 +95,54 @@ private const val VALDI_DIL_DOCUMENT_JSON = """
   "version": "v2",
   "code": "myapplication-dil-demo",
   "children": [
-    { "type": "heading", "children": "欢迎使用智能界面" },
-    { "type": "paragraph", "children": "这段内容由 Kotlin 传入 Valdi，再由原生组件渲染；下面的按钮点击会回到 Kotlin。" },
+    { "type": "title", "children": "东京天气" },
     {
       "type": "card",
       "children": [
-        { "type": "heading", "children": "今日任务" },
-        { "type": "paragraph", "children": "完成你的每日计划" },
+        { "type": "badge", "children": "实时" },
+        { "type": "title", "children": "22°C" },
+        { "type": "text", "children": "晴间多云" },
+        { "type": "divider" },
         {
           "type": "list",
           "children": [
-            { "type": "list-item", "children": "阅读文档" },
-            { "type": "list-item", "children": "整理项目进度" },
-            { "type": "list-item", "children": "完成本周计划" }
+            { "type": "list-item", "children": "体感温度：24°C" },
+            { "type": "list-item", "children": "风速：12 km/h" },
+            { "type": "list-item", "children": "湿度：55%" }
           ]
-        },
-        { "type": "progress", "children": "任务完成进度", "props": { "value": 0.66 } }
+        }
       ]
     },
-    { "type": "divider" },
-    { "type": "button", "children": "开始使用" }
+    { "type": "title", "children": "月度趋势" },
+    {
+      "type": "chart",
+      "children": [
+        { "type": "data", "children": "第1周:8200" },
+        { "type": "data", "children": "第2周:10500" },
+        { "type": "data", "children": "第3周:9200" },
+        { "type": "data", "children": "第4周:13800" }
+      ]
+    },
+    {
+      "type": "grid",
+      "children": [
+        { "type": "card", "children": [ { "type": "caption", "children": "总收入" }, { "type": "title", "children": "$48,290" } ] },
+        { "type": "card", "children": [ { "type": "caption", "children": "订单数量" }, { "type": "title", "children": "1,284" } ] }
+      ]
+    },
+    {
+      "type": "table",
+      "children": [
+        {
+          "type": "table-row",
+          "children": [
+            { "type": "table-cell", "children": "转化率" },
+            { "type": "table-cell", "children": "3.8%" }
+          ]
+        }
+      ]
+    },
+    { "type": "button", "children": "查看详情" }
   ]
 }
 """

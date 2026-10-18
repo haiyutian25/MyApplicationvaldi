@@ -25,11 +25,13 @@ object ValdiRuntimeProvider {
     /**
      * JS engine used by the runtime.
      *
-     * Tried `HERMES` while chasing "Incorrect magic number" when evaluating the DIL modules
-     * extracted from the ChatGPT APK; it failed identically, so the mismatch is the Valdi /
-     * QuickJS bytecode revision rather than the engine choice. Kept as a switch, default AUTO.
+     * The DIL modules extracted from the ChatGPT APK ship **QuickJS** precompiled bytecode
+     * (their `libopenai_xplat_export.so` also contains QuickJS). Evaluating them produced
+     * "Incorrect magic number", whose string sits next to `HBC` (Hermes bytecode) in our own
+     * `libmy_application_valdi_export.so` — i.e. the runtime was running **Hermes**, which
+     * cannot read QuickJS bytecode. So pin the engine explicitly instead of leaving it AUTO.
      */
-    private val ENGINE: JavaScriptEngineType = JavaScriptEngineType.AUTO
+    private val ENGINE: JavaScriptEngineType = JavaScriptEngineType.QUICKJS
 
     @Volatile
     private var runtimeManager: ValdiRuntimeManager? = null

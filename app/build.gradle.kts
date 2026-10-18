@@ -143,7 +143,10 @@ kotlin {
 // Path of the exported Valdi AAR. Resolved here, at script scope: inside `dependencies { }`
 // the call `project(":core:valdi")` binds to `DependencyHandler.project(...)` (a Dependency,
 // which has no `projectDir`) and the build script fails to compile.
-val valdiAar = rootProject.file("core/valdi/libs/my_application_valdi_export.aar")
+// Prefer the patched copy produced by `tools/patch_valdi_core.py` (see build-aar notes).
+val valdiAar = rootProject.file("core/valdi/libs/my_application_valdi_export_patched.aar")
+    .takeIf { it.isFile }
+    ?: rootProject.file("core/valdi/libs/my_application_valdi_export.aar")
 
 dependencies {
     // The Valdi exported AAR (runtime + compiled `myapp_dil` module + generated classes).

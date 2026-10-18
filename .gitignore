@@ -29,3 +29,7 @@ keystore.properties
 # Valdi 导出产物：AAR 随仓库提供，CI 直接使用这一份（不再重新导出，省掉约 1.5 小时）。
 # 需要重新导出时，用新导出的 AAR 覆盖 core/valdi/libs/my_application_valdi_export.aar 即可。
 # /core/valdi/libs/*.aar
+
+# 引擎实验产物（不进仓库）
+core/valdi/libs/*_patched.aar
+tools/valdi_core_extra/

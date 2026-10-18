@@ -54,7 +54,12 @@ dependencies {
     // ("Direct local .aar file dependencies are not supported when building an AAR").
     // The :app module adds the same file as an implementation dependency, which is
     // what actually ships the Valdi runtime + generated classes. See libs/README.md.
-    compileOnly(files("libs/my_application_valdi_export.aar"))
+    // `tools/patch_valdi_core.py` writes `..._patched.aar` next to the exported AAR so the
+    // original stays untouched (it is locked by other processes on Windows); prefer it when
+    // present. The patch adds `valdi_core/src/ValdiRuntimeProvider` and three missing
+    // `registerNativeElement` calls that the DIL engine needs.
+    compileOnly(files(file("libs/my_application_valdi_export_patched.aar").takeIf { it.isFile }
+        ?: file("libs/my_application_valdi_export.aar")))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
