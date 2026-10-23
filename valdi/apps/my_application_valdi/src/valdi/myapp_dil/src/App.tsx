@@ -42,8 +42,13 @@ function childNodes(node: DilNode): DilNode[] {
 }
 
 /**
+ * Internal sub-component model.
+ *
+ * Deliberately NOT `@ExportModel`: its `node` property is the plain `DilNode` shape, and the
+ * native class exporter rejects un-annotated property types ("Unrecognized type 'DilNode'",
+ * CI #14). Only the root `App` and its models need to be exported.
+ *
  * @ViewModel
- * @ExportModel
  */
 export interface DilNodeViewModel {
   node: DilNode;
@@ -59,8 +64,10 @@ export interface AppContext {
 }
 
 /**
+ * Internal recursive node renderer. Not exported: only `App` is reachable from the host, and
+ * exporting it would drag the plain `DilNode` shape through the native class exporter.
+ *
  * @Component
- * @ExportModel
  */
 export class DilNodeView extends Component<DilNodeViewModel, AppContext> {
   onRender(): void {
