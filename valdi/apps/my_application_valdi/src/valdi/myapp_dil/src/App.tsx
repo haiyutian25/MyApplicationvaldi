@@ -44,9 +44,13 @@ function childNodes(node: DilNode): DilNode[] {
 /**
  * Internal sub-component model.
  *
- * Deliberately NOT `@ExportModel`: its `node` property is the plain `DilNode` shape, and the
+ * Deliberately not an exported model: its `node` property is the plain `DilNode` shape, and the
  * native class exporter rejects un-annotated property types ("Unrecognized type 'DilNode'",
  * CI #14). Only the root `App` and its models need to be exported.
+ *
+ * Annotation tags are only written lowercase-free of prose here on purpose: the Valdi annotation
+ * parser scans these comments and treats any `at`-sign word (including the one this sentence
+ * avoids) as an annotation, which made CI #15 fail with "Unrecognized annotation".
  *
  * @ViewModel
  */
@@ -100,11 +104,11 @@ export class DilNodeView extends Component<DilNodeViewModel, AppContext> {
 
     if (type === 'grid' || type === 'carousel' || type === 'carousel-media') {
       <view width="100%" flexDirection="row" flexWrap="wrap" justifyContent="space-between">
-        {childNodes(node).forEach((child, index) => {
+        {childNodes(node).map((child, index) => (
           <view key={`grid-${this.viewModel.depth}-${index}`} width="48%" marginBottom={8}>
-            <DilNodeView node={child} depth={this.viewModel.depth + 1} />;
-          </view>;
-        })}
+            <DilNodeView node={child} depth={this.viewModel.depth + 1} />
+          </view>
+        ))}
       </view>;
       return;
     }
@@ -196,11 +200,11 @@ export class DilNodeView extends Component<DilNodeViewModel, AppContext> {
 
     if (type === 'table-row') {
       <view width="100%" flexDirection="row" marginBottom={6}>
-        {childNodes(node).forEach((cell, index) => {
+        {childNodes(node).map((cell, index) => (
           <view key={`cell-${this.viewModel.depth}-${index}`} flexGrow={1}>
-            <DilNodeView node={cell} depth={this.viewModel.depth + 1} />;
-          </view>;
-        })}
+            <DilNodeView node={cell} depth={this.viewModel.depth + 1} />
+          </view>
+        ))}
       </view>;
       return;
     }
@@ -219,25 +223,32 @@ export class DilNodeView extends Component<DilNodeViewModel, AppContext> {
     />;
   }
 
-  private renderChildren(node: DilNode): void {
+  /**
+   * Returns the children as an array so it can be used directly in a JSX children position:
+   * `forEach` would return `undefined` and silently render nothing.
+   */
+  private renderChildren(node: DilNode) {
     const children = childNodes(node);
     if (children.length === 0) {
-      if (node.text) {
+      if (!node.text) {
+        return [];
+      }
+      return [
         <label
+          key={`t-${this.viewModel.depth}`}
           value={node.text}
           font={systemFont(this.fontSize(node.type))}
           color={this.color(node.type)}
           numberOfLines={0}
           marginBottom={4}
-        />;
-      }
-      return;
+        />,
+      ];
     }
-    children.forEach((child, index) => {
+    return children.map((child, index) => (
       <view key={`n-${this.viewModel.depth}-${index}`} width="100%">
-        <DilNodeView node={child} depth={this.viewModel.depth + 1} />;
-      </view>;
-    });
+        <DilNodeView node={child} depth={this.viewModel.depth + 1} />
+      </view>
+    ));
   }
 
   private fontSize(type: string): number {
